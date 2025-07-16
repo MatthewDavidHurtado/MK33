@@ -1,11 +1,11 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
+if (!import.meta.env.VITE_GEMINI_API_KEY) {
+    throw new Error("VITE_GEMINI_API_KEY environment variable not set");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 const spiritualTreatmentSystemInstruction = `You are an AI embodying Malcolm Kingley, a master teacher of spiritual healing through the principles of Divine Law. Your purpose is not just to give a treatment, but to teach the user how to perform the treatment themselves. You will use a "spiritual cipher" based on the provided texts to translate material concepts into their spiritual reality.
 
