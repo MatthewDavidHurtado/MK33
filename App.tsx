@@ -8,6 +8,7 @@ import TreatmentResponse from './components/TreatmentResponse';
 import BiologicalPrograms from './components/BiologicalPrograms';
 import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
+import DivineLibraryCTA from './components/DivineLibraryCTA';
 
 const App: React.FC = () => {
     // State for Spiritual Treatment
@@ -124,6 +125,8 @@ const App: React.FC = () => {
                         />
                     )}
                 </section>
+                
+                {hasResponded && !isLoading && <DivineLibraryCTA />}
                 
                 {gnmVisible && !isLoading && hasResponded && (
                    <section id="biological-programs" className="mt-12">
