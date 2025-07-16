@@ -65,6 +65,8 @@ const DivineLibraryCTA: React.FC = () => {
                         href="https://legendary-melomakarona-3b8eea.netlify.app"
                         target="_blank"
                         rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                         aria-label="Visit the Divine Law School Sacred Library"
                     >
