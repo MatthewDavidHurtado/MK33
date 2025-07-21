@@ -64,7 +64,8 @@ const WorkshopPopup: React.FC = () => {
 
                     {/* Main Headline */}
                     <h1 className="font-cinzel text-2xl md:text-3xl font-bold text-center text-slate-100 mb-4 leading-tight">
-                        "WOW-Factor 100! Build Unstoppable Wealth In The A.I. Age With The SOVEREIGN CODE Transformation System!"
+                        JOIN MY UPCOMING WORKSHOP:<br />
+                        BUILD UNSTOPPABLE WEALTH WITH THE SOVEREIGN CODE SYSTEM.
                     </h1>
 
                     {/* Sub-headline */}
