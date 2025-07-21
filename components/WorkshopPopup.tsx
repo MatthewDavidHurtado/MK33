@@ -68,6 +68,19 @@ const WorkshopPopup: React.FC = () => {
                         BUILD UNSTOPPABLE WEALTH WITH THE SOVEREIGN CODE SYSTEM.
                     </h1>
 
+                    {/* CTA Button */}
+                    <div className="text-center mb-6">
+                        <a
+                            href="https://admirable-pothos-d42b08.netlify.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleClose}
+                            className="inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                        >
+                            WATCH WEBINAR & REGISTER NOW
+                        </a>
+                    </div>
+
                     {/* Sub-headline */}
                     <p className="text-center text-gold-400 text-lg font-semibold mb-6">
                         Watch Malcolm's Webinar and Register Now.
@@ -84,19 +97,6 @@ const WorkshopPopup: React.FC = () => {
                         <div className="text-slate-300 text-sm">
                             30 Day Replays Available
                         </div>
-                    </div>
-
-                    {/* CTA Button */}
-                    <div className="text-center">
-                        <a
-                            href="https://admirable-pothos-d42b08.netlify.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleClose}
-                            className="inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                        >
-                            WATCH WEBINAR & REGISTER NOW
-                        </a>
                     </div>
 
                     {/* Bottom note */}
