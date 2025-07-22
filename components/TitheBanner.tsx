@@ -17,7 +17,7 @@ const TitheBanner: React.FC = () => {
                             The Most Powerful Law of Prosperity:
                         </h2>
                         <p className="text-gold-400 font-semibold text-base md:text-lg font-lora">
-                            The Tithe
+                            The Tithe and Faith-Seed Sowing
                         </p>
                     </div>
                     
