@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                         Your support helps to spread this gospel of Divine Law and sustains the work of ALLOW MINISTRIES FOUNDATION.
                     </p>
                     <a
-                        href="https://www.thereisnothingbutgod.com/tithing"
+                        href="https://allow-ministries-tithing-app-779946580524.us-west1.run.app"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
