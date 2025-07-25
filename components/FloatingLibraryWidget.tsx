@@ -68,18 +68,6 @@ const FloatingLibraryWidget: React.FC = () => {
                             <div className="text-xs opacity-90">Master The Forbidden Gnosis!</div>
                         </a>
                     </div>
-                    </a>
-                    
-                    <a
-                        href="https://allow-ministries-quantum-church-service.netlify.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-                        onClick={() => setIsExpanded(false)}
-                    >
-                        <div className="text-sm">QUANTUM CHURCH SERVICE 24/7</div>
-                        <div className="text-xs opacity-90">Master The Forbidden Gnosis!</div>
-                    </a>
                 </div>
             )}
             
