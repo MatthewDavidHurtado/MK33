@@ -75,7 +75,8 @@ const FloatingLibraryWidget: React.FC = () => {
                             className="block w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
                             onClick={() => setIsExpanded(false)}
                         >
-                            Get Your Custom Song: A Must Have!
+                            <div className="text-sm">Get Your Custom Song:</div>
+                            <div className="text-xs opacity-90">A Must Have Life-Hack!</div>
                         </a>
                     </div>
                 </div>
