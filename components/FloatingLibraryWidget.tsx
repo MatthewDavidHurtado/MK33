@@ -67,6 +67,16 @@ const FloatingLibraryWidget: React.FC = () => {
                             <div className="text-sm">QUANTUM CHURCH SERVICE 24/7</div>
                             <div className="text-xs opacity-90">Master The Forbidden Gnosis!</div>
                         </a>
+                        
+                        <a
+                            href="https://custom-sacred-song-759385455270.us-west1.run.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                            onClick={() => setIsExpanded(false)}
+                        >
+                            Get Your Custom Song: A Must Have!
+                        </a>
                     </div>
                 </div>
             )}
