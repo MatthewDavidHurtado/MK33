@@ -23,23 +23,23 @@ const FloatingLibraryWidget: React.FC = () => {
                     <div className="flex justify-between items-start mb-4">
                         <div className="flex items-center gap-2">
                             <BookIcon className="w-6 h-6 text-gold-400" />
-                            <h3 className="font-cinzel text-lg font-bold text-gold-400">Sacred Library</h3>
+                            <h3 className="font-cinzel text-lg font-bold text-gold-400">Spiritual Resources</h3>
                         </div>
                         <button
                             onClick={() => setIsExpanded(false)}
                             className="text-slate-400 hover:text-slate-200 transition-colors p-1"
-                            aria-label="Close library invitation"
+                            aria-label="Close spiritual resources"
                         >
                             <CloseIcon className="w-5 h-5" />
                         </button>
                     </div>
                     
                     <p className="text-slate-300 text-sm mb-4 leading-relaxed">
-                        Access Malcolm Kingley's complete collection of <strong className="text-gold-400">5 transformative books</strong> at the Divine Law School—yours absolutely free.
+                        Access Malcolm Kingley's complete collection of <strong className="text-gold-400">5 transformative books</strong> and join the 24/7 Quantum Church Service for advanced spiritual training.
                     </p>
                     
                     <div className="flex flex-wrap gap-1 mb-4">
-                        {['Divine Science', 'Spiritual Law', 'Healing'].map((topic) => (
+                        {['Divine Science', 'Quantum Church', 'Forbidden Gnosis'].map((topic) => (
                             <span key={topic} className="text-xs bg-gold-400/10 text-gold-300 px-2 py-1 rounded-full border border-gold-400/20">
                                 {topic}
                             </span>
@@ -52,21 +52,34 @@ const FloatingLibraryWidget: React.FC = () => {
                         rel="noopener noreferrer"
                         className="block w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
                         onClick={() => setIsExpanded(false)}
-                    >
-                        Enter Sacred Library
-                    </a>
-                    
-                    <p className="text-xs text-slate-500 text-center mt-3 italic">
-                        "Study to show thyself approved unto God"
-                    </p>
-                </div>
-            )}
+            <div className="space-y-3">
+                <a
+                    href="https://legendary-melomakarona-3b8eea.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                    onClick={() => setIsExpanded(false)}
+                >
+                    Enter Sacred Library
+                </a>
+                
+                <a
+                    href="https://allow-ministries-quantum-church-service.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                    onClick={() => setIsExpanded(false)}
+                >
+                    <div className="text-sm">QUANTUM CHURCH SERVICE 24/7</div>
+                    <div className="text-xs opacity-90">Master The Forbidden Gnosis!</div>
+                </a>
+            </div>
             
             {/* Floating Button */}
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className={`group relative w-16 h-16 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:scale-110 transition-all duration-300 flex items-center justify-center ${isExpanded ? 'rotate-12' : ''}`}
-                aria-label={isExpanded ? "Close library invitation" : "Open Divine Law School library invitation"}
+                aria-label={isExpanded ? "Close spiritual resources" : "Open spiritual resources"}
             >
                 <BookIcon className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300" />
                 
@@ -77,7 +90,7 @@ const FloatingLibraryWidget: React.FC = () => {
                 
                 {/* Notification dot */}
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">5</span>
+                    <span className="text-white text-xs font-bold">2</span>
                 </div>
             </button>
         </div>
