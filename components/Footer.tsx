@@ -102,6 +102,8 @@ const Footer: React.FC = () => {
                         <span className="text-slate-600">|</span>
                         <a href="https://thereisnothingbutgod.com/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Cookie Policy</a>
                     </div>
+                        <a href="https://app.ardrive.io/#/file/1f5d713c-d94e-4036-b6fe-faf29a2d7505/view" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Ministry Documentation</a>
+                        <span className="text-slate-600">|</span>
                     
                     <p className="!mt-6">
                         © 2025 Allow Ministries. App design and concept based on Divine Law principles.
