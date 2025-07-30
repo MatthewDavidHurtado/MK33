@@ -2,6 +2,7 @@
 import React, { useState, useCallback } from 'react';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
 import TitheBanner from './components/TitheBanner';
+import SafariWarning from './components/SafariWarning';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import QuestionForm from './components/QuestionForm';
@@ -101,6 +102,7 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
+            <SafariWarning />
             <TitheBanner />
             <main className="flex-grow container mx-auto max-w-4xl px-4 py-8 md:py-16">
                 <Header />
