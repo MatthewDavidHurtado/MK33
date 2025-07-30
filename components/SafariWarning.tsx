@@ -34,7 +34,15 @@ const SafariWarning: React.FC = () => {
                     <div className="flex items-center gap-3">
                         <ExclamationTriangleIcon className="w-6 h-6 flex-shrink-0" />
                         <div className="text-sm md:text-base">
-                            <span className="font-bold">Safari Browser Detected:</span> This spiritual guidance tool works best on <strong>Google Chrome</strong> for optimal performance and functionality.
+                            <span className="font-bold">Safari Browser Detected:</span> This spiritual guidance tool works best on <strong>Google Chrome</strong> for optimal performance and functionality.{' '}
+                            <a 
+                                href="https://www.google.com/chrome/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="underline hover:no-underline font-bold"
+                            >
+                                Download Chrome here
+                            </a>
                         </div>
                     </div>
                     <button
