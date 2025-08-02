@@ -49,53 +49,62 @@ const WorkshopPopup: React.FC = () => {
                     {/* Above Headline Text */}
                     <div className="text-center mb-4">
                         <p className="text-gold-400 font-bold text-lg tracking-wide">
-                            WAIT! Malcolm Kingley is launching his first "next level" live workshop.
+                            Get the Maximum Benefit From This Website
                         </p>
                     </div>
 
-                    {/* Workshop Image */}
+                    {/* Training Video Thumbnail */}
                     <div className="mb-6 flex justify-center">
-                        <img 
-                            src="https://i.imgur.com/cZE2WrD.png" 
-                            alt="WOW-Factor 100 Workshop"
-                            className="max-w-full h-auto rounded-lg shadow-lg max-h-48 object-contain"
-                        />
+                        <div className="relative bg-black rounded-lg shadow-lg overflow-hidden max-w-sm">
+                            <div className="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                                <div className="text-center">
+                                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-white">
+                                            <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p className="text-white font-bold text-sm">Website Training Video</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Main Headline */}
                     <h1 className="font-cinzel text-2xl md:text-3xl font-bold text-center text-slate-100 mb-4 leading-tight">
-                        JOIN MY UPCOMING WORKSHOP:<br />
-                        BUILD UNSTOPPABLE WEALTH WITH THE SOVEREIGN CODE SYSTEM.
+                        Watch Malcolm's Complete<br />
+                        Website Training Video
                     </h1>
 
                     {/* CTA Button */}
                     <div className="text-center mb-6">
                         <a
-                            href="https://admirable-pothos-d42b08.netlify.app/"
+                            href="https://youtu.be/etpwkSZGWYE"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleClose}
                             className="inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                         >
-                            WATCH WEBINAR & REGISTER NOW
+                            WATCH TRAINING VIDEO
                         </a>
                     </div>
 
                     {/* Sub-headline */}
                     <p className="text-center text-gold-400 text-lg font-semibold mb-6">
-                        Watch Malcolm's Webinar and Register Now.
+                        Learn how to navigate and use every feature of this spiritual guidance platform.
                     </p>
 
-                    {/* Dates Section */}
-                    <div className="bg-slate-800/50 rounded-xl p-6 mb-6 text-center border border-slate-700/50">
-                        <div className="text-slate-100 font-bold text-xl mb-2">
-                            Aug 5, 6, 7
-                        </div>
-                        <div className="text-gold-400 font-semibold text-lg mb-2">
-                            LIVE STREAM
-                        </div>
-                        <div className="text-slate-300 text-sm">
-                            30 Day Replays Available
+                    {/* Benefits Section */}
+                    <div className="bg-slate-800/50 rounded-xl p-6 mb-6 border border-slate-700/50">
+                        <div className="text-center">
+                            <div className="text-gold-400 font-semibold text-lg mb-3">
+                                You'll Learn How To:
+                            </div>
+                            <div className="text-slate-300 text-sm space-y-2">
+                                <div>• Navigate the spiritual treatment tool</div>
+                                <div>• Access the biological programs analysis</div>
+                                <div>• Use all available resources effectively</div>
+                                <div>• Get maximum benefit from each feature</div>
+                            </div>
                         </div>
                     </div>
 
