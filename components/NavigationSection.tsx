@@ -142,7 +142,7 @@ const NavigationSection: React.FC = () => {
                             if (treatmentSection) {
                                 treatmentSection.scrollIntoView({ 
                                     behavior: 'smooth', 
-                                    block: 'center' 
+                                    block: 'start' 
                                 });
                             }
                         }}
