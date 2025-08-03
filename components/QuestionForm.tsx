@@ -24,38 +24,6 @@ const SendIcon: React.FC<{className?: string}> = ({className}) => (
 const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, question, onQuestionChange }) => {
     return (
         <div className="w-full max-w-2xl mx-auto">
-            {/* Quantum Shift Portal Tab */}
-            <div className="mb-4 flex justify-center">
-                <a
-                    href="https://www.gethealing.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600/20 via-cyan-500/20 to-cyan-600/20 hover:from-cyan-500/30 hover:via-cyan-400/30 hover:to-cyan-500/30 border border-cyan-400/30 hover:border-cyan-300/50 text-cyan-300 hover:text-cyan-200 font-semibold text-sm px-4 py-2 rounded-full shadow-lg hover:shadow-cyan-500/20 transform hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-sm"
-                >
-                    <GlobeIcon className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="tracking-wide">MK QUANTUM SHIFT PORTAL</span>
-                    <span className="text-xs bg-cyan-400/20 text-cyan-200 px-2 py-0.5 rounded-full border border-cyan-400/30">
-                        ADVANCED
-                    </span>
-                </a>
-            </div>
-            
-            {/* Quantum Shift Portal Tab */}
-            <div className="mb-4 flex justify-center">
-                <a
-                    href="https://www.gethealing.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600/20 via-cyan-500/20 to-cyan-600/20 hover:from-cyan-500/30 hover:via-cyan-400/30 hover:to-cyan-500/30 border border-cyan-400/30 hover:border-cyan-300/50 text-cyan-300 hover:text-cyan-200 font-semibold text-sm px-4 py-2 rounded-full shadow-lg hover:shadow-cyan-500/20 transform hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-sm"
-                >
-                    <GlobeIcon className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="tracking-wide">MK QUANTUM SHIFT PORTAL</span>
-                    <span className="text-xs bg-cyan-400/20 text-cyan-200 px-2 py-0.5 rounded-full border border-cyan-400/30">
-                        ADVANCED
-                    </span>
-                </a>
-            </div>
-            
             <form onSubmit={onSubmit} className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
                 <textarea
                     value={question}
