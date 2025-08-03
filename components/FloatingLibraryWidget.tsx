@@ -78,6 +78,17 @@ const FloatingLibraryWidget: React.FC = () => {
                             <div className="text-sm">Get Your Custom Song:</div>
                             <div className="text-xs opacity-90">A Must Have Life-Hack!</div>
                         </a>
+                        
+                        <a
+                            href="https://www.gethealing.org"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                            onClick={() => setIsExpanded(false)}
+                        >
+                            <div className="text-sm">MK Quantum Shift Portal:</div>
+                            <div className="text-xs opacity-90">Access Parallel Realities!</div>
+                        </a>
                     </div>
                 </div>
             )}
