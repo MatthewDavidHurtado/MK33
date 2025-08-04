@@ -702,7 +702,5 @@ const EmailOptinPopup: React.FC = () => {
 };
 
 export default EmailOptinPopup;
-    );
-};
 
 export default EmailOptinPopup;
