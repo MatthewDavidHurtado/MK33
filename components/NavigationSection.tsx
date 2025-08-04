@@ -99,7 +99,7 @@ const NavigationSection: React.FC = () => {
                         Spiritual Resources & Guidance
                     </h2>
                     <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Access Malcolm Kingley's complete collection of transformative resources for your spiritual journey
+                        Access Malcolm Kingley's complete collection of<br />transformative resources for your spiritual journey
                     </p>
                 </div>
                 
