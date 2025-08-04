@@ -21,10 +21,10 @@ const EmailOptinPopup: React.FC = () => {
         const hasSeenPopup = localStorage.getItem('mk-email-popup-seen');
         
         if (!hasSeenPopup) {
-            // Show popup after 10 seconds
+            // Show popup immediately for testing
             const timer = setTimeout(() => {
                 setIsVisible(true);
-            }, 10000);
+            }, 100);
 
             return () => clearTimeout(timer);
         }
