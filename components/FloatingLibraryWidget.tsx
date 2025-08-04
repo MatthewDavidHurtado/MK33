@@ -116,11 +116,6 @@ const FloatingLibraryWidget: React.FC = () => {
                 {!isExpanded && (
                     <div className="absolute inset-0 rounded-full border-2 border-gold-400/50 animate-ping"></div>
                 )}
-                
-                {/* Notification dot */}
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">2</span>
-                </div>
             </button>
         </div>
     );
