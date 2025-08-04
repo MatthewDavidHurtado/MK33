@@ -89,6 +89,17 @@ const FloatingLibraryWidget: React.FC = () => {
                             <div className="text-sm">MK Quantum Shift Portal:</div>
                             <div className="text-xs opacity-90">Access Parallel Realities!</div>
                         </a>
+                        
+                        <a
+                            href="https://biological-code-finder-759385455270.us-west1.run.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-500 hover:to-pink-500 text-white font-bold text-center py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                            onClick={() => setIsExpanded(false)}
+                        >
+                            <div className="text-sm">Biological Code Finder:</div>
+                            <div className="text-xs opacity-90">Mind-Body Mastery!</div>
+                        </a>
                     </div>
                 </div>
             )}
