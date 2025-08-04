@@ -36,6 +36,12 @@ const EmailOptinPopup: React.FC = () => {
         localStorage.setItem('mk-email-popup-seen', 'true');
     };
 
+    const handleSignupClick = () => {
+        // Open the signup form in a new window/tab
+        window.open('https://gem.godaddy.com/signups/41a422bce4604a68bce3223df64d8e6d', '_blank', 'width=500,height=700,scrollbars=yes,resizable=yes');
+        handleClose();
+    };
+
     if (!isVisible) return null;
 
     return (
@@ -51,37 +57,48 @@ const EmailOptinPopup: React.FC = () => {
                 </button>
 
                 {/* Header */}
-                <div className="p-6 pb-4 text-center">
-                    <div className="flex justify-center mb-4">
+                <div className="p-8 text-center">
+                    <div className="flex justify-center mb-6">
                         <div className="w-16 h-16 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-400/20">
                             <EmailIcon className="w-8 h-8 text-gold-400" />
                         </div>
                     </div>
-                    <h2 className="font-cinzel text-2xl font-bold text-gold-400 mb-2">
+                    <h2 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
                         Receive My Private Emails
                     </h2>
-                    <p className="text-slate-300 text-sm leading-relaxed">
+                    <p className="text-slate-300 text-lg leading-relaxed mb-6">
                         Get exclusive spiritual insights, advanced teachings, and personal guidance delivered directly to your inbox.
                     </p>
-                </div>
 
-                {/* Embedded form */}
-                <div className="px-6 pb-6">
-                    <div className="bg-white/5 rounded-lg p-2 border border-slate-700/50">
-                        <iframe 
-                            src="https://gem.godaddy.com/signups/41a422bce4604a68bce3223df64d8e6d/iframe" 
-                            scrolling="no" 
-                            frameBorder="0" 
-                            height="560" 
-                            style={{maxWidth: '400px', width: '100%'}}
-                            title="Malcolm Kingley Email Signup"
-                        />
+                    {/* Benefits list */}
+                    <div className="text-left mb-8 space-y-2">
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-slate-300 text-sm">Advanced Divine Law teachings</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-slate-300 text-sm">Exclusive spiritual insights</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-slate-300 text-sm">Personal guidance from Malcolm</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-slate-300 text-sm">Early access to new resources</span>
+                        </div>
                     </div>
-                </div>
 
-                {/* Footer */}
-                <div className="px-6 pb-6 text-center">
-                    <p className="text-xs text-slate-500">
+                    {/* CTA Button */}
+                    <button
+                        onClick={handleSignupClick}
+                        className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                    >
+                        JOIN THE INNER CIRCLE
+                    </button>
+
+                    <p className="text-xs text-slate-500 mt-4">
                         Join thousands receiving transformative spiritual guidance
                     </p>
                 </div>
