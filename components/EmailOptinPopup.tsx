@@ -17,10 +17,10 @@ const EmailOptinPopup: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Always show popup for testing - ignore localStorage
+        // Wait for MailerLite to load before showing popup
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 100);
+        }, 2000); // Give MailerLite time to initialize
 
         return () => clearTimeout(timer);
     }, []);
@@ -80,7 +80,7 @@ const EmailOptinPopup: React.FC = () => {
                     </div>
 
                     {/* MailerLite Form */}
-                    <div className="mb-6">
+                    <div className="mb-6 min-h-[200px] flex items-center justify-center">
                         <div className="ml-embedded" data-form="lqwaKr"></div>
                     </div>
 
