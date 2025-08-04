@@ -39,33 +39,6 @@ const EmailOptinPopup: React.FC = () => {
                                 <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                             </svg>
-                        </div>
-                        <h2 className="font-cinzel text-2xl font-bold text-gold-400 mb-2">
-                            RECEIVE MY PRIVATE EMAILS
-                        </h2>
-                        <p className="text-slate-300 text-base leading-relaxed">
-                            Get exclusive spiritual insights, advanced teachings, and personal guidance delivered directly to your inbox.
-                        </p>
-                    </div>
-
-                    {/* Benefits List */}
-                    <div className="mb-6 space-y-2">
-                        {[
-                            'Advanced Divine Law teachings',
-                            'Exclusive spiritual insights',
-                            'Personal guidance from Malcolm',
-                            'Early access to new resources'
-                        ].map((benefit, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                                <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                                <span className="text-slate-300 text-sm">{benefit}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <p className="text-center text-slate-400 text-sm mb-6">
-                        Join thousands receiving transformative spiritual guidance
-                    </p>
 
                     {/* MailerLite Form */}
                     <div dangerouslySetInnerHTML={{
