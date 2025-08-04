@@ -17,17 +17,12 @@ const EmailOptinPopup: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Check if user has already seen the popup
-        const hasSeenPopup = localStorage.getItem('mk-email-popup-seen');
-        
-        if (!hasSeenPopup) {
-            // Show popup immediately for testing
-            const timer = setTimeout(() => {
-                setIsVisible(true);
-            }, 100);
+        // Always show popup for testing - ignore localStorage
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100);
 
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
     }, []);
 
     const handleClose = () => {
