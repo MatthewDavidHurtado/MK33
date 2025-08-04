@@ -41,9 +41,6 @@ const EmailOptinPopup: React.FC = () => {
                             </svg>
                         </div>
                     </div>
-                    <h2 className="text-xl font-cinzel font-bold text-slate-100 mb-4">
-                        Get On Malcolm's List!
-                    </h2>
 
                     {/* MailerLite Form */}
                     <div dangerouslySetInnerHTML={{
