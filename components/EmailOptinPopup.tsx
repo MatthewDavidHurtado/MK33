@@ -40,6 +40,11 @@ const EmailOptinPopup: React.FC = () => {
                                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                             </svg>
                         </div>
+                    
+                    {/* Call to Action */}
+                    <h2 className="text-2xl font-cinzel font-bold text-gold-400 text-center mb-4">
+                        Get On Malcolm's List!
+                    </h2>
                     </div>
 
                     {/* MailerLite Form */}
