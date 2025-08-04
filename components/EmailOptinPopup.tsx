@@ -36,12 +36,6 @@ const EmailOptinPopup: React.FC = () => {
         localStorage.setItem('mk-email-popup-seen', 'true');
     };
 
-    const handleSignupClick = () => {
-        // Open the signup form in a new window/tab
-        window.open('https://gem.godaddy.com/signups/41a422bce4604a68bce3223df64d8e6d', '_blank', 'width=500,height=700,scrollbars=yes,resizable=yes');
-        handleClose();
-    };
-
     if (!isVisible) return null;
 
     return (
@@ -90,13 +84,10 @@ const EmailOptinPopup: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* CTA Button */}
-                    <button
-                        onClick={handleSignupClick}
-                        className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                    >
-                        JOIN THE INNER CIRCLE
-                    </button>
+                    {/* MailerLite Form */}
+                    <div className="mb-6">
+                        <div className="ml-embedded" data-form="lqwaKr"></div>
+                    </div>
 
                     <p className="text-xs text-slate-500 mt-4">
                         Join thousands receiving transformative spiritual guidance
