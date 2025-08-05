@@ -13,7 +13,7 @@ const ChatWidget: React.FC = () => {
                     width="350"
                     height="500"
                     frameBorder="0"
-                    src="https://denser.ai/u/embed/d84bfb5c-74d9-4df1-9857-d37c7e470aff"
+                    src="https://denser.ai/u/embed/209f8130-6e89-49b7-92d5-91f3727d3b96"
                     title="Malcolm Kingley Chat Assistant"
                     className="block"
                 />
