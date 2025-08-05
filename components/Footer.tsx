@@ -106,8 +106,9 @@ const Footer: React.FC = () => {
                     <div className="flex justify-center items-center gap-x-4 gap-y-1 flex-wrap !mt-4">
                         <a href="https://app.ardrive.io/#/file/1f5d713c-d94e-4036-b6fe-faf29a2d7505/view" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Ministry Documentation</a>
                         <span className="text-slate-600">|</span>
-                        <span className="text-slate-600">|</span>
                         <a href="https://malcolm-s-workspace-759385455270.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Workspace</a>
+                        <span className="text-slate-600">|</span>
+                        <a href="https://copy-2-of-master-copy-of-with-scan-biological-cod-759385455270.us-west1.run.app/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Private Client Portal</a>
                     </div>
                     
                     <p className="!mt-6">
