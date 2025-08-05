@@ -39,7 +39,7 @@ const EmailOptinPopup: React.FC = () => {
                                 <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                             </svg>
-                        </div>
+                        <p className="text-slate-300 text-lg font-semibold mt-4">
                     
                     {/* Call to Action */}
                     <h2 className="text-2xl font-cinzel font-bold text-gold-400 text-center mb-4">
@@ -56,11 +56,9 @@ const EmailOptinPopup: React.FC = () => {
                         <p className="text-slate-300 text-lg font-semibold text-center mt-4">
                             Receive Priority Access to New Videos, Tools & Trainings.
                         </p>
-                        <p className="text-gold-400 font-bold text-xl font-cinzel tracking-wide text-center mt-4">
+                        <p className="text-gold-400 font-bold text-xl font-cinzel tracking-wide mt-4">
                             SIGN UP NOW
                         </p>
-                    </div>
-                    </div>
 
                     {/* MailerLite Form */}
                     <div dangerouslySetInnerHTML={{
