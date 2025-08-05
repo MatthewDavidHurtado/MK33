@@ -23,9 +23,10 @@ const TitheBanner: React.FC = () => {
                                     footer.scrollIntoView({ behavior: 'smooth' });
                                 }
                             }}
-                            className="text-gold-400 hover:text-gold-300 font-semibold text-base md:text-lg font-lora transition-colors duration-300 cursor-pointer underline hover:no-underline"
+                            className="text-gold-400 hover:text-gold-300 font-semibold text-base md:text-lg font-lora transition-all duration-300 cursor-pointer hover:scale-105 relative group"
                         >
-                            The Tithe and Faith-Seed Sowing Law - Learn More!
+                            The Tithe and Faith-Seed Sowing Law - <span className="underline group-hover:no-underline">Learn More!</span>
+                            <span className="absolute -right-2 top-0 text-gold-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
                         </button>
                     </div>
                     
