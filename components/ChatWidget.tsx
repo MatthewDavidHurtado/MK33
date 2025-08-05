@@ -1,36 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const ChatWidget: React.FC = () => {
-    useEffect(() => {
-        // Remove any existing chatbot scripts
-        const existingScript = document.querySelector('script[src*="denserai/embed-chat"]');
-        if (existingScript) {
-            existingScript.remove();
-        }
-
-        // Create and inject the module script
-        const script = document.createElement('script');
-        script.type = 'module';
-        script.innerHTML = `
-            import Chatbot from "https://cdn.jsdelivr.net/npm/@denserai/embed-chat@1/dist/web.min.js";
-            Chatbot.init({
-                chatbotId: "209f8130-6e89-49b7-92d5-91f3727d3b96",
-            });
-        `;
-        
-        document.head.appendChild(script);
-
-        // Cleanup function
-        return () => {
-            const scriptToRemove = document.querySelector('script[type="module"]');
-            if (scriptToRemove && scriptToRemove.innerHTML.includes('denserai')) {
-                scriptToRemove.remove();
-            }
-        };
-    }, []);
-
-    // Return null since the chatbot will be injected by the script
-    return null;
+    return (
+        <div className="fixed bottom-4 right-4 z-50">
+            <div className="bg-slate-900 border border-gold-400/30 rounded-lg shadow-2xl overflow-hidden">
+                <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-4 py-2 border-b border-gold-400/20">
+                    <h3 className="font-cinzel text-gold-400 font-semibold text-sm">
+                        Ask Malcolm Anything
+                    </h3>
+                </div>
+                <iframe
+                    src="https://denser.ai/u/embed/d84bfb5c-74d9-4df1-9857-d37c7e470aff"
+                    width="350"
+                    height="500"
+                    style={{ border: 'none' }}
+                    title="Malcolm Kingley Chat Assistant"
+                    allow="microphone; camera"
+                />
+            </div>
+        </div>
+    );
 };
 
 export default ChatWidget;
