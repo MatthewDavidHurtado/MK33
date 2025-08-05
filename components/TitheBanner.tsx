@@ -16,9 +16,17 @@ const TitheBanner: React.FC = () => {
                         <h2 className="font-cinzel text-lg md:text-xl font-bold text-slate-100 mb-1">
                             The Most Powerful Law of Prosperity:
                         </h2>
-                        <p className="text-gold-400 font-semibold text-base md:text-lg font-lora">
-                            The Tithe and Faith-Seed Sowing
-                        </p>
+                        <button 
+                            onClick={() => {
+                                const footer = document.querySelector('footer');
+                                if (footer) {
+                                    footer.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                            className="text-gold-400 hover:text-gold-300 font-semibold text-base md:text-lg font-lora transition-colors duration-300 cursor-pointer underline hover:no-underline"
+                        >
+                            The Tithe and Faith-Seed Sowing Law - Learn More!
+                        </button>
                     </div>
                     
                     {/* Right side - Button */}
