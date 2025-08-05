@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ChatWidget: React.FC = () => {
-    return (
-        <div className="fixed bottom-4 right-4 z-50">
-            <div className="bg-slate-900/95 backdrop-blur-sm rounded-xl border border-slate-700/50 shadow-2xl overflow-hidden">
-                <div className="p-3 bg-gradient-to-r from-gold-500/20 to-gold-600/20 border-b border-slate-700/50">
-                    <h3 className="font-cinzel text-gold-400 font-semibold text-sm">
-                        Ask Malcolm Anything
-                    </h3>
-                </div>
-                <iframe
-                    width="350"
-                    height="500"
-                    frameBorder="0"
-                    src="https://denser.ai/u/embed/209f8130-6e89-49b7-92d5-91f3727d3b96"
-                    title="Malcolm Kingley Chat Assistant"
-                    className="block"
-                />
-            </div>
-        </div>
-    );
+    useEffect(() => {
+        // Remove any existing chatbot scripts
+        const existingScript = document.querySelector('script[src*="denserai/embed-chat"]');
+        if (existingScript) {
+            existingScript.remove();
+        }
+
+        // Create and inject the module script
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.innerHTML = `
+            import Chatbot from "https://cdn.jsdelivr.net/npm/@denserai/embed-chat@1/dist/web.min.js";
+            Chatbot.init({
+                chatbotId: "209f8130-6e89-49b7-92d5-91f3727d3b96",
+            });
+        `;
+        
+        document.head.appendChild(script);
+
+        // Cleanup function
+        return () => {
+            const scriptToRemove = document.querySelector('script[type="module"]');
+            if (scriptToRemove && scriptToRemove.innerHTML.includes('denserai')) {
+                scriptToRemove.remove();
+            }
+        };
+    }, []);
+
+    // Return null since the chatbot will be injected by the script
+    return null;
 };
 
 export default ChatWidget;
