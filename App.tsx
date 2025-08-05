@@ -12,7 +12,6 @@ import BiologicalPrograms from './components/BiologicalPrograms';
 import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
-import ChatWidget from './components/ChatWidget';
 
 const App: React.FC = () => {
     // State for Spiritual Treatment
@@ -157,7 +156,6 @@ const App: React.FC = () => {
 
             </main>
             <Footer />
-            <ChatWidget />
         </div>
     );
 };
