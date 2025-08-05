@@ -45,6 +45,15 @@ const EmailOptinPopup: React.FC = () => {
                     <h2 className="text-2xl font-cinzel font-bold text-gold-400 text-center mb-4">
                         Get On Malcolm's List!
                     </h2>
+                    
+                    {/* Malcolm's Image */}
+                    <div className="flex justify-center mb-6">
+                        <img 
+                            src="https://i.imgur.com/4xHwLuT.jpg"
+                            alt="Malcolm Kingley"
+                            className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-gold-400/30 shadow-lg"
+                        />
+                    </div>
                     </div>
 
                     {/* MailerLite Form */}
