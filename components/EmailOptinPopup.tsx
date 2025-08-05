@@ -53,16 +53,12 @@ const EmailOptinPopup: React.FC = () => {
                             alt="Malcolm Kingley"
                             className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-gold-400/30 shadow-lg"
                         />
-                        
-                        <p className="text-slate-300 font-semibold text-lg text-center mt-4 mb-6 leading-relaxed">
+                        <p className="text-slate-300 text-lg font-semibold text-center mt-4">
                             Receive Priority Access to New Videos, Tools & Trainings.
                         </p>
-                        
-                        <div className="text-center mb-6">
-                            <p className="text-gold-400 font-bold text-xl font-cinzel tracking-wide">
+                        <p className="text-gold-400 font-bold text-xl font-cinzel tracking-wide text-center mt-4">
                             SIGN UP NOW
-                            </p>
-                        </div>
+                        </p>
                     </div>
                     </div>
 
