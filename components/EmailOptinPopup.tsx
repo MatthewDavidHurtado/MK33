@@ -57,6 +57,10 @@ const EmailOptinPopup: React.FC = () => {
                         <p className="text-slate-300 font-semibold text-lg text-center mt-4 mb-6 leading-relaxed">
                             Receive Priority Access to New Videos, Tools & Trainings.
                         </p>
+                        
+                        <p className="text-gold-400 text-xl font-bold text-center mb-6 tracking-wide font-cinzel">
+                            SIGN UP NOW
+                        </p>
                     </div>
                     </div>
 
