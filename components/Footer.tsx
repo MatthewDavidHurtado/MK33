@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                         <span className="text-slate-600">|</span>
                         <a href="https://malcolm-s-workspace-759385455270.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Workspace</a>
                         <span className="text-slate-600">|</span>
-                        <a href="https://copy-2-of-master-copy-of-with-scan-biological-cod-759385455270.us-west1.run.app/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Private Client Portal</a>
+                        <a href="https://v3-of-master-copy-of-with-scan-biological-code-ti-759385455270.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Private Client Portal</a>
                     </div>
                     
                     <p className="!mt-6">
