@@ -86,12 +86,21 @@ const Footer: React.FC = () => {
                         It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
                     </p>
 
-                    <p className="font-semibold text-slate-400 !mt-6">
-                        ALLOW<br />
-                        ALLOW MINISTRIES is a 508(C)(1)(A) - Registered in the State of Washington.
-                    </p>
+                    <div className="!mt-8 flex flex-col items-center">
+                        <p className="font-cinzel text-3xl font-bold text-slate-200 mb-3">
+                            ALLOW
+                        </p>
+                        <img 
+                            src="https://i.imgur.com/zDr7njf.png" 
+                            alt="Allow Ministries Logo"
+                            className="w-24 h-auto mb-4 opacity-80"
+                        />
+                        <p className="font-semibold text-slate-400 text-center">
+                            ALLOW MINISTRIES is a 508(C)(1)(A) - Registered in the State of Washington.
+                        </p>
+                    </div>
 
-                    <div className="flex justify-center items-center gap-x-2 gap-y-1 flex-wrap !mt-6">
+                    <div className="flex justify-center items-center gap-x-2 gap-y-1 flex-wrap !mt-8">
                         <a href="https://thereisnothingbutgod.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Privacy Policy</a>
                         <span className="text-slate-600">|</span>
                         <a href="https://thereisnothingbutgod.com/terms-conditions-1#fabb29ed-cba7-4721-bc63-139a4b4ec7a8" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Terms and Conditions</a>
