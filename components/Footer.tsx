@@ -87,8 +87,8 @@ const Footer: React.FC = () => {
                     </p>
 
                     <p className="font-semibold text-slate-400 !mt-6">
-                        ALLOW MINISTRIES<br />
-                        508(C)(1)(A) - Registered in the State of Washington.
+                        ALLOW<br />
+                        ALLOW MINISTRIES is a 508(C)(1)(A) - Registered in the State of Washington.
                     </p>
 
                     <div className="flex justify-center items-center gap-x-2 gap-y-1 flex-wrap !mt-6">
