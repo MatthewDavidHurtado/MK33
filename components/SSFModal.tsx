@@ -65,6 +65,7 @@ const SSFModal: React.FC = () => {
                                 alt="SSF Operator Patch"
                                 className="w-20 h-20 object-contain"
                             />
+                        </div>
                         <h2 className="font-cinzel text-xl font-bold text-slate-100 mb-2">
                             Earn Your Official Patch
                         </h2>
@@ -97,7 +98,6 @@ const SSFModal: React.FC = () => {
                                     Become a Spiritual Warfare Special Operator
                             </div>
                             <div className="text-sm font-semibold opacity-90 mt-1">
-                                </div>
                             </div>
                         </button>
                     </div>
@@ -110,7 +110,6 @@ const SSFModal: React.FC = () => {
                 </div>
             </div>
         </div>
-    );
     );
 };
 
