@@ -14,27 +14,15 @@ const StarIcon: React.FC<{className?: string}> = ({className}) => (
 
 const SSFModal: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [hasShown, setHasShown] = useState(false);
 
     useEffect(() => {
-        // Check if modal has been shown before
-        const modalShown = localStorage.getItem('ssf-modal-shown');
-        if (modalShown) {
-            setHasShown(true);
-            return;
-        }
-
-        // Show modal after 10 seconds
+        // Show modal immediately when page loads
         const timer = setTimeout(() => {
-            if (!hasShown) {
-                setIsVisible(true);
-                setHasShown(true);
-                localStorage.setItem('ssf-modal-shown', 'true');
-            }
-        }, 10000);
+            setIsVisible(true);
+        }, 1000); // Small delay to ensure page is loaded
 
         return () => clearTimeout(timer);
-    }, [hasShown]);
+    }, []);
 
     const handleClose = () => {
         setIsVisible(false);
@@ -54,10 +42,10 @@ const SSFModal: React.FC = () => {
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-black/70 rounded-full transition-colors duration-300"
+                    className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
                     aria-label="Close modal"
                 >
-                    <XMarkIcon className="w-5 h-5 text-white" />
+                    <XMarkIcon className="w-6 h-6 text-white font-bold" />
                 </button>
 
                 {/* Header with Stars */}
