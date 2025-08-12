@@ -49,10 +49,10 @@ const SSFModal: React.FC = () => {
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
+                    className="absolute top-3 right-3 z-10 w-6 h-6 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
                     aria-label="Close modal"
                     type="button"
-                   style={{ zIndex: 9999 }}
+                    style={{ zIndex: 9999 }}
                 >
                     <XMarkIcon className="w-3 h-3 text-white" />
                 </button>
@@ -155,6 +155,7 @@ const SSFModal: React.FC = () => {
                         </p>
                     </div>
                 </div>
+                </div>
             </div>
 
             <style>{`
@@ -187,5 +188,3 @@ const SSFModal: React.FC = () => {
 };
 
 export default SSFModal;
-    )
-}
