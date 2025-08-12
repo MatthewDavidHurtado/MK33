@@ -77,15 +77,15 @@ const SSFModal: React.FC = () => {
                     <div className="space-y-3">
                         <div className="flex items-center gap-3 text-sm">
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-slate-300">90-Day Elite Combat Training Program</span>
+                            <span className="text-slate-300">90-Day Elite Spiritual Warfare Operator School</span>
                         </div>
                         <div className="flex items-center gap-3 text-sm">
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-slate-300">Verified Combat Demonstrations</span>
+                            <span className="text-slate-300">5 Verified Demonstrations to Qualify</span>
                         </div>
                         <div className="flex items-center gap-3 text-sm">
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-slate-300">Official SSF Operator Certification</span>
+                            <span className="text-slate-300">Spiritual Warfare Special Operator</span>
                         </div>
                     </div>
 
