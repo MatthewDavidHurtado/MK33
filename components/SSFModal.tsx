@@ -187,5 +187,3 @@ const SSFModal: React.FC = () => {
 };
 
 export default SSFModal;
-    )
-}
