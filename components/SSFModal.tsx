@@ -106,9 +106,6 @@ const SSFModal: React.FC = () => {
                     </div>
 
                     <div className="text-center pt-2 border-t border-slate-700/50">
-                        <p className="text-slate-500 text-xs">
-                            <span className="text-slate-300 font-semibold">247 operators</span> have earned their certification
-                        </p>
                     </div>
                 </div>
             </div>
