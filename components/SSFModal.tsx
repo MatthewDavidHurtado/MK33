@@ -96,10 +96,10 @@ const SSFModal: React.FC = () => {
                         >
                             <>
                                 <div className="font-cinzel text-base font-bold">
-                                    Become a Spiritual Warfare Special Operator
+                                    Enroll In Spiritual Warfare Special Operator School: 90-Day Training
                                 </div>
                                 <div className="text-sm font-semibold opacity-90 mt-1">
-                                    90-Day Elite Combat Training
+                                    
                                 </div>
                             </>
                         </button>
