@@ -94,12 +94,14 @@ const SSFModal: React.FC = () => {
                             onClick={handleEnroll}
                                 className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-sm py-3 px-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
                         >
-                            <div className="font-cinzel text-base font-bold">
+                            <>
+                                <div className="font-cinzel text-base font-bold">
                                     Become a Spiritual Warfare Special Operator
-                            </div>
-                            <div className="text-sm font-semibold opacity-90 mt-1">
-                            </div>
-                        </button>
+                                </div>
+                                <div className="text-sm font-semibold opacity-90 mt-1">
+                                    90-Day Elite Combat Training
+                                </div>
+                            </>
                     </div>
 
                     <div className="text-center pt-2 border-t border-slate-700/50">
