@@ -67,14 +67,12 @@ const BiologicalPrograms: React.FC<BiologicalProgramsProps> = ({
                             onChange={(e) => setSymptoms(e.target.value)}
                             placeholder="For example: 'Pain in my right shoulder', 'eczema on my left elbow', 'a persistent cough'."
                             className="w-full h-32 p-3 text-slate-300 placeholder-slate-500 bg-slate-800/50 border border-slate-700 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
-                            disabled={isLoading}
                             aria-label="Describe your physical symptoms"
                         />
                         {error && <p className="text-red-400 text-center mt-4">{error}</p>}
                         <div className="mt-4 flex justify-center">
                              <button
                                 onClick={onSubmit}
-                                disabled={isLoading || !symptoms.trim()}
                                 className="bg-gold-500 text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-gold-400 disabled:bg-slate-600 disabled:cursor-not-allowed disabled:text-slate-400 transition-all duration-300"
                             >
                                {isLoading ? 'Analyzing...' : 'Get Analysis'}
