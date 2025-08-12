@@ -25,19 +25,26 @@ const SSFModal: React.FC = () => {
     }, []);
 
     const handleClose = () => {
+        console.log('Close button clicked'); // Debug log
         setIsVisible(false);
     };
 
     const handleEnroll = () => {
         window.open('https://spiritual-special-forces-operator-school-759385455270.us-west1.run.app/', '_blank');
+        console.log('Enroll button clicked'); // Debug log
         setIsVisible(false);
     };
 
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
+            onClick={handleClose}
+        >
             <div className="relative max-w-md w-full bg-gradient-to-br from-slate-900 via-slate-800 to-black rounded-2xl border-2 border-gold-400/50 shadow-2xl shadow-gold-500/20 animate-scale-in overflow-hidden">
+                {/* Prevent modal content clicks from closing */}
+                <div onClick={(e) => e.stopPropagation()}>
                 
                 {/* Close Button */}
                 <button
@@ -45,6 +52,7 @@ const SSFModal: React.FC = () => {
                     className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
                     aria-label="Close modal"
                     type="button"
+                   style={{ zIndex: 9999 }}
                 >
                     <XMarkIcon className="w-3 h-3 text-white" />
                 </button>
@@ -146,6 +154,7 @@ const SSFModal: React.FC = () => {
                             Limited Time Enrollment - Transform Your Spiritual Warfare
                         </p>
                     </div>
+                </div>
                 </div>
             </div>
 
