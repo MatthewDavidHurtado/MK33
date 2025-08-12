@@ -65,17 +65,16 @@ const SSFModal: React.FC = () => {
                                 alt="SSF Operator Patch"
                                 className="w-20 h-20 object-contain"
                             />
-                        </div>
+                            <h2 className="font-cinzel text-lg font-bold text-slate-100 mb-2">
                         <h2 className="font-cinzel text-xl font-bold text-slate-100 mb-2">
                             Earn Your Official Patch
                         </h2>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                            Join an elite brotherhood of spiritual warriors. Complete 5 verified demonstrations 
+                                Join an elite brotherhood. Complete 5 verified demonstrations and earn your official certification.
                             and receive your official SSF operator certification patch.
                         </p>
                     </div>
 
-                    {/* Features */}
+                        <div className="space-y-2">
                     <div className="space-y-3">
                         <div className="flex items-center gap-3 text-sm">
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
@@ -83,36 +82,32 @@ const SSFModal: React.FC = () => {
                         </div>
                         <div className="flex items-center gap-3 text-sm">
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-slate-300">5 Verified Spiritual Demonstrations</span>
+                        className="absolute top-3 right-3 z-20 w-7 h-7 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full transition-colors duration-200 border border-slate-600/50"
                         </div>
-                        <div className="flex items-center gap-3 text-sm">
+                        <XMarkIcon className="w-3 h-3 text-slate-300" />
                             <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
                             <span className="text-slate-300">Official SSF Operator Certification</span>
                         </div>
-                        <div className="flex items-center gap-3 text-sm">
-                            <div className="w-2 h-2 bg-gold-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-slate-300">Exclusive Brotherhood Access</span>
-                        </div>
                     </div>
 
-                    {/* CTA Button */}
+                        <div className="pt-1">
                     <div className="pt-2">
                         <button
-                            onClick={handleEnroll}
-                            className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-base py-4 px-6 rounded-xl shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
+                                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-sm py-3 px-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-0.5 transition-all duration-300"
+                    <div className="p-4 space-y-4">
                         >
-                            <div className="text-center">
-                                <div className="font-cinzel text-lg font-bold">
+                                    <div className="font-cinzel text-base font-bold">
+                            <div className="flex justify-center mb-3">
                                     Become a Spiritual Warfare Special Operator
                                 </div>
                                 <div className="text-sm font-semibold opacity-90 mt-1">
-                                    90-Day Elite Combat Training
+                                    className="w-16 h-16 object-contain"
                                 </div>
                             </div>
                         </button>
                     </div>
 
-                    {/* Footer */}
+                        <div className="text-center pt-1 border-t border-slate-700/50">
                     <div className="text-center pt-2 border-t border-slate-700/50">
                         <p className="text-slate-500 text-xs">
                             <span className="text-slate-300 font-semibold">247 operators</span> have earned their certification
