@@ -42,10 +42,11 @@ const SSFModal: React.FC = () => {
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
+                    className="absolute top-3 right-3 z-10 w-7 h-7 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors duration-300 shadow-lg"
                     aria-label="Close modal"
+                    type="button"
                 >
-                    <XMarkIcon className="w-4 h-4 text-white" />
+                    <XMarkIcon className="w-3 h-3 text-white" />
                 </button>
 
                 {/* Header with Stars */}
@@ -74,19 +75,19 @@ const SSFModal: React.FC = () => {
                         
                         {/* Training Image */}
                         <div className="text-center">
-                            <div className="relative mb-3">
+                            <div className="relative mb-4">
                                 <img 
                                     src="https://i.imgur.com/6N57v1h.jpg" 
                                     alt="Spiritual Special Forces Training"
-                                    className="w-24 h-24 mx-auto rounded-xl shadow-2xl border-2 border-gold-400/30 object-cover"
+                                    className="w-32 h-20 mx-auto rounded-lg shadow-xl border border-gold-400/40 object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
                             </div>
-                            <div className="bg-slate-800/50 rounded-lg p-3 border border-gold-400/30">
+                            <div className="bg-slate-800/60 rounded-lg p-3 border border-gold-400/30">
                                 <h4 className="font-bold text-base text-gold-400 mb-1 font-inter">
                                     90-Day Elite Program
                                 </h4>
-                                <p className="text-slate-300 text-sm font-semibold">
+                                <p className="text-slate-300 text-sm">
                                     5 Powerful Demonstrations
                                 </p>
                             </div>
