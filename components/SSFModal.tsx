@@ -125,6 +125,7 @@ const SSFModal: React.FC = () => {
                             <button
                                 onClick={handleEnroll}
                                 className="group w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                                type="button"
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     <span className="tracking-wide">ENROLL NOW</span>
