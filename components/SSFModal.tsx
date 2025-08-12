@@ -155,7 +155,6 @@ const SSFModal: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                </div>
             </div>
 
             <style>{`
@@ -188,3 +187,5 @@ const SSFModal: React.FC = () => {
 };
 
 export default SSFModal;
+    )
+}
