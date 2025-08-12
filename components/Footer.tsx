@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
                             onEnded={() => setIsPlaying(false)}
                             src="https://healvideos.s3.us-east-2.amazonaws.com/permanent_overflow_is_yours_already_-_claim_it.+(720p).mp4"
                             className="w-full h-full"
-                            controls={isPlaying ? true : false}
+                            controls={isPlaying}
                             preload="metadata"
                             title="A Message on Tithing from Malcolm Kingley"
                         >

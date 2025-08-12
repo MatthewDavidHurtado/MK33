@@ -30,13 +30,13 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                     onChange={(e) => onQuestionChange(e.target.value)}
                     placeholder="What is going on that you'd like to address?"
                     className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 transition-all duration-300 flex-grow"
-                    disabled={isLoading ? true : false}
+                    disabled={isLoading}
                     rows={2}
                     aria-label="Your concern"
                 />
                 <button
                     type="submit"
-                    disabled={isLoading || !question.trim() ? true : false}
+                    disabled={isLoading || !question.trim()}
                     className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-gold-500 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gold-400 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed disabled:hover:bg-slate-600"
                     aria-label="Get a spiritual treatment for your concern"
                 >

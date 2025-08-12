@@ -58,7 +58,7 @@ const HowToUse: React.FC = () => {
                             src="https://healvideos.s3.us-east-2.amazonaws.com/MK+App-VEED.mp4"
                             src="https://healvideos.s3.us-east-2.amazonaws.com/Mk+website+full+tutorial-VEED.mp4"
                             className="w-full h-full object-cover"
-                            controls={isPlaying ? true : false}
+                            controls={isPlaying}
                             preload="metadata"
                             title="How to Use Malcolm Kingley's Spiritual Guidance App"
                         >
@@ -88,7 +88,7 @@ const HowToUse: React.FC = () => {
                 <button
                     onClick={() => setIsStepsExpanded(!isStepsExpanded)}
                     className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-left hover:bg-slate-800/30 transition-colors duration-300 group"
-                    aria-expanded={isStepsExpanded ? "true" : "false"}
+                    aria-expanded={isStepsExpanded}
                     aria-controls="detailed-steps"
                 >
                     <div>
