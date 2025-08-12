@@ -102,6 +102,7 @@ const SSFModal: React.FC = () => {
                                     90-Day Elite Combat Training
                                 </div>
                             </>
+                        </button>
                     </div>
 
                     <div className="text-center pt-2 border-t border-slate-700/50">
@@ -116,5 +117,3 @@ const SSFModal: React.FC = () => {
 };
 
 export default SSFModal;
-    )
-}
