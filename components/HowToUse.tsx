@@ -88,7 +88,7 @@ const HowToUse: React.FC = () => {
                 <button
                     onClick={() => setIsStepsExpanded(!isStepsExpanded)}
                     className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-left hover:bg-slate-800/30 transition-colors duration-300 group"
-                    aria-expanded={isStepsExpanded}
+                    aria-expanded={isStepsExpanded ? "true" : "false"}
                     aria-controls="detailed-steps"
                 >
                     <div>
