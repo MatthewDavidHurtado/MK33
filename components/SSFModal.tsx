@@ -37,7 +37,7 @@ const SSFModal: React.FC = () => {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-            <div className="relative max-w-2xl w-full bg-gradient-to-br from-slate-900 via-slate-800 to-black rounded-2xl border-2 border-gold-400/50 shadow-2xl shadow-gold-500/20 animate-scale-in overflow-hidden">
+            <div className="relative max-w-lg w-full bg-gradient-to-br from-slate-900 via-slate-800 to-black rounded-2xl border-2 border-gold-400/50 shadow-2xl shadow-gold-500/20 animate-scale-in overflow-hidden">
                 
                 {/* Close Button */}
                 <button
@@ -49,19 +49,19 @@ const SSFModal: React.FC = () => {
                 </button>
 
                 {/* Header with Stars */}
-                <div className="relative bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 p-6 text-center">
+                <div className="relative bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 p-4 text-center">
                     <div className="absolute inset-0 bg-black/20"></div>
                     <div className="relative z-10">
                         <div className="flex justify-center items-center gap-2 mb-2">
-                            <StarIcon className="w-6 h-6 text-black animate-pulse" />
-                            <StarIcon className="w-8 h-8 text-black animate-pulse [animation-delay:0.2s]" />
-                            <StarIcon className="w-6 h-6 text-black animate-pulse [animation-delay:0.4s]" />
+                            <StarIcon className="w-4 h-4 text-black animate-pulse" />
+                            <StarIcon className="w-6 h-6 text-black animate-pulse [animation-delay:0.2s]" />
+                            <StarIcon className="w-4 h-4 text-black animate-pulse [animation-delay:0.4s]" />
                         </div>
-                        <h2 className="font-cinzel text-3xl font-bold text-black mb-2">
+                        <h2 className="font-bold text-xl text-black mb-2 tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>
                             THE ULTIMATE SPIRITUAL TRAINING
                         </h2>
                         <div className="bg-black/20 rounded-lg px-4 py-2 inline-block">
-                            <h3 className="font-cinzel text-2xl font-bold text-black">
+                            <h3 className="font-bold text-lg text-black tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>
                                 SPIRITUAL SPECIAL FORCES
                             </h3>
                         </div>
@@ -69,52 +69,52 @@ const SSFModal: React.FC = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="p-8">
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="p-6">
+                    <div className="space-y-6">
                         
-                        {/* Left Side - Training Image */}
-                        <div className="text-center">
+                        {/* Training Image */}
+                        <div className="text-center mb-4">
                             <div className="relative mb-4">
                                 <img 
                                     src="https://i.imgur.com/6N57v1h.jpg" 
                                     alt="Spiritual Special Forces Training"
-                                    className="w-full max-w-xs mx-auto rounded-xl shadow-2xl border-2 border-gold-400/30"
+                                    className="w-32 h-32 mx-auto rounded-xl shadow-2xl border-2 border-gold-400/30 object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl"></div>
                             </div>
-                            <div className="bg-slate-800/50 rounded-lg p-4 border border-gold-400/30">
-                                <h4 className="font-cinzel text-xl font-bold text-gold-400 mb-2">
+                            <div className="bg-slate-800/50 rounded-lg p-3 border border-gold-400/30">
+                                <h4 className="font-bold text-lg text-gold-400 mb-1" style={{fontFamily: 'Inter, sans-serif'}}>
                                     90-Day Elite Program
                                 </h4>
-                                <p className="text-slate-300 text-lg font-bold">
+                                <p className="text-slate-300 text-base font-bold">
                                     5 Powerful Demonstrations
                                 </p>
                             </div>
                         </div>
 
-                        {/* Right Side - Patch & Details */}
-                        <div className="text-center md:text-left">
+                        {/* Patch & Details */}
+                        <div className="text-center">
                             <div className="mb-6">
-                                <h4 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
+                                <h4 className="font-bold text-xl text-gold-400 mb-3" style={{fontFamily: 'Inter, sans-serif'}}>
                                     EARN YOUR SSF PATCH
                                 </h4>
-                                <div className="flex justify-center md:justify-start mb-4">
+                                <div className="flex justify-center mb-4">
                                     <img 
                                         src="https://i.imgur.com/zDr7njf.png" 
                                         alt="SSF Patch"
-                                        className="w-24 h-24 rounded-full border-2 border-gold-400 shadow-lg"
+                                        className="w-16 h-16 rounded-full border-2 border-gold-400 shadow-lg"
                                     />
                                 </div>
-                                <div className="space-y-3 text-slate-300">
-                                    <div className="flex items-center justify-center md:justify-start gap-2">
+                                <div className="space-y-2 text-slate-300 text-sm">
+                                    <div className="flex items-center justify-center gap-2">
                                         <StarIcon className="w-4 h-4 text-gold-400" />
                                         <span>Elite Spiritual Combat Training</span>
                                     </div>
-                                    <div className="flex items-center justify-center md:justify-start gap-2">
+                                    <div className="flex items-center justify-center gap-2">
                                         <StarIcon className="w-4 h-4 text-gold-400" />
                                         <span>Advanced Divine Law Mastery</span>
                                     </div>
-                                    <div className="flex items-center justify-center md:justify-start gap-2">
+                                    <div className="flex items-center justify-center gap-2">
                                         <StarIcon className="w-4 h-4 text-gold-400" />
                                         <span>Exclusive SSF Community Access</span>
                                     </div>
@@ -124,7 +124,7 @@ const SSFModal: React.FC = () => {
                             {/* CTA Button */}
                             <button
                                 onClick={handleEnroll}
-                                className="group w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                                className="group w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                                 type="button"
                             >
                                 <span className="flex items-center justify-center gap-2">
@@ -138,8 +138,8 @@ const SSFModal: React.FC = () => {
                     </div>
 
                     {/* Bottom Banner */}
-                    <div className="mt-8 bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-lg p-4 border border-gold-400/20 text-center">
-                        <p className="text-gold-300 font-bold text-lg font-cinzel">
+                    <div className="mt-6 bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-lg p-3 border border-gold-400/20 text-center">
+                        <p className="text-gold-300 font-bold text-base" style={{fontFamily: 'Inter, sans-serif'}}>
                             "BE STRONG AND COURAGEOUS" - JOSHUA 1:9
                         </p>
                         <p className="text-slate-400 text-sm mt-1">
