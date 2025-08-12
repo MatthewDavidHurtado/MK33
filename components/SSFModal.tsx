@@ -116,6 +116,7 @@ const SSFModal: React.FC = () => {
                 </div>
             </div>
         </div>
+    )
     );
 };
 
