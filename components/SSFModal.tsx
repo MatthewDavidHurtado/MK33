@@ -48,14 +48,14 @@ const SSFModal: React.FC = () => {
                 {/* Militant Header Text */}
                 <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black p-8 text-center border-b border-gold-400/30">
                     <div className="space-y-3">
-                        <h1 className="font-inter text-2xl font-black text-gold-400 tracking-wider drop-shadow-lg uppercase">
+                        <h1 className="font-inter text-lg font-black text-gold-400 tracking-wider drop-shadow-lg uppercase">
                             Are You Called to Serve...?
                         </h1>
-                        <h2 className="font-inter text-xl font-black text-slate-100 tracking-widest leading-tight drop-shadow-md">
+                        <h2 className="font-inter text-lg font-black text-slate-100 tracking-widest leading-tight drop-shadow-md">
                             SPIRITUAL SPECIAL WARFARE<br />
                             OPERATOR SCHOOL:
                         </h2>
-                        <p className="font-inter text-sm font-bold text-gold-300 tracking-wide">
+                        <p className="font-inter text-xs font-bold text-gold-300 tracking-tight">
                             (The Most Elite Divine Law Operators Unit In The World).
                         </p>
                     </div>
