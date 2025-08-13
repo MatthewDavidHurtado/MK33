@@ -45,14 +45,25 @@ const SSFModal: React.FC = () => {
                     <XMarkIcon className="w-4 h-4 text-slate-300" />
                 </button>
 
-                {/* Top Hero Image */}
-                <div className="relative h-48 overflow-hidden">
-                    <img 
-                        src="https://i.imgur.com/cq7X3Bo.jpg" 
-                        alt="Spiritual Special Forces Training"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                {/* Militant Header Text */}
+                <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black p-8 text-center border-b border-gold-400/30">
+                    <div className="space-y-3">
+                        <h1 className="font-cinzel text-2xl font-bold text-gold-400 tracking-wider drop-shadow-lg">
+                            Are You Called to Serve...?
+                        </h1>
+                        <h2 className="font-cinzel text-xl font-black text-slate-100 tracking-widest leading-tight drop-shadow-md">
+                            SPIRITUAL SPECIAL WARFARE<br />
+                            OPERATOR SCHOOL:
+                        </h2>
+                        <p className="font-cinzel text-sm font-bold text-gold-300 tracking-wide italic">
+                            (The Most Elite Divine Law Operators Unit In The World).
+                        </p>
+                    </div>
+                    {/* Decorative elements */}
+                    <div className="absolute top-2 left-2 w-2 h-2 bg-gold-400 rotate-45"></div>
+                    <div className="absolute top-2 right-2 w-2 h-2 bg-gold-400 rotate-45"></div>
+                    <div className="absolute bottom-2 left-2 w-2 h-2 bg-gold-400 rotate-45"></div>
+                    <div className="absolute bottom-2 right-2 w-2 h-2 bg-gold-400 rotate-45"></div>
                 </div>
 
                 {/* Content */}
