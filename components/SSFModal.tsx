@@ -67,7 +67,7 @@ const SSFModal: React.FC = () => {
                             />
                         </div>
                         <h2 className="font-cinzel text-xl font-bold text-slate-100 mb-2">
-                            Earn Your Official Patch
+                            YES, YOU CAN PERFORM THE MIRACLES JESUS DID - STEP-BY-STEP TRAINING, PROVEN RESULTS, MASTER-YOUR WORLD!
                         </h2>
                         <p className="text-slate-400 text-sm">
                                 Join an elite brotherhood. Complete 5 verified demonstrations and earn your official certification.
