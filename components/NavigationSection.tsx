@@ -112,9 +112,9 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
         
         {/* Subtle hover effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </Component>
+    </a>
     );
-};
+}
 
 const NavigationSection: React.FC = () => {
     return (
@@ -137,7 +137,6 @@ const NavigationSection: React.FC = () => {
                         href="https://legendary-melomakarona-3b8eea.netlify.app"
                         gradient="from-slate-900/80 via-slate-800/60 to-slate-900/80"
                         badge="FREE"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -146,7 +145,6 @@ const NavigationSection: React.FC = () => {
                         icon={<CalendarIcon className="w-6 h-6 text-blue-400" />}
                         href="https://calendly.com/sealintelligence/spiritual-consultation?month=2025-07"
                         gradient="from-blue-900/40 via-slate-800/60 to-blue-900/40"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -156,7 +154,6 @@ const NavigationSection: React.FC = () => {
                         href="https://allow-quantum-church-service-24-7-759385455270.us-west1.run.app/"
                         gradient="from-purple-900/40 via-slate-800/60 to-purple-900/40"
                         badge="LIVE"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -166,7 +163,6 @@ const NavigationSection: React.FC = () => {
                         href="https://custom-sacred-song-759385455270.us-west1.run.app/"
                         gradient="from-emerald-900/40 via-slate-800/60 to-emerald-900/40"
                         badge="NEW"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -176,7 +172,6 @@ const NavigationSection: React.FC = () => {
                         href="https://www.gethealing.org"
                         gradient="from-cyan-900/40 via-slate-800/60 to-cyan-900/40"
                         badge="ADVANCED"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -186,7 +181,6 @@ const NavigationSection: React.FC = () => {
                         href="https://biological-code-finder-759385455270.us-west1.run.app/"
                         gradient="from-red-900/40 via-slate-800/60 to-red-900/40"
                         badge="NEW"
-                        isPopup={false}
                     />
                     
                     <NavigationCard
