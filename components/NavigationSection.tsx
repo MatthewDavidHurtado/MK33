@@ -57,15 +57,34 @@ interface NavigationCardProps {
     href: string;
     gradient: string;
     badge?: string;
+    isPopup?: boolean;
 }
 
-const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, icon, href, gradient, badge }) => (
-    <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group relative overflow-hidden bg-gradient-to-br ${gradient} rounded-xl border border-slate-700/50 hover:border-gold-400/30 p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10`}
-    >
+const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, icon, href, gradient, badge, isPopup = false }) => {
+    const handleClick = (e: React.MouseEvent) => {
+        if (isPopup) {
+            e.preventDefault();
+            const popup = window.open(
+                href,
+                'ssfPopup',
+                'width=1200,height=800,scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no,status=no'
+            );
+            if (popup) {
+                popup.focus();
+            }
+        }
+    };
+
+    const Component = isPopup ? 'button' : 'a';
+    const props = isPopup 
+        ? { onClick: handleClick }
+        : { href, target: "_blank", rel: "noopener noreferrer" };
+
+    return (
+        <Component
+            {...props}
+            className={`group relative overflow-hidden bg-gradient-to-br ${gradient} rounded-xl border border-slate-700/50 hover:border-gold-400/30 p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 ${isPopup ? 'cursor-pointer' : ''}`}
+        >
         {badge && (
             <div className="absolute top-3 right-3 bg-gold-500 text-black text-xs font-bold px-2 py-1 rounded-full">
                 {badge}
@@ -93,8 +112,9 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
         
         {/* Subtle hover effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </a>
-);
+    </Component>
+    );
+};
 
 const NavigationSection: React.FC = () => {
     return (
@@ -117,6 +137,7 @@ const NavigationSection: React.FC = () => {
                         href="https://legendary-melomakarona-3b8eea.netlify.app"
                         gradient="from-slate-900/80 via-slate-800/60 to-slate-900/80"
                         badge="FREE"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -125,6 +146,7 @@ const NavigationSection: React.FC = () => {
                         icon={<CalendarIcon className="w-6 h-6 text-blue-400" />}
                         href="https://calendly.com/sealintelligence/spiritual-consultation?month=2025-07"
                         gradient="from-blue-900/40 via-slate-800/60 to-blue-900/40"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -134,6 +156,7 @@ const NavigationSection: React.FC = () => {
                         href="https://allow-quantum-church-service-24-7-759385455270.us-west1.run.app/"
                         gradient="from-purple-900/40 via-slate-800/60 to-purple-900/40"
                         badge="LIVE"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -143,6 +166,7 @@ const NavigationSection: React.FC = () => {
                         href="https://custom-sacred-song-759385455270.us-west1.run.app/"
                         gradient="from-emerald-900/40 via-slate-800/60 to-emerald-900/40"
                         badge="NEW"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -152,6 +176,7 @@ const NavigationSection: React.FC = () => {
                         href="https://www.gethealing.org"
                         gradient="from-cyan-900/40 via-slate-800/60 to-cyan-900/40"
                         badge="ADVANCED"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
@@ -161,15 +186,17 @@ const NavigationSection: React.FC = () => {
                         href="https://biological-code-finder-759385455270.us-west1.run.app/"
                         gradient="from-red-900/40 via-slate-800/60 to-red-900/40"
                         badge="NEW"
+                        isPopup={false}
                     />
                     
                     <NavigationCard
                         title="SPIRITUAL SPECIAL FORCES"
                         description="The forbidden source code that every manifestation teacher stole from—now enhanced with AI. Elite 90-day operator training for consciousness warfare."
                         icon={<ShieldIcon className="w-6 h-6 text-amber-400" />}
-                        href="https://legendary-melomakarona-3b8eea.netlify.app"
+                        href="https://the-secret-source-code-759385455270.us-west1.run.app/"
                         gradient="from-amber-900/60 via-orange-800/70 to-red-900/60"
                         badge="CLASSIFIED"
+                        isPopup={true}
                     />
                 </div>
                 
