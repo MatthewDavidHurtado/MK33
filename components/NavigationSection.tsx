@@ -112,7 +112,7 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
         
         {/* Subtle hover effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </a>
+    </Component>
     );
 }
 
