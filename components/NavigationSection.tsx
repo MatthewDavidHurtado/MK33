@@ -44,6 +44,12 @@ const GlobeIcon: React.FC<{className?: string}> = ({className}) => (
     </svg>
 );
 
+const ShieldIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.814 3.051 10.77 7.608 13.566a.75.75 0 0 0 .784 0C15.199 20.52 18.25 15.564 18.25 9.75a12.74 12.74 0 0 0-.635-4.235.75.75 0 0 0-.722-.515 11.209 11.209 0 0 1-7.877-3.08Z" clipRule="evenodd" />
+    </svg>
+);
+
 interface NavigationCardProps {
     title: string;
     description: string;
@@ -155,6 +161,15 @@ const NavigationSection: React.FC = () => {
                         href="https://biological-code-finder-759385455270.us-west1.run.app/"
                         gradient="from-red-900/40 via-slate-800/60 to-red-900/40"
                         badge="NEW"
+                    />
+                    
+                    <NavigationCard
+                        title="SPIRITUAL SPECIAL FORCES"
+                        description="The forbidden source code that every manifestation teacher stole from—now enhanced with AI. Elite 90-day operator training for consciousness warfare."
+                        icon={<ShieldIcon className="w-6 h-6 text-amber-400" />}
+                        href="https://legendary-melomakarona-3b8eea.netlify.app"
+                        gradient="from-amber-900/60 via-orange-800/70 to-red-900/60"
+                        badge="CLASSIFIED"
                     />
                 </div>
                 
