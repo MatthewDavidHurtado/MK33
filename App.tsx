@@ -12,7 +12,6 @@ import BiologicalPrograms from './components/BiologicalPrograms';
 import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
-import SSFModal from './components/SSFModal';
 
 const App: React.FC = () => {
     // State for Spiritual Treatment
@@ -102,7 +101,6 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <SSFModal />
             <SafariWarning />
             <TitheBanner />
             <NavigationSection />
