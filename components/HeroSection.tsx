@@ -129,7 +129,7 @@ const HeroSection: React.FC = () => {
                                     While you've been visualizing, others are deleting "impossible" conditions, manifesting specific amounts on command, and operating in completely different realities.
                                 </p>
                                 <p className="text-xl font-bold text-white">
-                                    <span className="text-gold-400">The system works.</span> The question is whether you're ready to use it.
+                                    <span className="text-gold-400">Divine laws work.</span> The question is whether you're ready to use it.
                                 </p>
                             </div>
                         </div>
