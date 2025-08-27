@@ -126,7 +126,7 @@ const HeroSection: React.FC = () => {
                             {/* Final Hook */}
                             <div className="text-center lg:text-left">
                                 <p className="text-slate-300 text-lg mb-2">
-                                    While you've been visualizing, others are deleting "incurable" conditions, manifesting specific amounts on command, and operating in completely different realities.
+                                    While you've been visualizing, others are deleting "impossible" conditions, manifesting specific amounts on command, and operating in completely different realities.
                                 </p>
                                 <p className="text-xl font-bold text-white">
                                     <span className="text-gold-400">The system works.</span> The question is whether you're ready to use it.
