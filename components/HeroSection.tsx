@@ -140,35 +140,39 @@ const HeroSection: React.FC = () => {
                         </div>
 
                         {/* Key Points */}
-                        <div className="bg-black/30 border border-gold-400/20 rounded-xl p-6">
-                            <p className="text-lg font-bold text-white mb-4">
-                                <span className="text-red-400">This isn't another course.</span> It's the classified consciousness training that should have been public 100 years ago:
-                            </p>
-                            <div className="space-y-3 text-slate-300">
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>The ONLY audio version of Rawson's banned formulas on Earth</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>Eddy's original protocols before religious sanitization</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>German New Medicine tracker identifying exact thought-disease patterns</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>AI trained exclusively on successful cases (not theory)</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>26-level system producing documented results in 90 days</span>
-                                </div>
-                                <div className="flex items-start gap-2">
-                                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
-                                    <span>Private Discord with real-time proof posts</span>
-                                </div>
+                    </div>
+                </div>
+
+                {/* Full-Width Key Points Section */}
+                <div className="mt-12">
+                    <div className="bg-black/30 border border-gold-400/20 rounded-xl p-8 max-w-6xl mx-auto">
+                        <p className="text-xl font-bold text-white mb-6 text-center">
+                            <span className="text-red-400">This isn't another course.</span> It's the classified consciousness training that should have been public 100 years ago:
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-4 text-slate-300">
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>The ONLY audio version of Rawson's banned formulas on Earth</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>Eddy's original protocols before religious sanitization</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>German New Medicine tracker identifying exact thought-disease patterns</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>AI trained exclusively on successful cases (not theory)</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>26-level system producing documented results in 90 days</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <CheckIcon className="w-5 h-5 text-gold-400 flex-shrink-0 mt-1" />
+                                <span>Private Discord with real-time proof posts</span>
                             </div>
                         </div>
                     </div>
