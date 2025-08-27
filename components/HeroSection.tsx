@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                                        <span className="text-slate-300">Built multiple 8-figure businesses with zero hustle (pure consciousness work)</span>
+                                        <span className="text-slate-300">Built a 8-figure business with zero hustle (pure consciousness work)</span>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
