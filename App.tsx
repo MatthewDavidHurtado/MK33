@@ -12,6 +12,7 @@ import BiologicalPrograms from './components/BiologicalPrograms';
 import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
+import HeroSection from './components/HeroSection';
 
 const App: React.FC = () => {
     // State for Spiritual Treatment
@@ -103,6 +104,7 @@ const App: React.FC = () => {
         <div className="flex flex-col min-h-screen">
             <SafariWarning />
             <TitheBanner />
+            <HeroSection />
             <NavigationSection />
             <main className="flex-grow container mx-auto max-w-4xl px-4 py-8 md:py-16">
                 <Header />
