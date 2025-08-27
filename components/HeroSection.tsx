@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
 
                         {/* Main Headline */}
                         <h1 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            The Consciousness Technology That Deleted My 
+                            The "Instant Hotline to God" That Deleted My 
                             <span className="text-gold-400"> Lyme Disease, PTSD, and Bankruptcy</span>
                             —Now AI-Enhanced For You
                         </h1>
