@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
                             </h3>
                             
                             <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                                Malcolm discovered the original source code behind Neville, Abraham Hicks, and every modern teacher—the consciousness technology so powerful it was literally banned by religious institutions for 100 years.
+                                Malcolm discovered the original source code behind every modern teacher—the consciousness technology so powerful it was literally banned by religious institutions for 100 years.
                             </p>
 
                             <p className="text-slate-300 text-lg leading-relaxed mb-8">
