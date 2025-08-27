@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
                         <h1 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                             The "Instant Hotline to God" That Deleted My 
                             <span className="text-gold-400"> Lyme Disease, PTSD, and Bankruptcy</span>
-                            —Now AI-Enhanced For You
+                            —With AI-Enhanced Mentorship
                         </h1>
 
                         {/* Subheadline */}
