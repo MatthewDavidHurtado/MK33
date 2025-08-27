@@ -49,8 +49,7 @@ const HeroSection: React.FC = () => {
 
                         {/* Subheadline */}
                         <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-300 font-lora leading-relaxed">
-                            Access The Suppressed System That Created Every Manifestation Teacher You Know—Before They Watered It Down Into 
-                            <span className="text-gold-400 italic">"Think Positive Thoughts"</span>
+                            Most manifestation gurus fumble Divine Laws—watering truth down to hustle, grind, or shallow positivity.
                         </h2>
 
                         {/* Results Section */}
