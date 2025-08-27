@@ -42,9 +42,9 @@ const HeroSection: React.FC = () => {
 
                         {/* Main Headline */}
                         <h1 className="font-cinzel text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                            The "Instant Hotline to God" That Deleted My 
-                            <span className="text-gold-400"> Lyme Disease, PTSD, and Bankruptcy</span>
-                            —With AI-Enhanced Mentorship
+                            The "Instant Hotline to God" That Deleted My{' '}
+                            <span className="text-gold-400">Lyme Disease, PTSD, and Bankruptcy</span>
+                            {' '}—With AI-Enhanced Mentorship
                         </h1>
 
                         {/* Subheadline */}
