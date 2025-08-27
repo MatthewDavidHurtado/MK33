@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
                         {/* Results Section */}
                         <div className="bg-slate-900/50 border border-slate-700/50 rounded-xl p-6 lg:p-8">
                             <h3 className="text-2xl font-cinzel font-bold text-gold-400 mb-6">
-                                From Bedridden to 8-Figures Using Mathematical Consciousness Formulas
+                                From Bedridden to 8-Figures Using Nothing More Than Putting Divine Laws in Operation
                             </h3>
                             
                             <p className="text-slate-300 text-lg leading-relaxed mb-6">
