@@ -3,7 +3,15 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   server: {
-    historyApiFallback: true,
+    host: true,
+    port: 3000,
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    },
   },
   resolve: {
     alias: {

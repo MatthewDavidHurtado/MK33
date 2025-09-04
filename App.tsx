@@ -173,11 +173,12 @@ const MainApp: React.FC = () => {
 
 const App: React.FC = () => {
     return (
-        <Router>
+        <Router basename="/">
             <Routes>
                 <Route path="/" element={<MainApp />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/success" element={<SuccessPage />} />
+                <Route path="*" element={<MainApp />} />
             </Routes>
         </Router>
     );
