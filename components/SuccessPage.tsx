@@ -31,21 +31,42 @@ const SuccessPage: React.FC = () => {
                     </h1>
                     
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6">
-                        Your Audiobook is On Its Way!
+                        Your Audiobook is Ready!
                     </h2>
                     
                     <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-8">
-                        Thank you for claiming your free audiobook! Check your email inbox (and spam folder) for your download link. 
-                        You're about to discover the forbidden consciousness technology that transforms reality itself.
+                        Thank you for claiming your free audiobook! Your transformative journey begins right now. 
+                        Press play below to discover the forbidden consciousness technology that transforms reality itself.
                     </p>
 
-                    <div className="bg-gold-400/10 border border-gold-400/30 rounded-xl p-6 mb-8">
-                        <p className="text-gold-300 font-semibold text-lg">
-                            🎧 Your audiobook will arrive within the next few minutes
-                        </p>
-                        <p className="text-slate-400 mt-2">
-                            If you don't see it, please check your spam/promotions folder
-                        </p>
+                    {/* Audiobook Player */}
+                    <div className="bg-black/30 border border-gold-400/30 rounded-xl p-6 mb-8">
+                        <div className="mb-4">
+                            <h3 className="text-gold-300 font-semibold text-xl font-cinzel mb-2">
+                                🎧 Awaken The God Within
+                            </h3>
+                            <p className="text-slate-400 text-sm">
+                                Your complete audiobook experience - listen now or bookmark this page to return anytime
+                            </p>
+                        </div>
+                        
+                        <div className="aspect-video w-full bg-black rounded-lg overflow-hidden shadow-xl border border-slate-700">
+                            <video
+                                controls
+                                preload="metadata"
+                                className="w-full h-full"
+                                style={{backgroundColor: '#000'}}
+                            >
+                                <source src="https://healvideos.s3.us-east-2.amazonaws.com/Awaken+The+God+Within-VEED.mp4" type="video/mp4" />
+                                Your browser does not support the video tag. Please use a modern browser to listen to your audiobook.
+                            </video>
+                        </div>
+                        
+                        <div className="mt-4 text-center">
+                            <p className="text-gold-300 text-sm font-semibold">
+                                ⭐ Bookmark this page to access your audiobook anytime
+                            </p>
+                        </div>
                     </div>
 
                     {/* Return Home Button */}
