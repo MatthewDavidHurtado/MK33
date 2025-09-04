@@ -16,6 +16,7 @@ import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
 import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
+import FloatingPrompt from './components/FloatingPrompt';
 
 const MainApp: React.FC = () => {
     // State for Spiritual Treatment
@@ -160,6 +161,7 @@ const MainApp: React.FC = () => {
                 <ConsultationCTA />
 
             </main>
+            <FloatingPrompt />
             <Footer />
         </div>
     );
