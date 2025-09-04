@@ -106,7 +106,7 @@ const SignupPage: React.FC = () => {
                                     <div></div>
                                     
                                     <div id="sib-container" className="sib-container--large sib-container--vertical" style={{textAlign: 'center', backgroundColor: 'rgba(255,255,255,1)', maxWidth: '540px', borderRadius: '3px', borderWidth: '1px', borderColor: '#C0CCD9', borderStyle: 'solid', direction: 'ltr'}}>
-                                        <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJlY3SgkoxDQKI_VJupwId32gWNo_LG8uNdLN1lsMSoKIjwKL02o2FXZLiRYEDwRscZE-ew0ADjtODYSfejKq_bskWf47PTHTrjBrv1mbHSOh407JrRT60DIKvB3vBK2NLrA11mc5RMYLs4wv-n1KTIY8wsZAN6655527WQURspcNrNscsjfI_L2CvUCyQD9vDAOTBnALgGm" data-type="subscription">
+                                        <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJlY3SgkoxDQKI_VJupwId32gWNo_LG8uNdLN1lsMSoKIjwKL02o2FXZLiRYEDwRscZE-ew0ADjtODYSfejKq_bskWf47PTHTrjBrv1mbHSOh407JrRT60DIKvB3vBK2NLrA11mc5RMYLs4wv-n1KTIY8wsZAN6655527WQURspcNrNscsjfI_L2CvUCyQD9vDAOTBnALgGm?redirect_url=https://malcolmkingley.com/thank-you.html" data-type="subscription">
                                             
                                             <div style={{padding: '8px 0'}}>
                                                 <div className="sib-input sib-form-block">
