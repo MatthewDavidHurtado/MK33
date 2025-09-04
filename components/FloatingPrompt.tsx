@@ -65,9 +65,9 @@ const FloatingPrompt: React.FC<FloatingPromptProps> = ({ onOpenPopup }) => {
                     {/* Product Image */}
                     <div className="flex justify-center mb-3">
                         <img 
-                            src="https://i.imgur.com/k99hIPs.png" 
+                            src="https://i.imgur.com/jqSROJQ.png" 
                             alt="Awaken The God Within Audiobook"
-                            className="w-16 h-20 object-cover rounded-md shadow-lg border border-gold-300/30"
+                            className="w-24 h-32 object-cover rounded-md shadow-lg border border-gold-300/30"
                         />
                     </div>
 
