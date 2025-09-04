@@ -63,7 +63,7 @@ const SuccessPage: React.FC = () => {
                         </div>
                         
                         <div className="mt-4 text-center">
-                            <p className="text-gold-300 text-sm font-semibold">
+                            <p className="text-gold-300 text-sm font-semibold" style={{color: '#fcd34d'}}>
                                 ⭐ Bookmark this page to access your audiobook anytime
                             </p>
                         </div>
