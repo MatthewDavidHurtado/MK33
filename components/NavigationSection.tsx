@@ -129,7 +129,7 @@ const NavigationSection: React.FC = () => {
                     </p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <NavigationCard
                         title="Sacred Library"
                         description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
@@ -163,6 +163,15 @@ const NavigationSection: React.FC = () => {
                         href="https://custom-sacred-song-759385455270.us-west1.run.app/"
                         gradient="from-emerald-900/40 via-slate-800/60 to-emerald-900/40"
                         badge="NEW"
+                    />
+                    
+                    <NavigationCard
+                        title="ALTERNATE UNIVERSE: Particle Collider"
+                        description="Malcolm's A.I. original lyrics in the style of modern day hard rock. Experience consciousness-expanding music."
+                        icon={<MusicalNoteIcon className="w-6 h-6 text-pink-400" />}
+                        href="https://www.altuniverserock.com"
+                        gradient="from-pink-900/40 via-slate-800/60 to-pink-900/40"
+                        badge="ROCK"
                     />
                     
                     <NavigationCard
