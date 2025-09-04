@@ -33,7 +33,7 @@ const FloatingPrompt: React.FC<FloatingPromptProps> = ({ onOpenPopup }) => {
     }, [isDismissed]);
 
     const handleClick = () => {
-        window.location.href = '/signup';
+        window.location.href = '/success';
     };
 
     const handleDismiss = (e: React.MouseEvent) => {
