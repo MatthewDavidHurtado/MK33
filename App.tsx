@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
 import TitheBanner from './components/TitheBanner';
 import SafariWarning from './components/SafariWarning';
@@ -18,7 +18,7 @@ import AudiobookPopup from './components/AudiobookPopup';
 import SuccessPage from './components/SuccessPage';
 import FloatingPrompt from './components/FloatingPrompt';
 
-const App: React.FC = () => {
+const MainApp: React.FC = () => {
     // State for popup
     const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
@@ -190,6 +190,17 @@ const App: React.FC = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<MainContent />} />
+                <Route path="/success" element={<SuccessPage />} />
+            </Routes>
+        </Router>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<MainApp />} />
                 <Route path="/success" element={<SuccessPage />} />
             </Routes>
         </Router>
