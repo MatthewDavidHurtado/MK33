@@ -107,6 +107,7 @@ const SignupPage: React.FC = () => {
                                     
                                     <div id="sib-container" className="sib-container--large sib-container--vertical" style={{textAlign: 'center', backgroundColor: 'rgba(255,255,255,1)', maxWidth: '540px', borderRadius: '3px', borderWidth: '1px', borderColor: '#C0CCD9', borderStyle: 'solid', direction: 'ltr'}}>
                                         <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJlY3SgkoxDQKI_VJupwId32gWNo_LG8uNdLN1lsMSoKIjwKL02o2FXZLiRYEDwRscZE-ew0ADjtODYSfejKq_bskWf47PTHTrjBrv1mbHSOh407JrRT60DIKvB3vBK2NLrA11mc5RMYLs4wv-n1KTIY8wsZAN6655527WQURspcNrNscsjfI_L2CvUCyQD9vDAOTBnALgGm?redirect_url=https://malcolmkingley.com/success" data-type="subscription">
+                                        <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJlY3SgkoxDQKI_VJupwId32gWNo_LG8uNdLN1lsMSoKIjwKL02o2FXZLiRYEDwRscZE-ew0ADjtODYSfejKq_bskWf47PTHTrjBrv1mbHSOh407JrRT60DIKvB3vBK2NLrA11mc5RMYLs4wv-n1KTIY8wsZAN6655527WQURspcNrNscsjfI_L2CvUCyQD9vDAOTBnALgGm" data-type="subscription">
                                             
                                             <div style={{padding: '8px 0'}}>
                                                 <div className="sib-input sib-form-block">
@@ -203,6 +204,21 @@ const SignupPage: React.FC = () => {
                         }
                     };
                     var AUTOHIDE = Boolean(0);
+                    
+                    // Handle form submission success
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const form = document.getElementById('sib-form');
+                        if (form) {
+                            form.addEventListener('submit', function(e) {
+                                setTimeout(function() {
+                                    const successMessage = document.getElementById('success-message');
+                                    if (successMessage && successMessage.style.display !== 'none') {
+                                        window.location.href = '/success';
+                                    }
+                                }, 2000);
+                            });
+                        }
+                    });
                 `
             }} />
             
