@@ -1,47 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const CloseIcon: React.FC<{className?: string}> = ({className}) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
-    </svg>
-);
-
-interface AudiobookPopupProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsVisible(true);
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-
-        return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [isOpen]);
-
-    const handleClose = () => {
-        setIsVisible(false);
-        setTimeout(() => {
-            onClose();
-        }, 300);
-    };
-
-    const handleBackdropClick = (e: React.MouseEvent) => {
-        if (e.target === e.currentTarget) {
-            handleClose();
-        }
-    };
-
-    if (!isOpen) return null;
-
+const SignupPage: React.FC = () => {
     return (
         <>
             {/* Brevo Form Styles */}
@@ -93,56 +52,32 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
             }} />
             <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
 
-            {/* Modal Overlay */}
-            <div 
-                className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${
-                    isVisible ? 'opacity-100' : 'opacity-0'
-                }`}
-                onClick={handleBackdropClick}
-            >
-                {/* Modal Content */}
-                <div 
-                    className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl transform transition-all duration-300 ${
-                        isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-                    }`}
-                    onClick={(e) => e.stopPropagation()}
-                >
-                    {/* Close Button */}
-                    <button
-                        onClick={handleClose}
-                        className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-black/10 hover:bg-black/20 rounded-full transition-colors duration-200"
-                        aria-label="Close popup"
-                    >
-                        <CloseIcon className="w-6 h-6 text-gray-600" />
-                    </button>
-
-                    {/* Content Grid */}
-                    <div className="grid lg:grid-cols-2 gap-0 min-h-[500px]">
-                        {/* Left Side - Image */}
-                        <div className="relative bg-gradient-to-br from-slate-900 to-black p-8 flex items-center justify-center lg:rounded-l-2xl">
-                            <div className="text-center">
-                                <img 
-                                    src="https://i.imgur.com/k99hIPs.png" 
-                                    alt="Get This Audiobook Now"
-                                    className="w-full max-w-sm mx-auto rounded-lg shadow-2xl"
-                                />
-                            </div>
+            <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black flex items-center justify-center p-4">
+                <div className="max-w-4xl w-full">
+                    {/* Header Section */}
+                    <div className="text-center mb-8">
+                        <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-gold-400 mb-4">
+                            GET THIS AUDIOBOOK NOW!
+                        </h1>
+                        <p className="text-slate-300 text-xl mb-6">
+                            Discover the forbidden consciousness technology that transforms reality itself.
+                        </p>
+                        
+                        {/* Book Image */}
+                        <div className="mb-8">
+                            <img 
+                                src="https://i.imgur.com/k99hIPs.png" 
+                                alt="Get This Audiobook Now"
+                                className="w-full max-w-sm mx-auto rounded-lg shadow-2xl"
+                            />
                         </div>
+                    </div>
 
-                        {/* Right Side - Form */}
-                        <div className="p-8 lg:p-12 flex flex-col justify-center">
-                            {/* Headline */}
-                            <div className="text-center mb-8">
-                                <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                                    GET THIS AUDIOBOOK NOW!
-                                </h2>
-                                <p className="text-gray-600 text-lg">
-                                    Discover the forbidden consciousness technology that transforms reality itself.
-                                </p>
-                            </div>
-
+                    {/* Form Section */}
+                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                        <div className="p-8 md:p-12">
                             {/* Brevo Form */}
-                            <div className="sib-form">
+                            <div className="sib-form" style={{textAlign: 'center', backgroundColor: '#EFF2F7'}}>
                                 <div id="sib-form-container" className="sib-form-container">
                                     <div id="error-message" className="sib-form-message-panel" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949', maxWidth: '540px', display: 'none'}}>
                                         <div className="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -184,7 +119,7 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                                             </div>
                                                         </div>
                                                         
-                                                        <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'center', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
+                                                        <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
                                                         <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
                                                             Customize this optional help text before publishing your form.
                                                         </label>
@@ -203,7 +138,7 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                                             </div>
                                                         </div>
                                                         
-                                                        <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'center', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
+                                                        <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
                                                         <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
                                                             Provide your email address to subscribe. For e.g abc@xyz.com
                                                         </label>
@@ -230,6 +165,24 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                             </div>
                         </div>
                     </div>
+
+                    {/* Back to Home Link */}
+                    <div className="text-center mt-8">
+                        <a
+                            href="/"
+                            className="text-gold-400 hover:text-gold-300 font-semibold transition-colors duration-300"
+                        >
+                            ← Back to Main Site
+                        </a>
+                    </div>
+                </div>
+
+                {/* Background Decorative Elements */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-20 left-10 w-32 h-32 border border-gold-400/10 rounded-full"></div>
+                    <div className="absolute top-40 right-20 w-24 h-24 border border-gold-400/15 rounded-full"></div>
+                    <div className="absolute bottom-40 left-20 w-40 h-40 border border-gold-400/10 rounded-full"></div>
+                    <div className="absolute bottom-20 right-10 w-28 h-28 border border-gold-400/20 rounded-full"></div>
                 </div>
             </div>
 
@@ -258,4 +211,4 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
     );
 };
 
-export default AudiobookPopup;
+export default SignupPage;

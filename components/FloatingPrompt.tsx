@@ -14,7 +14,7 @@ const CloseIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 interface FloatingPromptProps {
-    onOpenPopup: () => void;
+    onOpenPopup?: () => void;
 }
 
 const FloatingPrompt: React.FC<FloatingPromptProps> = ({ onOpenPopup }) => {
@@ -33,8 +33,7 @@ const FloatingPrompt: React.FC<FloatingPromptProps> = ({ onOpenPopup }) => {
     }, [isDismissed]);
 
     const handleClick = () => {
-        onOpenPopup();
-        setIsVisible(false);
+        window.location.href = '/signup';
     };
 
     const handleDismiss = (e: React.MouseEvent) => {

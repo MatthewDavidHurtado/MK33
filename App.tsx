@@ -14,14 +14,11 @@ import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
-import AudiobookPopup from './components/AudiobookPopup';
 import SuccessPage from './components/SuccessPage';
+import SignupPage from './components/SignupPage';
 import FloatingPrompt from './components/FloatingPrompt';
 
 const MainApp: React.FC = () => {
-    // State for popup
-    const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-
     // State for Spiritual Treatment
     const [currentQuestion, setCurrentQuestion] = useState<string>('');
     const [submittedQuestion, setSubmittedQuestion] = useState<string>('');
@@ -107,15 +104,6 @@ const MainApp: React.FC = () => {
         resetGnm();
     }, [resetGnm]);
 
-    // Show popup after 30 seconds
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsPopupOpen(true);
-        }, 30000); // 30 seconds
-
-        return () => clearTimeout(timer);
-    }, []);
-
     const MainContent = () => (
         <div className="flex flex-col min-h-screen">
             <SafariWarning />
@@ -176,13 +164,7 @@ const MainApp: React.FC = () => {
             <Footer />
             
             {/* Floating Prompt */}
-            <FloatingPrompt onOpenPopup={() => setIsPopupOpen(true)} />
-            
-            {/* Audiobook Popup */}
-            <AudiobookPopup 
-                isOpen={isPopupOpen} 
-                onClose={() => setIsPopupOpen(false)} 
-            />
+            <FloatingPrompt onOpenPopup={() => {}} />
         </div>
     );
 
@@ -194,6 +176,7 @@ const App: React.FC = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<MainApp />} />
+                <Route path="/signup" element={<SignupPage />} />
                 <Route path="/success" element={<SuccessPage />} />
             </Routes>
         </Router>
