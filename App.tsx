@@ -16,6 +16,7 @@ import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
 import AudiobookPopup from './components/AudiobookPopup';
 import SuccessPage from './components/SuccessPage';
+import FloatingPrompt from './components/FloatingPrompt';
 
 const App: React.FC = () => {
     // State for popup
@@ -173,6 +174,9 @@ const App: React.FC = () => {
 
             </main>
             <Footer />
+            
+            {/* Floating Prompt */}
+            <FloatingPrompt onOpenPopup={() => setIsPopupOpen(true)} />
             
             {/* Audiobook Popup */}
             <AudiobookPopup 
