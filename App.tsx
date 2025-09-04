@@ -186,14 +186,7 @@ const MainApp: React.FC = () => {
         </div>
     );
 
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<MainContent />} />
-                <Route path="/success" element={<SuccessPage />} />
-            </Routes>
-        </Router>
-    );
+    return <MainContent />;
 };
 
 const App: React.FC = () => {
