@@ -155,6 +155,8 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                         </div>
                                     </div>
                                     
+                                    <div></div>
+                                    
                                     <div id="success-message" className="sib-form-message-panel" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#085229', backgroundColor: '#e7faf0', borderRadius: '3px', borderColor: '#13ce66', maxWidth: '540px', display: 'none'}}>
                                         <div className="sib-form-message-panel__text sib-form-message-panel__text--center">
                                             <svg viewBox="0 0 512 512" className="sib-icon sib-notification__icon">
@@ -166,20 +168,26 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                         </div>
                                     </div>
                                     
-                                    <div id="sib-container" className="sib-container--large sib-container--vertical" style={{textAlign: 'center', backgroundColor: 'rgba(255,255,255,1)', maxWidth: '540px', borderRadius: '3px', borderWidth: '1px', borderColor: '#C0CCD9', borderStyle: 'solid', direction: 'ltr', width: '100%'}}>
-                                        <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJpeJ5N015C1BaF1ddleHlWKS6vSANyYSH5kn5grCesp_LYv0MF4ujlnDc4crY_kx32KGqXxrxz69b012gd15uqfILOZP3yc1onbRZVg_jI_U1DljZ5cRlRxL7cn3_2qkxipfLVJaX-aOneAF6ck8hyc0jtjiyAScLbUA8z5x-AygILqGRAYx3qkrUXJHB7Da_tOZVop6X5t" data-type="subscription">
-                                            <input type="hidden" name="success_url" value={`${window.location.origin}/success`} />
+                                    <div></div>
+                                    
+                                    <div id="sib-container" className="sib-container--large sib-container--vertical" style={{textAlign: 'center', backgroundColor: 'rgba(255,255,255,1)', maxWidth: '540px', borderRadius: '3px', borderWidth: '1px', borderColor: '#C0CCD9', borderStyle: 'solid', direction: 'ltr'}}>
+                                        <form id="sib-form" method="POST" action="https://ebb9efec.sibforms.com/serve/MUIFAJlY3SgkoxDQKI_VJupwId32gWNo_LG8uNdLN1lsMSoKIjwKL02o2FXZLiRYEDwRscZE-ew0ADjtODYSfejKq_bskWf47PTHTrjBrv1mbHSOh407JrRT60DIKvB3vBK2NLrA11mc5RMYLs4wv-n1KTIY8wsZAN6655527WQURspcNrNscsjfI_L2CvUCyQD9vDAOTBnALgGm" data-type="subscription">
                                             
                                             <div style={{padding: '8px 0'}}>
                                                 <div className="sib-input sib-form-block">
                                                     <div className="form__entry entry_block">
-                                                        <div className="form__label-row">
-                                            <label className="entry__label" style={{fontWeight: 700, textAlign: 'center', fontSize: '16px', fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="FIRSTNAME" data-required="*">First Name</label>
+                                                        <div className="form__label-row ">
+                                                            <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="FIRSTNAME" data-required="*">First Name</label>
+                                                            
                                                             <div className="entry__field">
-                                                                <input className="input" maxLength={200} type="text" id="FIRSTNAME" name="FIRSTNAME" autoComplete="off" placeholder="Enter your first name" data-required="true" required />
+                                                                <input className="input " maxLength={200} type="text" id="FIRSTNAME" name="FIRSTNAME" autoComplete="off" placeholder="FIRSTNAME" data-required="true" required />
                                                             </div>
                                                         </div>
+                                                        
                                                         <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'center', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
+                                                        <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
+                                                            Customize this optional help text before publishing your form.
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,29 +195,35 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                             <div style={{padding: '8px 0'}}>
                                                 <div className="sib-input sib-form-block">
                                                     <div className="form__entry entry_block">
-                                                        <div className="form__label-row">
-                                                            <label className="entry__label" style={{fontWeight: 700, textAlign: 'center', fontSize: '16px', fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="EMAIL" data-required="*">Email Address</label>
+                                                        <div className="form__label-row ">
+                                                            <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="EMAIL" data-required="*">Email Address</label>
+                                                            
                                                             <div className="entry__field">
-                                                                <input className="input" type="email" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="Enter your email address" data-required="true" required />
+                                                                <input className="input " type="text" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="EMAIL" data-required="true" required />
                                                             </div>
                                                         </div>
+                                                        
                                                         <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'center', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
+                                                        <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
+                                                            Provide your email address to subscribe. For e.g abc@xyz.com
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                             <div style={{padding: '8px 0'}}>
-                                                <div className="sib-form-block" style={{textAlign: 'center'}}>
-                                                    <button className="sib-form-block__button sib-form-block__button-with-loader" style={{fontSize: '18px', textAlign: 'center', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#0b0b0b', backgroundColor: '#ffe22b', borderRadius: '8px', borderWidth: '0px', padding: '16px 32px', width: '100%', cursor: 'pointer'}} form="sib-form" type="submit">
-                                                        <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style={{display: 'none'}}>
+                                                <div className="sib-form-block" style={{textAlign: 'left'}}>
+                                                    <button className="sib-form-block__button sib-form-block__button-with-loader" style={{fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#0b0b0b', backgroundColor: '#ffe22b', borderRadius: '3px', borderWidth: '0px'}} form="sib-form" type="submit">
+                                                        <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style={{}}>
                                                             <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                                                         </svg>
-                                                        GET MY FREE AUDIOBOOK NOW!
+                                                        SUBSCRIBE
                                                     </button>
                                                 </div>
                                             </div>
 
-                                            <input type="text" name="email_address_check" value="" className="input--hidden" />
+                                            <input type="text" name="email_address_check" value="" className="input--hidden" readOnly />
+                                            <input type="hidden" name="locale" value="en" />
                                         </form>
                                     </div>
                                 </div>
@@ -238,6 +252,8 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                     var AUTOHIDE = Boolean(0);
                 `
             }} />
+            
+            <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
         </>
     );
 };
