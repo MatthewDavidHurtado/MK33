@@ -62,6 +62,15 @@ const FloatingPrompt: React.FC<FloatingPromptProps> = ({ onOpenPopup }) => {
                 </button>
 
                 <div className="p-4">
+                    {/* Product Image */}
+                    <div className="flex justify-center mb-3">
+                        <img 
+                            src="https://i.imgur.com/k99hIPs.png" 
+                            alt="Awaken The God Within Audiobook"
+                            className="w-16 h-20 object-cover rounded-md shadow-lg border border-gold-300/30"
+                        />
+                    </div>
+
                     {/* Header with icon */}
                     <div className="flex items-center gap-2 mb-2">
                         <SpeakerWaveIcon className="w-6 h-6 text-black" />
