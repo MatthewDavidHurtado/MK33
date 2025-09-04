@@ -1,5 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
 import TitheBanner from './components/TitheBanner';
 import SafariWarning from './components/SafariWarning';
@@ -13,8 +14,13 @@ import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
+import AudiobookPopup from './components/AudiobookPopup';
+import SuccessPage from './components/SuccessPage';
 
 const App: React.FC = () => {
+    // State for popup
+    const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+
     // State for Spiritual Treatment
     const [currentQuestion, setCurrentQuestion] = useState<string>('');
     const [submittedQuestion, setSubmittedQuestion] = useState<string>('');
@@ -100,7 +106,16 @@ const App: React.FC = () => {
         resetGnm();
     }, [resetGnm]);
 
-    return (
+    // Show popup after 30 seconds
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsPopupOpen(true);
+        }, 30000); // 30 seconds
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    const MainContent = () => (
         <div className="flex flex-col min-h-screen">
             <SafariWarning />
             <TitheBanner />
@@ -158,7 +173,22 @@ const App: React.FC = () => {
 
             </main>
             <Footer />
+            
+            {/* Audiobook Popup */}
+            <AudiobookPopup 
+                isOpen={isPopupOpen} 
+                onClose={() => setIsPopupOpen(false)} 
+            />
         </div>
+    );
+
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<MainContent />} />
+                <Route path="/success" element={<SuccessPage />} />
+            </Routes>
+        </Router>
     );
 };
 
