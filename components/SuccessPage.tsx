@@ -14,10 +14,6 @@ const HomeIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const SuccessPage: React.FC = () => {
-    const handleReturnHome = () => {
-        window.location.href = '/';
-    };
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black flex items-center justify-center p-4">
             <div className="max-w-2xl w-full text-center">
@@ -53,13 +49,15 @@ const SuccessPage: React.FC = () => {
                     </div>
 
                     {/* Return Home Button */}
-                    <button
-                        onClick={handleReturnHome}
+                    <a
+                        href="/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                     >
                         <HomeIcon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
                         <span className="tracking-wide">RETURN TO HOME</span>
-                    </button>
+                    </a>
 
                     {/* Additional Message */}
                     <div className="mt-8 pt-6 border-t border-slate-700/50">
