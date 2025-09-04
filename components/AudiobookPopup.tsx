@@ -210,7 +210,7 @@ const AudiobookPopup: React.FC<AudiobookPopupProps> = ({ isOpen, onClose }) => {
                                             </div>
 
                                             <input type="text" name="email_address_check" value="" className="input--hidden" />
-                                        <input type="text" name="email_address_check" defaultValue="" className="input--hidden" />
+                                        <input type="text" name="email_address_check" defaultValue="" className="input--hidden" readOnly />
                                         </form>
                                     </div>
                                 </div>
