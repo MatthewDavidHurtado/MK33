@@ -38,6 +38,7 @@ const MainApp: React.FC = () => {
 
     const handleFormSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
+        e.stopPropagation();
         const userQuestion = currentQuestion.trim();
         if (!userQuestion || isLoading) return;
 
