@@ -15,12 +15,11 @@ const SendIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, question, onQuestionChange }) => {
-    const handleInput = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        onQuestionChange(e.target.value);
-    }, [onQuestionChange]);
-
     const handleButtonClick = useCallback(() => {
-        if (!question.trim() || isLoading) return;
+        const textarea = document.getElementById('question-textarea') as HTMLTextAreaElement;
+        if (!textarea || !textarea.value.trim() || isLoading) return;
+        
+        onQuestionChange(textarea.value);
         
         // Create a synthetic form event
         const syntheticEvent = {
@@ -31,22 +30,14 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
         } as React.FormEvent;
         
         onSubmit(syntheticEvent);
-    }, [question, isLoading, onSubmit]);
-
-    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-            e.preventDefault();
-            handleButtonClick();
-        }
-    }, [handleButtonClick]);
+    }, [isLoading, onSubmit, onQuestionChange]);
 
     return (
         <div className="w-full max-w-2xl mx-auto">
             <div className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
                 <textarea
-                    value={question}
-                    onChange={handleInput}
-                    onKeyDown={handleKeyDown}
+                    id="question-textarea"
+                    defaultValue={question}
                     placeholder="What is going on that you'd like to address?"
                     className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow"
                     disabled={isLoading}
@@ -58,7 +49,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                 <button
                     type="button"
                     onClick={handleButtonClick}
-                    disabled={isLoading || !question.trim()}
+                    disabled={isLoading}
                     className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-gold-500 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gold-400 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed disabled:hover:bg-slate-600"
                     aria-label="Get a spiritual treatment for your concern"
                 >
