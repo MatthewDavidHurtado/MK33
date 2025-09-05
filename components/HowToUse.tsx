@@ -56,7 +56,7 @@ const HowToUse: React.FC = () => {
                             onPause={() => setIsPlaying(false)}
                             onEnded={() => setIsPlaying(false)}
                             src="https://healvideos.s3.us-east-2.amazonaws.com/MK+App-VEED.mp4"
-                            src="https://healvideos.s3.us-east-2.amazonaws.com/Mk+website+full+tutorial-VEED.mp4"
+                            controls
                             className="w-full h-full object-cover"
                             preload="metadata"
                             title="How to Use Malcolm Kingley's Spiritual Guidance App"
