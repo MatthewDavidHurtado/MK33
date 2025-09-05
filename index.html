@@ -48,13 +48,24 @@
 <style>
   html {
     scroll-behavior: auto !important;
+    overflow-x: hidden;
   }
   
   body {
     scroll-behavior: auto !important;
+    overflow-x: hidden;
   }
   
   * {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Prevent any unwanted scrolling */
+  textarea:focus {
+    scroll-behavior: auto !important;
+  }
+  
+  form:focus-within {
     scroll-behavior: auto !important;
   }
 </style>

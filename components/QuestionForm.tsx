@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import Spinner from './Spinner';
 
 const GlobeIcon: React.FC<{className?: string}> = ({className}) => (
@@ -22,44 +21,89 @@ const SendIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, question, onQuestionChange }) => {
-    const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const handleTextareaChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        e.stopPropagation();
         onQuestionChange(e.target.value);
-    };
+    }, [onQuestionChange]);
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = useCallback((e: React.FormEvent) => {
         e.preventDefault();
+        e.stopPropagation();
+        
         if (!question.trim() || isLoading) return;
+        
+        // Prevent any scrolling
+        const currentScrollY = window.scrollY;
+        
         onSubmit(e);
-    };
+        
+        // Restore scroll position if it changed
+        setTimeout(() => {
+            if (window.scrollY !== currentScrollY) {
+                window.scrollTo(0, currentScrollY);
+            }
+        }, 0);
+    }, [question, isLoading, onSubmit]);
 
-    const handleTextareaFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    const handleTextareaFocus = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
         e.stopPropagation();
-    };
+        // Prevent any default focus behavior that might cause scrolling
+        const currentScrollY = window.scrollY;
+        setTimeout(() => {
+            if (window.scrollY !== currentScrollY) {
+                window.scrollTo(0, currentScrollY);
+            }
+        }, 0);
+    }, []);
 
-    const handleTextareaClick = (e: React.MouseEvent<HTMLTextAreaElement>) => {
+    const handleTextareaClick = useCallback((e: React.MouseEvent<HTMLTextAreaElement>) => {
         e.stopPropagation();
-    };
+    }, []);
+
+    const handleTextareaKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        e.stopPropagation();
+        // Prevent any keyboard shortcuts that might cause scrolling
+        if (e.key === 'Home' || e.key === 'End' || e.key === 'PageUp' || e.key === 'PageDown') {
+            // Allow these keys but prevent bubbling
+            return;
+        }
+    }, []);
 
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <form onSubmit={handleFormSubmit} className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
+            <form 
+                ref={formRef}
+                onSubmit={handleFormSubmit} 
+                className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2"
+                style={{ scrollBehavior: 'auto' }}
+            >
                 <textarea
+                    ref={textareaRef}
                     value={question}
                     onChange={handleTextareaChange}
                     onFocus={handleTextareaFocus}
                     onClick={handleTextareaClick}
+                    onKeyDown={handleTextareaKeyDown}
                     placeholder="What is going on that you'd like to address?"
-                    className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow scroll-smooth"
+                    className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow"
                     disabled={isLoading}
                     rows={2}
                     aria-label="Your concern"
-                    style={{ scrollBehavior: 'auto' }}
+                    style={{ 
+                        scrollBehavior: 'auto',
+                        outline: 'none',
+                        border: 'none'
+                    }}
                 />
                 <button
                     type="submit"
                     disabled={isLoading || !question.trim()}
                     className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-gold-500 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gold-400 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed disabled:hover:bg-slate-600"
                     aria-label="Get a spiritual treatment for your concern"
+                    style={{ outline: 'none' }}
                 >
                     {isLoading ? (
                         <>
