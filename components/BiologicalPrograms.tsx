@@ -62,20 +62,26 @@ const BiologicalPrograms: React.FC<BiologicalProgramsProps> = ({
                 return (
                     <div className="p-6">
                         <h3 className="text-xl font-semibold text-slate-100 mb-4 text-center">Describe the physical symptoms.</h3>
-                         <textarea
-                            value={symptoms}
-                            onChange={(e) => setSymptoms(e.target.value)}
+                        <textarea
+                            id="symptoms-textarea"
+                            defaultValue={symptoms}
                             placeholder="For example: 'Pain in my right shoulder', 'eczema on my left elbow', 'a persistent cough'."
                             className="w-full h-32 p-3 text-slate-300 placeholder-slate-500 bg-slate-800/50 border border-slate-700 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
                             aria-label="Describe your physical symptoms"
                         />
                         {error && <p className="text-red-400 text-center mt-4">{error}</p>}
                         <div className="mt-4 flex justify-center">
-                             <button
-                                onClick={onSubmit}
+                            <button
+                                onClick={() => {
+                                    const textarea = document.getElementById('symptoms-textarea') as HTMLTextAreaElement;
+                                    if (textarea && textarea.value.trim()) {
+                                        setSymptoms(textarea.value.trim());
+                                        onSubmit();
+                                    }
+                                }}
                                 className="bg-gold-500 text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-gold-400 disabled:bg-slate-600 disabled:cursor-not-allowed disabled:text-slate-400 transition-all duration-300"
                             >
-                               {isLoading ? 'Analyzing...' : 'Get Analysis'}
+                                {isLoading ? 'Analyzing...' : 'Get Analysis'}
                             </button>
                         </div>
                     </div>
