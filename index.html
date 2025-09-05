@@ -65,8 +65,28 @@
     scroll-behavior: auto !important;
   }
   
+  textarea {
+    scroll-behavior: auto !important;
+  }
+  
+  textarea:active {
+    scroll-behavior: auto !important;
+  }
+  
   form:focus-within {
     scroll-behavior: auto !important;
+  }
+  
+  /* Nuclear option - disable ALL scroll behavior */
+  html, body, * {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Prevent focus from causing scroll */
+  textarea:focus, input:focus, button:focus {
+    scroll-behavior: auto !important;
+    scroll-margin: 0 !important;
+    scroll-padding: 0 !important;
   }
 </style>
 <script>
