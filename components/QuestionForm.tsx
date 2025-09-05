@@ -22,17 +22,31 @@ const SendIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, question, onQuestionChange }) => {
+    const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onQuestionChange(e.target.value);
+    };
+
+    const handleFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onSubmit(e);
+    };
+
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <form onSubmit={onSubmit} className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
+            <form onSubmit={handleFormSubmit} className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
                 <textarea
                     value={question}
-                    onChange={(e) => onQuestionChange(e.target.value)}
+                    onChange={handleTextareaChange}
                     placeholder="What is going on that you'd like to address?"
-                    className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 transition-all duration-300 flex-grow"
+                    className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow"
                     disabled={isLoading}
                     rows={2}
                     aria-label="Your concern"
+                    onFocus={(e) => e.stopPropagation()}
+                    onBlur={(e) => e.stopPropagation()}
                 />
                 <button
                     type="submit"
