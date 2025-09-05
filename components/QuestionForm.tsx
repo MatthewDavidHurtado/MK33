@@ -19,21 +19,34 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
         onQuestionChange(e.target.value);
     }, [onQuestionChange]);
 
-    const handleFormSubmit = useCallback((e: React.FormEvent) => {
-        e.preventDefault();
+    const handleButtonClick = useCallback(() => {
         if (!question.trim() || isLoading) return;
-        onSubmit(e);
+        
+        // Create a synthetic form event
+        const syntheticEvent = {
+            preventDefault: () => {},
+            stopPropagation: () => {},
+            target: null,
+            currentTarget: null
+        } as React.FormEvent;
+        
+        onSubmit(syntheticEvent);
     }, [question, isLoading, onSubmit]);
+
+    const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+            e.preventDefault();
+            handleButtonClick();
+        }
+    }, [handleButtonClick]);
 
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <form 
-                onSubmit={handleFormSubmit} 
-                className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2"
-            >
+            <div className="bg-slate-900/50 p-2 border border-slate-700/80 rounded-xl shadow-lg flex flex-col sm:flex-row items-center gap-2">
                 <textarea
                     value={question}
                     onChange={handleInput}
+                    onKeyDown={handleKeyDown}
                     placeholder="What is going on that you'd like to address?"
                     className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow"
                     disabled={isLoading}
@@ -41,10 +54,10 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                     aria-label="Your concern"
                     autoComplete="off"
                     spellCheck="false"
-                    style={{ scrollMargin: '0px' }}
                 />
                 <button
-                    type="submit"
+                    type="button"
+                    onClick={handleButtonClick}
                     disabled={isLoading || !question.trim()}
                     className="w-full sm:w-auto flex-shrink-0 flex items-center justify-center gap-2 bg-gold-500 text-slate-900 font-bold py-3 px-6 rounded-lg hover:bg-gold-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gold-400 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed disabled:hover:bg-slate-600"
                     aria-label="Get a spiritual treatment for your concern"
@@ -61,7 +74,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                         </>
                     )}
                 </button>
-            </form>
+            </div>
         </div>
     );
 };
