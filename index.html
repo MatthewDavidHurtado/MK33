@@ -48,30 +48,18 @@
 <style>
   html {
     overflow-x: hidden;
+    scroll-behavior: auto !important;
   }
   
   body {
     overflow-x: hidden;
   }
   
-  /* Prevent focus from causing scroll */
-  textarea:focus, input:focus, button:focus {
-    scroll-margin: 0 !important;
-    scroll-padding: 0 !important;
+  /* Prevent textarea focus from scrolling */
+  textarea:focus {
+    scroll-margin: 0;
+    scroll-padding: 0;
   }
-</style>
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1713522');
-</script>
-<!-- End MailerLite Universal -->
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
     "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
     "react/": "https://esm.sh/react@^19.1.0/",
     "@google/genai": "https://esm.sh/@google/genai@^1.9.0"

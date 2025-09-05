@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import Spinner from './Spinner';
 
 interface QuestionFormProps {
@@ -15,21 +15,9 @@ const SendIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, question, onQuestionChange }) => {
-    const scrollPositionRef = useRef<number>(0);
-
-    // Simple handler that just updates the value
     const handleInput = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
         onQuestionChange(e.target.value);
     }, [onQuestionChange]);
-
-    // Prevent scroll on focus
-    const handleFocus = useCallback(() => {
-        scrollPositionRef.current = window.pageYOffset;
-        // Small delay to override any browser scroll behavior
-        setTimeout(() => {
-            window.scrollTo(0, scrollPositionRef.current);
-        }, 10);
-    }, []);
 
     const handleFormSubmit = useCallback((e: React.FormEvent) => {
         e.preventDefault();
@@ -46,7 +34,6 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                 <textarea
                     value={question}
                     onChange={handleInput}
-                    onFocus={handleFocus}
                     placeholder="What is going on that you'd like to address?"
                     className="w-full h-24 sm:h-auto sm:min-h-[50px] resize-none p-3 text-slate-200 placeholder-slate-500 bg-transparent border-none focus:ring-0 focus:outline-none transition-all duration-300 flex-grow"
                     disabled={isLoading}
@@ -54,6 +41,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ onSubmit, isLoading, questi
                     aria-label="Your concern"
                     autoComplete="off"
                     spellCheck="false"
+                    style={{ scrollMargin: '0px' }}
                 />
                 <button
                     type="submit"
