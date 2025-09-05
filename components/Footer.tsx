@@ -37,6 +37,7 @@ const Footer: React.FC = () => {
                             src="https://healvideos.s3.us-east-2.amazonaws.com/permanent_overflow_is_yours_already_-_claim_it.+(720p).mp4"
                             className="w-full h-full"
                             preload="metadata"
+                            controls
                             title="A Message on Tithing from Malcolm Kingley"
                         >
                             Your browser does not support the video tag.
