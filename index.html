@@ -55,10 +55,15 @@
     overflow-x: hidden;
   }
   
-  /* Prevent textarea focus from scrolling */
-  textarea:focus {
-    scroll-margin: 0;
-    scroll-padding: 0;
+  /* Completely disable any scroll behavior on focus */
+  * {
+    scroll-margin: 0 !important;
+    scroll-padding: 0 !important;
+  }
+  
+  textarea, input {
+    scroll-margin: 0 !important;
+    scroll-padding: 0 !important;
   }
 </style>
 <link rel="stylesheet" href="/index.css">
