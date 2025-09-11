@@ -1,9 +1,16 @@
 
 import React, { useState, useRef } from 'react';
 
+const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clipRule="evenodd" />
+    </svg>
+);
+
 const Footer: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isDisclaimerExpanded, setIsDisclaimerExpanded] = useState(false);
 
     const handlePlayClick = () => {
         const video = videoRef.current;
@@ -117,25 +124,45 @@ const Footer: React.FC = () => {
                         © 2025 Allow Ministries. App design and concept based on Divine Law principles.
                     </p>
                     
-                    <div className="!mt-8 p-4 bg-slate-800/30 border border-slate-700/50 rounded-lg">
-                        <p className="text-xs text-slate-400 leading-relaxed">
-                            <strong className="text-slate-300">Application Disclaimer:</strong> This application provides simulated healing reflections based on the principles of Divine Law, as interpreted by an AI embodying Malcolm Kingley. It is intended for inspirational and educational purposes only.
-                        </p>
-                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
-                            It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
-                        </p>
-                        <p className="text-xs text-slate-400 leading-relaxed mt-4">
-                            <strong className="text-slate-300">General Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
-                        </p>
-                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
-                            Any suggested practices, interpretations, or teachings are based solely on the personal beliefs and scriptural understandings of Malcolm Kingley and are intended only for symbolic, allegorical, and faith-based reflection.
-                        </p>
-                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
-                            Participation in any offering is voluntary, and any donations made are gifts of support to our private spiritual ministry in exchange for access to fictional and faith-oriented works. Donations do not constitute purchase of services, nor do they create any guarantee, warranty, or promise of financial success, personal transformation, healing, or specific outcome.
-                        </p>
-                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
-                            By engaging with this site or making a donation, you acknowledge that all content exists exclusively within the realm of spiritual belief, religious fiction, and personal interpretation of scripture, and you accept full responsibility for your own choices and outcomes.
-                        </p>
+                    <div className="!mt-8 bg-slate-800/30 border border-slate-700/50 rounded-lg overflow-hidden">
+                        <button
+                            onClick={() => setIsDisclaimerExpanded(!isDisclaimerExpanded)}
+                            className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors duration-300"
+                        >
+                            <span className="text-sm font-medium text-slate-300">Important Disclaimers</span>
+                            <ChevronDownIcon 
+                                className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                                    isDisclaimerExpanded ? 'rotate-180' : ''
+                                }`} 
+                            />
+                        </button>
+                        
+                        <div 
+                            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                isDisclaimerExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+                            }`}
+                        >
+                            <div className="px-4 pb-4 border-t border-slate-700/50">
+                                <p className="text-xs text-slate-400 leading-relaxed mt-3">
+                                    <strong className="text-slate-300">Application Disclaimer:</strong> This application provides simulated healing reflections based on the principles of Divine Law, as interpreted by an AI embodying Malcolm Kingley. It is intended for inspirational and educational purposes only.
+                                </p>
+                                <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                    It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
+                                </p>
+                                <p className="text-xs text-slate-400 leading-relaxed mt-4">
+                                    <strong className="text-slate-300">General Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
+                                </p>
+                                <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                    Any suggested practices, interpretations, or teachings are based solely on the personal beliefs and scriptural understandings of Malcolm Kingley and are intended only for symbolic, allegorical, and faith-based reflection.
+                                </p>
+                                <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                    Participation in any offering is voluntary, and any donations made are gifts of support to our private spiritual ministry in exchange for access to fictional and faith-oriented works. Donations do not constitute purchase of services, nor do they create any guarantee, warranty, or promise of financial success, personal transformation, healing, or specific outcome.
+                                </p>
+                                <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                    By engaging with this site or making a donation, you acknowledge that all content exists exclusively within the realm of spiritual belief, religious fiction, and personal interpretation of scripture, and you accept full responsibility for your own choices and outcomes.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
