@@ -123,6 +123,21 @@ const Footer: React.FC = () => {
                     <p className="!mt-6">
                         © 2025 Allow Ministries. App design and concept based on Divine Law principles.
                     </p>
+                    
+                    <div className="!mt-8 p-4 bg-slate-800/30 border border-slate-700/50 rounded-lg">
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                            <strong className="text-slate-300">Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
+                        </p>
+                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                            Any suggested practices, interpretations, or teachings are based solely on the personal beliefs and scriptural understandings of Malcolm Kingley and are intended only for symbolic, allegorical, and faith-based reflection.
+                        </p>
+                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                            Participation in any offering is voluntary, and any donations made are gifts of support to our private spiritual ministry in exchange for access to fictional and faith-oriented works. Donations do not constitute purchase of services, nor do they create any guarantee, warranty, or promise of financial success, personal transformation, healing, or specific outcome.
+                        </p>
+                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                            By engaging with this site or making a donation, you acknowledge that all content exists exclusively within the realm of spiritual belief, religious fiction, and personal interpretation of scripture, and you accept full responsibility for your own choices and outcomes.
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>
