@@ -79,13 +79,6 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className="text-xs text-slate-500 space-y-4 max-w-3xl mx-auto !mt-12">
-                    <p>
-                        This application provides simulated healing reflections based on the principles of Divine Law, as interpreted by an AI embodying Malcolm Kingley. It is intended for inspirational and educational purposes only.
-                    </p>
-                    <p>
-                        It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
-                    </p>
-
                     <div className="!mt-8 flex flex-col items-center">
                         <p className="font-cinzel text-3xl font-bold text-slate-200 mb-3">
                             ALLOW
@@ -126,7 +119,13 @@ const Footer: React.FC = () => {
                     
                     <div className="!mt-8 p-4 bg-slate-800/30 border border-slate-700/50 rounded-lg">
                         <p className="text-xs text-slate-400 leading-relaxed">
-                            <strong className="text-slate-300">Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
+                            <strong className="text-slate-300">Application Disclaimer:</strong> This application provides simulated healing reflections based on the principles of Divine Law, as interpreted by an AI embodying Malcolm Kingley. It is intended for inspirational and educational purposes only.
+                        </p>
+                        <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                            It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
+                        </p>
+                        <p className="text-xs text-slate-400 leading-relaxed mt-4">
+                            <strong className="text-slate-300">General Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
                         </p>
                         <p className="text-xs text-slate-400 leading-relaxed mt-2">
                             Any suggested practices, interpretations, or teachings are based solely on the personal beliefs and scriptural understandings of Malcolm Kingley and are intended only for symbolic, allegorical, and faith-based reflection.
