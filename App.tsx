@@ -2,6 +2,7 @@
 import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
+import PasswordProtection from './components/PasswordProtection';
 import TitheBanner from './components/TitheBanner';
 import SafariWarning from './components/SafariWarning';
 import NavigationSection from './components/NavigationSection';
@@ -19,6 +20,9 @@ import SignupPage from './components/SignupPage';
 import FloatingPrompt from './components/FloatingPrompt';
 
 const MainApp: React.FC = () => {
+    // Password protection state
+    const [isUnlocked, setIsUnlocked] = useState(false);
+    
     // State for Spiritual Treatment
     const [currentQuestion, setCurrentQuestion] = useState<string>('');
     const [submittedQuestion, setSubmittedQuestion] = useState<string>('');
@@ -104,6 +108,18 @@ const MainApp: React.FC = () => {
         setGnmVisible(false);
         resetGnm();
     }, [resetGnm]);
+
+    // If not unlocked, show password protection with limited access
+    if (!isUnlocked) {
+        return (
+            <div className="flex flex-col min-h-screen">
+                <SafariWarning />
+                <TitheBanner />
+                <PasswordProtection onUnlock={() => setIsUnlocked(true)} />
+                <FloatingPrompt />
+            </div>
+        );
+    }
 
     const MainContent = () => (
         <div className="flex flex-col min-h-screen">
