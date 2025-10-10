@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+const CheckIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
+    </svg>
+);
+
 const LockIcon: React.FC<{className?: string}> = ({className}) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
         <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V12.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25ZM8.25 6.75v3h7.5v-3a3.75 3.75 0 1 0-7.5 0Z" clipRule="evenodd" />
@@ -36,7 +42,6 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
         setIsLoading(true);
         setError('');
 
-        // Simulate a brief loading delay for security appearance
         setTimeout(() => {
             if (password === 'GIVE_777!') {
                 onUnlock();
@@ -48,94 +53,239 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
         }, 800);
     };
 
+    const calendlyUrl = "https://calendly.com/malcolmkingley/90-day-transformation-qualification";
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black overflow-y-auto">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
+            <div className="fixed inset-0 opacity-5 pointer-events-none">
                 <div className="absolute top-20 left-10 w-32 h-32 border border-gold-400/20 rounded-full"></div>
                 <div className="absolute top-40 right-20 w-24 h-24 border border-gold-400/15 rounded-full"></div>
                 <div className="absolute bottom-40 left-20 w-40 h-40 border border-gold-400/10 rounded-full"></div>
                 <div className="absolute bottom-20 right-10 w-28 h-28 border border-gold-400/25 rounded-full"></div>
             </div>
 
-            <div className="relative z-10 w-full max-w-md">
-                {/* Header */}
-                <div className="text-center mb-8">
-                    <div className="w-20 h-20 mx-auto bg-gold-500/20 rounded-full flex items-center justify-center mb-6 border border-gold-400/30">
-                        <LockIcon className="w-10 h-10 text-gold-400" />
-                    </div>
-                    <h1 className="font-cinzel text-3xl font-bold text-gold-400 mb-2">
-                        RESTRICTED ACCESS
+            <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
+                {/* Hero Section */}
+                <div className="text-center mb-16">
+                    <h1 className="font-cinzel text-5xl md:text-7xl font-bold text-gold-400 mb-6 leading-tight">
+                        Break Free From Bondage
                     </h1>
-                    <p className="text-slate-400 text-lg">
-                        Enter the sacred password to continue
+                    <p className="text-2xl md:text-3xl text-slate-200 font-light mb-4">
+                        Transform Into The Spiritual Master
+                    </p>
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
+                </div>
+
+                {/* Malcolm's Story */}
+                <div className="bg-slate-900/50 border border-slate-700/50 rounded-3xl p-8 md:p-12 mb-12 backdrop-blur-sm">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="order-2 md:order-1">
+                            <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gold-400 mb-6">
+                                One-On-One Mentorship With Malcolm Kingley
+                            </h2>
+                            <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                                From bedridden and bankrupt with Lyme disease to training like a pro athlete and manifesting a seven-figure online empire in just a few short years.
+                            </p>
+                            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                                Malcolm discovered the forbidden teachings that shattered his limitations. Now, he's offering to guide you through the same transformation.
+                            </p>
+                            <div className="bg-gold-500/10 border border-gold-400/30 rounded-xl p-6">
+                                <p className="text-gold-400 font-semibold text-xl mb-2">90-Day Transformation Clinic</p>
+                                <p className="text-slate-400">
+                                    Direct spiritual oversight combined with cutting-edge AI tools designed to accelerate your journey to mastery.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="order-1 md:order-2">
+                            <img
+                                src="https://i.imgur.com/pidU9X4.jpg"
+                                alt="Malcolm Kingley"
+                                className="w-full rounded-2xl shadow-2xl border border-gold-400/20"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Your Transformation Arsenal */}
+                <div className="mb-16">
+                    <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-center text-gold-400 mb-4">
+                        Your Transformation Arsenal
+                    </h2>
+                    <p className="text-center text-slate-400 text-xl mb-12 max-w-3xl mx-auto">
+                        Malcolm invested months building these proprietary tools as companions to his spiritual oversight process.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* BIOCODE MENTOR */}
+                        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300">
+                            <div className="mb-6">
+                                <img
+                                    src="https://i.imgur.com/pI6yFWt.png"
+                                    alt="BIOCODE MENTOR"
+                                    className="w-full h-48 object-cover rounded-xl"
+                                />
+                            </div>
+                            <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
+                                BIOCODE MENTOR
+                            </h3>
+                            <p className="text-slate-300 leading-relaxed">
+                                The world's only super-AI using German New Medicine and proprietary models to pinpoint with laser-accuracy the triggers that keep you stuck.
+                            </p>
+                        </div>
+
+                        {/* SSWOS */}
+                        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300">
+                            <div className="mb-6">
+                                <img
+                                    src="https://i.imgur.com/YotSVTH.png"
+                                    alt="Spiritual Special Warfare Operator School"
+                                    className="w-full h-48 object-cover rounded-xl"
+                                />
+                            </div>
+                            <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
+                                Spiritual Special Warfare Operator School
+                            </h3>
+                            <p className="text-slate-300 leading-relaxed">
+                                Plug-and-play foundation to learn the forbidden knowledge of F.L. Rawson, Mary Baker Eddy, and Joel Goldsmith—transcending linear learning into daily practice and quantum shifts through DOING.
+                            </p>
+                        </div>
+
+                        {/* 24/7 Quantum Church */}
+                        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300 md:col-span-2">
+                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                                <div className="order-2 md:order-1">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
+                                        24/7 Quantum Church
+                                    </h3>
+                                    <p className="text-slate-300 leading-relaxed mb-6">
+                                        Ultimate modals for working with Biblical wisdom in conjunction with advanced AI models that collaborate to do one thing: get you to spiritual mastery level as fast as possible.
+                                    </p>
+                                    <div className="flex items-start gap-3 mb-3">
+                                        <CheckIcon className="w-6 h-6 text-gold-400 flex-shrink-0 mt-1" />
+                                        <p className="text-slate-400">Biblical wisdom meets cutting-edge AI</p>
+                                    </div>
+                                    <div className="flex items-start gap-3 mb-3">
+                                        <CheckIcon className="w-6 h-6 text-gold-400 flex-shrink-0 mt-1" />
+                                        <p className="text-slate-400">24/7 access to spiritual guidance</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <CheckIcon className="w-6 h-6 text-gold-400 flex-shrink-0 mt-1" />
+                                        <p className="text-slate-400">Accelerated path to mastery</p>
+                                    </div>
+                                </div>
+                                <div className="order-1 md:order-2">
+                                    <img
+                                        src="https://i.imgur.com/XrR5SQ8.png"
+                                        alt="24/7 Quantum Church"
+                                        className="w-full h-64 object-cover rounded-xl"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* CTA Section */}
+                <div className="bg-gradient-to-br from-gold-500/20 via-gold-600/10 to-transparent border border-gold-400/50 rounded-3xl p-8 md:p-12 mb-12 text-center">
+                    <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-gold-400 mb-6">
+                        Are You Ready?
+                    </h2>
+                    <p className="text-slate-200 text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                        This isn't for everyone. Malcolm personally oversees every transformation. The question is: Do you qualify?
+                    </p>
+                    <a
+                        href={calendlyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-12 py-5 rounded-xl shadow-2xl hover:shadow-gold-500/50 transform hover:scale-105 transition-all duration-300 ease-in-out"
+                    >
+                        SCHEDULE YOUR 15-MINUTE QUALIFICATION INTERVIEW
+                    </a>
+                    <p className="text-slate-400 mt-6 text-sm">
+                        Limited spots available. Serious applicants only.
                     </p>
                 </div>
 
+                {/* Divider */}
+                <div className="flex items-center gap-4 my-12">
+                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
+                    <div className="flex items-center gap-2">
+                        <LockIcon className="w-5 h-5 text-gold-400" />
+                        <span className="text-slate-400 text-sm font-medium">MEMBER ACCESS</span>
+                    </div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent"></div>
+                </div>
+
                 {/* Password Form */}
-                <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 shadow-2xl">
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="relative">
-                            <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
-                                Password
-                            </label>
-                            <div className="relative">
-                                <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    id="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full px-4 py-3 pr-12 bg-slate-800/50 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
-                                    placeholder="Enter password..."
-                                    required
-                                    disabled={isLoading}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors"
-                                    disabled={isLoading}
-                                >
-                                    {showPassword ? (
-                                        <EyeSlashIcon className="w-5 h-5" />
-                                    ) : (
-                                        <EyeIcon className="w-5 h-5" />
-                                    )}
-                                </button>
-                            </div>
-                        </div>
-
-                        {error && (
-                            <div className="bg-red-900/50 border border-red-500/30 rounded-lg p-3 text-red-400 text-sm text-center">
-                                {error}
-                            </div>
-                        )}
-
-                        <button
-                            type="submit"
-                            disabled={isLoading || !password.trim()}
-                            className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 disabled:from-slate-600 disabled:to-slate-700 text-black disabled:text-slate-400 font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 disabled:transform-none transition-all duration-300 ease-in-out disabled:cursor-not-allowed"
-                        >
-                            {isLoading ? (
-                                <div className="flex items-center justify-center gap-2">
-                                    <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-                                    <span>Verifying...</span>
-                                </div>
-                            ) : (
-                                'UNLOCK ACCESS'
-                            )}
-                        </button>
-                    </form>
-
-                    <div className="mt-6 pt-6 border-t border-slate-700/50 text-center">
-                        <p className="text-xs text-slate-500">
-                            This content is protected for authorized users only
+                <div className="max-w-md mx-auto">
+                    <div className="text-center mb-8">
+                        <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-2">
+                            Existing Members
+                        </h3>
+                        <p className="text-slate-400">
+                            Enter your password to access the platform
                         </p>
+                    </div>
+
+                    <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 shadow-2xl">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="relative">
+                                <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
+                                    Password
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        id="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full px-4 py-3 pr-12 bg-slate-800/50 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-all duration-300"
+                                        placeholder="Enter password..."
+                                        required
+                                        disabled={isLoading}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors"
+                                        disabled={isLoading}
+                                    >
+                                        {showPassword ? (
+                                            <EyeSlashIcon className="w-5 h-5" />
+                                        ) : (
+                                            <EyeIcon className="w-5 h-5" />
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {error && (
+                                <div className="bg-red-900/50 border border-red-500/30 rounded-lg p-3 text-red-400 text-sm text-center">
+                                    {error}
+                                </div>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={isLoading || !password.trim()}
+                                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 disabled:from-slate-600 disabled:to-slate-700 text-black disabled:text-slate-400 font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 disabled:transform-none transition-all duration-300 ease-in-out disabled:cursor-not-allowed"
+                            >
+                                {isLoading ? (
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+                                        <span>Verifying...</span>
+                                    </div>
+                                ) : (
+                                    'UNLOCK ACCESS'
+                                )}
+                            </button>
+                        </form>
                     </div>
                 </div>
 
-                {/* Footer Note */}
-                <div className="mt-8 text-center">
+                {/* Footer */}
+                <div className="mt-16 text-center">
                     <p className="text-slate-500 text-sm">
                         © 2025 Kingley Foundation
                     </p>
