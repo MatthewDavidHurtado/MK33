@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
                             className="w-24 h-auto mb-4 opacity-80"
                         />
                         <p className="font-semibold text-slate-400 text-center">
-                            ALLOW MINISTRIES is a 508(C)(1)(A) - Registered in the State of Washington.
+                            KINGLEY FOUNDATION is a 508(C)(1)(A) - Registered in the State of Washington.
                         </p>
                     </div>
 
