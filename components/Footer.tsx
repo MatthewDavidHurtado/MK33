@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
                     </div>
                     
                     <p className="!mt-6">
-                        © 2025 Allow Ministries. App design and concept based on Divine Law principles.
+                        © 2025 KINGLEY FOUNDATION. App design and concept based on Divine Law principles.
                     </p>
                     
                     <div className="!mt-8 bg-slate-800/30 border border-slate-700/50 rounded-lg overflow-hidden">
