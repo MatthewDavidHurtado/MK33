@@ -53,7 +53,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
         }, 800);
     };
 
-    const calendlyUrl = "https://calendly.com/malcolmkingley/90-day-transformation-qualification";
+    const calendlyUrl = "https://calendly.com/sealintelligence/spiritual-consultation";
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black overflow-y-auto">
