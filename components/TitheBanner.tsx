@@ -8,7 +8,7 @@ const HeartIcon: React.FC<{className?: string}> = ({className}) => (
 
 const TitheBanner: React.FC = () => {
     return (
-        <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg">
+        <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg relative z-50">
             <div className="container mx-auto max-w-6xl px-4 py-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     {/* Left side - Message */}

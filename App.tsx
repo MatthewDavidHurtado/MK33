@@ -115,7 +115,7 @@ const MainApp: React.FC = () => {
             <div className="flex flex-col min-h-screen">
                 <SafariWarning />
                 {/* Simplified banner for password protection screen */}
-                <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg">
+                <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg relative z-50">
                     <div className="container mx-auto max-w-6xl px-4 py-4">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                             {/* Left side - Message */}
@@ -127,9 +127,9 @@ const MainApp: React.FC = () => {
                                     The Tithe and Faith-Seed Sowing Law
                                 </p>
                             </div>
-                            
+
                             {/* Right side - Buttons */}
-                            <div className="flex-shrink-0 flex items-center gap-3">
+                            <div className="flex-shrink-0 flex items-center gap-3 relative z-50">
                                 <a
                                     href="https://www.biocodementor.com"
                                     target="_blank"
