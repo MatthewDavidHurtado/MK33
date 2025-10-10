@@ -137,7 +137,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                 {/* Footer Note */}
                 <div className="mt-8 text-center">
                     <p className="text-slate-500 text-sm">
-                        © 2025 Allow Ministries Foundation
+                        © 2025 Kingley Foundation
                     </p>
                 </div>
             </div>
