@@ -111,7 +111,7 @@ const SignupPage: React.FC = () => {
                                             <div className="sib-input sib-form-block">
                                                 <div className="form__entry entry_block">
                                                     <div className="form__label-row ">
-                                                        <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="FIRSTNAME" data-required="*">First Name</label>
+                                                        <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="FIRSTNAME" data-required="*">First Name</label>
                                                         
                                                         <div className="entry__field">
                                                             <input className="input " maxLength={200} type="text" id="FIRSTNAME" name="FIRSTNAME" autoComplete="off" placeholder="FIRSTNAME" data-required="true" required />
@@ -119,7 +119,7 @@ const SignupPage: React.FC = () => {
                                                     </div>
                                                     
                                                     <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
-                                                    <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
+                                                    <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4'}}>
                                                         Customize this optional help text before publishing your form.
                                                     </label>
                                                 </div>
@@ -130,7 +130,7 @@ const SignupPage: React.FC = () => {
                                             <div className="sib-input sib-form-block">
                                                 <div className="form__entry entry_block">
                                                     <div className="form__label-row ">
-                                                        <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="EMAIL" data-required="*">Email Address</label>
+                                                        <label className="entry__label" style={{fontWeight: 700, textAlign: 'left', fontSize: '16px', fontFamily: 'Helvetica, sans-serif', color: '#3c4858'}} htmlFor="EMAIL" data-required="*">Email Address</label>
                                                         
                                                         <div className="entry__field">
                                                             <input className="input " type="text" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="EMAIL" data-required="true" required />
@@ -138,7 +138,7 @@ const SignupPage: React.FC = () => {
                                                     </div>
                                                     
                                                     <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
-                                                    <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4', textAlign: 'left'}}>
+                                                    <label className="entry__specification" style={{fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4'}}>
                                                         Provide your email address to subscribe. For e.g abc@xyz.com
                                                     </label>
                                                 </div>
