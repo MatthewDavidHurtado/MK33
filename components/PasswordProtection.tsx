@@ -68,11 +68,11 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
             <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
                 {/* Hero Section */}
                 <div className="text-center mb-16">
-                    <h1 className="font-cinzel text-5xl md:text-7xl font-bold text-gold-400 mb-6 leading-tight">
-                        Break Free From Bondage
+                    <h1 className="font-cinzel text-4xl md:text-6xl font-bold text-gold-400 mb-6 leading-tight">
+                        At Last, The Spiritual Mentorship Training You've Dreamed About Is Finally Here.
                     </h1>
                     <p className="text-2xl md:text-3xl text-slate-200 font-light mb-4">
-                        Transform Into The Spiritual Master
+                        Yes, You CAN Become a Person of Power, Influence, and Possess Unbeatable Spiritual Mastery
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
                 </div>
