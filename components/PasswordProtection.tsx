@@ -72,7 +72,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                         At Last, The Spiritual Mentorship Training You've Dreamed About Is Finally Here.
                     </h1>
                     <p className="text-2xl md:text-3xl text-slate-200 font-light mb-4">
-                        Yes, You CAN Become a Person of Power, Influence, and Possess Unbeatable Spiritual Mastery
+                        Yes, You CAN Become a Person of Power, Influence, <span className="hidden md:inline"><br /></span>and Possess Unbeatable Spiritual Mastery
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
                 </div>
