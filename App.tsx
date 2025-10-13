@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
 import PasswordProtection from './components/PasswordProtection';
@@ -20,8 +20,20 @@ import SignupPage from './components/SignupPage';
 import FloatingPrompt from './components/FloatingPrompt';
 
 const MainApp: React.FC = () => {
-    // Password protection state
-    const [isUnlocked, setIsUnlocked] = useState(false);
+    // Password protection state with expiration check
+    const [isUnlocked, setIsUnlocked] = useState(() => {
+        const unlockTime = localStorage.getItem('unlockTime');
+        if (unlockTime) {
+            const elapsed = Date.now() - parseInt(unlockTime, 10);
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            if (elapsed < twentyFourHours) {
+                return true;
+            } else {
+                localStorage.removeItem('unlockTime');
+            }
+        }
+        return false;
+    });
     
     // State for Spiritual Treatment
     const [currentQuestion, setCurrentQuestion] = useState<string>('');
@@ -153,7 +165,10 @@ const MainApp: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <PasswordProtection onUnlock={() => setIsUnlocked(true)} />
+                <PasswordProtection onUnlock={() => {
+                    setIsUnlocked(true);
+                    localStorage.setItem('unlockTime', Date.now().toString());
+                }} />
                 <FloatingPrompt />
             </div>
         );
