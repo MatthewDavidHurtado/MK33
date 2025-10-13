@@ -69,10 +69,10 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                 {/* Hero Section */}
                 <div className="text-center mb-16">
                     <h1 className="font-cinzel text-4xl md:text-6xl font-bold text-gold-400 mb-6 leading-tight">
-                        At Last, The Spiritual Mentorship Training You've Dreamed About Is Finally Here.
+                        How I Went from Bedridden and Broke to Building a 7-Figure Purpose-Driven Business in Record Time
                     </h1>
                     <p className="text-2xl md:text-3xl text-slate-200 font-light mb-4">
-                        Yes, You CAN Become a Person of Power, Influence, <span className="hidden md:inline"><br /></span>and Possess Unbeatable Spiritual Mastery
+                        Discover the exact spiritual and mental framework I used—no connections, no outside backing—just forbidden knowledge!
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
                 </div>
