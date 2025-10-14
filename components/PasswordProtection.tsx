@@ -71,9 +71,28 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                     <h1 className="font-cinzel text-4xl md:text-6xl font-bold text-gold-400 mb-6 leading-tight">
                         How I Went from Bedridden and Broke to Building a 7-Figure Purpose-Driven Business in Record Time
                     </h1>
-                    <p className="text-2xl md:text-3xl text-slate-200 font-light mb-4">
+                    <p className="text-2xl md:text-3xl text-slate-200 font-light mb-8">
                         Discover the exact spiritual and mental framework I used—no connections, no outside backing—just forbidden knowledge!
                     </p>
+
+                    {/* Video Container */}
+                    <div className="max-w-5xl mx-auto mb-6">
+                        <div className="relative bg-slate-900/50 border-2 border-gold-400/30 rounded-2xl p-2 shadow-2xl hover:border-gold-400/50 transition-all duration-300">
+                            <div className="relative" style={{ paddingBottom: '56.25%' }}>
+                                <video
+                                    controls
+                                    playsInline
+                                    preload="metadata"
+                                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                                    style={{ objectFit: 'contain' }}
+                                >
+                                    <source src="https://healvideos.s3.us-east-2.amazonaws.com/Malcolm+Kingley+One-On-One+VIP-VEED.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="w-24 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
                 </div>
 
