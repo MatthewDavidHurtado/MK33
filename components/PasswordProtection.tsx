@@ -36,6 +36,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isDisclaimerExpanded, setIsDisclaimerExpanded] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -303,11 +304,88 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                     </div>
                 </div>
 
-                {/* Footer */}
-                <div className="mt-16 text-center">
-                    <p className="text-slate-500 text-sm">
-                        © 2025 Kingley Foundation
-                    </p>
+                {/* Footer Section */}
+                <div className="mt-20 pt-12 border-t border-slate-700/50">
+                    <div className="text-xs text-slate-500 space-y-4 max-w-3xl mx-auto">
+                        <div className="flex flex-col items-center">
+                            <p className="font-cinzel text-3xl font-bold text-slate-200 mb-3">
+                                ALLOW
+                            </p>
+                            <img
+                                src="https://i.imgur.com/zDr7njf.png"
+                                alt="Allow Ministries Logo"
+                                className="w-24 h-auto mb-4 opacity-80"
+                            />
+                            <p className="font-semibold text-slate-400 text-center">
+                                KINGLEY FOUNDATION is a 508(C)(1)(A) - Registered in the State of Washington.
+                            </p>
+                        </div>
+
+                        <div className="flex justify-center items-center gap-x-2 gap-y-1 flex-wrap !mt-8">
+                            <a href="https://thereisnothingbutgod.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Privacy Policy</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://thereisnothingbutgod.com/terms-conditions-1#fabb29ed-cba7-4721-bc63-139a4b4ec7a8" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Terms and Conditions</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://thereisnothingbutgod.com/disclaimer" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Disclaimer</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://thereisnothingbutgod.com/gdpr" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">GDPR</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://thereisnothingbutgod.com/cookie-policy" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Cookie Policy</a>
+                        </div>
+
+                        <div className="flex justify-center items-center gap-x-4 gap-y-1 flex-wrap !mt-4">
+                            <a href="https://app.ardrive.io/#/file/1f5d713c-d94e-4036-b6fe-faf29a2d7505/view" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">Ministry Documentation</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://malcolm-s-workspace-759385455270.us-west1.run.app" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Workspace</a>
+                            <span className="text-slate-600">|</span>
+                            <a href="https://bio-code-mentor-malcolm-kingley-779946580524.us-west1.run.app/" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">MK Private Client Portal</a>
+                        </div>
+
+                        <p className="!mt-6 text-center">
+                            © 2025 KINGLEY FOUNDATION. App design and concept based on Divine Law principles.
+                        </p>
+
+                        <div className="!mt-8 bg-slate-800/30 border border-slate-700/50 rounded-lg overflow-hidden">
+                            <button
+                                onClick={() => setIsDisclaimerExpanded(!isDisclaimerExpanded)}
+                                className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-slate-700/30 transition-colors duration-300"
+                            >
+                                <span className="text-sm font-medium text-slate-300">Important Disclaimers</span>
+                                <ChevronDownIcon
+                                    className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                                        isDisclaimerExpanded ? 'rotate-180' : ''
+                                    }`}
+                                />
+                            </button>
+
+                            <div
+                                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                    isDisclaimerExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+                                }`}
+                            >
+                                <div className="px-4 pb-4 border-t border-slate-700/50">
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-3">
+                                        <strong className="text-slate-300">Application Disclaimer:</strong> This application provides simulated healing reflections based on the principles of Divine Law, as interpreted by an AI embodying Malcolm Kingley. It is intended for inspirational and educational purposes only.
+                                    </p>
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                        It is not a substitute for personal reflection, study of Divine Law, guidance from a qualified practitioner, or professional medical or psychological advice. The AI's responses, including any suggestions related to emotional conflicts (inspired by Dr. Hamer's discoveries/German New Medicine), are generated for self-reflection and are not diagnostic. They do not represent actual healing treatments or personal counsel from Malcolm Kingley or any specific authority on Divine Law or German New Medicine.
+                                    </p>
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-4">
+                                        <strong className="text-slate-300">General Disclaimer:</strong> All materials, features, applications, writings, and programs presented on MalcolmKingley.com are offered strictly as works of spiritual exploration and religious fiction. Nothing contained herein shall be misconstrued as medical, legal, financial, or professional advice of any kind.
+                                    </p>
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                        Any suggested practices, interpretations, or teachings are based solely on the personal beliefs and scriptural understandings of Malcolm Kingley and are intended only for symbolic, allegorical, and faith-based reflection.
+                                    </p>
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                        Participation in any offering is voluntary, and any donations made are gifts of support to our private spiritual ministry in exchange for access to fictional and faith-oriented works. Donations do not constitute purchase of services, nor do they create any guarantee, warranty, or promise of financial success, personal transformation, healing, or specific outcome.
+                                    </p>
+                                    <p className="text-xs text-slate-400 leading-relaxed mt-2">
+                                        By engaging with this site or making a donation, you acknowledge that all content exists exclusively within the realm of spiritual belief, religious fiction, and personal interpretation of scripture, and you accept full responsibility for your own choices and outcomes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
