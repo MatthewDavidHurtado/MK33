@@ -57,14 +57,12 @@ const HeroSection: React.FC = () => {
 
                     {/* Main Headline */}
                     <h1 className="font-cinzel text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-8 max-w-5xl mx-auto">
-                        The "Instant Hotline to God" That Deleted My{' '}
-                        <span className="text-gold-400">Lyme Disease, PTSD, and Bankruptcy</span>
-                        {' '}—With AI-Enhanced Mentorship
+                        Meet Your New <span className="text-gold-400">Butler.</span>
                     </h1>
 
                     {/* Subheadline */}
                     <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-300 font-lora leading-relaxed max-w-4xl mx-auto">
-                        Most manifestation gurus fumble Divine Laws—watering truth down to hustle, grind, or shallow positivity.
+                        Every Sovereign Child of God Deserves Their Own Divinely-Trained Professional Companion
                     </h2>
                 </div>
 
