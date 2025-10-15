@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
                                 onPlay={() => setIsPlaying(true)}
                                 onPause={() => setIsPlaying(false)}
                                 onEnded={() => setIsPlaying(false)}
-                                src=""
+                                src="https://healvideos.s3.us-east-2.amazonaws.com/Biocode+Mentor+-+Your+Best+Life+Ever-VEED.mp4"
                                 className="w-full h-full"
                                 preload="metadata"
                                 controls
