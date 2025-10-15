@@ -62,7 +62,8 @@ const HeroSection: React.FC = () => {
 
                     {/* Subheadline */}
                     <h2 className="text-xl md:text-2xl lg:text-3xl text-slate-300 font-lora leading-relaxed max-w-4xl mx-auto">
-                        Every Sovereign Child of God Deserves Their Own Divinely-Trained Professional Companion
+                        Every Sovereign Child of God Deserves<br />
+                        A Divinely-Trained Professional Companion.
                     </h2>
                 </div>
 
