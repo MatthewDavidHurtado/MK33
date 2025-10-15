@@ -108,6 +108,47 @@ const HeroSection: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Access Section */}
+                <div className="max-w-4xl mx-auto text-center mb-16">
+                    <div className="bg-slate-900/50 border border-gold-400/30 rounded-2xl p-8 lg:p-12 space-y-8">
+                        {/* Password Display */}
+                        <div className="space-y-4">
+                            <p className="text-slate-300 text-lg font-semibold">
+                                Use this password to access the app:
+                            </p>
+                            <div className="inline-block bg-black/50 border-2 border-gold-400/50 rounded-xl px-8 py-4">
+                                <p className="text-gold-400 font-mono text-3xl font-bold tracking-widest">
+                                    MK777
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Access Button */}
+                        <div>
+                            <a
+                                href="https://www.sevensevenseven.pro"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-block"
+                            >
+                                <div className="bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 hover:from-gold-400 hover:via-gold-300 hover:to-gold-400 text-black rounded-2xl p-8 shadow-2xl hover:shadow-gold-500/30 transform hover:-translate-y-2 transition-all duration-300 ease-in-out border-2 border-gold-300">
+                                    <div className="flex items-center justify-center gap-4">
+                                        <div className="text-center">
+                                            <div className="text-3xl lg:text-4xl font-black tracking-wider mb-2 font-cinzel">
+                                                SEVEN SEVEN SEVEN
+                                            </div>
+                                            <div className="text-lg lg:text-xl font-semibold text-black/80 italic font-lora">
+                                                Malcolm Kingley's Masterpiece
+                                            </div>
+                                        </div>
+                                        <ArrowRightIcon className="w-8 h-8 group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Bottom Fade */}
