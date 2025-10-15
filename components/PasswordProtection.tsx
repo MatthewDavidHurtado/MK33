@@ -79,7 +79,8 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                         How I Went from Bedridden and Broke to Building a 7-Figure Purpose-Driven Business in Record Time
                     </h1>
                     <p className="text-2xl md:text-3xl text-slate-200 font-light mb-8">
-                        Discover the exact spiritual and mental framework I used—no connections, no outside backing—just forbidden knowledge!
+                        Discover the exact spiritual and mental framework I used<br />
+                        —no connections, no outside backing—just unbeatable strategies!
                     </p>
 
                     {/* Video Container */}
