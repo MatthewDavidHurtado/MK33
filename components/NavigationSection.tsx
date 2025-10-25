@@ -187,7 +187,7 @@ const NavigationSection: React.FC = () => {
                         title="Biological Code Finder"
                         description="Decoding the body's symptoms and discovering the hidden tracks that lie underneath. Mind-Body Mastery."
                         icon={<GlobeIcon className="w-6 h-6 text-red-400" />}
-                        href="https://biological-code-finder-759385455270.us-west1.run.app/"
+                        href="https://biological-code-finder-779946580524.us-west1.run.app"
                         gradient="from-red-900/40 via-slate-800/60 to-red-900/40"
                         badge="NEW"
                     />
