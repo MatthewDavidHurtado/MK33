@@ -179,7 +179,12 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                         </div>
 
                         {/* 24/7 Quantum Church */}
-                        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300 md:col-span-2">
+                        <a
+                            href="https://master-copy-of-allow-quantum-church-service-24-7-779946580524.us-west1.run.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300 md:col-span-2 cursor-pointer"
+                        >
                             <div className="grid md:grid-cols-2 gap-8 items-center">
                                 <div className="order-2 md:order-1">
                                     <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
@@ -209,7 +214,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
