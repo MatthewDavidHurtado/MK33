@@ -149,16 +149,6 @@ const NavigationSection: React.FC = () => {
                     />
                     
                 </div>
-                
-                {/* Bottom CTA */}
-                <div className="mt-12 text-center">
-                    <div className="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 rounded-full px-6 py-3">
-                        <AcademicCapIcon className="w-5 h-5 text-gold-400" />
-                        <span className="text-slate-300 text-sm">
-                            Start with the <strong className="text-gold-400">Spiritual Treatment Tool</strong> below
-                        </span>
-                    </div>
-                </div>
             </div>
         </section>
     );

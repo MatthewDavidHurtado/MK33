@@ -184,9 +184,6 @@ const MainApp: React.FC = () => {
                 <Header />
                 <section id="treatment-tool" className="mt-10">
                     <HowToUse />
-                    <p className="text-center text-slate-400 mb-6 text-lg">
-                        Describe any challenge or discord you are facing.<br />This is a space for quiet reflection and spiritual realignment.
-                    </p>
                     <QuestionForm 
                         onSubmit={handleFormSubmit} 
                         isLoading={isLoading}
