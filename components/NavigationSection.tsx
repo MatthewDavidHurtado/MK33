@@ -140,18 +140,10 @@ const NavigationSection: React.FC = () => {
                     />
                     
                     <NavigationCard
-                        title="Breakthrough Session"
-                        description="Book your 15-minute precision guidance session for decisive clarity and proven action plans."
-                        icon={<CalendarIcon className="w-6 h-6 text-blue-400" />}
-                        href="https://calendly.com/sealintelligence/spiritual-consultation?month=2025-07"
-                        gradient="from-blue-900/40 via-slate-800/60 to-blue-900/40"
-                    />
-                    
-                    <NavigationCard
                         title="Quantum Church 24/7"
                         description="Join the continuous spiritual service and master the forbidden gnosis with advanced training."
                         icon={<ChurchIcon className="w-6 h-6 text-purple-400" />}
-                        href="https://allow-quantum-church-service-24-7-759385455270.us-west1.run.app/"
+                        href="https://master-copy-of-allow-quantum-church-service-24-7-759300603350.us-west1.run.app"
                         gradient="from-purple-900/40 via-slate-800/60 to-purple-900/40"
                         badge="LIVE"
                     />
