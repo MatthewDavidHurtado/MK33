@@ -184,47 +184,8 @@ const MainApp: React.FC = () => {
                 <Header />
                 <section id="treatment-tool" className="mt-10">
                     <HowToUse />
-                    <QuestionForm 
-                        onSubmit={handleFormSubmit} 
-                        isLoading={isLoading}
-                        question={currentQuestion}
-                        onQuestionChange={setCurrentQuestion} 
-                    />
-                    {error && (
-                        <div className="mt-8 text-center text-red-400 bg-red-900/50 border border-red-500/30 p-4 rounded-lg">
-                            {error}
-                        </div>
-                    )}
-                    {hasResponded && (
-                        <TreatmentResponse 
-                            question={submittedQuestion}
-                            streamedResponse={streamedResponse} 
-                            isLoading={isLoading}
-                            onReset={handleReset} 
-                        />
-                    )}
                 </section>
-                
-                {hasResponded && !isLoading && <DivineLibraryCTA />}
-                
-                {gnmVisible && !isLoading && hasResponded && (
-                   <section id="biological-programs" className="mt-12">
-                        <BiologicalPrograms
-                            step={gnmStep}
-                            setStep={setGnmStep}
-                            handDominance={handDominance}
-                            setHandDominance={setHandDominance}
-                            symptoms={symptoms}
-                            setSymptoms={setSymptoms}
-                            response={gnmResponse}
-                            isLoading={isGnmLoading}
-                            error={gnmError}
-                            onSubmit={handleGnmSubmit}
-                            onReset={resetGnm}
-                        />
-                   </section>
-                )}
-                
+
                 <ConsultationCTA />
 
             </main>
