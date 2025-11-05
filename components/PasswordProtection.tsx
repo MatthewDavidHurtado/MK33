@@ -238,7 +238,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                         SCHEDULE YOUR 15-MINUTE QUALIFICATION INTERVIEW
                     </a>
                     <p className="text-slate-400 mt-6 text-sm">
-                        Limited spots available. Serious applicants only.
+                        Malcolm takes only 21 new clients each year. This is a rare opportunity for a once-in-a-lifetime transformation.
                     </p>
                 </div>
 
