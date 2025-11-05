@@ -224,8 +224,8 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                 {/* CRYPTO DEFI LENDING Section */}
                 <div className="mb-16">
                     <div className="bg-gradient-to-br from-emerald-900/20 via-slate-900/50 to-slate-900/50 border border-emerald-500/30 rounded-3xl p-8 md:p-12 shadow-2xl">
-                        <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
-                            <div className="order-2 md:order-1">
+                        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+                            <div className="order-2 md:order-1 flex flex-col justify-center">
                                 <div className="mb-6">
                                     <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-emerald-500/30">
                                         WEALTH GENERATION
@@ -240,10 +240,10 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                                         Imagine Generating $300-$1,000+ Per Day Through DEX Liquidity Pools
                                     </p>
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                                <p className="text-slate-300 text-lg leading-relaxed mb-6">
                                     Stop working for money. Let money work for you. Learn how to provide liquidity on decentralized exchanges and earn passive income like the smart money does.
                                 </p>
-                                <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 mb-8">
+                                <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 mb-6">
                                     <p className="text-emerald-400 font-semibold text-lg mb-2">
                                         Beat The System
                                     </p>
@@ -256,7 +256,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                                     <p className="text-white text-3xl font-bold">$5,000</p>
                                 </div>
                             </div>
-                            <div className="order-1 md:order-2">
+                            <div className="order-1 md:order-2 flex items-center justify-center">
                                 <img
                                     src="https://i.imgur.com/CeV4Ood.png"
                                     alt="Crypto DeFi Lending"
