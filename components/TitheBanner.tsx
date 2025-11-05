@@ -42,7 +42,7 @@ const TitheBanner: React.FC = () => {
                             <span className="tracking-wide">TRANSFORM NOW!</span>
                         </a>
                         <a
-                            href="https://allow-ministries-tithing-app-779946580524.us-west1.run.app"
+                            href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
