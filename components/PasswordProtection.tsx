@@ -50,7 +50,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
         setError('');
 
         setTimeout(() => {
-            if (password === 'GIVE_777!') {
+            if (password === 'MK777Q') {
                 onUnlock();
             } else {
                 setError('Incorrect password. Access denied.');
@@ -144,20 +144,23 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {/* BIOCODE MENTOR */}
+                        {/* QUANT GENESIS */}
                         <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300">
                             <div className="mb-6">
                                 <img
                                     src="https://i.imgur.com/tRvgmuR.png"
-                                    alt="BIOCODE MENTOR"
+                                    alt="QUANT GENESIS"
                                     className="w-full h-48 object-cover rounded-xl"
                                 />
                             </div>
                             <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4">
-                                BIOCODE MENTOR
+                                QUANT GENESIS
                             </h3>
-                            <p className="text-slate-300 leading-relaxed">
-                                The world's only super-AI using German New Medicine and proprietary models to pinpoint with laser-accuracy the triggers that keep you stuck.
+                            <p className="text-slate-300 leading-relaxed mb-4">
+                                Malcolm Kingley's proprietary transformation system—6 months in development, purpose-built to identify and dissolve the hidden blocks keeping you from your breakthrough.
+                            </p>
+                            <p className="text-slate-300 leading-relaxed italic">
+                                Watch the video above to see how this revolutionary framework can accelerate your path to mastery.
                             </p>
                         </div>
 
