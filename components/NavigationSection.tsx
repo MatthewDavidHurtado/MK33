@@ -156,51 +156,6 @@ const NavigationSection: React.FC = () => {
                         badge="LIVE"
                     />
                     
-                    <NavigationCard
-                        title="Custom Sacred Song"
-                        description="Get your personalized spiritual song - a powerful life-hack for transformation and alignment."
-                        icon={<MusicalNoteIcon className="w-6 h-6 text-emerald-400" />}
-                        href="https://custom-sacred-song-759385455270.us-west1.run.app/"
-                        gradient="from-emerald-900/40 via-slate-800/60 to-emerald-900/40"
-                        badge="NEW"
-                    />
-                    
-                    <NavigationCard
-                        title="ALTERNATE UNIVERSE: Particle Collider"
-                        description="Malcolm's A.I. original lyrics in the style of modern day hard rock. Experience consciousness-expanding music."
-                        icon={<MusicalNoteIcon className="w-6 h-6 text-pink-400" />}
-                        href="https://www.altuniverserock.com"
-                        gradient="from-pink-900/40 via-slate-800/60 to-pink-900/40"
-                        badge="ROCK"
-                    />
-                    
-                    <NavigationCard
-                        title="MK Quantum Shift Portal"
-                        description="Access parallel universe realities and keep an online journal to manifest with precision! Advanced reality shifting technology."
-                        icon={<GlobeIcon className="w-6 h-6 text-cyan-400" />}
-                        href="https://www.gethealing.org"
-                        gradient="from-cyan-900/40 via-slate-800/60 to-cyan-900/40"
-                        badge="ADVANCED"
-                    />
-                    
-                    <NavigationCard
-                        title="Biological Code Finder"
-                        description="Decoding the body's symptoms and discovering the hidden tracks that lie underneath. Mind-Body Mastery."
-                        icon={<GlobeIcon className="w-6 h-6 text-red-400" />}
-                        href="https://biological-code-finder-779946580524.us-west1.run.app"
-                        gradient="from-red-900/40 via-slate-800/60 to-red-900/40"
-                        badge="NEW"
-                    />
-                    
-                    <NavigationCard
-                        title="SPIRITUAL SPECIAL FORCES"
-                        description="The forbidden source code that every manifestation teacher stole from—now enhanced with AI. Elite 90-day operator training for consciousness warfare."
-                        icon={<ShieldIcon className="w-6 h-6 text-amber-400" />}
-                        href="https://the-secret-source-code-759385455270.us-west1.run.app/"
-                        gradient="from-amber-900/60 via-orange-800/70 to-red-900/60"
-                        badge="CLASSIFIED"
-                        isPopup={true}
-                    />
                 </div>
                 
                 {/* Bottom CTA */}

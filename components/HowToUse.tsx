@@ -82,53 +82,6 @@ const HowToUse: React.FC = () => {
                 </div>
             </div>
 
-            {/* Expandable Steps Section */}
-            <div className="border-t border-slate-800/50">
-                <button
-                    onClick={() => setIsStepsExpanded(!isStepsExpanded)}
-                    className="w-full px-6 sm:px-8 py-4 flex items-center justify-between text-left hover:bg-slate-800/30 transition-colors duration-300 group"
-                    aria-controls="detailed-steps"
-                >
-                    <div>
-                        <h3 className="text-xl font-cinzel text-gold-400 font-semibold group-hover:text-gold-300 transition-colors">
-                            Detailed Steps
-                        </h3>
-                        <p className="text-slate-400 text-sm mt-1">
-                            Click to {isStepsExpanded ? 'hide' : 'view'} the complete step-by-step guide
-                        </p>
-                    </div>
-                    <ChevronDownIcon 
-                        className={`w-6 h-6 text-gold-400 transition-transform duration-300 ${
-                            isStepsExpanded ? 'rotate-180' : ''
-                        }`} 
-                    />
-                </button>
-                
-                {/* Expandable Content */}
-                <div 
-                    id="detailed-steps"
-                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        isStepsExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                >
-                    <div className="px-6 sm:px-8 pb-6 pt-2">
-                        <div className="space-y-6 max-w-2xl mx-auto">
-                            <Step number={1} title="Receive Your Spiritual Treatment">
-                                Describe the challenge or situation you are facing. You will receive a custom-crafted spiritual treatment designed to dissolve the illusion of error and reveal the underlying spiritual Truth.
-                            </Step>
-                            <Step number={2} title="Analyze the Biological Program">
-                                For physical conditions, you can then proceed to the biological analysis. This provides deeper insight into the specific mental conflict at the root of the ailment, based on the principle that all manifestation begins in Mind.
-                            </Step>
-                            <Step number={3} title="Access Precision Guidance">
-                                For direct, ultra-custom support, schedule a one-on-one breakthrough session with Malcolm Kingley for precision guidance tailored to your unique situation.
-                            </Step>
-                            <Step number={4} title="Invoke the Law of Increase" isOptional={true}>
-                                To activate the divine law of abundance and create a powerful expectation for your breakthrough, you may plant your tithe or faith-seed. The video in the footer provides further illumination on this principle.
-                            </Step>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
