@@ -33,15 +33,6 @@ const TitheBanner: React.FC = () => {
                     {/* Right side - Button */}
                     <div className="flex-shrink-0 flex items-center gap-3">
                         <a
-                            href="https://www.biocodementor.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white font-bold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                            aria-label="Transform now with Bio Code Mentor"
-                        >
-                            <span className="tracking-wide">TRANSFORM NOW!</span>
-                        </a>
-                        <a
                             href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                             target="_blank"
                             rel="noopener noreferrer"
