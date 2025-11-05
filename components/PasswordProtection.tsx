@@ -224,26 +224,43 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                 {/* CRYPTO DEFI LENDING Section */}
                 <div className="mb-16">
                     <div className="bg-gradient-to-br from-emerald-900/20 via-slate-900/50 to-slate-900/50 border border-emerald-500/30 rounded-3xl p-8 md:p-12 shadow-2xl">
-                        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-                            <div className="order-2 md:order-1 flex flex-col justify-center">
-                                <div className="mb-6">
-                                    <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-emerald-500/30">
-                                        WEALTH GENERATION
-                                    </span>
-                                    <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-gold-400 mb-4">
-                                        Crypto DeFi Lending
-                                    </h2>
-                                    <h3 className="text-2xl md:text-3xl font-bold text-emerald-400 mb-4">
-                                        Become The Bank
-                                    </h3>
-                                    <p className="text-slate-200 text-xl md:text-2xl font-semibold mb-6 leading-relaxed">
-                                        Imagine Generating $300-$1,000+ Per Day Through DEX Liquidity Pools
-                                    </p>
+                        {/* Header */}
+                        <div className="text-center mb-12">
+                            <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-emerald-500/30">
+                                WEALTH GENERATION
+                            </span>
+                            <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-gold-400 mb-4">
+                                Crypto DeFi Lending
+                            </h2>
+                            <h3 className="text-2xl md:text-3xl font-bold text-emerald-400 mb-4">
+                                Become The Bank
+                            </h3>
+                            <p className="text-slate-200 text-xl md:text-2xl font-semibold max-w-4xl mx-auto leading-relaxed">
+                                Imagine Generating $300-$1,000+ Per Day Through DEX Liquidity Pools
+                            </p>
+                        </div>
+
+                        {/* Main Content Grid */}
+                        <div className="grid md:grid-cols-2 gap-8 mb-12">
+                            {/* Left Column */}
+                            <div className="space-y-6">
+                                <img
+                                    src="https://i.imgur.com/CeV4Ood.png"
+                                    alt="Crypto DeFi Lending"
+                                    className="w-full rounded-2xl shadow-2xl border border-emerald-500/30"
+                                />
+                                <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                                    <p className="text-gold-400 font-semibold text-sm mb-1">MINIMUM CAPITAL REQUIRED</p>
+                                    <p className="text-white text-3xl font-bold">$5,000</p>
                                 </div>
-                                <p className="text-slate-300 text-lg leading-relaxed mb-6">
+                            </div>
+
+                            {/* Right Column */}
+                            <div className="space-y-6">
+                                <p className="text-slate-300 text-lg leading-relaxed">
                                     Stop working for money. Let money work for you. Learn how to provide liquidity on decentralized exchanges and earn passive income like the smart money does.
                                 </p>
-                                <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 mb-6">
+                                <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6">
                                     <p className="text-emerald-400 font-semibold text-lg mb-2">
                                         Beat The System
                                     </p>
@@ -252,16 +269,20 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                                     </p>
                                 </div>
                                 <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
-                                    <p className="text-gold-400 font-semibold text-sm mb-1">MINIMUM CAPITAL REQUIRED</p>
-                                    <p className="text-white text-3xl font-bold">$5,000</p>
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-emerald-400">
+                                            <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clipRule="evenodd" />
+                                            <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                                        </svg>
+                                        <div>
+                                            <p className="text-emerald-400 font-semibold text-sm">EXCLUSIVE BENEFIT</p>
+                                            <p className="text-white font-bold">Private Community Access</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-slate-400 text-sm">
+                                        Join an exclusive Discord group with ongoing support and market insights from serious investors.
+                                    </p>
                                 </div>
-                            </div>
-                            <div className="order-1 md:order-2 flex items-center justify-center">
-                                <img
-                                    src="https://i.imgur.com/CeV4Ood.png"
-                                    alt="Crypto DeFi Lending"
-                                    className="w-full rounded-2xl shadow-2xl border border-emerald-500/30"
-                                />
                             </div>
                         </div>
 
@@ -395,19 +416,6 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                             </div>
                         </div>
 
-                        {/* Private Community Badge */}
-                        <div className="text-center">
-                            <div className="inline-flex items-center gap-3 bg-slate-800/70 border border-emerald-500/30 rounded-full px-8 py-4 shadow-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-emerald-400">
-                                    <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clipRule="evenodd" />
-                                    <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
-                                </svg>
-                                <div className="text-left">
-                                    <p className="text-emerald-400 font-semibold text-sm">EXCLUSIVE BENEFIT</p>
-                                    <p className="text-white font-bold">Private Community Access</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
