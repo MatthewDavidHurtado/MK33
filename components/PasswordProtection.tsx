@@ -148,7 +148,7 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                         <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 hover:border-gold-400/50 transition-all duration-300">
                             <div className="mb-6">
                                 <img
-                                    src="https://i.imgur.com/tRvgmuR.png"
+                                    src="https://i.imgur.com/aEIjUEv.png"
                                     alt="QUANT GENESIS"
                                     className="w-full h-48 object-cover rounded-xl"
                                 />
