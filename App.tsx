@@ -126,22 +126,14 @@ const MainApp: React.FC = () => {
         return (
             <div className="flex flex-col min-h-screen">
                 <SafariWarning />
-                {/* Simplified banner for password protection screen */}
-                <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg relative z-50">
+                {/* Top banner for password protection screen */}
+                <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-gold-400/30 shadow-lg relative z-50">
                     <div className="container mx-auto max-w-6xl px-4 py-4">
-                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                            {/* Left side - Message */}
-                            <div className="text-center md:text-left">
-                                <h2 className="font-cinzel text-lg md:text-xl font-bold text-slate-100 mb-1">
-                                    The Most Powerful Law of Prosperity:
-                                </h2>
-                                <p className="text-gold-400 font-semibold text-base md:text-lg font-lora">
-                                    The Tithe and Faith-Seed Sowing Law
-                                </p>
-                            </div>
-
-                            {/* Right side - Buttons */}
-                            <div className="flex-shrink-0 flex items-center gap-3 relative z-50">
+                        <div className="flex items-center justify-between gap-4">
+                            <h2 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-gold-400 to-slate-200 tracking-wide">
+                                KINGLEY FOUNDATION
+                            </h2>
+                            <div className="flex-shrink-0 relative z-50">
                                 <a
                                     href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                                     target="_blank"
