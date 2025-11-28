@@ -10,15 +10,8 @@ const TitheBanner: React.FC = () => {
     return (
         <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg relative z-50">
             <div className="container mx-auto max-w-6xl px-4 py-4">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    {/* Left side - Message */}
-                    <div className="text-center md:text-left flex-1">
-                        <h2 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-gold-400 to-slate-200 tracking-wide whitespace-nowrap">
-                            KINGLEY FOUNDATION
-                        </h2>
-                    </div>
-                    
-                    {/* Right side - Button */}
+                <div className="flex items-center justify-end">
+                    {/* Button */}
                     <div className="flex-shrink-0 flex items-center gap-3">
                         <a
                             href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
