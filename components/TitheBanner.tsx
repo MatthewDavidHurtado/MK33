@@ -12,22 +12,10 @@ const TitheBanner: React.FC = () => {
             <div className="container mx-auto max-w-6xl px-4 py-4">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     {/* Left side - Message */}
-                    <div className="text-center md:text-left">
-                        <h2 className="font-cinzel text-lg md:text-xl font-bold text-slate-100 mb-1">
-                            The Most Powerful Law of Prosperity:
+                    <div className="text-center md:text-left flex-1">
+                        <h2 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-gold-400 to-slate-200 tracking-wide whitespace-nowrap">
+                            KINGLEY FOUNDATION
                         </h2>
-                        <button 
-                            onClick={() => {
-                                const footer = document.querySelector('footer');
-                                if (footer) {
-                                    footer.scrollIntoView({ behavior: 'smooth' });
-                                }
-                            }}
-                            className="text-gold-400 hover:text-gold-300 font-semibold text-base md:text-lg font-lora transition-all duration-300 cursor-pointer hover:scale-105 relative group"
-                        >
-                            The Tithe and Faith-Seed Sowing Law - <span className="underline group-hover:no-underline">Learn More!</span>
-                            <span className="absolute -right-2 top-0 text-gold-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
-                        </button>
                     </div>
                     
                     {/* Right side - Button */}
