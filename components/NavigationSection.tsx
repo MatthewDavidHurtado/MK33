@@ -122,11 +122,8 @@ const NavigationSection: React.FC = () => {
             <div className="container mx-auto max-w-6xl px-4">
                 <div className="text-center mb-10">
                     <h2 className="font-cinzel text-3xl font-bold text-gold-400 mb-3">
-                        Spiritual Resources & Guidance
+                        Coming Soon
                     </h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Access Malcolm Kingley's complete collection of<br />transformative resources for your spiritual journey
-                    </p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
