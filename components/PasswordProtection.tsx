@@ -116,9 +116,6 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
             <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 mt-20 pt-12 border-t border-gold-400/30">
                 <div className="text-xs text-slate-500 space-y-4 max-w-3xl mx-auto px-4 pb-8">
                     <div className="flex flex-col items-center">
-                        <p className="font-cinzel text-3xl font-bold text-slate-200 mb-3">
-                            ALLOW
-                        </p>
                         <img
                             src="https://i.imgur.com/zDr7njf.png"
                             alt="Allow Ministries Logo"

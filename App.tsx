@@ -17,7 +17,6 @@ import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
 import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
-import FloatingPrompt from './components/FloatingPrompt';
 
 const MainApp: React.FC = () => {
     // Password protection state with expiration check
@@ -153,7 +152,6 @@ const MainApp: React.FC = () => {
                     setIsUnlocked(true);
                     localStorage.setItem('unlockTime', Date.now().toString());
                 }} />
-                <FloatingPrompt />
             </div>
         );
     }
@@ -173,7 +171,6 @@ const MainApp: React.FC = () => {
                 <ConsultationCTA />
 
             </main>
-            <FloatingPrompt />
             <Footer />
         </div>
     );
