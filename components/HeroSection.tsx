@@ -25,18 +25,19 @@ const HeroSection: React.FC = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-black via-slate-900 to-black overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-20 left-10 w-32 h-32 border border-gold-400/20 rounded-full"></div>
-                <div className="absolute top-40 right-20 w-24 h-24 border border-gold-400/15 rounded-full"></div>
-                <div className="absolute bottom-40 left-20 w-40 h-40 border border-gold-400/10 rounded-full"></div>
-                <div className="absolute bottom-20 right-10 w-28 h-28 border border-gold-400/25 rounded-full"></div>
+        <section className="relative min-h-screen bg-gradient-to-br from-white via-slate-50 to-stone-100 overflow-hidden">
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-20 left-10 w-32 h-32 border-2 border-gold-500/30 rounded-full"></div>
+                <div className="absolute top-40 right-20 w-24 h-24 border-2 border-gold-400/20 rounded-full"></div>
+                <div className="absolute bottom-40 left-20 w-40 h-40 border-2 border-gold-500/25 rounded-full"></div>
+                <div className="absolute bottom-20 right-10 w-28 h-28 border-2 border-gold-400/35 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gold-400/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             </div>
 
             <div className="relative z-10 container mx-auto max-w-6xl px-4 py-12 lg:py-20">
                 <div className="max-w-5xl mx-auto mb-12">
-                    <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border-2 border-gold-400/30">
-                        <div className="absolute inset-0 bg-gradient-to-r from-gold-400/10 via-gold-500/10 to-gold-400/10 blur-3xl -z-10"></div>
+                    <div className="relative bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border-2 border-gold-400/40">
+                        <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-gold-500/10 to-gold-400/5 blur-2xl"></div>
 
                         <div className="aspect-video w-full relative">
                             <video
@@ -55,15 +56,15 @@ const HeroSection: React.FC = () => {
 
                             {!isPlaying && (
                                 <div
-                                    className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900/90 via-black/80 to-slate-900/90 hover:from-slate-900/70 hover:via-black/60 hover:to-slate-900/70 transition-all duration-300 cursor-pointer"
+                                    className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-white/95 via-slate-50/90 to-white/95 hover:from-white/85 hover:via-slate-50/80 hover:to-white/85 transition-all duration-300 cursor-pointer backdrop-blur-sm"
                                     onClick={handlePlayClick}
                                     role="button"
                                     aria-label="Play video"
                                 >
                                     <div className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-full p-8 hover:scale-110 transition-transform duration-300 shadow-2xl">
-                                        <PlayIcon className="w-16 h-16 text-black ml-1" />
+                                        <PlayIcon className="w-16 h-16 text-white ml-1" />
                                     </div>
-                                    <p className="mt-6 text-gold-400 font-bold text-xl uppercase tracking-widest font-cinzel">
+                                    <p className="mt-6 text-slate-900 font-bold text-xl uppercase tracking-widest font-cinzel">
                                         WATCH NOW
                                     </p>
                                 </div>
@@ -79,14 +80,14 @@ const HeroSection: React.FC = () => {
                         rel="noopener noreferrer"
                         className="group inline-block"
                     >
-                        <div className="bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 hover:from-gold-400 hover:via-gold-300 hover:to-gold-400 text-black rounded-2xl p-8 shadow-2xl hover:shadow-gold-500/30 transform hover:-translate-y-2 transition-all duration-300 ease-in-out border-2 border-gold-300">
+                        <div className="bg-gradient-to-r from-white via-slate-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-900 rounded-2xl p-8 shadow-2xl hover:shadow-gold-500/20 transform hover:-translate-y-2 transition-all duration-300 ease-in-out border-2 border-gold-400/40 hover:border-gold-500/60">
                             <div className="flex items-center justify-center gap-4">
-                                <CalendarIcon className="w-10 h-10 flex-shrink-0" />
+                                <CalendarIcon className="w-10 h-10 flex-shrink-0 text-gold-600" />
                                 <div className="text-center">
-                                    <div className="text-2xl lg:text-3xl font-black tracking-wider font-cinzel">
+                                    <div className="text-2xl lg:text-3xl font-black tracking-wider font-cinzel text-slate-900">
                                         SCHEDULE CONSULTATION
                                     </div>
-                                    <div className="text-base lg:text-lg font-semibold text-black/80 italic font-lora mt-1">
+                                    <div className="text-base lg:text-lg font-semibold text-slate-700 italic font-lora mt-1">
                                         Book Your Spiritual Guidance Session
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@ const HeroSection: React.FC = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
         </section>
     );
 };

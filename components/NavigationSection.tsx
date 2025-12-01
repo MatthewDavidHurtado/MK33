@@ -83,45 +83,45 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
     return (
         <Component
             {...props}
-            className={`group relative overflow-hidden bg-gradient-to-br ${gradient} rounded-xl border border-slate-700/50 hover:border-gold-400/30 p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 ${isPopup ? 'cursor-pointer' : ''}`}
+            className={`group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-xl border-2 border-gold-400/30 hover:border-gold-500/50 p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-400/20 ${isPopup ? 'cursor-pointer' : ''}`}
         >
         {badge && (
-            <div className="absolute top-3 right-3 bg-gold-500 text-black text-xs font-bold px-2 py-1 rounded-full">
+            <div className="absolute top-3 right-3 bg-gold-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
                 {badge}
             </div>
         )}
-        
+
         <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-black/20 rounded-lg flex items-center justify-center group-hover:bg-black/30 transition-colors">
+            <div className="flex-shrink-0 w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center group-hover:bg-gold-500/20 transition-colors border border-gold-400/20">
                 {icon}
             </div>
-            
+
             <div className="flex-1 min-w-0">
-                <h3 className="font-cinzel text-lg font-bold text-slate-100 mb-2 group-hover:text-gold-300 transition-colors">
+                <h3 className="font-cinzel text-lg font-bold text-slate-900 mb-2 group-hover:text-gold-600 transition-colors">
                     {title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-3">
+                <p className="text-slate-700 text-sm leading-relaxed mb-3">
                     {description}
                 </p>
-                <div className="flex items-center text-gold-400 text-sm font-semibold group-hover:text-gold-300 transition-colors">
+                <div className="flex items-center text-gold-600 text-sm font-semibold group-hover:text-gold-700 transition-colors">
                     <span>Explore</span>
                     <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
             </div>
         </div>
-        
+
         {/* Subtle hover effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gold-400/0 via-gold-400/5 to-gold-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </Component>
     );
 }
 
 const NavigationSection: React.FC = () => {
     return (
-        <section className="w-full bg-gradient-to-b from-slate-900/50 to-black/50 border-b border-slate-800/50 py-12">
+        <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white border-b border-gold-400/20 py-12">
             <div className="container mx-auto max-w-6xl px-4">
                 <div className="text-center mb-10">
-                    <h2 className="font-cinzel text-3xl font-bold text-gold-400 mb-3">
+                    <h2 className="font-cinzel text-3xl font-bold text-slate-900 mb-3">
                         Coming Soon
                     </h2>
                 </div>
@@ -130,9 +130,9 @@ const NavigationSection: React.FC = () => {
                     <NavigationCard
                         title="Sacred Library"
                         description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
-                        icon={<BookIcon className="w-6 h-6 text-gold-400" />}
+                        icon={<BookIcon className="w-6 h-6 text-gold-600" />}
                         href="https://legendary-melomakarona-3b8eea.netlify.app"
-                        gradient="from-slate-900/80 via-slate-800/60 to-slate-900/80"
+                        gradient=""
                         badge="FREE"
                     />
                 </div>

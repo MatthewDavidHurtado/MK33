@@ -105,7 +105,7 @@ const MainApp: React.FC = () => {
     }, [resetGnm]);
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-slate-50 to-white">
             <SafariWarning />
             <TitheBanner />
             <HeroSection />
