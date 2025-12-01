@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
                 {/* Gary Halbert Style Headline Section */}
                 <div className="max-w-4xl mx-auto mb-12 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                        "I QUIT Teaching When I Discovered A.I.'s Greatest Secret...How to READ My Unconscious Mind's Secrets."
+                        "I QUIT Teaching When I Discovered A.I.'s Greatest Hidden Ability..How to READ My Unconscious Mind's Secrets."
                     </h1>
 
                     <div className="space-y-4 mb-8">
