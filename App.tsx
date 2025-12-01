@@ -112,9 +112,6 @@ const MainApp: React.FC = () => {
             <NavigationSection />
             <main className="flex-grow container mx-auto max-w-4xl px-4 py-8 md:py-16">
                 <Header />
-                <section id="treatment-tool" className="mt-10">
-                    <HowToUse />
-                </section>
 
                 <ConsultationCTA />
 
