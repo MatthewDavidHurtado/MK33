@@ -72,14 +72,14 @@ const Footer: React.FC = () => {
 
                 <div className="mb-8">
                     <p className="text-slate-400 mb-6 text-base max-w-xl mx-auto">
-                        Your support helps to spread this gospel of Divine Law and sustains the work of ALLOW MINISTRIES FOUNDATION.
+                        Your support helps to spread this gospel of Divine Law and sustains the work of KINGLEY FOUNDATION.
                     </p>
                     <a
                         href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                        aria-label="Give now to support Allow Ministries Foundation"
+                        aria-label="Give now to support Kingley Foundation"
                     >
                         GIVE NOW
                     </a>
@@ -88,11 +88,11 @@ const Footer: React.FC = () => {
                 <div className="text-xs text-slate-500 space-y-4 max-w-3xl mx-auto !mt-12">
                     <div className="!mt-8 flex flex-col items-center">
                         <p className="font-cinzel text-3xl font-bold text-slate-200 mb-3">
-                            ALLOW
+                            KINGLEY FOUNDATION
                         </p>
                         <img
                             src="https://i.imgur.com/zDr7njf.png"
-                            alt="Allow Ministries Logo"
+                            alt="Kingley Foundation Logo"
                             className="w-24 h-auto mb-4 opacity-80"
                         />
                     </div>
