@@ -135,16 +135,6 @@ const NavigationSection: React.FC = () => {
                         gradient="from-slate-900/80 via-slate-800/60 to-slate-900/80"
                         badge="FREE"
                     />
-                    
-                    <NavigationCard
-                        title="Quantum Church 24/7"
-                        description="Join the continuous spiritual service and master the forbidden gnosis with advanced training."
-                        icon={<ChurchIcon className="w-6 h-6 text-purple-400" />}
-                        href="https://master-copy-of-allow-quantum-church-service-24-7-759300603350.us-west1.run.app"
-                        gradient="from-purple-900/40 via-slate-800/60 to-purple-900/40"
-                        badge="LIVE"
-                    />
-                    
                 </div>
             </div>
         </section>
