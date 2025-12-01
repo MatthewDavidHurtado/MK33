@@ -121,17 +121,6 @@ const Footer: React.FC = () => {
                         © 2025 KINGLEY FOUNDATION. App design and concept based on Divine Law principles.
                     </p>
 
-                    <div className="!mt-6">
-                        <button
-                            onClick={() => {
-                                localStorage.removeItem('unlockTime');
-                                window.location.reload();
-                            }}
-                            className="text-slate-400 hover:text-gold-400 transition-colors underline text-sm"
-                        >
-                            Logout
-                        </button>
-                    </div>
                     
                     <div className="!mt-8 bg-slate-800/30 border border-slate-700/50 rounded-lg overflow-hidden">
                         <button

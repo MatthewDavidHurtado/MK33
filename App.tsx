@@ -2,7 +2,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { generateTreatmentStream, generateGnmAnalysisStream } from './services/geminiService';
-import PasswordProtection from './components/PasswordProtection';
 import TitheBanner from './components/TitheBanner';
 import SafariWarning from './components/SafariWarning';
 import NavigationSection from './components/NavigationSection';
@@ -19,21 +18,6 @@ import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
 
 const MainApp: React.FC = () => {
-    // Password protection state with expiration check
-    const [isUnlocked, setIsUnlocked] = useState(() => {
-        const unlockTime = localStorage.getItem('unlockTime');
-        if (unlockTime) {
-            const elapsed = Date.now() - parseInt(unlockTime, 10);
-            const twentyFourHours = 24 * 60 * 60 * 1000;
-            if (elapsed < twentyFourHours) {
-                return true;
-            } else {
-                localStorage.removeItem('unlockTime');
-            }
-        }
-        return false;
-    });
-    
     // State for Spiritual Treatment
     const [currentQuestion, setCurrentQuestion] = useState<string>('');
     const [submittedQuestion, setSubmittedQuestion] = useState<string>('');
@@ -76,7 +60,7 @@ const MainApp: React.FC = () => {
             setIsLoading(false);
         }
     }, [isLoading, currentQuestion]);
-    
+
     const handleGnmSubmit = useCallback(async () => {
         if (!symptoms.trim() || !handDominance || isGnmLoading) return;
 
@@ -120,43 +104,7 @@ const MainApp: React.FC = () => {
         resetGnm();
     }, [resetGnm]);
 
-    // If not unlocked, show password protection with limited access
-    if (!isUnlocked) {
-        return (
-            <div className="flex flex-col min-h-screen">
-                <SafariWarning />
-                {/* Top banner for password protection screen */}
-                <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-gold-400/30 shadow-lg relative z-50">
-                    <div className="container mx-auto max-w-6xl px-4 py-4">
-                        <div className="flex items-center justify-between gap-4">
-                            <h2 style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-gold-400 to-slate-200 tracking-wide whitespace-nowrap">
-                                KINGLEY FOUNDATION
-                            </h2>
-                            <div className="flex-shrink-0 relative z-50">
-                                <a
-                                    href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 group-hover:scale-110 transition-transform duration-300">
-                                        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-                                    </svg>
-                                    <span className="tracking-wide">GIVE NOW</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <PasswordProtection onUnlock={() => {
-                    setIsUnlocked(true);
-                    localStorage.setItem('unlockTime', Date.now().toString());
-                }} />
-            </div>
-        );
-    }
-
-    const MainContent = () => (
+    return (
         <div className="flex flex-col min-h-screen">
             <SafariWarning />
             <TitheBanner />
@@ -174,8 +122,6 @@ const MainApp: React.FC = () => {
             <Footer />
         </div>
     );
-
-    return <MainContent />;
 };
 
 const App: React.FC = () => {
