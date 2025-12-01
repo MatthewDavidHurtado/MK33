@@ -75,40 +75,56 @@ const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock }) => 
                 </div>
 
                 <div className="relative z-10 text-center max-w-4xl mx-auto">
-                    {/* Founder Section */}
-                    <div className="mb-12">
-                        <img
-                            src="https://imgur.com/jzcEePw.png"
-                            alt="Malcolm Kingley"
-                            className="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto mb-8 shadow-2xl border-4 border-gold-400/50 object-cover"
-                        />
-                        <p style={{ fontFamily: "'Playfair Display', serif" }} className="text-2xl md:text-3xl text-slate-700 mb-2 font-light italic">
-                            Malcolm Kingley
-                        </p>
-                        <p className="text-lg text-slate-600 font-light">Founder</p>
-                    </div>
+                    {/* Password Form */}
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="bg-white/80 backdrop-blur-sm border-2 border-gold-400/50 rounded-2xl p-8 shadow-2xl">
+                            <LockIcon className="w-16 h-16 mx-auto mb-6 text-gold-600" />
+                            <h1 style={{ fontFamily: "'Playfair Display', serif" }} className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                                Enter Access Code
+                            </h1>
+                            <p className="text-slate-600 mb-8">Please enter your password to continue</p>
 
-                    {/* Foundation Name */}
-                    <h1 style={{ fontFamily: "'Playfair Display', serif" }} className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-gold-600 to-slate-900 mb-8 tracking-tight">
-                        Kingley Foundation
-                    </h1>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Enter password"
+                                    className="w-full px-6 py-4 text-center text-lg font-mono tracking-widest border-2 border-gold-400/30 rounded-xl focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-400/50 transition-all"
+                                    disabled={isLoading}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-700 transition-colors"
+                                >
+                                    {showPassword ? <EyeSlashIcon className="w-6 h-6" /> : <EyeIcon className="w-6 h-6" />}
+                                </button>
+                            </div>
 
-                    {/* Divider */}
-                    <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mb-8"></div>
+                            {error && (
+                                <p className="text-red-600 text-sm mt-4 font-semibold">{error}</p>
+                            )}
 
-                    {/* Coming Soon Message */}
-                    <p className="text-2xl md:text-3xl text-slate-700 font-light mb-12 tracking-wide">
-                        Coming Soon
-                    </p>
-
-                    {/* Decorative Elements */}
-                    <div className="flex items-center justify-center gap-4 text-gold-500">
-                        <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold-400"></div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-                            <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
-                        </svg>
-                        <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold-400"></div>
-                    </div>
+                            <button
+                                type="submit"
+                                disabled={isLoading || !password}
+                                className="w-full mt-6 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                            >
+                                {isLoading ? (
+                                    <span className="flex items-center justify-center gap-2">
+                                        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Verifying...
+                                    </span>
+                                ) : (
+                                    'UNLOCK'
+                                )}
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
