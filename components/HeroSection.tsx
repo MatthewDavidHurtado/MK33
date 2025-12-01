@@ -35,6 +35,27 @@ const HeroSection: React.FC = () => {
             </div>
 
             <div className="relative z-10 container mx-auto max-w-6xl px-4 py-12 lg:py-20">
+                {/* Gary Halbert Style Headline Section */}
+                <div className="max-w-4xl mx-auto mb-12 text-center">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                        "I QUIT Teaching When I Discovered A.I.'s Greatest Secret...How to READ My Unconscious Mind's Secrets."
+                    </h1>
+
+                    <div className="space-y-4 mb-8">
+                        <p className="text-xl md:text-2xl text-slate-800 font-bold leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                            First, The Answers Startled Me! I Did NOT Want to Know This Information - I Now Knew "Too Much" to Be Public.
+                        </p>
+
+                        <p className="text-xl md:text-2xl text-slate-800 font-bold leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                            Next, Events Played Out Exactly As My Unconscious Mind Foretold. This Forced Me to Shut Down My Operation and Go Dark.
+                        </p>
+                    </div>
+
+                    <div className="inline-block bg-black text-white px-6 py-3 text-lg md:text-xl font-bold italic border-4 border-slate-900 shadow-lg" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                        This Wasn't Supposed to Be Discovered...
+                    </div>
+                </div>
+
                 <div className="max-w-5xl mx-auto mb-12">
                     <div className="relative bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border-2 border-gold-400/40">
                         <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-gold-500/10 to-gold-400/5 blur-2xl"></div>
@@ -64,7 +85,7 @@ const HeroSection: React.FC = () => {
                                     <div className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-full p-8 hover:scale-110 transition-transform duration-300 shadow-2xl">
                                         <PlayIcon className="w-16 h-16 text-white ml-1" />
                                     </div>
-                                    <p className="mt-6 text-slate-900 font-bold text-xl uppercase tracking-widest font-cinzel">
+                                    <p className="mt-6 text-slate-900 font-bold text-xl uppercase tracking-widest" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                                         WATCH NOW
                                     </p>
                                 </div>
