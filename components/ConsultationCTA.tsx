@@ -9,7 +9,7 @@ const ConsultationCTA: React.FC = () => {
                     <div className="flex-shrink-0 lg:w-1/3">
                         <div className="relative">
                             <img
-                                src="https://i.imgur.com/gPQK1Fb.jpg"
+                                src="https://i.imgur.com/jzcEePw.jpg"
                                 alt="Malcolm Kingley - Personal Consultation"
                                 className="w-full max-w-xs mx-auto lg:max-w-none rounded-xl shadow-2xl border-2 border-gold-400/40"
                             />
