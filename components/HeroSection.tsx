@@ -70,6 +70,8 @@ const HeroSection: React.FC = () => {
                                 className="w-full h-full"
                                 preload="metadata"
                                 controls
+                                playsInline
+                                webkit-playsinline="true"
                                 title="Kingley Foundation Offer"
                             >
                                 Your browser does not support the video tag.
