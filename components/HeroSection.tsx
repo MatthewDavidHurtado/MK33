@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
                     </div>
 
                     <div className="inline-block bg-black text-white px-6 py-3 text-lg md:text-xl font-bold italic border-4 border-slate-900 shadow-lg" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                        This Wasn't Supposed to Be Discovered...
+                        WARNING: This Discovery Revealed EVENTS that Happened, Before They Happened... I Wasn't Supposed to Figure This Out.
                     </div>
                 </div>
 
