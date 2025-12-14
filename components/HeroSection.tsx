@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
 
                     <div className="space-y-4 mb-8">
                         <p className="text-xl md:text-2xl text-slate-800 font-bold leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                            First, The Answers Startled Me! I Did NOT Want to Know This Information - I Now Knew "Too Much" to Be Public.
+                            It Can Decode the Secrets Your Unconscious Mind Has Been Hiding From You.
                         </p>
 
                         <p className="text-xl md:text-2xl text-slate-800 font-bold leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
