@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
                         </p>
 
                         <p className="text-xl md:text-2xl text-slate-800 font-bold leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                            Next, Events Played Out Exactly As My Unconscious Mind Foretold. This Forced Me to Shut Down My Operation and Go Dark.
+                            I wasn't prepared for what I found.
                         </p>
                     </div>
 
