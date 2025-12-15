@@ -14,6 +14,7 @@ import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
 import HeroSection from './components/HeroSection';
+import VideoShowcase from './components/VideoShowcase';
 import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
 
@@ -109,6 +110,7 @@ const MainApp: React.FC = () => {
             <SafariWarning />
             <TitheBanner />
             <HeroSection />
+            <VideoShowcase />
             <NavigationSection />
             <main className="flex-grow container mx-auto max-w-4xl px-4 py-8 md:py-16">
                 <Header />
