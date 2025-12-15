@@ -31,7 +31,7 @@ const VideoShowcase: React.FC = () => {
             speaker: 'DAVID GOGGINS',
             topic: 'MINDSET',
             videoUrl: 'https://player.vimeo.com/video/1146435556?h=08105eadf7&title=0&byline=0&portrait=0',
-            breakthrough: 'Goggins\' "tough as nails" mindset = defense mechanism to trauma. (Weaponized trauma). Perhaps modeling a more suitable style of empowerment is advisable for me going forward).',
+            breakthrough: 'Goggins\' "tough as nails" mindset = defense mechanism to trauma? (Weaponized trauma). Perhaps modeling a more suitable style of empowerment is advisable for me going forward).',
             actionableIntel: 'STOP REINFORCING TRAUMA-PATTERNS (identifying with a \'hard as nails\' persona-style).',
             timeToRealize: '5-minutes',
             estimatedTimeWithout: 'I have modeled this hardness style for years already. My trauma has intensified. It has produced a bottle-neck of pressure. NOT effective going forward!',
