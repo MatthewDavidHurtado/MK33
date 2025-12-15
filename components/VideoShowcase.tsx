@@ -88,7 +88,7 @@ const VideoShowcase: React.FC = () => {
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                        THE RESULTS OF JUST ONE-HOUR'S WORK<br />WITH SHE-WOLF:
+                        THE RESULTS OF JUST<br />ONE-HOUR'S WORK<br />WITH SHE-WOLF:
                     </h2>
 
                     <div className="max-w-5xl mx-auto space-y-6 text-white text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
