@@ -1,11 +1,5 @@
 import React from 'react';
 
-const PlayIcon: React.FC<{className?: string}> = ({className}) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
-    </svg>
-);
-
 const CalendarIcon: React.FC<{className?: string}> = ({className}) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
         <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
@@ -14,16 +8,6 @@ const CalendarIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const HeroSection: React.FC = () => {
-    const [isPlaying, setIsPlaying] = React.useState(false);
-    const videoRef = React.useRef<HTMLVideoElement>(null);
-
-    const handlePlayClick = () => {
-        const video = videoRef.current;
-        if (video && video.paused) {
-            video.play();
-        }
-    };
-
     return (
         <section className="relative min-h-screen bg-gradient-to-br from-white via-slate-50 to-stone-100 overflow-hidden">
             <div className="absolute inset-0 opacity-5">
@@ -62,37 +46,14 @@ const HeroSection: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-gold-400/5 via-gold-500/10 to-gold-400/5 blur-2xl"></div>
 
                         <div className="aspect-video w-full relative">
-                            <video
-                                ref={videoRef}
-                                onPlay={() => setIsPlaying(true)}
-                                onPause={() => setIsPlaying(false)}
-                                onEnded={() => setIsPlaying(false)}
-                                src="https://healvideos.s3.us-east-2.amazonaws.com/KINGLEY+FOUNDATION+OFFER-VEED.mp4"
+                            <iframe
+                                src="https://player.vimeo.com/video/1146445552?h=3594a5379b&title=0&byline=0&portrait=0"
                                 className="w-full h-full"
-                                preload="metadata"
-                                controls
-                                playsInline
-                                webkit-playsinline="true"
+                                frameBorder="0"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                allowFullScreen
                                 title="Kingley Foundation Offer"
-                            >
-                                Your browser does not support the video tag.
-                            </video>
-
-                            {!isPlaying && (
-                                <div
-                                    className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-white/95 via-slate-50/90 to-white/95 hover:from-white/85 hover:via-slate-50/80 hover:to-white/85 transition-all duration-300 cursor-pointer backdrop-blur-sm"
-                                    onClick={handlePlayClick}
-                                    role="button"
-                                    aria-label="Play video"
-                                >
-                                    <div className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-full p-8 hover:scale-110 transition-transform duration-300 shadow-2xl">
-                                        <PlayIcon className="w-16 h-16 text-white ml-1" />
-                                    </div>
-                                    <p className="mt-6 text-slate-900 font-bold text-xl uppercase tracking-widest" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                                        WATCH NOW
-                                    </p>
-                                </div>
-                            )}
+                            ></iframe>
                         </div>
                     </div>
                 </div>
