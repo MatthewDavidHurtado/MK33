@@ -53,8 +53,8 @@ const VideoShowcase: React.FC = () => {
             speaker: 'JORDAN PETERSON',
             topic: 'WEAKNESS',
             videoUrl: 'https://player.vimeo.com/video/1146438292?h=122e25a279&title=0&byline=0&portrait=0',
-            breakthrough: 'I am watching weakness masquerade as strength.',
-            actionableIntel: 'I am watching weakness masquerade as strength.',
+            breakthrough: 'Am I watching weakness masquerade as strength?!',
+            actionableIntel: 'The data suggests that I am watching weakness masquerade as strength.',
             timeToRealize: '5-minutes',
             estimatedTimeWithout: 'I think I already sensed it.',
             value: 'Saves me the time of paying attention. One less distracting voice of influencers to possibly consider. Not in alignment with my objectives.'
