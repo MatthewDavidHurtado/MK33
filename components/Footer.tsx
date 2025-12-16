@@ -85,16 +85,16 @@ const Footer: React.FC = () => {
                     </div>
 
                     {/* Scriptural Law Dropdown */}
-                    <div className="mt-12 bg-gradient-to-br from-gold-900/20 to-gold-800/10 border-2 border-gold-400/50 rounded-lg overflow-hidden shadow-2xl">
+                    <div className="mt-12 bg-slate-900/50 border-2 border-slate-700/50 rounded-lg overflow-hidden shadow-2xl">
                         <button
                             onClick={() => setIsScripturalLawExpanded(!isScripturalLawExpanded)}
-                            className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gold-900/30 transition-all duration-300"
+                            className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-800/50 transition-all duration-300"
                         >
-                            <span className="font-cinzel text-lg md:text-xl font-bold text-gold-400 uppercase tracking-wide">
+                            <span className="font-cinzel text-lg md:text-xl font-bold text-slate-100 uppercase tracking-wide">
                                 READ THIS HERE! COMPREHEND SCRIPTURAL LAW!! (REQUIRED VIDEO SUPPLEMENTAL LEARNING)
                             </span>
                             <ChevronDownIcon
-                                className={`w-6 h-6 text-gold-400 transition-transform duration-300 flex-shrink-0 ml-4 ${
+                                className={`w-6 h-6 text-slate-300 transition-transform duration-300 flex-shrink-0 ml-4 ${
                                     isScripturalLawExpanded ? 'rotate-180' : ''
                                 }`}
                             />
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
                                 isScripturalLawExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
                             }`}
                         >
-                            <div className="px-6 pb-6 border-t border-gold-400/30 text-left">
+                            <div className="px-6 pb-6 border-t border-slate-700/50 text-left bg-slate-900/30">
 
                                 {/* Section I: FORGIVE */}
                                 <div className="mt-6 mb-8">
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
                                 </div>
 
                                 {/* Section II: REPENT */}
-                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                <div className="mb-8 pt-6 border-t border-slate-700/50">
                                     <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
                                         II. REPENT — "NULLIFY THE RECORD (EVIL)"
                                     </h3>
@@ -196,7 +196,7 @@ const Footer: React.FC = () => {
                                 </div>
 
                                 {/* Section III: PLEAD THE BLOOD */}
-                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                <div className="mb-8 pt-6 border-t border-slate-700/50">
                                     <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
                                         III. PLEAD THE BLOOD OF JESUS — "AUTHORITY / STANDING"
                                     </h3>
@@ -244,7 +244,7 @@ const Footer: React.FC = () => {
                                 </div>
 
                                 {/* Section IV: COMMAND */}
-                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                <div className="mb-8 pt-6 border-t border-slate-700/50">
                                     <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
                                         IV. COMMAND THE SPIRIT(S) + ISSUES TO GO — "MOVE THE COURTS OF HEAVEN"
                                     </h3>
@@ -303,55 +303,55 @@ const Footer: React.FC = () => {
                                 </div>
 
                                 {/* Summary Section */}
-                                <div className="pt-6 border-t-2 border-gold-400/40">
-                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4 uppercase text-center">
+                                <div className="pt-6 border-t-2 border-slate-700/70">
+                                    <h3 className="font-cinzel text-2xl font-bold text-slate-100 mb-4 uppercase text-center">
                                         SUMMARY: THIS FOUR-PILLAR SYSTEM IS LEGAL, BIBLICAL, AND FUNCTIONAL
                                     </h3>
 
                                     <div className="overflow-x-auto">
-                                        <table className="w-full text-sm border border-gold-400/30 rounded-lg overflow-hidden">
-                                            <thead className="bg-gold-900/30">
+                                        <table className="w-full text-sm border border-slate-700/50 rounded-lg overflow-hidden">
+                                            <thead className="bg-slate-800/50">
                                                 <tr>
-                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Step</th>
-                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Biblical Function</th>
-                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Legal Function</th>
-                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Earth Parallel</th>
+                                                    <th className="border border-slate-700/50 px-3 py-3 text-slate-200 font-bold">Step</th>
+                                                    <th className="border border-slate-700/50 px-3 py-3 text-slate-200 font-bold">Biblical Function</th>
+                                                    <th className="border border-slate-700/50 px-3 py-3 text-slate-200 font-bold">Legal Function</th>
+                                                    <th className="border border-slate-700/50 px-3 py-3 text-slate-200 font-bold">Earth Parallel</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="text-slate-300">
                                                 <tr className="bg-slate-900/30">
-                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Forgive</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Remove judgments</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Cancel debts</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Settle accounts</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3 font-semibold">Forgive</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Remove judgments</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Cancel debts</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Settle accounts</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Repent</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Nullify sin's record</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Expunge evidence</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Wipe criminal record</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3 font-semibold">Repent</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Nullify sin's record</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Expunge evidence</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Wipe criminal record</td>
                                                 </tr>
                                                 <tr className="bg-slate-900/30">
-                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Plead Blood</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Establish authority</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Present superior testimony</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Introduce decisive evidence</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3 font-semibold">Plead Blood</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Establish authority</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Present superior testimony</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Introduce decisive evidence</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Command</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Execute authority</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Evict unlawful occupants</td>
-                                                    <td className="border border-gold-400/30 px-3 py-3">Court-ordered removal</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3 font-semibold">Command</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Execute authority</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Evict unlawful occupants</td>
+                                                    <td className="border border-slate-700/50 px-3 py-3">Court-ordered removal</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    <div className="mt-6 bg-gold-900/20 border-l-4 border-gold-400 p-4 rounded">
+                                    <div className="mt-6 bg-slate-800/30 border-l-4 border-slate-600 p-4 rounded">
                                         <p className="text-slate-200 leading-relaxed font-semibold">
                                             This 4-part technique mirrors Kingdom law, Jewish law, Roman law, and U.S. civil/criminal law.
                                         </p>
-                                        <p className="text-gold-200 mt-3 text-lg font-bold">
+                                        <p className="text-slate-100 mt-3 text-lg font-bold">
                                             It's a perfect union of Scripture + lawful spiritual process. RESULTS FOLLOW. THE PROOF IS IN THE OUTCOME. WATCH WHAT HAPPENS!
                                         </p>
                                     </div>
