@@ -58,6 +58,11 @@ const Footer: React.FC = () => {
                     <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gold-400 mb-4">
                         Forgive, Repent, Live Righteously
                     </h2>
+                    <img
+                        src="https://i.imgur.com/pdWY5EW.jpg"
+                        alt="Forgive, Repent, Live Righteously"
+                        className="w-full max-w-2xl mx-auto mb-8 rounded-lg shadow-xl"
+                    />
                     <h3 className="font-cinzel text-2xl md:text-3xl font-bold text-slate-100 mb-8">
                         Experience Wellbeing Now
                     </h3>
