@@ -136,7 +136,7 @@ const Footer: React.FC = () => {
                     </div>
                     
                     <div className="flex justify-center items-center gap-x-4 gap-y-1 flex-wrap !mt-4">
-                        <a href="https://drive.google.com/file/d/1PVUZBk3jzzPBPqGJGWD8zxjayI6Urxbr/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">The Excise Tax: Fraud Vitiates Everything</a>
+                        <a href="https://drive.google.com/file/d/1PVUZBk3jzzPBPqGJGWD8zxjayI6Urxbr/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">The Excise Tax</a>
                     </div>
                     
                     <p className="!mt-6">
