@@ -127,7 +127,7 @@ const NavigationSection: React.FC = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <div className="w-full max-w-md">
+                    <div className="w-full max-w-2xl">
                         <NavigationCard
                             title="Sacred Library"
                             description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
