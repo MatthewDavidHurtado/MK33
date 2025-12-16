@@ -76,43 +76,42 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
     };
 
     const Component = isPopup ? 'button' : 'a';
-    const props = isPopup 
+    const props = isPopup
         ? { onClick: handleClick }
         : { href, target: "_blank", rel: "noopener noreferrer" };
 
     return (
         <Component
             {...props}
-            className={`group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-xl border-2 border-gold-400/30 hover:border-gold-500/50 p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-400/20 ${isPopup ? 'cursor-pointer' : ''}`}
+            className={`group relative overflow-hidden bg-white rounded-2xl border-2 border-gold-400/30 hover:border-gold-500 p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-400/20 ${isPopup ? 'cursor-pointer' : ''}`}
         >
-        {badge && (
-            <div className="absolute top-3 right-3 bg-gold-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
-                {badge}
-            </div>
-        )}
+            {badge && (
+                <div className="absolute -top-3 left-8 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg z-10">
+                    {badge}
+                </div>
+            )}
 
-        <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center group-hover:bg-gold-500/20 transition-colors border border-gold-400/20">
-                {icon}
-            </div>
+            <div className="flex flex-col items-center text-center">
+                <div className="mb-6 w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    {React.cloneElement(icon as React.ReactElement, { className: 'w-8 h-8 text-white' })}
+                </div>
 
-            <div className="flex-1 min-w-0">
-                <h3 className="font-cinzel text-lg font-bold text-slate-900 mb-2 group-hover:text-gold-600 transition-colors">
+                <h3 className="font-cinzel text-2xl font-bold text-slate-900 mb-4 group-hover:text-gold-600 transition-colors">
                     {title}
                 </h3>
-                <p className="text-slate-700 text-sm leading-relaxed mb-3">
+
+                <p className="text-slate-600 text-base leading-relaxed mb-6 max-w-lg">
                     {description}
                 </p>
-                <div className="flex items-center text-gold-600 text-sm font-semibold group-hover:text-gold-700 transition-colors">
+
+                <div className="inline-flex items-center gap-2 bg-gold-50 text-gold-700 px-6 py-3 rounded-full font-semibold group-hover:bg-gold-100 transition-colors">
                     <span>Explore</span>
-                    <ArrowRightIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
             </div>
-        </div>
 
-        {/* Subtle hover effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gold-400/0 via-gold-400/5 to-gold-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </Component>
+            <div className="absolute inset-0 bg-gradient-to-br from-gold-400/0 via-gold-400/5 to-gold-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        </Component>
     );
 }
 
@@ -127,11 +126,11 @@ const NavigationSection: React.FC = () => {
                 </div>
 
                 <div className="flex justify-center">
-                    <div className="w-full max-w-2xl">
+                    <div className="w-full max-w-xl">
                         <NavigationCard
-                            title="Sacred Library"
+                            title="SACRED LIBRARY"
                             description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
-                            icon={<BookIcon className="w-6 h-6 text-gold-600" />}
+                            icon={<BookIcon />}
                             href="https://legendary-melomakarona-3b8eea.netlify.app"
                             gradient=""
                             badge="FREE"
