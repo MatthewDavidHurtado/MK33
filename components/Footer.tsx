@@ -44,10 +44,10 @@ const Footer: React.FC = () => {
                 <div className="my-12 max-w-3xl mx-auto">
                     <div className="aspect-video w-full bg-black rounded-lg overflow-hidden shadow-xl relative border border-slate-800">
                         <iframe
-                            src="https://rumble.com/embed/v72rzbw/"
+                            src="https://player.vimeo.com/video/1147144855?h=715c4d1f03&title=0&byline=0&portrait=0"
                             className="w-full h-full"
                             frameBorder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                            allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen
                             title="The Divine Laws of Abundance - Full Masterclass"
                         ></iframe>
