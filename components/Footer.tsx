@@ -13,14 +13,29 @@ const Footer: React.FC = () => {
     return (
         <footer className="w-full pt-16 pb-12 bg-black border-t border-slate-800/50">
             <div className="container mx-auto max-w-4xl px-4 text-center">
-                
-                <div className="mb-12 max-w-3xl mx-auto">
-                    <h2 className="font-cinzel text-4xl font-bold text-slate-100 mb-4">
-                        “Test Me in this...”
+
+                {/* Main Headline */}
+                <div className="mb-16">
+                    <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-slate-100 mb-2">
+                        The Spiritual <span className="underline decoration-gold-400 decoration-4 text-gold-400">Laws</span> to Get Rich,
+                    </h1>
+                    <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-slate-100">
+                        Healthy, and Live Your Best Life!
+                    </h1>
+                </div>
+
+                {/* Section 1: The 4-Pillars of Financial Increase */}
+                <div className="mb-16 max-w-3xl mx-auto">
+                    <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gold-400 mb-8 uppercase tracking-wide">
+                        The 4-Pillars of Financial Increase
                     </h2>
+
+                    <h3 className="font-cinzel text-3xl md:text-4xl font-bold text-slate-100 mb-4">
+                        "Test Me in this..."
+                    </h3>
                     <blockquote className="text-slate-400 text-lg italic relative px-8">
-                        <span className="absolute left-0 -top-2 text-6xl text-gold-400/30 font-lora opacity-75">“</span>
-                        Bring the whole tithe into the storehouse, that there may be food in My house. Test Me in this,” says the Lord of hosts, “and see if I will not throw open the floodgates of heaven and pour out so much blessing that there will not be room enough to store it.”
+                        <span className="absolute left-0 -top-2 text-6xl text-gold-400/30 font-lora opacity-75">"</span>
+                        Bring the whole tithe into the storehouse, that there may be food in My house. Test Me in this," says the Lord of hosts, "and see if I will not throw open the floodgates of heaven and pour out so much blessing that there will not be room enough to store it."
                     </blockquote>
                     <p className="text-right text-slate-500 mt-2 pr-4">— Malachi 3:10</p>
                 </div>
@@ -35,6 +50,48 @@ const Footer: React.FC = () => {
                             allowFullScreen
                             title="The Divine Laws of Abundance - Full Masterclass"
                         ></iframe>
+                    </div>
+                </div>
+
+                {/* Section 2: Forgive, Repent, Live Righteously */}
+                <div className="my-20 max-w-3xl mx-auto">
+                    <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gold-400 mb-4">
+                        Forgive, Repent, Live Righteously
+                    </h2>
+                    <h3 className="font-cinzel text-2xl md:text-3xl font-bold text-slate-100 mb-8">
+                        Experience Wellbeing Now
+                    </h3>
+
+                    <div className="aspect-video w-full bg-slate-900 rounded-lg overflow-hidden shadow-xl relative border-2 border-gold-400/30 flex items-center justify-center">
+                        <div className="text-center">
+                            <div className="bg-gold-400/10 rounded-full p-6 inline-block mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16 text-gold-400">
+                                    <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                            <p className="text-slate-400 text-lg font-semibold">Video Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section 3: How to Manifest Your Best Life */}
+                <div className="my-20 max-w-3xl mx-auto">
+                    <h2 className="font-cinzel text-3xl md:text-4xl font-bold text-gold-400 mb-4">
+                        How to Manifest Your Best Life...
+                    </h2>
+                    <h3 className="font-cinzel text-2xl md:text-3xl font-bold text-slate-100 mb-8">
+                        It's All About Identity
+                    </h3>
+
+                    <div className="aspect-video w-full bg-slate-900 rounded-lg overflow-hidden shadow-xl relative border-2 border-gold-400/30 flex items-center justify-center">
+                        <div className="text-center">
+                            <div className="bg-gold-400/10 rounded-full p-6 inline-block mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-16 h-16 text-gold-400">
+                                    <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                            <p className="text-slate-400 text-lg font-semibold">Video Coming Soon</p>
+                        </div>
                     </div>
                 </div>
 
