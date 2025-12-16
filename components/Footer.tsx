@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                                     <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <p className="text-slate-400 text-lg font-semibold">Video Coming Soon</p>
+                            <p className="text-slate-400 text-lg font-semibold">FREE RESOURCES</p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
                                     <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
                                 </svg>
                             </div>
-                            <p className="text-slate-400 text-lg font-semibold">Video Coming Soon</p>
+                            <p className="text-slate-400 text-lg font-semibold">FREE RESOURCES</p>
                         </div>
                     </div>
                 </div>

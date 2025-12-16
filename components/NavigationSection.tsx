@@ -122,19 +122,21 @@ const NavigationSection: React.FC = () => {
             <div className="container mx-auto max-w-6xl px-4">
                 <div className="text-center mb-10">
                     <h2 className="font-cinzel text-3xl font-bold text-slate-900 mb-3">
-                        Coming Soon
+                        FREE RESOURCES
                     </h2>
                 </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <NavigationCard
-                        title="Sacred Library"
-                        description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
-                        icon={<BookIcon className="w-6 h-6 text-gold-600" />}
-                        href="https://legendary-melomakarona-3b8eea.netlify.app"
-                        gradient=""
-                        badge="FREE"
-                    />
+
+                <div className="flex justify-center">
+                    <div className="w-full max-w-md">
+                        <NavigationCard
+                            title="Sacred Library"
+                            description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
+                            icon={<BookIcon className="w-6 h-6 text-gold-600" />}
+                            href="https://legendary-melomakarona-3b8eea.netlify.app"
+                            gradient=""
+                            badge="FREE"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
