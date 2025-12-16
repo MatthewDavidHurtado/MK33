@@ -117,25 +117,30 @@ const NavigationCard: React.FC<NavigationCardProps> = ({ title, description, ico
 
 const NavigationSection: React.FC = () => {
     return (
-        <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white border-b border-gold-400/20 py-12">
-            <div className="container mx-auto max-w-6xl px-4">
-                <div className="text-center mb-10">
-                    <h2 className="font-cinzel text-3xl font-bold text-slate-900 mb-3">
-                        FREE RESOURCES
-                    </h2>
-                </div>
-
-                <div className="flex justify-center">
-                    <div className="w-full max-w-xl">
-                        <NavigationCard
-                            title="SACRED LIBRARY"
-                            description="Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles."
-                            icon={<BookIcon />}
-                            href="https://legendary-melomakarona-3b8eea.netlify.app"
-                            gradient=""
-                            badge="FREE"
-                        />
+        <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white border-b border-gold-400/20 py-16">
+            <div className="container mx-auto max-w-4xl px-4">
+                <div className="text-center">
+                    <div className="inline-block bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg mb-6">
+                        FREE
                     </div>
+
+                    <h2 className="font-cinzel text-3xl font-bold text-slate-900 mb-4">
+                        SACRED LIBRARY
+                    </h2>
+
+                    <p className="text-slate-600 text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+                        Access Malcolm's complete collection of 5 transformative books on Divine Law and spiritual principles.
+                    </p>
+
+                    <a
+                        href="https://legendary-melomakarona-3b8eea.netlify.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-gold-600 text-lg font-semibold hover:text-gold-700 transition-colors group"
+                    >
+                        <span>Explore</span>
+                        <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
                 </div>
             </div>
         </section>
