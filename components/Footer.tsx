@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -8,16 +8,7 @@ const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
 );
 
 const Footer: React.FC = () => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [isDisclaimerExpanded, setIsDisclaimerExpanded] = useState(false);
-
-    const handlePlayClick = () => {
-        const video = videoRef.current;
-        if (video && video.paused) {
-            video.play();
-        }
-    };
 
     return (
         <footer className="w-full pt-16 pb-12 bg-black border-t border-slate-800/50">
@@ -36,36 +27,14 @@ const Footer: React.FC = () => {
 
                 <div className="my-12 max-w-3xl mx-auto">
                     <div className="aspect-video w-full bg-black rounded-lg overflow-hidden shadow-xl relative border border-slate-800">
-                        <video
-                            ref={videoRef}
-                            onPlay={() => setIsPlaying(true)}
-                            onPause={() => setIsPlaying(false)}
-                            onEnded={() => setIsPlaying(false)}
-                            src="https://healvideos.s3.us-east-2.amazonaws.com/permanent_overflow_is_yours_already_-_claim_it.+(720p).mp4"
+                        <iframe
+                            src="https://rumble.com/embed/v72rzbw/"
                             className="w-full h-full"
-                            preload="metadata"
-                            controls
-                            title="A Message on Tithing from Malcolm Kingley"
-                        >
-                            Your browser does not support the video tag.
-                        </video>
-                        {!isPlaying && (
-                            <div 
-                                className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 hover:bg-black/50 transition-colors duration-300 cursor-pointer"
-                                onClick={handlePlayClick}
-                                role="button"
-                                aria-label="Play video"
-                            >
-                                <div className="bg-black/50 rounded-full p-4 hover:bg-gold-500/20 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 text-white">
-                                        <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.72-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p className="mt-4 text-gold-400 font-bold text-lg uppercase tracking-widest font-cinzel">
-                                    Press Play
-                                </p>
-                            </div>
-                        )}
+                            frameBorder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                            allowFullScreen
+                            title="The Divine Laws of Abundance - Full Masterclass"
+                        ></iframe>
                     </div>
                 </div>
 
