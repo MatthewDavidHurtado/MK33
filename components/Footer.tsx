@@ -9,6 +9,7 @@ const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
 
 const Footer: React.FC = () => {
     const [isDisclaimerExpanded, setIsDisclaimerExpanded] = useState(false);
+    const [isScripturalLawExpanded, setIsScripturalLawExpanded] = useState(false);
 
     return (
         <footer className="w-full pt-16 pb-12 bg-black border-t border-slate-800/50">
@@ -80,6 +81,283 @@ const Footer: React.FC = () => {
                             <p className="text-gold-400 text-xl md:text-2xl font-bold text-center px-4 bg-black/60 py-3 rounded-lg border-2 border-gold-400/50">
                                 GET IMMEDIATE RELIEF, DO THIS NOW!
                             </p>
+                        </div>
+                    </div>
+
+                    {/* Scriptural Law Dropdown */}
+                    <div className="mt-12 bg-gradient-to-br from-gold-900/20 to-gold-800/10 border-2 border-gold-400/50 rounded-lg overflow-hidden shadow-2xl">
+                        <button
+                            onClick={() => setIsScripturalLawExpanded(!isScripturalLawExpanded)}
+                            className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gold-900/30 transition-all duration-300"
+                        >
+                            <span className="font-cinzel text-lg md:text-xl font-bold text-gold-400 uppercase tracking-wide">
+                                READ THIS HERE! COMPREHEND SCRIPTURAL LAW!! (REQUIRED VIDEO SUPPLEMENTAL LEARNING)
+                            </span>
+                            <ChevronDownIcon
+                                className={`w-6 h-6 text-gold-400 transition-transform duration-300 flex-shrink-0 ml-4 ${
+                                    isScripturalLawExpanded ? 'rotate-180' : ''
+                                }`}
+                            />
+                        </button>
+
+                        <div
+                            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                                isScripturalLawExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+                            }`}
+                        >
+                            <div className="px-6 pb-6 border-t border-gold-400/30 text-left">
+
+                                {/* Section I: FORGIVE */}
+                                <div className="mt-6 mb-8">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
+                                        I. FORGIVE — "PAY OFF SPIRITUAL DEBTS"
+                                    </h3>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        SCRIPTURAL ALIGNMENT
+                                    </h4>
+                                    <p className="text-slate-300 leading-relaxed mb-3">
+                                        Forgiveness is not optional in the Kingdom — it is a legal requirement. Jesus ties forgiveness directly to the removal of tormenting spirits.
+                                    </p>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        Key Scriptures
+                                    </h4>
+                                    <div className="space-y-3 text-slate-300 leading-relaxed">
+                                        <p>
+                                            <strong className="text-gold-300">Matthew 6:12</strong> — "Forgive us our debts, as we forgive our debtors."<br />
+                                            <span className="text-gold-200">👉 Jesus directly defines sin in legal terms: debt.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Matthew 18:34–35</strong> — The unforgiving servant is turned over to tormentors until the debt is paid.<br />
+                                            <span className="text-gold-200">👉 Tormentors = demonic entities with legal rights.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Mark 11:25</strong> — "Forgive, that your Father may forgive you."
+                                        </p>
+                                    </div>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        EARTHLY LEGAL PARALLEL
+                                    </h4>
+                                    <div className="text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>Forgiveness = debt cancellation</strong><br />
+                                        In civil law, if a debt is forgiven, the creditor loses all legal standing.</p>
+                                        <p>Without forgiveness, the "creditor" (spirit) retains legal right to collect.</p>
+                                        <p className="text-gold-200 font-semibold mt-3">
+                                            ✔ Your alignment is perfect:<br />
+                                            Forgiveness dissolves the legal claim of the enemy.<br />
+                                            You cannot remove a spirit without revoking its grounds.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Section II: REPENT */}
+                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
+                                        II. REPENT — "NULLIFY THE RECORD (EVIL)"
+                                    </h3>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        SCRIPTURAL ALIGNMENT
+                                    </h4>
+                                    <p className="text-slate-300 leading-relaxed mb-3">
+                                        Repentance is the legal mechanism that voids sin's record.
+                                    </p>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        Key Scriptures
+                                    </h4>
+                                    <div className="space-y-3 text-slate-300 leading-relaxed">
+                                        <p>
+                                            <strong className="text-gold-300">1 John 1:9</strong> — "If we confess… He is faithful and JUST to forgive."<br />
+                                            <span className="text-gold-200">👉 Just = legal justice. Confession triggers jurisdiction.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Acts 3:19</strong> — "Repent… that times of refreshing may come."<br />
+                                            <span className="text-gold-200">👉 Refreshing = healing, release, restoration.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Psalm 51</strong> — Repentance restores legal standing before God.
+                                        </p>
+                                    </div>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        EARTHLY LEGAL PARALLEL
+                                    </h4>
+                                    <div className="text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>Repentance = nullification or expungement of a criminal record.</strong><br />
+                                        Once expunged, the state can no longer prosecute.</p>
+                                        <p className="text-gold-200 font-semibold mt-3">
+                                            ✔ Your alignment is exact:<br />
+                                            Repentance legally erases the enemy's evidence.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Section III: PLEAD THE BLOOD */}
+                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
+                                        III. PLEAD THE BLOOD OF JESUS — "AUTHORITY / STANDING"
+                                    </h3>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        SCRIPTURAL ALIGNMENT
+                                    </h4>
+                                    <p className="text-slate-300 leading-relaxed mb-3">
+                                        Pleading the blood is not emotional — it's a legal act.
+                                    </p>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        Key Scriptures
+                                    </h4>
+                                    <div className="space-y-3 text-slate-300 leading-relaxed">
+                                        <p>
+                                            <strong className="text-gold-300">Revelation 12:11</strong> — "They overcame by the blood of the Lamb…"<br />
+                                            <span className="text-gold-200">👉 The blood is a legal weapon.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Hebrews 12:24</strong> — "The blood speaks a better word."<br />
+                                            <span className="text-gold-200">👉 The blood literally testifies on your behalf.</span>
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Colossians 2:14–15</strong> — Jesus cancelled the legal record of debts.
+                                        </p>
+                                    </div>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        EARTHLY LEGAL PARALLEL
+                                    </h4>
+                                    <div className="text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>Pleading the blood = presenting superior evidence.</strong></p>
+                                        <p>In court terms:</p>
+                                        <ul className="list-disc pl-6 space-y-1">
+                                            <li>The enemy brings accusations.</li>
+                                            <li>The blood testifies higher evidence, canceling his claims.</li>
+                                            <li>You gain legal standing to act in authority.</li>
+                                        </ul>
+                                        <p className="text-gold-200 font-semibold mt-3">
+                                            ✔ Your alignment is flawless:<br />
+                                            The blood establishes jurisdiction and standing in the Courts of Heaven.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Section IV: COMMAND */}
+                                <div className="mb-8 pt-6 border-t border-gold-400/20">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-3 uppercase">
+                                        IV. COMMAND THE SPIRIT(S) + ISSUES TO GO — "MOVE THE COURTS OF HEAVEN"
+                                    </h3>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        SCRIPTURAL ALIGNMENT
+                                    </h4>
+                                    <p className="text-slate-300 leading-relaxed mb-3">
+                                        Authority comes after legal grounds are established.
+                                    </p>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        Key Scriptures
+                                    </h4>
+                                    <div className="space-y-3 text-slate-300 leading-relaxed">
+                                        <p>
+                                            <strong className="text-gold-300">Luke 10:19</strong> — You have authority over all power of the enemy.
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Mark 16:17</strong> — "In My name they will cast out demons."
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">Matthew 12:28–29</strong> — You cannot plunder until the strong man is legally bound.
+                                        </p>
+                                        <p>
+                                            <strong className="text-gold-300">James 4:7</strong> — "Submit to God (repentance), resist the devil (command), and he must flee."
+                                        </p>
+                                    </div>
+
+                                    <p className="text-slate-300 leading-relaxed mt-4">
+                                        Notice the order in James:
+                                    </p>
+                                    <ul className="list-disc pl-6 space-y-1 text-slate-300">
+                                        <li>Submit = repentance/forgiveness</li>
+                                        <li>Resist = authority command</li>
+                                        <li>He must flee = legal eviction</li>
+                                    </ul>
+
+                                    <h4 className="font-cinzel text-xl font-bold text-slate-200 mb-3 mt-6">
+                                        EARTHLY LEGAL PARALLEL
+                                    </h4>
+                                    <div className="text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>Commanding spirits to leave = eviction by lawful court order.</strong></p>
+                                        <p>Once:</p>
+                                        <ul className="list-disc pl-6 space-y-1">
+                                            <li>The debts are paid (forgiveness)</li>
+                                            <li>The record is expunged (repentance)</li>
+                                            <li>Superior evidence is filed (blood of Jesus)</li>
+                                        </ul>
+                                        <p>…then a judge authorizes removal of the intruder.</p>
+                                        <p className="text-gold-200 font-semibold mt-3">
+                                            ✔ Your alignment is legally exact:<br />
+                                            You never command before removing legal rights — which is how deliverance is meant to work.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Summary Section */}
+                                <div className="pt-6 border-t-2 border-gold-400/40">
+                                    <h3 className="font-cinzel text-2xl font-bold text-gold-400 mb-4 uppercase text-center">
+                                        SUMMARY: THIS FOUR-PILLAR SYSTEM IS LEGAL, BIBLICAL, AND FUNCTIONAL
+                                    </h3>
+
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full text-sm border border-gold-400/30 rounded-lg overflow-hidden">
+                                            <thead className="bg-gold-900/30">
+                                                <tr>
+                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Step</th>
+                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Biblical Function</th>
+                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Legal Function</th>
+                                                    <th className="border border-gold-400/30 px-3 py-3 text-gold-300 font-bold">Earth Parallel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="text-slate-300">
+                                                <tr className="bg-slate-900/30">
+                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Forgive</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Remove judgments</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Cancel debts</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Settle accounts</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Repent</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Nullify sin's record</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Expunge evidence</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Wipe criminal record</td>
+                                                </tr>
+                                                <tr className="bg-slate-900/30">
+                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Plead Blood</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Establish authority</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Present superior testimony</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Introduce decisive evidence</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="border border-gold-400/30 px-3 py-3 font-semibold">Command</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Execute authority</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Evict unlawful occupants</td>
+                                                    <td className="border border-gold-400/30 px-3 py-3">Court-ordered removal</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div className="mt-6 bg-gold-900/20 border-l-4 border-gold-400 p-4 rounded">
+                                        <p className="text-slate-200 leading-relaxed font-semibold">
+                                            This 4-part technique mirrors Kingdom law, Jewish law, Roman law, and U.S. civil/criminal law.
+                                        </p>
+                                        <p className="text-gold-200 mt-3 text-lg font-bold">
+                                            It's a perfect union of Scripture + lawful spiritual process. RESULTS FOLLOW. THE PROOF IS IN THE OUTCOME. WATCH WHAT HAPPENS!
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
