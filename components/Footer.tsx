@@ -10,6 +10,7 @@ const ChevronDownIcon: React.FC<{className?: string}> = ({className}) => (
 const Footer: React.FC = () => {
     const [isDisclaimerExpanded, setIsDisclaimerExpanded] = useState(false);
     const [isScripturalLawExpanded, setIsScripturalLawExpanded] = useState(false);
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     return (
         <footer className="w-full pt-16 pb-12 bg-black border-t border-slate-800/50">
@@ -383,6 +384,19 @@ const Footer: React.FC = () => {
                             allowFullScreen
                             title="How to Manifest Your Best Life - Identity Technique"
                         ></iframe>
+
+                        {!isVideoPlaying && (
+                            <div
+                                className="absolute inset-0 bg-black/75 flex items-center justify-center cursor-pointer transition-opacity hover:bg-black/85"
+                                onClick={() => setIsVideoPlaying(true)}
+                            >
+                                <div className="text-center px-6">
+                                    <h3 className="font-cinzel text-2xl md:text-4xl font-bold text-gold-400 uppercase tracking-wider border-4 border-gold-400 py-6 px-8 bg-slate-900/50">
+                                        GET IMMEDIATE RELIEF, DO THIS NOW!
+                                    </h3>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
