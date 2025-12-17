@@ -370,11 +370,19 @@ const Footer: React.FC = () => {
                     <h3 className="font-cinzel text-2xl md:text-3xl font-bold text-slate-100 mb-8">
                         It's All About Identity
                     </h3>
+                    <h4 className="font-cinzel text-xl md:text-2xl font-bold text-gold-400 mb-6 uppercase tracking-wide">
+                        1-TECHNIQUE, 5X/DAY = FAST RESULTS!
+                    </h4>
 
-                    <div className="aspect-video w-full bg-slate-900 rounded-lg overflow-hidden shadow-xl relative border-2 border-gold-400/30 flex items-center justify-center">
-                        <div className="text-center">
-                            <p className="text-gold-400 text-3xl md:text-4xl font-bold font-cinzel">COMING SOON!</p>
-                        </div>
+                    <div className="aspect-video w-full bg-black rounded-lg overflow-hidden shadow-xl relative border-2 border-gold-400/30">
+                        <iframe
+                            src="https://player.vimeo.com/video/1147183221?h=fc1b78a9bf&title=0&byline=0&portrait=0"
+                            className="w-full h-full"
+                            frameBorder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowFullScreen
+                            title="How to Manifest Your Best Life - Identity Technique"
+                        ></iframe>
                     </div>
                 </div>
 
