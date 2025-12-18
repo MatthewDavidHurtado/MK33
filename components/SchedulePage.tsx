@@ -2,9 +2,7 @@ import React from 'react';
 import { CheckCircle, XCircle, Clock, TrendingUp, Target, Zap } from 'lucide-react';
 
 const SchedulePage: React.FC = () => {
-    const handleBooking = () => {
-        window.location.href = 'mailto:contact@kingleyfoundation.org?subject=Session Booking Request';
-    };
+    const paymentUrl = 'https://allow-ministries-tithing-app-759300603350.us-west1.run.app/';
 
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-black text-slate-100">
@@ -239,12 +237,14 @@ const SchedulePage: React.FC = () => {
                                     <span>Proven plan of action</span>
                                 </li>
                             </ul>
-                            <button
-                                onClick={handleBooking}
-                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                            <a
+                                href={paymentUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 block text-center"
                             >
                                 Book Now
-                            </button>
+                            </a>
                         </div>
 
                         {/* Wellbeing Session */}
@@ -283,12 +283,14 @@ const SchedulePage: React.FC = () => {
                                     <span>Strategic clarity</span>
                                 </li>
                             </ul>
-                            <button
-                                onClick={handleBooking}
-                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                            <a
+                                href={paymentUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 block text-center"
                             >
                                 Book Now
-                            </button>
+                            </a>
                         </div>
 
                         {/* Retainer Package */}
@@ -320,12 +322,14 @@ const SchedulePage: React.FC = () => {
                                     <span>Ongoing strategic guidance</span>
                                 </li>
                             </ul>
-                            <button
-                                onClick={handleBooking}
-                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                            <a
+                                href={paymentUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full bg-gold-400 hover:bg-gold-500 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 block text-center"
                             >
                                 Book Now
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
