@@ -60,9 +60,7 @@ const HeroSection: React.FC = () => {
 
                 <div className="max-w-3xl mx-auto text-center">
                     <a
-                        href="https://calendly.com/sealintelligence/spiritual-consultation"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/schedule"
                         className="group inline-block"
                     >
                         <div className="bg-gradient-to-r from-white via-slate-50 to-white hover:from-gold-50 hover:via-gold-100 hover:to-gold-50 text-slate-900 rounded-2xl p-8 shadow-2xl hover:shadow-gold-500/20 transform hover:-translate-y-2 transition-all duration-300 ease-in-out border-2 border-gold-400/40 hover:border-gold-500/60">
