@@ -17,6 +17,7 @@ import HeroSection from './components/HeroSection';
 import VideoShowcase from './components/VideoShowcase';
 import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
+import SchedulePage from './components/SchedulePage';
 
 const MainApp: React.FC = () => {
     // State for Spiritual Treatment
@@ -130,6 +131,7 @@ const App: React.FC = () => {
                 <Route path="/" element={<MainApp />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/success" element={<SuccessPage />} />
+                <Route path="/schedule" element={<SchedulePage />} />
                 <Route path="*" element={<MainApp />} />
             </Routes>
         </Router>
