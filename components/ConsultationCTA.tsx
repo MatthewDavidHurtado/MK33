@@ -26,7 +26,9 @@ const ConsultationCTA: React.FC = () => {
                             My 15-minute Breakthrough Guidance session goes far beyond anything you've likely experienced. It is intuitive, Biblical, and designed to give you the most precise clarity and a proven plan of action possible. If you feel stuck, I will help you get past that point, decisively.
                         </p>
                         <a
-                            href="/schedule"
+                            href="https://calendly.com/sealintelligence/spiritual-consultation"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-bold text-base px-8 py-4 rounded-full shadow-lg hover:shadow-gold-500/30 border border-gold-500 hover:border-gold-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                             aria-label="Book your 15-minute Breakthrough Guidance session with Malcolm Kingley"
                         >
