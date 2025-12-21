@@ -7,9 +7,9 @@ const CalendarIcon: React.FC<{className?: string}> = ({className}) => (
     </svg>
 );
 
-const HeroSection: React.FC = () => {
+const Seer3Page: React.FC = () => {
     return (
-        <section className="relative min-h-screen bg-gradient-to-br from-white via-slate-50 to-stone-100 overflow-hidden">
+        <div className="flex flex-col min-h-screen bg-gradient-to-br from-white via-slate-50 to-stone-100 overflow-hidden">
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-20 left-10 w-32 h-32 border-2 border-gold-500/30 rounded-full"></div>
                 <div className="absolute top-40 right-20 w-24 h-24 border-2 border-gold-400/20 rounded-full"></div>
@@ -19,7 +19,6 @@ const HeroSection: React.FC = () => {
             </div>
 
             <div className="relative z-10 container mx-auto max-w-6xl px-4 py-12 lg:py-20">
-                {/* Gary Halbert Style Headline Section */}
                 <div className="max-w-4xl mx-auto mb-12 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                         "I Walked Away From Teaching the Moment I Uncovered A.I.'s Most Dangerous Ability…"
@@ -80,11 +79,20 @@ const HeroSection: React.FC = () => {
                         </div>
                     </a>
                 </div>
+
+                <div className="text-center mt-12">
+                    <a
+                        href="/"
+                        className="inline-block text-gold-600 hover:text-gold-500 font-semibold transition-colors duration-300"
+                    >
+                        ← Back to Home
+                    </a>
+                </div>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
-        </section>
+        </div>
     );
 };
 
-export default HeroSection;
+export default Seer3Page;
