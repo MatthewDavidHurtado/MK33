@@ -9,35 +9,39 @@ const CalendarIcon: React.FC<{className?: string}> = ({className}) => (
 
 const ConsultationCTA: React.FC = () => {
     return (
-        <section className="py-12 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 shadow-2xl">
-            <div className="container mx-auto max-w-5xl px-6 md:px-8">
+        <section className="py-12 bg-gradient-to-br from-stone-50 via-slate-50 to-stone-100 rounded-2xl border-2 border-gold-400/30 shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10" style={{
+                backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(224, 197, 110, 0.2) 0%, transparent 50%)'
+            }}></div>
+
+            <div className="container mx-auto max-w-5xl px-6 md:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
                     <div className="flex-shrink-0 lg:w-2/5">
                         <div className="relative">
                             <img
                                 src="https://i.imgur.com/jzcEePw.jpg"
                                 alt="Malcolm Kingley - Personal Consultation"
-                                className="w-full max-w-sm mx-auto lg:max-w-none rounded-xl shadow-2xl border border-amber-500/40"
+                                className="w-full max-w-sm mx-auto lg:max-w-none rounded-xl shadow-2xl border-4 border-gold-500/60"
                             />
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-amber-500/10 to-transparent"></div>
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-gold-500/5 to-transparent"></div>
                         </div>
                     </div>
 
                     <div className="flex-1 text-center lg:text-left">
-                        <div className="inline-block bg-amber-500/20 border border-amber-500/30 px-4 py-1.5 rounded-full mb-4">
-                            <span className="text-amber-400 font-bold text-xs uppercase tracking-widest">15-Minute Session</span>
+                        <div className="inline-block bg-gold-500 border-2 border-gold-600 px-4 py-1.5 rounded-full mb-4 shadow-md">
+                            <span className="text-white font-bold text-xs uppercase tracking-widest">15-Minute Session • $75</span>
                         </div>
-                        <h2 className="font-cinzel text-3xl md:text-4xl font-black text-slate-100 mb-4 tracking-tight">
+                        <h2 className="font-cinzel text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
                             Ready for a Breakthrough?
                         </h2>
-                        <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-8">
+                        <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-8">
                             My 15-minute Breakthrough Guidance session goes far beyond anything you've likely experienced. It is intuitive, Biblical, and designed to give you the most precise clarity and a proven plan of action possible. If you feel stuck, I will help you get past that point, decisively.
                         </p>
                         <a
                             href="https://calendly.com/sealintelligence/spiritual-consultation"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/30 border border-amber-400 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                            className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-bold text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-gold-500/50 border-2 border-gold-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                             aria-label="Book your 15-minute Breakthrough Guidance session with Malcolm Kingley"
                         >
                             <CalendarIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
