@@ -112,8 +112,8 @@ const MainApp: React.FC = () => {
             <TitheBanner />
             <Header />
 
-            <main className="flex-grow">
-                <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+            <main className="flex-grow w-full">
+                <div className="w-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
                     <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
                         <ConsultationCTA />
                     </div>
@@ -121,7 +121,7 @@ const MainApp: React.FC = () => {
 
                 <NavigationSection />
 
-                <div className="bg-gradient-to-b from-slate-800 to-slate-900">
+                <div className="w-full bg-gradient-to-b from-slate-800 to-slate-900">
                     <div className="container mx-auto max-w-6xl px-4 py-16">
                         <DivineLibraryCTA />
                     </div>
