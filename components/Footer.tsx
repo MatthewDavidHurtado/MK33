@@ -409,7 +409,7 @@ const Footer: React.FC = () => {
                         href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                        className="inline-block bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold uppercase tracking-wider text-base px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/30 border border-amber-400 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                         aria-label="Give now to support Kingley Foundation"
                     >
                         GIVE NOW

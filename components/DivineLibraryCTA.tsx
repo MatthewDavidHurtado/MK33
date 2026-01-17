@@ -14,58 +14,53 @@ const StarIcon: React.FC<{className?: string}> = ({className}) => (
 
 const DivineLibraryCTA: React.FC = () => {
     return (
-        <div className="my-16 relative">
-            {/* Decorative border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-400/20 to-transparent h-px top-0"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-400/20 to-transparent h-px bottom-0"></div>
-            
-            <div className="bg-gradient-to-br from-slate-900/60 via-slate-800/40 to-slate-900/60 backdrop-blur-sm rounded-2xl border border-gold-400/30 shadow-2xl shadow-gold-500/10 p-8 relative overflow-hidden">
-                {/* Subtle background pattern */}
+        <div className="relative">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 shadow-2xl p-8 md:p-12 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-4 left-4">
-                        <BookIcon className="w-32 h-32 text-gold-400 transform rotate-12" />
+                        <BookIcon className="w-32 h-32 text-amber-500 transform rotate-12" />
                     </div>
                     <div className="absolute bottom-4 right-4">
-                        <BookIcon className="w-24 h-24 text-gold-400 transform -rotate-12" />
+                        <BookIcon className="w-24 h-24 text-amber-500 transform -rotate-12" />
                     </div>
                 </div>
 
-                <div className="relative z-10 text-center max-w-2xl mx-auto">
-                    <div className="flex justify-center items-center gap-2 mb-4">
-                        <StarIcon className="w-6 h-6 text-gold-400" />
-                        <BookIcon className="w-8 h-8 text-gold-400" />
-                        <StarIcon className="w-6 h-6 text-gold-400" />
+                <div className="relative z-10 text-center max-w-3xl mx-auto">
+                    <div className="flex justify-center items-center gap-3 mb-6">
+                        <StarIcon className="w-7 h-7 text-amber-400" />
+                        <BookIcon className="w-9 h-9 text-amber-400" />
+                        <StarIcon className="w-7 h-7 text-amber-400" />
                     </div>
-                    
-                    <h2 className="font-cinzel text-3xl font-bold text-gold-400 mb-3">
+
+                    <h2 className="font-cinzel text-3xl md:text-4xl font-black text-amber-400 mb-4 tracking-tight">
                         The Sacred Library Awaits
                     </h2>
-                    
-                    <p className="text-slate-300 text-lg mb-2 font-lora">
+
+                    <p className="text-slate-300 text-lg md:text-xl mb-3 font-lora">
                         Deepen your understanding at the
                     </p>
-                    
-                    <h3 className="font-cinzel text-2xl font-bold text-slate-100 mb-4 tracking-wide">
+
+                    <h3 className="font-cinzel text-2xl md:text-3xl font-black text-slate-100 mb-6 tracking-wide">
                         DIVINE LAW SCHOOL
                     </h3>
-                    
-                    <p className="text-slate-400 mb-6 leading-relaxed">
+
+                    <p className="text-slate-300 text-base md:text-lg mb-8 leading-relaxed">
                         Access Malcolm Kingley's complete collection of 5 transformative books—yours absolutely free. These sacred texts contain the keys to understanding Divine Law and your spiritual inheritance.
                     </p>
-                    
-                    <div className="flex flex-wrap justify-center gap-2 text-sm text-gold-300 mb-8">
-                        <span className="bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Divine Science</span>
-                        <span className="bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Spiritual Law</span>
-                        <span className="bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Consciousness</span>
-                        <span className="bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Healing</span>
-                        <span className="bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Abundance</span>
+
+                    <div className="flex flex-wrap justify-center gap-2 text-sm text-amber-300 mb-10">
+                        <span className="bg-amber-500/10 px-4 py-2 rounded-lg border border-amber-500/20 font-semibold">Divine Science</span>
+                        <span className="bg-amber-500/10 px-4 py-2 rounded-lg border border-amber-500/20 font-semibold">Spiritual Law</span>
+                        <span className="bg-amber-500/10 px-4 py-2 rounded-lg border border-amber-500/20 font-semibold">Consciousness</span>
+                        <span className="bg-amber-500/10 px-4 py-2 rounded-lg border border-amber-500/20 font-semibold">Healing</span>
+                        <span className="bg-amber-500/10 px-4 py-2 rounded-lg border border-amber-500/20 font-semibold">Abundance</span>
                     </div>
-                    
+
                     <a
                         href="https://legendary-melomakarona-3b8eea.netlify.app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                        className="group inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold text-base md:text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/30 transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-amber-400"
                         aria-label="Visit the Divine Law School Sacred Library"
                     >
                         <BookIcon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
@@ -74,8 +69,8 @@ const DivineLibraryCTA: React.FC = () => {
                             <path fillRule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                         </svg>
                     </a>
-                    
-                    <p className="text-xs text-slate-500 mt-4 italic">
+
+                    <p className="text-xs text-slate-500 mt-6 italic">
                         "Study to show thyself approved unto God" — 2 Timothy 2:15
                     </p>
                 </div>

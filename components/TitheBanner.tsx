@@ -8,10 +8,10 @@ const HeartIcon: React.FC<{className?: string}> = ({className}) => (
 
 const TitheBanner: React.FC = () => {
     return (
-        <div className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 shadow-lg relative z-50">
-            <div className="container mx-auto max-w-6xl px-4 py-4">
+        <div className="w-full bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/50 shadow-lg relative z-50">
+            <div className="container mx-auto max-w-7xl px-4 py-4">
                 <div className="flex items-center justify-between gap-4">
-                    <p className="text-slate-200 text-base md:text-lg font-lora italic">
+                    <p className="text-slate-300 text-sm md:text-base font-lora">
                         Ready to Put God First in Your Finances?
                     </p>
                     <div className="flex-shrink-0 flex items-center gap-3">
@@ -19,10 +19,10 @@ const TitheBanner: React.FC = () => {
                             href="https://allow-ministries-tithing-app-759300603350.us-west1.run.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                            className="group inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold text-sm md:text-base px-5 py-2.5 md:px-6 md:py-3 rounded-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-amber-400"
                             aria-label="Give now to support Kingley Foundation"
                         >
-                            <HeartIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                            <HeartIcon className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-300" />
                             <span className="tracking-wide">GIVE NOW</span>
                         </a>
                     </div>

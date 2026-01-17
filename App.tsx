@@ -13,6 +13,7 @@ import BiologicalPrograms from './components/BiologicalPrograms';
 import ConsultationCTA from './components/ConsultationCTA';
 import HowToUse from './components/HowToUse';
 import DivineLibraryCTA from './components/DivineLibraryCTA';
+import VideoShowcase from './components/VideoShowcase';
 import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
 import SchedulePage from './components/SchedulePage';
@@ -106,16 +107,29 @@ const MainApp: React.FC = () => {
     }, [resetGnm]);
 
     return (
-        <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-slate-50 to-white">
+        <div className="flex flex-col min-h-screen bg-slate-900">
             <SafariWarning />
             <TitheBanner />
-            <NavigationSection />
-            <main className="flex-grow container mx-auto max-w-4xl px-4 py-8 md:py-16">
-                <Header />
+            <Header />
 
-                <ConsultationCTA />
+            <main className="flex-grow">
+                <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+                    <div className="container mx-auto max-w-6xl px-4 py-16 md:py-24">
+                        <ConsultationCTA />
+                    </div>
+                </div>
 
+                <NavigationSection />
+
+                <div className="bg-gradient-to-b from-slate-800 to-slate-900">
+                    <div className="container mx-auto max-w-6xl px-4 py-16">
+                        <DivineLibraryCTA />
+                    </div>
+                </div>
+
+                <VideoShowcase />
             </main>
+
             <Footer />
         </div>
     );
