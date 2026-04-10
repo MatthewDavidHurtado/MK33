@@ -31,7 +31,7 @@ const Nav=({pg,sp})=>{const f=FN.includes(pg);const[sc,setSc]=useState(false);co
 const navBg=sc?"rgba(10,10,10,.95)":"rgba(10,10,10,.8)";
 return(<>
 <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"1rem 1.5rem",background:navBg,backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(201,168,76,.12)"}}>
-  <span onClick={()=>{sp(PG.HOME);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",cursor:"pointer"}}>Kingley Foundation</span>
+  <span onClick={()=>{sp(PG.HOME);setMo(false)}} style={{cursor:"pointer",display:"flex",alignItems:"center"}}><img src="https://i.imgur.com/5BTOGRj.png" alt="Kingley Foundation" style={{height:42,width:"auto",maxWidth:180,objectFit:"contain",display:"block"}} onError={e=>{e.target.style.display="none";e.target.nextSibling.style.display="inline"}}/><span style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",display:"none"}}>Kingley Foundation</span></span>
   <div style={{display:"flex",alignItems:"center",gap:"1rem"}}>
     <div className="kf-desktop-links" style={{display:"flex",gap:"1.8rem",alignItems:"center"}}>
       {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer"}}>{l}</span>))}<span onClick={()=>sp(PG.TRAINING)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer"}}>Free Training</span></>}
@@ -266,6 +266,7 @@ const Disclaimer=()=>(<LP title="Disclaimer">
 
 // ── Footer ──
 const Foot=({sp})=>(<footer style={{padding:"2.5rem 2rem",textAlign:"center",borderTop:"1px solid rgba(201,168,76,.08)"}}>
+<div style={{display:"flex",justifyContent:"center",marginBottom:"2rem"}}><img src="https://i.imgur.com/QSEzhb2.png" alt="Kingley Foundation" style={{height:80,width:"auto",maxWidth:280,objectFit:"contain",opacity:.85}} onError={e=>{e.target.style.display="none"}}/></div>
 <div style={{display:"flex",justifyContent:"center",gap:"2rem",marginBottom:"1.5rem"}}>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION],["Give",PG.GIVE]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",color:"var(--dim)",cursor:"pointer"}}>{l}</span>))}</div>
 <div style={{display:"flex",justifyContent:"center",gap:"2rem",marginBottom:"1.5rem",borderTop:"1px solid rgba(201,168,76,.04)",paddingTop:"1rem"}}>{[["Privacy Policy",PG.PRIVACY],["Terms & Conditions",PG.TERMS],["Disclaimer",PG.DISCLAIMER]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:".95rem",color:"var(--dim)",cursor:"pointer",textDecoration:"underline",textDecorationColor:"rgba(201,168,76,.15)",textUnderlineOffset:"3px"}}>{l}</span>))}</div>
 <p style={{fontFamily:"var(--accent)",fontSize:".95rem",color:"var(--dim)"}}>Copyright 2026. Kingley Foundation. All rights reserved.</p>
