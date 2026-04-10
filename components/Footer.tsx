@@ -447,10 +447,35 @@ const Footer: React.FC = () => {
                     </div>
                     
                     <p className="!mt-6">
-                        © 2025 KINGLEY FOUNDATION. App design and concept based on Divine Law principles.
+                        Copyright 2026. Kingley Foundation. All rights reserved.
                     </p>
 
-                    
+                    <p className="!mt-3 text-slate-500 leading-relaxed">
+                        This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
+                    </p>
+
+                    <p className="!mt-3 text-slate-500 leading-relaxed">
+                        * Earlier work published and featured under my former name, Matthew David Hurtado.
+                    </p>
+
+                    <div className="!mt-6 space-y-3 text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+                        <p>
+                            <strong className="text-slate-400">Disclaimer:</strong> SHE-WOLF and all related content are provided for informational and educational purposes only by Kingley Foundation, a 508(c)(1)(a) organization in the State of Washington. They do not constitute medical, mental health, legal, financial, or professional advice. You are solely responsible for your actions, decisions, and outcomes. Do not use this site or SHE-WOLF in emergencies or for crisis situations. If you believe you may be in danger or need immediate help, call 911 (U.S.) or contact your local emergency services.
+                        </p>
+                        <p>
+                            <strong className="text-slate-400">No Professional Relationship:</strong> Your use of this website and/or SHE-WOLF does not create a therapist-client, doctor-patient, attorney-client, fiduciary, or any other professional relationship.
+                        </p>
+                        <p>
+                            <strong className="text-slate-400">Results Not Guaranteed:</strong> Any examples or statements about outcomes are illustrative only and not guarantees.
+                        </p>
+                        <p>
+                            <strong className="text-slate-400">Contact:</strong>{' '}
+                            <a href="mailto:tmoa@allowministries.com" className="hover:text-gold-400 transition-colors">tmoa@allowministries.com</a>
+                            {' '}|{' '}
+                            <a href="tel:3097414666" className="hover:text-gold-400 transition-colors">309-741-4666</a>
+                        </p>
+                    </div>
+
                     <div className="!mt-8 bg-slate-800/30 border border-slate-700/50 rounded-lg overflow-hidden">
                         <button
                             onClick={() => setIsDisclaimerExpanded(!isDisclaimerExpanded)}
