@@ -130,7 +130,14 @@ const GivePage=({sp})=>{
   };
 
   // WELCOME
-  if(screen==="welcome")return(<div style={{maxWidth:820,margin:"0 auto",padding:"7rem 1.5rem 3rem"}}><div style={{textAlign:"center"}} className="fade-in d1"><Hd sz="clamp(2rem,4vw,3rem)">Tithes, Offerings <em style={{color:"var(--gold)",fontStyle:"italic"}}>&amp; Faith Seeds</em></Hd><p style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:"var(--muted)",marginBottom:"2rem"}}>"You Can't Outgive God."</p></div>
+  if(screen==="welcome")return(<div style={{maxWidth:820,margin:"0 auto",padding:"7rem 1.5rem 3rem"}}><div style={{textAlign:"center",marginBottom:"2rem"}} className="fade-in d1">
+  <p style={{fontFamily:"var(--accent)",fontSize:".85rem",letterSpacing:".25em",color:"var(--gold-d)",textTransform:"uppercase",marginBottom:"1.2rem"}}>Escape the Collapse. Enter the Covenant.</p>
+  <h1 style={{fontFamily:"var(--serif)",fontSize:"clamp(2rem,4.5vw,3.2rem)",fontWeight:700,color:"var(--cream)",lineHeight:1.2,marginBottom:".5rem"}}>The Biblical Laws of Financial Increase: How I Went From Bankrupt and Bedridden to Seven Figures</h1>
+  <h2 style={{fontFamily:"var(--serif)",fontSize:"clamp(1.6rem,3.5vw,2.6rem)",fontWeight:700,fontStyle:"italic",color:"var(--gold)",marginBottom:"1.5rem"}}>— Three Times</h2>
+  <div style={{width:60,height:2,background:"var(--gold-d)",margin:"0 auto 1.8rem"}}/>
+  <p style={{fontFamily:"var(--serif)",fontSize:"clamp(1rem,1.8vw,1.2rem)",color:"var(--muted)",lineHeight:1.75,maxWidth:680,margin:"0 auto 1.5rem"}}>Inflation is rising. Jobs are disappearing. AI is replacing you. The economy is crumbling. And every solution you've tried has failed. There is one contract that has never defaulted in 4,000 years — and you've never read the terms.</p>
+  <p style={{fontFamily:"var(--accent)",fontSize:".85rem",letterSpacing:".2em",color:"var(--gold-d)",textTransform:"uppercase"}}>Watch the video, scroll down - get the book.</p>
+  </div>
   <div className="fade-in d2" style={{border:"1px solid rgba(201,168,76,.15)",background:"#000",marginBottom:"1.5rem",position:"relative",width:"100%",paddingBottom:"56.25%"}}><iframe src="https://player.vimeo.com/video/1182063073?h=bb3494c4ef&badge=0&autopause=0" style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen/></div>
   <div style={{textAlign:"center",marginBottom:"2.5rem"}}><Btn large onClick={()=>setScreen("payment")}>Give Now</Btn><p style={{fontFamily:"var(--accent)",fontSize:"1rem",color:"var(--dim)",marginTop:".8rem"}}>PayPal · Stripe · CashApp · BTC · ETH · XRP</p></div>
   <div style={{textAlign:"center",marginBottom:"2.5rem"}}><button onClick={()=>setScreen("harvest")} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",background:"none",border:"2px solid var(--gold-d)",padding:".9rem 2.5rem",cursor:"pointer",letterSpacing:".1em",transition:"all .3s"}} onMouseEnter={e=>{e.target.style.background="var(--gold-d)";e.target.style.color="var(--bg)"}} onMouseLeave={e=>{e.target.style.background="none";e.target.style.color="var(--gold-d)"}}>Prepare My Heart to Receive My Good</button></div>
