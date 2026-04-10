@@ -31,7 +31,7 @@ Deno.serve(async (req: Request) => {
       body: JSON.stringify({
         email: email.trim(),
         attributes: { FIRSTNAME: (firstName || "").trim() },
-        listIds: [11],
+        listIds: [6],
         updateEnabled: true,
       }),
     });
