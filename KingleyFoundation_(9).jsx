@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const PG={HOME:"home",TRAINING:"training",WATCH:"watch",BOOK:"book",ABOUT:"about",LIBRARY:"library",FOUNDATION:"foundation",GIVE:"give",PRIVACY:"privacy",TERMS:"terms",DISCLAIMER:"disclaimer"};
 const FN=[PG.TRAINING,PG.WATCH,PG.BOOK];
