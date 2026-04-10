@@ -24,11 +24,11 @@ const SignupPage: React.FC = () => {
                 body: JSON.stringify({ email, firstName }),
             });
 
+            const data = await response.json();
             if (response.ok || response.status === 204) {
                 setStatus('success');
             } else {
-                const data = await response.json();
-                setErrorMessage(data?.message || 'Subscription failed. Please try again.');
+                setErrorMessage(data?.message || data?.error || JSON.stringify(data) || 'Subscription failed. Please try again.');
                 setStatus('error');
             }
         } catch {
