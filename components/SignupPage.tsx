@@ -27,10 +27,10 @@ const SignupPage: React.FC = () => {
             const data = await response.json();
             console.log('Brevo response status:', response.status);
             console.log('Brevo response data:', JSON.stringify(data));
-            if (response.ok || response.status === 204) {
+            if (response.ok || response.status === 204 || response.status === 201) {
                 setStatus('success');
             } else {
-                setErrorMessage(data?.message || data?.error || JSON.stringify(data) || 'Subscription failed. Please try again.');
+                setErrorMessage(`[${response.status}] ` + (data?.message || data?.error || JSON.stringify(data) || 'Subscription failed. Please try again.'));
                 setStatus('error');
             }
         } catch {
