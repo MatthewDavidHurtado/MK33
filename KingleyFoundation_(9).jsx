@@ -27,8 +27,28 @@ const BC=({img,title,price,amz})=>(<div style={{background:"var(--bg2)",border:"
 const Bridge=()=>(<p style={{fontFamily:"var(--accent)",fontSize:"1.05rem",color:"var(--dim)",marginBottom:"2rem",fontStyle:"italic"}}>Some testimonials reference my former name, Matthew David Hurtado.</p>);
 
 // ── Nav ──
-const Nav=({pg,sp})=>{const f=FN.includes(pg);const[sc,setSc]=useState(false);useEffect(()=>{const h=()=>setSc(window.scrollY>40);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
-return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"1rem 2.5rem",background:sc?"rgba(10,10,10,.95)":"rgba(10,10,10,.8)",backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(201,168,76,.12)"}}><span onClick={()=>sp(PG.HOME)} style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",cursor:"pointer"}}>Kingley Foundation</span><div style={{display:"flex",gap:"1.8rem",alignItems:"center"}}>{!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer"}}>{l}</span>))}<span onClick={()=>sp(PG.TRAINING)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer"}}>Free Training</span></>}<button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",fontWeight:700,letterSpacing:".18em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".6rem 1.6rem",border:"none",cursor:"pointer"}}>GIVE</button></div></nav>)};
+const Nav=({pg,sp})=>{const f=FN.includes(pg);const[sc,setSc]=useState(false);const[mo,setMo]=useState(false);useEffect(()=>{const h=()=>setSc(window.scrollY>40);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
+const navBg=sc?"rgba(10,10,10,.95)":"rgba(10,10,10,.8)";
+return(<>
+<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"1rem 1.5rem",background:navBg,backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(201,168,76,.12)"}}>
+  <span onClick={()=>{sp(PG.HOME);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",cursor:"pointer"}}>Kingley Foundation</span>
+  <div style={{display:"flex",alignItems:"center",gap:"1rem"}}>
+    <div className="kf-desktop-links" style={{display:"flex",gap:"1.8rem",alignItems:"center"}}>
+      {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer"}}>{l}</span>))}<span onClick={()=>sp(PG.TRAINING)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer"}}>Free Training</span></>}
+      <button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",fontWeight:700,letterSpacing:".18em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".6rem 1.6rem",border:"none",cursor:"pointer"}}>GIVE</button>
+    </div>
+    <button onClick={()=>setMo(!mo)} className="kf-hamburger" style={{display:"none",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5px",background:"none",border:"none",cursor:"pointer",padding:"4px",width:36,height:36}}>
+      <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",transform:mo?"rotate(45deg) translate(5px,5px)":"none"}}/>
+      <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",opacity:mo?0:1}}/>
+      <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",transform:mo?"rotate(-45deg) translate(5px,-5px)":"none"}}/>
+    </button>
+  </div>
+</nav>
+{mo&&<div className="kf-mobile-menu" style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:99,background:"rgba(10,10,10,.97)",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"2rem"}}>
+  <button onClick={()=>{sp(PG.GIVE);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:700,letterSpacing:".2em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:"1rem 3rem",border:"none",cursor:"pointer"}}>GIVE</button>
+</div>}
+<style>{`@media(max-width:768px){.kf-desktop-links{display:none!important}.kf-hamburger{display:flex!important}}`}</style>
+</>);};
 
 // ═══════════════════════════════════════════
 // HOME
