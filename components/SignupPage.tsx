@@ -25,6 +25,8 @@ const SignupPage: React.FC = () => {
             });
 
             const data = await response.json();
+            console.log('Brevo response status:', response.status);
+            console.log('Brevo response data:', JSON.stringify(data));
             if (response.ok || response.status === 204) {
                 setStatus('success');
             } else {
