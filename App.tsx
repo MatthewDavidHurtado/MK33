@@ -18,6 +18,8 @@ import SuccessPage from './components/SuccessPage';
 import SignupPage from './components/SignupPage';
 import SchedulePage from './components/SchedulePage';
 import Seer3Page from './components/Seer3Page';
+import KingleyLandingPage from './components/KingleyLandingPage';
+import KingleyWebinarPage from './components/KingleyWebinarPage';
 
 const MainApp: React.FC = () => {
     // State for Spiritual Treatment
@@ -139,12 +141,14 @@ const App: React.FC = () => {
     return (
         <Router basename="/">
             <Routes>
-                <Route path="/" element={<MainApp />} />
+                <Route path="/" element={<KingleyLandingPage />} />
+                <Route path="/watch" element={<KingleyWebinarPage />} />
+                <Route path="/seer3" element={<Seer3Page />} />
+                <Route path="/app" element={<MainApp />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/success" element={<SuccessPage />} />
                 <Route path="/schedule" element={<SchedulePage />} />
-                <Route path="/seer3" element={<Seer3Page />} />
-                <Route path="*" element={<MainApp />} />
+                <Route path="*" element={<KingleyLandingPage />} />
             </Routes>
         </Router>
     );

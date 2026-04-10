@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Now — Kingley Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#161616;
+  --gold:#c9a84c;--gold-l:#e4cc7a;--gold-d:#a8872e;
+  --cream:#f5f0e8;--cream-m:#d4cfc5;--dim:#6b665c;--muted:#a09a8e;
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Libre Baskerville',Georgia,serif;
+  --accent:'Cormorant Garamond',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{display:flex;justify-content:center;align-items:center;padding:1.2rem 2rem;border-bottom:1px solid rgba(201,168,76,.1)}
+.topbar-brand{font-family:var(--accent);font-size:1.1rem;font-weight:600;color:var(--cream-m);letter-spacing:.1em;text-decoration:none}
+
+/* MAIN */
+.watch-page{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem 2rem}
+
+/* URGENCY */
+.urgency{text-align:center;margin-bottom:1.8rem;opacity:0;animation:fadeIn .6s ease .2s forwards}
+.urgency-badge{display:inline-block;font-family:var(--accent);font-size:.72rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.25);padding:.45rem 1.4rem;background:rgba(201,168,76,.04)}
+
+/* PRE-VIDEO */
+.pre-video{text-align:center;margin-bottom:2rem;opacity:0;animation:fadeIn .6s ease .35s forwards}
+.pre-video h1{font-family:var(--serif);font-size:clamp(1.4rem,3.2vw,2rem);font-weight:700;line-height:1.25;color:var(--cream);margin-bottom:.8rem}
+.pre-video h1 em{color:var(--gold);font-style:italic}
+.pre-video p{font-family:var(--accent);font-size:.95rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.6}
+
+/* VIDEO */
+.video-wrapper{position:relative;width:100%;border:1px solid rgba(201,168,76,.15);background:#000;opacity:0;animation:fadeIn .6s ease .5s forwards}
+.video-aspect{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden}
+.video-aspect iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* BOOK DOWNLOAD BAR */
+.book-bar{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding:1.5rem 2rem;background:var(--bg2);border:1px solid rgba(201,168,76,.12);border-top:2px solid var(--gold-d);margin-bottom:.5rem;opacity:0;animation:fadeIn .6s ease .65s forwards;flex-wrap:wrap}
+.book-bar-icon{font-size:2.2rem;flex-shrink:0}
+.book-bar-text{text-align:left}
+.book-bar-title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--cream);margin-bottom:.2rem}
+.book-bar-sub{font-family:var(--accent);font-size:.82rem;color:var(--muted);line-height:1.4}
+.btn-download{display:inline-block;font-family:var(--accent);font-size:.82rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.7rem 1.8rem;text-decoration:none;transition:all .3s;flex-shrink:0}
+.btn-download:hover{background:var(--gold-l)}
+
+/* SESSION CTA */
+.cta-bar{background:var(--bg2);border:1px solid rgba(201,168,76,.12);border-top:none;padding:2.5rem 2rem;text-align:center;margin-bottom:2.5rem;opacity:0;animation:fadeIn .6s ease .8s forwards}
+.cta-bar h2{font-family:var(--serif);font-size:clamp(1.3rem,2.8vw,1.8rem);font-weight:700;color:var(--cream);margin-bottom:.6rem;line-height:1.3}
+.cta-bar h2 em{color:var(--gold);font-style:italic}
+.cta-bar .sub{font-family:var(--accent);font-size:.92rem;color:var(--muted);margin-bottom:1.5rem}
+.btn-book{display:inline-block;font-family:var(--accent);font-size:1rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));padding:1.1rem 3.5rem;text-decoration:none;transition:all .35s;position:relative;overflow:hidden;border:none;cursor:pointer}
+.btn-book::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.btn-book:hover::after{left:100%}
+.btn-book:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+.cta-micro{display:block;margin-top:1rem;font-family:var(--accent);font-size:.75rem;color:var(--dim)}
+
+/* THREE STEPS */
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(201,168,76,.06);margin-bottom:2.5rem;opacity:0;animation:fadeIn .6s ease .95s forwards}
+.step{background:var(--bg);padding:2rem 1.5rem;text-align:center}
+.step-num{font-family:var(--accent);font-size:2rem;font-weight:300;color:var(--gold-d);margin-bottom:.5rem}
+.step-title{font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--cream);margin-bottom:.4rem}
+.step-text{font-family:var(--accent);font-size:.78rem;color:var(--dim);line-height:1.5}
+
+/* BOOK PREVIEW */
+.book-preview{padding:3rem 2rem;background:var(--bg2);border:1px solid rgba(201,168,76,.08);margin-bottom:2.5rem;display:flex;gap:2.5rem;align-items:center;opacity:0;animation:fadeIn .6s ease 1.1s forwards;flex-wrap:wrap}
+.book-preview-content{flex:1;min-width:280px}
+.book-preview-label{font-family:var(--accent);font-size:.72rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-d);margin-bottom:1rem}
+.book-preview h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--cream);margin-bottom:.8rem;line-height:1.3}
+.book-preview h3 em{color:var(--gold);font-style:italic}
+.book-preview p{font-family:var(--accent);font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.book-preview .chapters{font-family:var(--accent);font-size:.78rem;color:var(--dim);line-height:1.8;margin-bottom:1.5rem}
+.book-preview .btn-download{margin-top:.5rem}
+.book-mock{flex-shrink:0;width:180px;height:260px;background:linear-gradient(145deg,#1a1a1a,#0d0d0d);border:1px solid rgba(201,168,76,.15);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1.5rem;position:relative;box-shadow:8px 8px 30px rgba(0,0,0,.5)}
+.book-mock::before{content:'';position:absolute;left:0;top:8%;bottom:8%;width:3px;background:linear-gradient(to bottom,var(--gold-d),var(--gold),var(--gold-d));opacity:.6}
+.book-mock-title{font-family:var(--serif);font-size:.85rem;font-weight:900;color:var(--cream);line-height:1.2;margin-bottom:.6rem}
+.book-mock-title em{color:var(--gold);font-style:italic}
+.book-mock-author{font-family:var(--accent);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+
+/* CLOSING */
+.closing{text-align:center;padding:2rem 1rem 3rem;opacity:0;animation:fadeIn .6s ease 1.3s forwards}
+.closing-quote{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--cream-m);max-width:480px;margin:0 auto 1rem;line-height:1.6}
+.closing-attr{font-family:var(--accent);font-size:.78rem;color:var(--dim);letter-spacing:.1em}
+
+/* FOOTER */
+.foot{text-align:center;padding:2rem;border-top:1px solid rgba(201,168,76,.06)}
+.foot p{font-family:var(--accent);font-size:.7rem;color:var(--dim);letter-spacing:.08em}
+
+/* FLOAT CTA */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.2);padding:.85rem 2rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:99;transform:translateY(100%);transition:transform .4s ease}
+.float-cta.visible{transform:translateY(0)}
+.float-text{font-family:var(--accent);font-size:.82rem;color:var(--cream-m)}
+.float-cta .btn-float{font-family:var(--accent);font-size:.78rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.65rem 1.6rem;text-decoration:none;transition:background .3s}
+.float-cta .btn-float:hover{background:var(--gold-l)}
+.float-book{font-family:var(--accent);font-size:.72rem;color:var(--gold-d);display:flex;align-items:center;gap:.4rem}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){
+  .watch-page{padding:2rem 1rem 1.5rem}
+  .steps{grid-template-columns:1fr}
+  .book-bar{flex-direction:column;text-align:center;gap:1rem}
+  .book-bar-text{text-align:center}
+  .book-preview{flex-direction:column;text-align:center}
+  .book-mock{margin:0 auto}
+  .cta-bar{padding:2rem 1.5rem}
+  .btn-book{padding:1rem 2.5rem;font-size:.9rem}
+  .float-text,.float-book{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="#" class="topbar-brand">Kingley Foundation</a>
+</div>
+
+<!-- MAIN -->
+<div class="watch-page">
+
+  <!-- URGENCY -->
+  <div class="urgency">
+    <span class="urgency-badge">Private Training — Do Not Share This Link</span>
+  </div>
+
+  <!-- PRE-VIDEO -->
+  <div class="pre-video">
+    <h1>Why Your Doctor Can't Find What's Wrong<br><em>And What's Actually Causing Your Symptoms</em></h1>
+    <p>Watch the full training below. Download your free copy of the book. Then book your free 15-minute session with Malcolm.</p>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-wrapper" id="videoSection">
+    <div class="video-aspect">
+      <!-- REPLACE src with your Vimeo or YouTube embed URL -->
+      <iframe src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Everything Came Back Normal — Training"></iframe>
+    </div>
+  </div>
+
+  <!-- BOOK DOWNLOAD BAR — immediately below video -->
+  <div class="book-bar">
+    <div class="book-bar-icon">📖</div>
+    <div class="book-bar-text">
+      <div class="book-bar-title">"Everything Came Back Normal" — Free Download</div>
+      <div class="book-bar-sub">Read the full book while you wait for your session. Yours to keep.</div>
+    </div>
+    <!-- REPLACE href with your actual book download link (PDF or epub hosted file) -->
+    <a href="#" class="btn-download">Download Free Book</a>
+  </div>
+
+  <!-- SESSION CTA -->
+  <div class="cta-bar">
+    <h2>Ready? Book Your <em>Free</em> 15-Minute Session.</h2>
+    <div class="sub">Malcolm will map your symptoms to the framework — personally, one-on-one, at zero cost.</div>
+    <!-- REPLACE href with Calendly or booking link -->
+    <a href="https://MalcolmKingley.org" class="btn-book">Book Your Session Now</a>
+    <span class="cta-micro">No credit card. No obligation. Limited spots available each month.</span>
+  </div>
+
+  <!-- THREE STEPS -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Watch the Training</div>
+      <div class="step-text">30 minutes. The complete framework for understanding your symptoms.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Read the Book</div>
+      <div class="step-text">Download your free copy. Go deeper into the framework at your own pace.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Book Your Session</div>
+      <div class="step-text">15 minutes with Malcolm. Your symptoms mapped. Zero cost.</div>
+    </div>
+  </div>
+
+  <!-- BOOK PREVIEW SECTION -->
+  <div class="book-preview">
+    <div class="book-preview-content">
+      <div class="book-preview-label">Your free book</div>
+      <h3>"Everything Came Back <em>Normal</em>"</h3>
+      <p>The full framework in book form — Malcolm's complete story, the architecture of conflict, the map of common conditions, the Five Laws, the She-Wolf, and the path to resolution. Read it between now and your session so you arrive with the lens already in place.</p>
+      <div class="chapters">
+        15 chapters including: The Tracks • The Two Phases • The Map of Common Conditions • The Off Note • The Bulletproof Soldiers • The Five Laws & Calibration Sequence • The She-Wolf in Action • Identity & Frame • The School of the Operator
+      </div>
+      <!-- REPLACE href with your actual book download link -->
+      <a href="#" class="btn-download">Download Now — Free</a>
+    </div>
+    <div class="book-mock">
+      <div class="book-mock-title">"Everything Came Back <em>Normal</em>"</div>
+      <div class="book-mock-author">Malcolm Kingley</div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <div class="closing-quote">"You've spent years being told everything came back normal. It's time to find out what's actually going on."</div>
+    <div class="closing-attr">— Malcolm Kingley</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <p>Kingley Foundation — 508(c)(1)(A) — State of Washington</p>
+  <p style="margin-top:.4rem">© Malcolm Kingley. All rights reserved. This training is for registered participants only.</p>
+</div>
+
+<!-- FLOATING BOTTOM BAR -->
+<div class="float-cta" id="floatCta">
+  <span class="float-text">Ready to find the off note?</span>
+  <a href="https://MalcolmKingley.org" class="btn-float">Book Free Session</a>
+  <span class="float-book">📖 Free book included</span>
+</div>
+
+<script>
+const vid = document.getElementById('videoSection');
+const fc = document.getElementById('floatCta');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    fc.classList.toggle('visible', !e.isIntersecting);
+  });
+}, { threshold: 0.1 });
+obs.observe(vid);
+</script>
+
+</body>
+</html>

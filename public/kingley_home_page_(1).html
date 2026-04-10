@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingley Foundation — Malcolm Kingley</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#161616;
+  --gold:#c9a84c;--gold-l:#e4cc7a;--gold-d:#a8872e;
+  --cream:#f5f0e8;--cream-m:#d4cfc5;--dim:#6b665c;--muted:#a09a8e;
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Libre Baskerville',Georgia,serif;
+  --accent:'Cormorant Garamond',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--body);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15)}
+.nav-brand{font-family:var(--accent);font-size:1.3rem;font-weight:600;color:var(--cream);letter-spacing:.08em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-link{font-family:var(--accent);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;transition:color .3s}
+.nav-link:hover{color:var(--cream)}
+.nav-cta{font-family:var(--accent);font-size:.82rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.55rem 1.4rem;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--gold-l)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 20%,rgba(201,168,76,.06) 0%,transparent 70%),radial-gradient(ellipse 80% 50% at 50% 80%,rgba(201,168,76,.03) 0%,transparent 60%);pointer-events:none}
+.hero-pre{font-family:var(--accent);font-size:.78rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s ease .2s forwards}
+.hero-pre span{display:inline-block;border-top:1px solid var(--gold-d);border-bottom:1px solid var(--gold-d);padding:.5rem 0}
+.hero-h{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,4.5rem);font-weight:900;line-height:1.1;color:var(--cream);max-width:900px;margin-bottom:1.8rem;opacity:0;animation:fadeUp .8s ease .4s forwards}
+.hero-h em{color:var(--gold);font-style:italic}
+.hero-sub{font-family:var(--body);font-size:clamp(1rem,1.8vw,1.15rem);color:var(--muted);max-width:620px;line-height:1.8;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s ease .6s forwards}
+.hero-cta-group{display:flex;flex-direction:column;align-items:center;gap:1rem;opacity:0;animation:fadeUp .8s ease .8s forwards}
+.btn-primary{display:inline-block;font-family:var(--accent);font-size:1rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bg);background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));padding:1.1rem 3.2rem;text-decoration:none;transition:all .35s;position:relative;overflow:hidden;border:none;cursor:pointer}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.btn-primary:hover::after{left:100%}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+.hero-micro{font-family:var(--accent);font-size:.8rem;color:var(--dim);letter-spacing:.05em}
+.hero-bonus{display:inline-flex;align-items:center;gap:.6rem;margin-top:.5rem;font-family:var(--accent);font-size:.82rem;color:var(--gold-d);letter-spacing:.04em}
+.hero-bonus-icon{font-size:1rem}
+
+/* SCROLL INDICATOR */
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--dim);font-family:var(--accent);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fadeUp .8s ease 1.2s forwards}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold-d),transparent);animation:scrollPulse 2s ease infinite}
+
+/* PAIN SECTION */
+.pain{padding:6rem 2rem;max-width:780px;margin:0 auto}
+.section-label{font-family:var(--accent);font-size:.75rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-d);margin-bottom:2rem}
+.pain h2{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:2rem}
+.pain p{font-size:1.05rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.highlight{color:var(--cream);font-weight:700}
+.symptom-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:3rem 0;background:rgba(201,168,76,.1)}
+.symptom-item{background:var(--bg);padding:1.4rem 1.6rem;font-family:var(--accent);font-size:1.02rem;color:var(--cream-m);display:flex;align-items:center;gap:.8rem}
+.symptom-item::before{content:'—';color:var(--gold-d);font-weight:300}
+
+/* FRAMEWORK SECTION */
+.framework{padding:6rem 2rem;background:var(--bg2);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
+.framework-inner{max-width:780px;margin:0 auto}
+.framework h2{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:1.5rem}
+.framework p{font-size:1.05rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.concept-block{border-left:2px solid var(--gold-d);padding:1.5rem 2rem;margin:2rem 0;background:rgba(201,168,76,.03)}
+.concept-block h3{font-family:var(--serif);font-size:1.2rem;color:var(--gold-l);margin-bottom:.8rem}
+.concept-block p{font-size:.95rem;color:var(--cream-m);margin-bottom:0}
+
+/* RESULTS SECTION */
+.results{padding:6rem 2rem;max-width:780px;margin:0 auto;text-align:center}
+.results h2{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:2rem}
+.results-list{text-align:left;max-width:540px;margin:0 auto 3rem}
+.results-item{display:flex;align-items:baseline;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(201,168,76,.08);font-size:1.02rem;color:var(--cream-m)}
+.strike{text-decoration:line-through;color:var(--dim)}
+.resolved{color:var(--gold);font-weight:700;font-size:.9rem;letter-spacing:.05em}
+.checkmark{color:var(--gold);flex-shrink:0}
+
+/* WEBINAR CTA SECTION */
+.webinar-cta{padding:6rem 2rem;background:var(--bg2);border-top:1px solid rgba(201,168,76,.1);text-align:center}
+.webinar-cta-inner{max-width:700px;margin:0 auto}
+.webinar-cta h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:var(--cream);line-height:1.2;margin-bottom:1.5rem}
+.webinar-cta h2 em{color:var(--gold);font-style:italic}
+.webinar-cta p{font-size:1.05rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.webinar-cta-box{margin:3rem auto;padding:3rem 2.5rem;background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.12);max-width:560px}
+.webinar-cta-box h3{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:1.2rem}
+.wc-feature{display:flex;gap:.8rem;padding:.7rem 0;text-align:left}
+.wc-feature-icon{color:var(--gold);font-size:1rem;flex-shrink:0;margin-top:.15rem}
+.wc-feature-text{font-family:var(--accent);font-size:.95rem;color:var(--cream-m);line-height:1.5}
+.wc-feature-text strong{color:var(--cream)}
+.webinar-cta-box .btn-primary{margin-top:1.8rem;display:inline-block}
+.webinar-cta-box .micro{display:block;margin-top:1rem;font-family:var(--accent);font-size:.78rem;color:var(--dim)}
+.book-badge{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;padding:.6rem 1.2rem;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.04);font-family:var(--accent);font-size:.82rem;color:var(--gold)}
+.book-badge-icon{font-size:1.1rem}
+
+/* CLOSING */
+.close-section{padding:5rem 2rem 4rem;text-align:center;max-width:650px;margin:0 auto}
+.close-section blockquote{font-family:var(--serif);font-size:clamp(1.2rem,2.5vw,1.6rem);font-style:italic;color:var(--cream);line-height:1.5;margin-bottom:1.5rem;position:relative;padding:0 1rem}
+.close-section blockquote::before{content:'"';font-size:3.5rem;color:var(--gold-d);position:absolute;top:-1.2rem;left:-.5rem;font-family:var(--serif);line-height:1}
+.close-section .attr{font-family:var(--accent);font-size:.82rem;color:var(--gold-d);letter-spacing:.1em;margin-bottom:2rem}
+.close-section .tagline{font-family:var(--accent);font-size:.88rem;color:var(--dim);letter-spacing:.08em}
+
+/* FOOTER */
+.footer{padding:3rem 2rem;text-align:center;border-top:1px solid rgba(201,168,76,.08)}
+.footer p{font-family:var(--accent);font-size:.72rem;color:var(--dim);letter-spacing:.1em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:.8}}
+
+@media(max-width:768px){
+  .nav{padding:1rem 1.5rem}
+  .nav-links{gap:1rem}
+  .nav-link{display:none}
+  .hero{padding:7rem 1.5rem 4rem}
+  .symptom-grid{grid-template-columns:1fr}
+  .hero-scroll{display:none}
+  .btn-primary{padding:1rem 2.4rem;font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">Kingley Foundation</a>
+  <div class="nav-links">
+    <a href="#framework" class="nav-link">The Framework</a>
+    <a href="#results" class="nav-link">Results</a>
+    <a href="#watch" class="nav-cta">Watch Free Training</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pre"><span>Your doctor found nothing. Your body disagrees.</span></div>
+  <h1 class="hero-h">"Everything Came Back <em>Normal.</em>"</h1>
+  <p class="hero-sub">I had 11 unexplained conditions. Every test was clear. Every specialist shrugged. Then I found the one thing they never thought to look for — and eliminated every symptom. Not managed. <strong style="color:var(--cream)">Eliminated.</strong></p>
+  <div class="hero-cta-group">
+    <a href="#watch" class="btn-primary">Watch the Free Training</a>
+    <span class="hero-micro">30-minute training + free 15-minute session with Malcolm</span>
+    <span class="hero-bonus"><span class="hero-bonus-icon">📖</span> Instant free download of the book included</span>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll</div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="section-label">If this is your life, keep reading</div>
+  <h2>You've been to the doctor. You've done the bloodwork. The MRIs. The specialists. And they said the same thing every time.</h2>
+  <p>"We can't find anything wrong. Try to manage your stress."</p>
+  <p>But the symptoms didn't get the memo. They're still here. Every morning. Every night. And the worst part isn't the pain, the fatigue, or the fog — it's the feeling that <span class="highlight">no one believes you.</span></p>
+  <div class="symptom-grid">
+    <div class="symptom-item">Chronic fatigue no amount of rest can touch</div>
+    <div class="symptom-item">Numbness or tingling with no structural cause</div>
+    <div class="symptom-item">Panic attacks that come out of nowhere</div>
+    <div class="symptom-item">Brain fog and inability to concentrate</div>
+    <div class="symptom-item">IBS, bloating, or unexplained stomach issues</div>
+    <div class="symptom-item">Body twitching or involuntary movements</div>
+    <div class="symptom-item">Anxiety so severe it becomes agoraphobia</div>
+    <div class="symptom-item">Widespread pain with no diagnosis</div>
+    <div class="symptom-item">Insomnia despite total exhaustion</div>
+    <div class="symptom-item">"Chronic Lyme" that antibiotics didn't finish</div>
+  </div>
+  <p>You're not crazy. You're not a hypochondriac. Your symptoms are real. They have a cause. And it's somewhere your doctor was never trained to look.</p>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="framework" id="framework">
+  <div class="framework-inner">
+    <div class="section-label">What they missed</div>
+    <h2>Every symptom you carry is a biological program — purposeful, specific, and traceable to an exact moment in your life.</h2>
+    <p>Not "stress." Not "psychosomatic." A precise program your body is running in response to an unresolved emotional conflict. Find the conflict. Correct the thinking that created it. And the program shuts down.</p>
+    <div class="concept-block">
+      <h3>The Off Note</h3>
+      <p>Every conflict is sustained by a thinking error — a false belief installed at the moment of shock. "I'm not safe." "I'm not enough." "I've been violated." Correct the thought with precise understanding, and the biological program it was driving loses its foundation. The symptom resolves.</p>
+    </div>
+    <div class="concept-block">
+      <h3>The Tracks</h3>
+      <p>Your brain recorded everything in the environment when the original shock occurred. Now, anything that rhymes with that moment reactivates the same program. This is why your symptoms "come from nowhere." They don't. Something in your environment just matched an old recording.</p>
+    </div>
+    <div class="concept-block">
+      <h3>The Two Phases</h3>
+      <p>You feel worst when life gets better — because your body switches into repair mode the moment the conflict resolves. The fatigue, the inflammation, the flare-ups after a crisis passes? That's healing. And it looks exactly like disease to a doctor who doesn't know the model.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="section-label">My story. My proof.</div>
+  <h2>I carried 11 conditions. I eliminated every one.</h2>
+  <div class="results-list">
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Chronic Fatigue</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Right Foot/Leg Numbness</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Body Twitching</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Panic Attacks</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Agoraphobia</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">OCD</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Bulimia (24 years)</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Depression</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">High Blood Pressure</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">Chronic Lyme Symptoms</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+    <div class="results-item"><span class="checkmark">✓</span><span class="strike">cPTSD</span>&nbsp;&nbsp;<span class="resolved">Resolved</span></div>
+  </div>
+  <p style="color:var(--muted);max-width:540px;margin:0 auto">Not through a better doctor. Not through a better drug. Through understanding what my body was actually doing — and correcting the thinking that was driving it.</p>
+</section>
+
+<!-- WEBINAR CTA -->
+<section class="webinar-cta" id="watch">
+  <div class="webinar-cta-inner">
+    <div class="section-label">Free training</div>
+    <h2>Watch the Training.<br>Get the Book.<br>Book Your <em>Free</em> Session.</h2>
+    <p>A 30-minute training where I walk you through the complete framework — the same framework that resolved every one of my conditions. Then book a free 15-minute session where I map your symptoms personally.</p>
+
+    <div class="webinar-cta-box">
+      <h3>Here's what you get — all free:</h3>
+      <div class="wc-feature">
+        <div class="wc-feature-icon">◆</div>
+        <div class="wc-feature-text"><strong>The 30-minute training</strong> — the complete framework, my story, and exactly how the resolution works</div>
+      </div>
+      <div class="wc-feature">
+        <div class="wc-feature-icon">◆</div>
+        <div class="wc-feature-text"><strong>The book — instant download</strong> — "Everything Came Back Normal" in full, yours to read immediately while you wait for your session</div>
+      </div>
+      <div class="wc-feature">
+        <div class="wc-feature-icon">◆</div>
+        <div class="wc-feature-text"><strong>A free 15-minute session with Malcolm</strong> — your symptoms mapped to the framework, one-on-one, zero cost</div>
+      </div>
+
+      <!-- REPLACE href with your actual registration/email capture page URL -->
+      <a href="https://MalcolmKingley.org/training" class="btn-primary">Get Instant Access</a>
+      <span class="micro">No credit card. No obligation. Book download is immediate.</span>
+
+      <div class="book-badge">
+        <span class="book-badge-icon">📖</span>
+        Free book download included with registration
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close-section">
+  <blockquote>You've spent years being told everything came back normal. It's time to find out what's actually going on.</blockquote>
+  <div class="attr">— Malcolm Kingley, Kingley Foundation</div>
+  <div class="tagline">Find the off note. Correct the thought. Watch the body follow.</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Kingley Foundation — 508(c)(1)(A) — State of Washington</p>
+  <p style="margin-top:.5rem">© Malcolm Kingley. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
