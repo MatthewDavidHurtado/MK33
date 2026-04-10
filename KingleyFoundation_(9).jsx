@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { GoogleGenAI } from "@google/genai";
 
 const PG={HOME:"home",TRAINING:"training",WATCH:"watch",BOOK:"book",ABOUT:"about",LIBRARY:"library",FOUNDATION:"foundation",GIVE:"give",PRIVACY:"privacy",TERMS:"terms",DISCLAIMER:"disclaimer"};
 const FN=[PG.TRAINING,PG.WATCH,PG.BOOK];
@@ -97,9 +98,10 @@ const GivePage=({sp})=>{
   const generateMed=async()=>{
     setLoading(true);
     try{
-      const r=await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/anthropic-meditation`,{method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`},body:JSON.stringify({desire})});
-      const d=await r.json();
-      const t=d.content.map(i=>i.text||"").join("");
+      const gemini=new GoogleGenAI({apiKey:import.meta.env.VITE_GEMINI_API_KEY});
+      const prompt=`You are a spiritual guide operating in the tradition of Frederick L. Rawson and Biblical covenant law. A person is planting a faith seed and believing God for: "${desire}". Write a response in JSON with these fields: {"meditation":"A 150-word meditation on the spiritual reality of their desire already being fulfilled in Spirit, using Rawson's framework that the spiritual idea has not a single element of error. Reference one specific scripture (NKJV).","lawTitle":"Name of one specific Biblical law or principle that applies","law":"A 100-word explanation of how this law operates mechanically to produce the harvest they are believing for.","rephrasedDesire":"Their desire rephrased in the present tense as already received, in elegant language","multiplier":"hundredfold"} Return ONLY the JSON, no markdown.`;
+      const result=await gemini.models.generateContent({model:"gemini-2.5-flash",contents:[{role:"user",parts:[{text:prompt}]}]});
+      const t=result.text||"";
       const clean=t.replace(/```json|```/g,"").trim();
       setMed(JSON.parse(clean));
       setScreen("meditation");
