@@ -129,7 +129,7 @@ const KingleyWebinarPage: React.FC = () => {
                         <div className="kw-book-bar-title">"Everything Came Back Normal" — Free Download</div>
                         <div className="kw-book-bar-sub">Read the full book while you wait for your session. Yours to keep.</div>
                     </div>
-                    <a href="#" className="kw-btn-download">Download Free Book</a>
+                    <a href="https://drive.google.com/file/d/1MtnQX6oWUPFVmmtyt1rwkmCBzhUUlU52/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="kw-btn-download">Download Free Book</a>
                 </div>
 
                 <div className="kw-cta-bar">
@@ -165,7 +165,7 @@ const KingleyWebinarPage: React.FC = () => {
                         <div className="kw-chapters">
                             15 chapters including: The Tracks • The Two Phases • The Map of Common Conditions • The Off Note • The Bulletproof Soldiers • The Five Laws &amp; Calibration Sequence • The She-Wolf in Action • Identity &amp; Frame • The School of the Operator
                         </div>
-                        <a href="#" className="kw-btn-download">Download Now — Free</a>
+                        <a href="https://drive.google.com/file/d/1MtnQX6oWUPFVmmtyt1rwkmCBzhUUlU52/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="kw-btn-download">Download Now — Free</a>
                     </div>
                     <div className="kw-book-mock">
                         <div className="kw-book-mock-title">"Everything Came Back <em>Normal</em>"</div>
