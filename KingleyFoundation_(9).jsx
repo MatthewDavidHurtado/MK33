@@ -35,8 +35,8 @@ return(<>
   <div style={{display:"flex",alignItems:"center",gap:"1rem"}}>
     <div className="kf-desktop-links" style={{display:"flex",gap:"1.8rem",alignItems:"center"}}>
       {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer"}}>{l}</span>))}<span onClick={()=>sp(PG.TRAINING)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer"}}>Free Training</span></>}
-      <button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",fontWeight:700,letterSpacing:".18em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".6rem 1.6rem",border:"none",cursor:"pointer"}}>GIVE</button>
     </div>
+    <button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",fontWeight:700,letterSpacing:".18em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".6rem 1.6rem",border:"none",cursor:"pointer"}}>GIVE</button>
     <button onClick={()=>setMo(!mo)} className="kf-hamburger" style={{display:"none",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5px",background:"none",border:"none",cursor:"pointer",padding:"4px",width:36,height:36}}>
       <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",transform:mo?"rotate(45deg) translate(5px,5px)":"none"}}/>
       <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",opacity:mo?0:1}}/>
@@ -44,8 +44,8 @@ return(<>
     </button>
   </div>
 </nav>
-{mo&&<div className="kf-mobile-menu" style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:99,background:"rgba(10,10,10,.97)",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"2rem"}}>
-  <button onClick={()=>{sp(PG.GIVE);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:700,letterSpacing:".2em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:"1rem 3rem",border:"none",cursor:"pointer"}}>GIVE</button>
+{mo&&<div style={{position:"fixed",top:"60px",left:0,right:0,zIndex:99,background:"rgba(10,10,10,.97)",borderBottom:"1px solid rgba(201,168,76,.15)",display:"flex",flexDirection:"column",padding:"1.5rem 2rem",gap:"0"}}>
+  {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>{sp(p);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.2rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer",padding:".75rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block"}}>{l}</span>))}<span onClick={()=>{sp(PG.TRAINING);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:"var(--gold-d)",cursor:"pointer",padding:".75rem 0",display:"block"}}>Free Training</span></>}
 </div>}
 <style>{`@media(max-width:768px){.kf-desktop-links{display:none!important}.kf-hamburger{display:flex!important}}`}</style>
 </>);};
