@@ -53,7 +53,8 @@ const css = `
 .kw-closing-attr{font-family:'Cormorant Garamond',Georgia,serif;font-size:.78rem;color:#6b665c;letter-spacing:.1em}
 .kw-foot{text-align:center;padding:2rem;border-top:1px solid rgba(201,168,76,.06)}
 .kw-foot p{font-family:'Cormorant Garamond',Georgia,serif;font-size:.7rem;color:#6b665c;letter-spacing:.08em}
-.kw-second-video-section{margin-bottom:2.5rem;opacity:0;animation:kwFade .6s ease .85s forwards}
+.kw-second-video-section{margin-bottom:2.5rem}
+.kw-second-video-frame{position:relative;width:100%;border:1px solid rgba(201,168,76,.15);background:#000}
 .kw-second-video-headline{text-align:center;margin-bottom:1.5rem}
 .kw-second-video-headline h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900;color:#f5f0e8;letter-spacing:.04em;margin-bottom:.6rem;line-height:1.2}
 .kw-second-video-headline p{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,2.2vw,1.25rem);color:#a09a8e;line-height:1.6}
@@ -149,7 +150,7 @@ const KingleyWebinarPage: React.FC = () => {
                         <h2>YOUR BODY IS NOT BROKEN.</h2>
                         <p>THIS VIDEO IS A <strong>MUST WATCH</strong> BEFORE OUR APPOINTMENT.</p>
                     </div>
-                    <div className="kw-video-wrapper">
+                    <div className="kw-second-video-frame">
                         <div className="kw-video-aspect">
                             <iframe
                                 src="https://player.vimeo.com/video/1182322770?h=6ef2a711c2&autoplay=0&title=0&byline=0&portrait=0"
