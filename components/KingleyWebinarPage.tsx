@@ -53,6 +53,11 @@ const css = `
 .kw-closing-attr{font-family:'Cormorant Garamond',Georgia,serif;font-size:.78rem;color:#6b665c;letter-spacing:.1em}
 .kw-foot{text-align:center;padding:2rem;border-top:1px solid rgba(201,168,76,.06)}
 .kw-foot p{font-family:'Cormorant Garamond',Georgia,serif;font-size:.7rem;color:#6b665c;letter-spacing:.08em}
+.kw-second-video-section{margin-bottom:2.5rem;opacity:0;animation:kwFade .6s ease .85s forwards}
+.kw-second-video-headline{text-align:center;margin-bottom:1.5rem}
+.kw-second-video-headline h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900;color:#f5f0e8;letter-spacing:.04em;margin-bottom:.6rem;line-height:1.2}
+.kw-second-video-headline p{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,2.2vw,1.25rem);color:#a09a8e;line-height:1.6}
+.kw-second-video-headline p strong{color:#c9a84c;font-weight:600}
 .kw-float-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.2);padding:.85rem 2rem;display:flex;justify-content:center;align-items:center;gap:1.5rem;z-index:99;transform:translateY(100%);transition:transform .4s ease}
 .kw-float-cta.visible{transform:translateY(0)}
 .kw-float-text{font-family:'Cormorant Garamond',Georgia,serif;font-size:.82rem;color:#d4cfc5}
@@ -137,6 +142,23 @@ const KingleyWebinarPage: React.FC = () => {
                     <div className="kw-sub">Malcolm will map your symptoms to the framework — personally, one-on-one, at zero cost.</div>
                     <a href="https://MalcolmKingley.org" className="kw-btn-book">Book Your Session Now</a>
                     <span className="kw-cta-micro">No credit card. No obligation. Limited spots available each month.</span>
+                </div>
+
+                <div className="kw-second-video-section">
+                    <div className="kw-second-video-headline">
+                        <h2>YOUR BODY IS NOT BROKEN.</h2>
+                        <p>THIS VIDEO IS A <strong>MUST WATCH</strong> BEFORE OUR APPOINTMENT.</p>
+                    </div>
+                    <div className="kw-video-wrapper">
+                        <div className="kw-video-aspect">
+                            <iframe
+                                src="https://player.vimeo.com/video/1182322770?h=6ef2a711c2&autoplay=0&title=0&byline=0&portrait=0"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                allowFullScreen
+                                title="Your Body Is Not Broken"
+                            />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="kw-steps">
