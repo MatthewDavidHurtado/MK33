@@ -166,14 +166,8 @@ const GivePage=({sp})=>{
       <span style={{width:8,height:8,borderRadius:"50%",background:"var(--gold)",display:"inline-block",flexShrink:0}}/>
       <span style={{fontFamily:"var(--accent)",fontSize:".82rem",fontWeight:600,letterSpacing:".2em",textTransform:"uppercase",color:"var(--gold-d)"}}>Secure Giving — Card, Apple Pay, Google Pay &amp; More</span>
     </div>
-    <div style={{background:"#fff",minHeight:480}}>
-      <div data-zeffy-embed data-form-url="/embed/donation-form/first-fruits-tithes-faith-seeds-alms"/>
-      <div data-zeffy-embed-fallback style={{display:"none"}}>
-        <div style={{position:"relative",overflow:"hidden",height:520,width:"100%"}}>
-          <iframe title="Donation form powered by Zeffy" style={{position:"absolute",border:0,top:0,left:0,bottom:0,right:0,width:"100%",height:"100%"}} src="https://www.zeffy.com/embed/donation-form/first-fruits-tithes-faith-seeds-alms" allowPaymentRequest allow="payment"/>
-        </div>
-      </div>
-      <script src="https://www.zeffy.com/embed/v2/zeffy-embed.js" onError="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';});" async/>
+    <div style={{position:"relative",overflow:"hidden",height:480,width:"100%",background:"#fff"}}>
+      <iframe title="Donation form powered by Zeffy" style={{position:"absolute",border:0,top:0,left:0,width:"100%",height:"100%"}} src="https://www.zeffy.com/embed/donation-form/first-fruits-tithes-faith-seeds-alms" allow="payment" allowTransparency={true}/>
     </div>
   </div>
 
