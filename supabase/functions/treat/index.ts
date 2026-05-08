@@ -35,17 +35,27 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { system, messages, max_tokens } = await req.json();
+    const body = await req.json();
+    const { system, messages, max_tokens } = body;
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(
-        JSON.stringify({ error: "Invalid request: messages required" }),
+        JSON.stringify({ error: "Invalid request: messages array required" }),
         {
           status: 400,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         }
       );
     }
+
+    const requestBody = {
+      model: "claude-sonnet-4-20250514",
+      max_tokens: max_tokens || 1500,
+      system: system || "",
+      messages,
+    };
+
+    console.log("Calling Anthropic API with model:", requestBody.model, "messages:", messages.length);
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -54,18 +64,14 @@ Deno.serve(async (req: Request) => {
         "x-api-key": apiKey,
         "anthropic-version": "2023-06-01",
       },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: max_tokens || 1500,
-        system: system || "",
-        messages,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
       const errText = await response.text();
+      console.error("Anthropic API error:", response.status, errText);
       return new Response(
-        JSON.stringify({ error: "API request failed", details: errText }),
+        JSON.stringify({ error: "API request failed", status: response.status, details: errText }),
         {
           status: response.status,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -74,13 +80,15 @@ Deno.serve(async (req: Request) => {
     }
 
     const data = await response.json();
+    console.log("Anthropic API success, content blocks:", data.content?.length);
     return new Response(JSON.stringify(data), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
+    console.error("Edge function error:", err.message || err);
     return new Response(
-      JSON.stringify({ error: "Internal server error" }),
+      JSON.stringify({ error: "Internal server error", details: err.message || String(err) }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },

@@ -247,17 +247,26 @@ Generate the specific treatment for this exact situation.`;
         "apikey": SUPABASE_ANON_KEY
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
         max_tokens: 1500,
         system: systemPrompt,
         messages: [{ role: "user", content: userPrompt }]
       })
     });
 
+    if (!response.ok) {
+      const errData = await response.text();
+      console.error("Treat API error:", response.status, errData);
+      throw new Error("API returned " + response.status);
+    }
+
     const data = await response.json();
+    console.log("Treat API response:", JSON.stringify(data).substring(0, 200));
     const text = data.content?.map(item => item.type === "text" ? item.text : "").filter(Boolean).join("\n") || "";
 
-    if (!text) throw new Error("Empty response");
+    if (!text) {
+      console.error("Empty treatment text. Full response:", JSON.stringify(data));
+      throw new Error("Empty response");
+    }
 
     // Robust section parser — handles varied formatting from the API
     function extractSection(fullText, sectionName, allNames) {
