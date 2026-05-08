@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0e0e0c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>PRINCIPLE — Kingley Foundation</title>
+  <link rel="manifest" href="/manifest.json">
+  <style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #0e0e0c; overflow: hidden; } #root { width: 100%; height: 100vh; }
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    const KF_LOGO = "/icon-192.png";
+    const KF_FOUNDER = "https://i.imgur.com/tBlDXrA.jpg";
+
+    const DOMAINS = {
+      BODY: {
+        label: "Body",
+        keywords: ["pain","sick","disease","headache","fatigue","tingling","numbness","infection","virus","diagnosis","symptom","cancer","herpes","chronic","injury","weight","sleep","appetite","nausea","fever","inflammation","tumor","cough","blood","organ","stomach","heart attack","stroke","blind","deaf","paralysis","swelling","rash","allergies","broken","fracture","surgery","hospital","doctor","medicine","pill","drug","prescription","ache","sore","cramp","dizzy","breathing","asthma","diabetes","cholesterol","pressure","lump"],
+        primaryRiver: "HIDDEKEL",
+        secondaryRiver: "EUPHRATES",
+        secondaryTriggers: ["chronic","incurable","terminal","genetic","hereditary","degenerative","progressive","permanent","lifelong","stage 4","stage four","metastatic"]
+      },
+      MIND: {
+        label: "Mind",
+        keywords: ["anxious","anxiety","panic","fear","depressed","depression","sad","grief","trauma","flashback","dumb","slow","stupid","memory","confusion","brain fog","adhd","intelligence","aging","decline","forget","worried","worry","overthinking","obsessive","ocd","ptsd","bipolar","schizophrenia","paranoia","insomnia","nightmare","suicidal","hopeless","worthless","empty","numb","dissociation","overwhelmed","burnout","stress","mental","crazy","losing my mind","can't think","can't focus","scattered","racing thoughts","intrusive"],
+        primaryRiver: "PISON",
+        secondaryRiver: "GIHON",
+        secondaryTriggers: ["violated","abuse","abused","assault","molested","rape","raped","harassed","bullied","manipulated","gaslighted","controlled"]
+      },
+      PURSE: {
+        label: "Purse & Self",
+        keywords: ["money","debt","broke","income","job","career","fired","unemployed","client","business","tax","irs","stolen","robbed","reputation","status","success","failure","stuck","invisible","poor","poverty","bankrupt","foreclosure","eviction","rent","mortgage","bills","lawsuit","audit","demoted","passed over","rejected","overlooked","undervalued","underpaid","competition","market","economy","recession","inflation","scam","fraud","cheated out","owe","collection","creditor","salary","promotion","interview","laid off"],
+        primaryRiver: "GIHON",
+        secondaryRiver: "EUPHRATES",
+        secondaryTriggers: ["systemic","structural","impossible","no way out","trapped","ceiling","barrier","discrimination","blacklisted","rigged","corrupt"]
+      },
+      HEART: {
+        label: "Heart",
+        keywords: ["betrayed","cheated","lied","abandoned","alone","divorce","custody","child","parent","friend","enemy","hate","anger","rage","forgive","predator","attack","violated","loneliness","lonely","heartbroken","separated","estranged","ghosted","rejected","neglected","toxic","narcissist","abusive","manipulative","controlling","codependent","breakup","affair","infidelity","trust","jealous","resentment","grudge","ex","spouse","partner","marriage","wedding","family","sibling","mother","father","daughter","son","husband","wife","boyfriend","girlfriend","relationship"],
+        primaryRiver: "GIHON",
+        secondaryRiver: "PISON",
+        secondaryTriggers: ["death","died","dying","funeral","gone","lost","heaven","afterlife","passed away","grief","mourning","widow"]
+      }
+    };
+
+    const RIVERS = {
+      PISON: {
+        name: "Pison",
+        subtitle: "The love of the good and beautiful, and their immortality",
+        column: "The Word",
+        direction: "Northward — toward the dawn",
+        quality: "God is incorporeal",
+        anchor: "There is one Mind, and that Mind is Love. You are the reflection of this Mind — not a broken fragment, not a lost particle, but the full, radiant, complete idea of infinite intelligence expressing itself as you.\n\nWhat you are is beautiful, immortal, and whole. The sense of being broken, lost, confused, or alone is a shadow — it has no substance, no cause, and no law to sustain it.\n\n\"The love of the good and beautiful, and their immortality\" — this is your native air. This is the atmosphere in which the real you lives and moves and has its being. You have never left this atmosphere. The lie merely claimed you had."
+      },
+      GIHON: {
+        name: "Gihon",
+        subtitle: "The rights of woman acknowledged morally, civilly, and socially",
+        column: "The Christ",
+        direction: "Eastward — toward the sunrise",
+        quality: "God is divine",
+        anchor: "God is divine Principle. You are the spiritual idea of this Principle — not an accident of matter, not a product of circumstance, but a divine idea held forever in the Mind of God.\n\nYou have divine rights that no mortal power can violate: the right to be whole, to be supplied, to be loved, to be free, to be valued, to be safe. These rights are not granted by any human authority and therefore cannot be revoked by any human authority.\n\nAny claim that your rights have been stolen, diminished, or destroyed is a lie. \"The rights of woman acknowledged morally, civilly, and socially\" means your rights as the divine idea are absolute, inviolable, and eternally established by Principle itself."
+      },
+      HIDDEKEL: {
+        name: "Hiddekel",
+        subtitle: "Divine Science understood and acknowledged",
+        column: "Christianity",
+        direction: "Southward — the heat of the day",
+        quality: "God is supreme",
+        anchor: "God is All-in-all. There is no other power, no other cause, no other mind. What appears as disease, discord, or destruction is not a second power opposing God — it is a lie, claiming reality it does not possess.\n\n\"Divine Science understood and acknowledged\" — this is the power that annihilates error. Not the power of human will. Not positive thinking. The power of understanding what is actually true about God, man, and the universe.\n\nYou understand. You acknowledge. And the demonstration follows — not because you forced it, but because Truth, when clearly seen, dissolves the lie as light dissolves darkness. There is nothing for darkness to do but vanish."
+      },
+      EUPHRATES: {
+        name: "Euphrates",
+        subtitle: "Divine Science encompassing the universe and man",
+        column: "Divine Science",
+        direction: "Westward — toward the Golden Shore of Love and the Peaceful Sea of Harmony",
+        quality: "God is infinite",
+        anchor: "The only error is limitation. The only lie is finity. You are the expression of infinite Mind — a Mind that has no boundary, no ceiling, no expiration date, and no competitor.\n\nInfinite means without bound, without end, without limit. The belief that you are trapped, stuck, declining, deteriorating, or limited in any way is a lie — and it is the foundational lie beneath all other lies.\n\n\"The atmosphere of human belief before it accepts sin, sickness, or death; the only error of which is limitation\" — this is the river of ultimate power. When you reject limitation itself, every specific form of limitation loses its footing.\n\nYou are not limited. You are infinite in expression, eternal in being, and boundless in demonstration."
+      }
+    };
+
+    const RIGHTS = {
+      BODY: {
+        title: "The Temple Declaration",
+        text: "It is your divine right to have a body that is the temple of the living God — harmonious, pure, functional, and whole.\n\nNo diagnosis has authority over you. No disease has a right to your body. No medical verdict is a divine verdict. The only verdict that stands is the verdict of Truth: you are the perfect expression of Life itself.\n\nYou annul every sentence passed by material belief — every prognosis, every statistic, every \"probability.\" These are the opinions of mortal mind, and mortal mind is not your mind.\n\nYou are not a patient. You are not a case. You are not a body with a problem. You are the expression of Health itself — and Health is not a condition. It is your identity."
+      },
+      MIND: {
+        title: "The Clarity Declaration",
+        text: "It is your divine right to have a mind that is clear, sharp, peaceful, creative, and unlimited.\n\nNo claim of anxiety, depression, cognitive decline, confusion, or mental disorder has jurisdiction over your consciousness. These are not your thoughts. They are the suggestions of the carnal mind — and the carnal mind is \"enmity against God\" and has no real existence.\n\nYour mind is the reflection of the one Mind, which is peace, clarity, infinite intelligence, and perfect order. There is no chaos in Mind. There is no fog in Mind. There is no decline in Mind.\n\nYou annul the sentence of mental disorder. You are not a diagnosis. You are not a case. You are the expression of Mind itself — and Mind is forever clear, forever sharp, forever at peace."
+      },
+      PURSE: {
+        title: "The Substance Declaration",
+        text: "It is your divine right to be supplied, successful, productive, and valued.\n\nNo economic system, no government agency, no competitor, no algorithm, no \"market force\" has power over your substance. These are mortal constructs operating on the false premise that supply is material and therefore finite.\n\nYour supply is Spirit — infinite, ever-present, ever-flowing, and impossible to exhaust. Your value is established by divine Principle, not by mortal opinion, market rates, or performance reviews.\n\nYou annul the sentence of lack. You annul the belief that your good can be taken, blocked, or diminished. You are not a struggler. You are not behind. You are the expression of infinite Substance — and Substance, being Spirit, can never run out."
+      },
+      HEART: {
+        title: "The Love Declaration",
+        text: "It is your divine right to love and be loved, to be united with those who belong in your life, to be free from violation, betrayal, and abandonment.\n\nNo court order, no betrayal, no death, no distance, no silence can sever what God has joined in the bonds of spiritual affection. Love is not a fragile human emotion subject to human whim — it is a divine Principle, and its connections are as permanent as Principle itself.\n\nYou annul the sentence of separation. You annul the claim that love can be stolen, withdrawn, or destroyed. You annul the lie that you are alone.\n\nYou are not a victim. You are not unlovable. You are not abandoned. You are the expression of divine Love — which is universal, unconditional, and absolutely unbreakable."
+      }
+    };
+
+    function diagnose(input) {
+      const lower = input.toLowerCase();
+      let scores = { BODY: 0, MIND: 0, PURSE: 0, HEART: 0 };
+      let matched = {};
+
+      for (const [domain, data] of Object.entries(DOMAINS)) {
+        for (const kw of data.keywords) {
+          if (lower.includes(kw)) {
+            scores[domain] += kw.includes(" ") ? 3 : 1;
+            if (!matched[domain]) matched[domain] = [];
+            matched[domain].push(kw);
+          }
+        }
+      }
+
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const primary = sorted[0][1] > 0 ? sorted[0][0] : "MIND";
+      const domainData = DOMAINS[primary];
+
+      let useSecondary = false;
+      if (domainData.secondaryTriggers) {
+        for (const t of domainData.secondaryTriggers) {
+          if (lower.includes(t)) { useSecondary = true; break; }
+        }
+      }
+
+      const river = useSecondary ? domainData.secondaryRiver : domainData.primaryRiver;
+
+      return {
+        domain: primary,
+        domainLabel: domainData.label,
+        river,
+        riverData: RIVERS[river],
+        matchedKeywords: matched[primary] || [],
+        input
+      };
+    }
+
+    const TREATMENT_SYSTEM = `You are a Divine Science practitioner operating within the pedagogical structure discovered in Mary Baker Eddy's works. You generate rigorous, situation-specific scientific treatments.
+
+FRAMEWORK:
+- God is defined by seven synonyms: Mind, Spirit, Soul, Principle, Life, Truth, Love — all synonymous with each other
+- "Mind is Love" — therefore evil mind is impossible; evil is absence of Mind, not a competing power
+- Four levels: (1) The Word/Heaven (divine reality), (2) The Christ/Kingdom of Heaven (spiritual understanding), (3) Christianity/Earth (moral-transitional), (4) Christian Science/Hell (where error is confronted and dissolved)
+- Four rivers of development: Pison (love/identity/immortality), Gihon (divine rights), Hiddekel (healing/demonstration), Euphrates (overcoming limitation/finity)
+- Error has no cause, no law, no mind, no power, no reality — it is a false claim operating through belief only
+- Treatment works by (a) naming the SPECIFIC error beliefs operating, (b) tracing them to their root false premises, (c) establishing the specific counter-truth from Principle, (d) dismissing the error with scientific authority
+
+YOUR TASK:
+Given a user's specific situation, generate a treatment that is:
+1. SPECIFIC — reference the exact situation, the exact claims being made by the error, the exact beliefs operating
+2. RIGOROUS — trace the error to its root false premise (e.g., "life in matter," "mind in brain," "supply in economy," "love dependent on persons")
+3. SCIENTIFIC — establish the counter-truth not as wishful thinking but as demonstrable Principle
+4. AUTHORITATIVE — speak to the error directly, name it, expose its mechanism, and dismiss it
+
+FORMAT your response in exactly these sections, using these headers:
+ERROR ANALYSIS:
+[2-3 sentences identifying the SPECIFIC false beliefs operating in this situation — not generic, but tied to what they described]
+
+ROOT CLAIM:
+[1-2 sentences naming the foundational lie beneath the surface symptoms — the deeper metaphysical error]
+
+THE TRUTH:
+[2-3 sentences establishing the specific counter-truth from divine Principle that directly addresses this root claim]
+
+TREATMENT:
+[The spoken treatment — address the error directly in second person ("Error calling itself..."), name its specific claims, expose why each is false, and dismiss it. End with a specific declaration of truth about the user's real identity/situation. This should be 4-8 sentences, forceful and precise.]
+
+WATCH:
+[1-2 sentences telling the user what specific mental habit or belief to watch for in the coming hours/days — the "serpent" that will try to re-suggest the error]
+
+Be direct. Be specific. Do not hedge. Do not use therapeutic language. Use scientific spiritual language.`;
+
+    const RETROACTIVE_SUPPLEMENT = `
+
+RETROACTIVE TREATMENT — THE SCIENTIFIC "NOW":
+This treatment is being applied retroactively to an event the user identifies as having occurred in the past. You must operate under the following established scientific-spiritual premises:
+
+SCRIPTURAL AUTHORITY:
+- "Before Abraham was, I am" — Christ Jesus (John 8:58)
+- "And it shall come to pass, that before they call, I will answer" — Isaiah 65:24
+- "That which hath been is now; and that which is to be hath already been" — Ecclesiastes 3:15
+
+SCIENTIFIC BASIS (F.L. Rawson):
+- What mortals call "time" is merely limited human perception — not a law of God
+- The entire material picture is akin to cinema-like images — "lines of force" in the ether — not fixed reality
+- If time is unreal, then prayer/treatment is as efficacious applied to what mortals call "the past" as it is to "the present" or "the future"
+- We cannot alter what has already appeared to material sense, but we CAN: (a) dissolve the false belief that gave it seeming cause, (b) annul the "bridge of coincidence" — the chain of mortal beliefs that linked one error to the next, (c) establish that the error NEVER had legitimate cause, law, or power at any point in the so-called timeline, (d) wipe out the continuing effects, recollections, and traces of the error in present experience
+
+ADDITIONAL FORMAT for retroactive treatments — add this section AFTER "WATCH":
+THE SCIENTIFIC NOW:
+[2-3 sentences establishing why this treatment operates outside of time. Name the specific "bridge of coincidence" — the chain of mortal beliefs that connected the past event to the user's present suffering. Declare that this chain has no cause and never did. The treatment is effective at the point of origin because Principle is omnipresent and omnipotent — it does not operate within a timeline.]`;
+
+    async function generateTreatmentAPI(diagnosis, situationText, retroactive = null) {
+      const { domain, domainLabel, river, riverData } = diagnosis;
+
+      const systemPrompt = retroactive
+        ? TREATMENT_SYSTEM + RETROACTIVE_SUPPLEMENT
+        : TREATMENT_SYSTEM;
+
+      const retroContext = retroactive
+        ? `\n\nRETROACTIVE TREATMENT: The user is treating an event that occurred ${retroactive}. Apply the Scientific "Now" — treat at the point of origin. Identify and dissolve the "bridge of coincidence" that connected the past event to the present suffering.`
+        : "";
+
+      const userPrompt = `SITUATION: "${situationText}"
+
+DIAGNOSED DOMAIN: ${domainLabel} (${domain})
+PRIMARY RIVER: ${riverData.name} — "${riverData.subtitle}"
+RIVER COLUMN: ${riverData.column} · ${riverData.direction}
+RIVER QUALITY: ${riverData.quality}${retroContext}
+
+Generate the specific treatment for this exact situation.`;
+
+      try {
+        const response = await fetch("https://xmcmiaulixkizsfnoxgq.supabase.co/functions/v1/treat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtY21pYXVsaXhraXpzZm5veGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3OTQyOTYsImV4cCI6MjA5MTM3MDI5Nn0.5VNxDDT11bF_DpiVQ9pVZ0oU-XDoQmsbn2XS9pxncVg", "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtY21pYXVsaXhraXpzZm5veGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3OTQyOTYsImV4cCI6MjA5MTM3MDI5Nn0.5VNxDDT11bF_DpiVQ9pVZ0oU-XDoQmsbn2XS9pxncVg" },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 1500,
+            system: systemPrompt,
+            messages: [{ role: "user", content: userPrompt }]
+          })
+        });
+
+        const data = await response.json();
+        const text = data.content?.map(item => item.type === "text" ? item.text : "").filter(Boolean).join("\n") || "";
+
+        if (!text) throw new Error("Empty response");
+
+        function extractSection(fullText, sectionName, allNames) {
+          const escapedName = sectionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const otherNames = allNames.filter(n => n !== sectionName).map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+          const stopPattern = otherNames.length > 0 ? `(?=\\n\\s*(?:\\*\\*)?(?:${otherNames.join("|")})(?:\\*\\*)?\\s*:)` : "";
+          const regex = new RegExp(`(?:\\*\\*)?${escapedName}(?:\\*\\*)?\\s*:\\s*([\\s\\S]*?)(?:${stopPattern}|$)`, "i");
+          const match = fullText.match(regex);
+          return match ? match[1].trim().replace(/^\*\*|\*\*$/g, "").trim() : "";
+        }
+
+        const sectionNames = ["ERROR ANALYSIS", "ROOT CLAIM", "THE TRUTH", "TREATMENT", "WATCH", "THE SCIENTIFIC NOW"];
+        const sections = {};
+        for (const name of sectionNames) {
+          sections[name] = extractSection(text, name, sectionNames);
+        }
+
+        const hasContent = sections["ERROR ANALYSIS"] || sections["TREATMENT"] || sections["THE TRUTH"];
+
+        if (!hasContent) {
+          return {
+            errorAnalysis: "",
+            rootClaim: "",
+            theTruth: "",
+            treatment: text,
+            watch: "",
+            scientificNow: "",
+            full: text,
+            isAPI: true
+          };
+        }
+
+        return {
+          errorAnalysis: sections["ERROR ANALYSIS"],
+          rootClaim: sections["ROOT CLAIM"],
+          theTruth: sections["THE TRUTH"],
+          treatment: sections["TREATMENT"],
+          watch: sections["WATCH"],
+          scientificNow: sections["THE SCIENTIFIC NOW"] || "",
+          full: text,
+          isAPI: true
+        };
+      } catch (err) {
+        return generateTreatmentFallback(diagnosis);
+      }
+    }
+
+    function generateTreatmentFallback(diagnosis) {
+      const { input, domain, riverData, matchedKeywords } = diagnosis;
+      const keywords = matchedKeywords.length > 0 ? matchedKeywords.join(", ") : "this situation";
+      const claims = {
+        BODY: "that Life is in matter, that matter can malfunction, and that a material condition has power over the spiritual fact of your being",
+        MIND: "that Mind can be disordered, that intelligence can decline, that peace can be destroyed, and that you are subject to mental conditions rather than reflective of the one divine Mind",
+        PURSE: "that supply is material and finite, that your good can be blocked or stolen, and that mortal systems have power over divine Principle's provision for its own idea",
+        HEART: "that love can be broken, that separation is real, that betrayal has the last word, and that any mortal action can sever what God has joined in spiritual union"
+      };
+      const finals = {
+        BODY: "My body is the temple of the living God. Every organ, every function, every cell reflects the harmony of infinite Life. I am whole — not becoming whole, but whole now, as God made me.",
+        MIND: "My mind is the reflection of the one Mind — God. It is clear, peaceful, sharp, creative, and unlimited. No mortal suggestion can cloud what God has made luminous.",
+        PURSE: "My supply is Spirit itself. It is infinite, immediate, and ever-present. I am the expression of divine Substance, which cannot be exhausted, stolen, or diminished.",
+        HEART: "Love is my Principle, my origin, and my atmosphere. I am held in the bonds of divine affection that no mortal belief can break."
+      };
+      return {
+        errorAnalysis: `The error presents itself as "${keywords}" — operating in the ${diagnosis.domainLabel} domain.`,
+        rootClaim: `The root claim is ${claims[domain]}.`,
+        theTruth: riverData.anchor.split("\n")[0],
+        treatment: `Error calling itself "${keywords}": You are a liar. You claim ${claims[domain]}. You have no cause, no law, no mind, no power, no reality. I dismiss you. ${finals[domain]}`,
+        watch: "Watch for the re-suggestion of this belief in any form. Name it immediately when it appears.",
+        full: "",
+        isAPI: false
+      };
+    }
+
+    const ACCESS_HASH = "66e6481bc8accdafedbb195320a1d356d0e2714a875d8518ae2c2fb78de09138";
+
+    async function hashPassword(pw) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(pw);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    function BreathingTimer({ onComplete }) {
+      const [state, setState] = useState("ready");
+      const [breathCount, setBreathCount] = useState(0);
+      const [seconds, setSeconds] = useState(0);
+      const [breathPhase, setBreathPhase] = useState("in");
+
+      useEffect(() => {
+        if (state !== "breathing") return;
+        const interval = setInterval(() => {
+          setSeconds(s => {
+            const next = s + 1;
+            if (breathPhase === "in" && next >= 4) {
+              setBreathPhase("hold");
+              return 0;
+            }
+            if (breathPhase === "hold" && next >= 4) {
+              setBreathPhase("out");
+              return 0;
+            }
+            if (breathPhase === "out" && next >= 6) {
+              const newCount = breathCount + 1;
+              if (newCount >= 3) {
+                setState("done");
+                return 0;
+              } else {
+                setBreathCount(newCount);
+                setBreathPhase("in");
+                return 0;
+              }
+            }
+            return next;
+          });
+        }, 1000);
+        return () => clearInterval(interval);
+      }, [state, breathPhase, breathCount]);
+
+      const phaseLabels = { in: "Breathe In", hold: "Hold", out: "Breathe Out" };
+      const phaseDurations = { in: 4, hold: 4, out: 6 };
+
+      const scale = breathPhase === "in" ? 1.2 : breathPhase === "hold" ? 1.2 : 0.8;
+
+      if (state === "ready") {
+        return (
+          <div style={styles.breathCircleOuter}>
+            <div style={{ ...styles.breathCircleInner, transform: "scale(1)" }}>
+              <div style={styles.breathLabel}>Ready</div>
+            </div>
+            <button style={styles.breathBtn} onClick={() => setState("breathing")}>Begin</button>
+          </div>
+        );
+      }
+
+      if (state === "done") {
+        return (
+          <div style={styles.breathCircleOuter}>
+            <div style={{ ...styles.breathCircleInner, transform: "scale(1)" }}>
+              <div style={styles.breathLabel}>Complete</div>
+            </div>
+            <button style={styles.breathBtn} onClick={onComplete}>Continue</button>
+          </div>
+        );
+      }
+
+      return (
+        <div style={styles.breathCircleOuter}>
+          <div style={{ ...styles.breathCircleInner, transform: `scale(${scale})`, transition: "transform 1s ease-in-out" }}>
+            <div style={styles.breathLabel}>{phaseLabels[breathPhase]}</div>
+            <div style={styles.breathSeconds}>{phaseDurations[breathPhase] - seconds}</div>
+          </div>
+        </div>
+      );
+    }
+
+    function PrincipleApp() {
+      const [authenticated, setAuthenticated] = useState(false);
+      const [passInput, setPassInput] = useState("");
+      const [passError, setPassError] = useState("");
+
+      const [phase, setPhase] = useState("INPUT");
+      const [input, setInput] = useState("");
+      const [diagnosis, setDiagnosis] = useState(null);
+      const [treatment, setTreatment] = useState(null);
+      const [pillars, setPillars] = useState({ anchor: false, rights: false, treatment: false });
+      const [journal, setJournal] = useState([]);
+      const [showJournal, setShowJournal] = useState(false);
+      const [showEmergency, setShowEmergency] = useState(false);
+      const [emergencyInput, setEmergencyInput] = useState("");
+      const [emergencyTreatment, setEmergencyTreatment] = useState(null);
+      const [emergencyBreathing, setEmergencyBreathing] = useState(false);
+      const [notifications, setNotifications] = useState([]);
+      const [showAbout, setShowAbout] = useState(false);
+      const [showSettings, setShowSettings] = useState(false);
+      const [patternInsight, setPatternInsight] = useState(null);
+      const [fadeIn, setFadeIn] = useState(false);
+      const [storageStatus, setStorageStatus] = useState("synced");
+      const [treatLoading, setTreatLoading] = useState(false);
+      const [retroMode, setRetroMode] = useState(false);
+      const [retroWhen, setRetroWhen] = useState("");
+      const [journalFilter, setJournalFilter] = useState("all");
+      const [lastSaved, setLastSaved] = useState(null);
+
+      const inputRef = useRef(null);
+      const contentRef = useRef(null);
+      const fileInputRef = useRef(null);
+
+      useEffect(() => {
+        try {
+          const saved = localStorage.getItem("principle_journal");
+          if (saved) setJournal(JSON.parse(saved));
+          const savedNotif = localStorage.getItem("principle_notifications");
+          if (savedNotif) setNotifications(JSON.parse(savedNotif));
+        } catch (e) {}
+      }, []);
+
+      const saveJournal = useCallback((newJournal) => {
+        try {
+          localStorage.setItem("principle_journal", JSON.stringify(newJournal));
+          setStorageStatus("synced");
+          setLastSaved(new Date());
+        } catch (e) {
+          setStorageStatus("error");
+        }
+      }, []);
+
+      const saveNotifications = useCallback((newNotif) => {
+        try {
+          localStorage.setItem("principle_notifications", JSON.stringify(newNotif));
+        } catch (e) {}
+      }, []);
+
+      useEffect(() => {
+        if (journal.length > 0) saveJournal(journal);
+      }, [journal, saveJournal]);
+
+      useEffect(() => {
+        if (notifications.length > 0) saveNotifications(notifications);
+      }, [notifications, saveNotifications]);
+
+      useEffect(() => {
+        if (journal.length >= 3) {
+          const domains = journal.slice(-5).map(e => e.domain);
+          const counts = {};
+          for (const d of domains) counts[d] = (counts[d] || 0) + 1;
+          const max = Math.max(...Object.values(counts));
+          if (max >= 3) {
+            const dominant = Object.keys(counts).find(k => counts[k] === max);
+            setPatternInsight({ domain: dominant, count: max });
+          }
+        }
+      }, [journal]);
+
+      useEffect(() => {
+        setFadeIn(true);
+      }, [phase]);
+
+      useEffect(() => {
+        if (contentRef.current) contentRef.current.scrollTop = 0;
+      }, [phase]);
+
+      const exportJournal = () => {
+        const blob = new Blob([JSON.stringify(journal, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `principle-journal-${Date.now()}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      const importJournal = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          try {
+            const imported = JSON.parse(evt.target.result);
+            if (Array.isArray(imported)) {
+              setJournal(imported);
+              alert("Journal imported successfully");
+            }
+          } catch (err) {
+            alert("Invalid journal file");
+          }
+        };
+        reader.readAsText(file);
+      };
+
+      const downloadTreatment = (entry) => {
+        const text = `PRINCIPLE Treatment
+Date: ${new Date(entry.timestamp).toLocaleString()}
+Domain: ${entry.domainLabel}
+River: ${entry.riverName}
+
+SITUATION:
+${entry.input}
+
+${entry.treatment.errorAnalysis ? `ERROR ANALYSIS:\n${entry.treatment.errorAnalysis}\n\n` : ""}${entry.treatment.rootClaim ? `ROOT CLAIM:\n${entry.treatment.rootClaim}\n\n` : ""}${entry.treatment.theTruth ? `THE TRUTH:\n${entry.treatment.theTruth}\n\n` : ""}TREATMENT:
+${entry.treatment.treatment}
+
+${entry.treatment.watch ? `WATCH:\n${entry.treatment.watch}\n\n` : ""}${entry.treatment.scientificNow ? `THE SCIENTIFIC NOW:\n${entry.treatment.scientificNow}\n\n` : ""}`;
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `treatment-${Date.now()}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      const downloadCurrentTreatment = () => {
+        if (!treatment || !diagnosis) return;
+        const text = `PRINCIPLE Treatment
+Date: ${new Date().toLocaleString()}
+Domain: ${diagnosis.domainLabel}
+River: ${diagnosis.riverData.name}
+
+SITUATION:
+${diagnosis.input}
+
+${treatment.errorAnalysis ? `ERROR ANALYSIS:\n${treatment.errorAnalysis}\n\n` : ""}${treatment.rootClaim ? `ROOT CLAIM:\n${treatment.rootClaim}\n\n` : ""}${treatment.theTruth ? `THE TRUTH:\n${treatment.theTruth}\n\n` : ""}TREATMENT:
+${treatment.treatment}
+
+${treatment.watch ? `WATCH:\n${treatment.watch}\n\n` : ""}${treatment.scientificNow ? `THE SCIENTIFIC NOW:\n${treatment.scientificNow}\n\n` : ""}`;
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `treatment-${Date.now()}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      const handleLogin = async () => {
+        const hashed = await hashPassword(passInput);
+        if (hashed === ACCESS_HASH) {
+          setAuthenticated(true);
+          setPassError("");
+        } else {
+          setPassError("Incorrect password");
+        }
+      };
+
+      const handleTreat = async () => {
+        if (!input.trim()) return;
+        setTreatLoading(true);
+        const diag = diagnose(input);
+        setDiagnosis(diag);
+        setPhase("DIAGNOSIS");
+        const retroArg = retroMode && retroWhen.trim() ? retroWhen.trim() : null;
+        const treat = await generateTreatmentAPI(diag, input, retroArg);
+        setTreatment(treat);
+        setTreatLoading(false);
+      };
+
+      const handleComplete = () => {
+        const entry = {
+          timestamp: Date.now(),
+          input: diagnosis.input,
+          domain: diagnosis.domain,
+          domainLabel: diagnosis.domainLabel,
+          river: diagnosis.river,
+          riverName: diagnosis.riverData.name,
+          treatment,
+          pillars: { ...pillars },
+          retroactive: retroMode && retroWhen.trim() ? retroWhen.trim() : null
+        };
+        setJournal([entry, ...journal]);
+        const notif = {
+          id: Date.now(),
+          text: `Treatment completed for ${diagnosis.domainLabel}`,
+          timestamp: Date.now()
+        };
+        setNotifications([notif, ...notifications]);
+        setPhase("COMPLETE");
+      };
+
+      const handleEmergencyTreat = async () => {
+        if (!emergencyInput.trim()) return;
+        setEmergencyBreathing(true);
+      };
+
+      const reset = () => {
+        setPhase("INPUT");
+        setInput("");
+        setDiagnosis(null);
+        setTreatment(null);
+        setPillars({ anchor: false, rights: false, treatment: false });
+        setRetroMode(false);
+        setRetroWhen("");
+      };
+
+      const closeEmergency = () => {
+        setShowEmergency(false);
+        setEmergencyInput("");
+        setEmergencyTreatment(null);
+        setEmergencyBreathing(false);
+      };
+
+      if (!authenticated) {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer}>
+              <div style={{ ...styles.wrapper, justifyContent: "center", minHeight: "100vh" }}>
+                <div style={styles.logoArea}>
+                  <img src={KF_LOGO} alt="Kingley Foundation" style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 16 }} />
+                  <div style={styles.logoText}>PRINCIPLE</div>
+                  <div style={styles.tagline}>by Kingley Foundation</div>
+                </div>
+                <div style={{ marginTop: 40, textAlign: "center" }}>
+                  <input
+                    type="password"
+                    value={passInput}
+                    onChange={(e) => setPassInput(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+                    placeholder="Enter password"
+                    style={styles.passInput}
+                  />
+                  {passError && <div style={{ color: "#ff6b6b", fontSize: 14, marginTop: 8 }}>{passError}</div>}
+                  <button style={styles.treatBtn} onClick={handleLogin}>Enter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (showEmergency) {
+        if (emergencyBreathing) {
+          return (
+            <div style={styles.emergencyOverlay}>
+              <div style={styles.emergencyTitle}>Breathe</div>
+              <BreathingTimer onComplete={async () => {
+                const diag = diagnose(emergencyInput);
+                const treat = await generateTreatmentAPI(diag, emergencyInput);
+                setEmergencyTreatment(treat);
+                setEmergencyBreathing(false);
+              }} />
+            </div>
+          );
+        }
+
+        if (emergencyTreatment) {
+          return (
+            <div style={styles.emergencyOverlay}>
+              <div style={styles.emergencyClose} onClick={closeEmergency}>
+                <div style={styles.emergencyCloseText}>Close</div>
+              </div>
+              <div style={styles.emergencyTitle}>Emergency Treatment</div>
+              <div style={styles.treatmentBox}>
+                <div style={styles.treatmentText}>{emergencyTreatment.treatment}</div>
+              </div>
+              <button style={styles.spokenBtn} onClick={() => {
+                if ('speechSynthesis' in window) {
+                  const utterance = new SpeechSynthesisUtterance(emergencyTreatment.treatment);
+                  speechSynthesis.speak(utterance);
+                }
+              }}>Speak Treatment</button>
+            </div>
+          );
+        }
+
+        return (
+          <div style={styles.emergencyOverlay}>
+            <div style={styles.emergencyClose} onClick={closeEmergency}>
+              <div style={styles.emergencyCloseText}>Close</div>
+            </div>
+            <div style={styles.emergencyTitle}>Emergency Treatment</div>
+            <textarea
+              value={emergencyInput}
+              onChange={(e) => setEmergencyInput(e.target.value)}
+              placeholder="What is the emergency?"
+              style={styles.emergencyTextarea}
+              autoFocus
+            />
+            <button style={styles.treatBtn} onClick={handleEmergencyTreat}>Treat Now</button>
+          </div>
+        );
+      }
+
+      if (showJournal) {
+        const filtered = journalFilter === "all" ? journal : journal.filter(e => e.domain === journalFilter);
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer}>
+              <div style={styles.wrapper}>
+                <div style={styles.navRow}>
+                  <button style={styles.navBtn} onClick={() => setShowJournal(false)}>Back</button>
+                  <div style={styles.phaseLabel}>Journal</div>
+                  <div style={{ width: 60 }} />
+                </div>
+                {patternInsight && (
+                  <div style={styles.insightBox}>
+                    <div style={styles.insightIcon}>i</div>
+                    <div style={styles.insightText}>Pattern detected: {patternInsight.count} recent treatments in {patternInsight.domain}</div>
+                  </div>
+                )}
+                <div style={{ display: "flex", gap: 8, marginBottom: 16, overflowX: "auto", paddingBottom: 8 }}>
+                  {["all", "BODY", "MIND", "PURSE", "HEART"].map(f => (
+                    <button key={f} style={{ ...styles.filterTab, background: journalFilter === f ? "#2a2a28" : "#1a1a18" }} onClick={() => setJournalFilter(f)}>
+                      {f === "all" ? "All" : DOMAINS[f].label}
+                    </button>
+                  ))}
+                </div>
+                {filtered.length === 0 && <div style={styles.dimText}>No entries yet</div>}
+                {filtered.map((entry, i) => (
+                  <div key={i} style={styles.journalEntry}>
+                    <div style={styles.journalMeta}>
+                      <div style={styles.journalDomain}>{entry.domainLabel}</div>
+                      <div style={styles.journalDate}>{new Date(entry.timestamp).toLocaleDateString()}</div>
+                    </div>
+                    {entry.retroactive && (
+                      <div style={styles.retroBadgeBox}>
+                        <div style={styles.retroBadgeIcon}>⏱</div>
+                        <div style={styles.retroBadgeText}>Retroactive: {entry.retroactive}</div>
+                      </div>
+                    )}
+                    <div style={styles.journalInput}>{entry.input}</div>
+                    <div style={styles.journalFooter}>
+                      <div style={styles.journalRiver}>{entry.riverName}</div>
+                      {entry.pillars.anchor && entry.pillars.rights && entry.pillars.treatment && (
+                        <div style={styles.journalComplete}>Complete</div>
+                      )}
+                    </div>
+                    <button style={styles.downloadEntryBtn} onClick={() => downloadTreatment(entry)}>Download</button>
+                  </div>
+                ))}
+                <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
+                  <button style={styles.exportBtn} onClick={exportJournal}>Export Journal</button>
+                  <button style={styles.importBtn} onClick={() => fileInputRef.current.click()}>Import Journal</button>
+                  <input ref={fileInputRef} type="file" accept="application/json" style={{ display: "none" }} onChange={importJournal} />
+                </div>
+                {journal.length > 0 && (
+                  <button style={styles.clearBtn} onClick={() => {
+                    if (confirm("Clear all journal entries?")) {
+                      setJournal([]);
+                      localStorage.removeItem("principle_journal");
+                    }
+                  }}>Clear All</button>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (showAbout) {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer}>
+              <div style={styles.wrapper}>
+                <div style={styles.navRow}>
+                  <button style={styles.navBtn} onClick={() => setShowAbout(false)}>Back</button>
+                  <div style={styles.phaseLabel}>About</div>
+                  <div style={{ width: 60 }} />
+                </div>
+                <div style={{ marginTop: 24 }}>
+                  <img src={KF_FOUNDER} alt="Founder" style={{ width: 120, height: 120, borderRadius: 60, marginBottom: 16, objectFit: "cover" }} />
+                  <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8, color: "#e8e8e6" }}>Dr. Kingley Ibe</div>
+                  <div style={{ fontSize: 14, lineHeight: 1.6, color: "#a8a8a6", marginBottom: 24 }}>
+                    Founder of Kingley Foundation, dedicated to spiritual healing through Divine Science and the teachings of Mary Baker Eddy.
+                  </div>
+                  <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: "#e8e8e6" }}>About PRINCIPLE</div>
+                  <div style={{ fontSize: 14, lineHeight: 1.6, color: "#a8a8a6" }}>
+                    PRINCIPLE is a spiritual treatment tool based on the pedagogical structure discovered in Mary Baker Eddy's works. It diagnoses situations across four domains (Body, Mind, Purse, Heart) and applies scientific spiritual treatments through four rivers of development (Pison, Gihon, Hiddekel, Euphrates).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (showSettings) {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer}>
+              <div style={styles.wrapper}>
+                <div style={styles.navRow}>
+                  <button style={styles.navBtn} onClick={() => setShowSettings(false)}>Back</button>
+                  <div style={styles.phaseLabel}>Settings</div>
+                  <div style={{ width: 60 }} />
+                </div>
+                <div style={{ marginTop: 24 }}>
+                  <div style={styles.settingRow}>
+                    <div>
+                      <div style={styles.settingLabel}>Storage Status</div>
+                      <div style={styles.settingDesc}>
+                        {storageStatus === "synced" && "Synced"}
+                        {storageStatus === "error" && "Error saving"}
+                      </div>
+                    </div>
+                    <div style={styles.statChip}>{journal.length} entries</div>
+                  </div>
+                  {lastSaved && (
+                    <div style={styles.settingRow}>
+                      <div>
+                        <div style={styles.settingLabel}>Last Saved</div>
+                        <div style={styles.settingDesc}>{lastSaved.toLocaleString()}</div>
+                      </div>
+                    </div>
+                  )}
+                  <div style={styles.settingRow}>
+                    <div>
+                      <div style={styles.settingLabel}>Notifications</div>
+                      <div style={styles.settingDesc}>{notifications.length} total</div>
+                    </div>
+                    {notifications.length > 0 && (
+                      <button style={styles.clearBtn} onClick={() => {
+                        setNotifications([]);
+                        localStorage.removeItem("principle_notifications");
+                      }}>Clear</button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "INPUT") {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.logoArea}>
+                  <img src={KF_LOGO} alt="Kingley Foundation" style={{ width: 80, height: 80, borderRadius: 16, marginBottom: 16 }} />
+                  <div style={styles.logoText}>PRINCIPLE</div>
+                  <div style={styles.tagline}>by Kingley Foundation</div>
+                </div>
+                <div style={styles.inputArea}>
+                  <div style={styles.questionLabel}>What are you treating?</div>
+                  <textarea
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Describe the situation..."
+                    style={styles.textarea}
+                    autoFocus
+                  />
+                  <div style={styles.retroToggle}>
+                    <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
+                      <input type="checkbox" checked={retroMode} onChange={(e) => setRetroMode(e.target.checked)} style={{ width: 16, height: 16 }} />
+                      <span style={{ fontSize: 14, color: "#e8e8e6" }}>Retroactive Treatment</span>
+                    </label>
+                  </div>
+                  {retroMode && (
+                    <div style={styles.retroField}>
+                      <div style={styles.retroLabel}>When did this occur?</div>
+                      <input
+                        type="text"
+                        value={retroWhen}
+                        onChange={(e) => setRetroWhen(e.target.value)}
+                        placeholder="e.g., last week, 3 years ago, yesterday"
+                        style={styles.retroInput}
+                      />
+                      <div style={styles.retroScripture}>
+                        <div style={styles.retroVerse}>"Before Abraham was, I am"</div>
+                        <div style={styles.retroAttr}>— John 8:58</div>
+                      </div>
+                    </div>
+                  )}
+                  <button style={styles.treatBtn} onClick={handleTreat} disabled={!input.trim()}>
+                    {treatLoading ? "Analyzing..." : "Treat"}
+                  </button>
+                </div>
+                <div style={styles.navRow}>
+                  <button style={styles.navBtn} onClick={() => setShowJournal(true)}>Journal</button>
+                  <button style={styles.navBtn} onClick={() => setShowAbout(true)}>About</button>
+                  <button style={styles.navBtn} onClick={() => setShowSettings(true)}>Settings</button>
+                </div>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "DIAGNOSIS") {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>Diagnosis</div>
+                  <div style={styles.phaseSub}>Domain & River identified</div>
+                </div>
+                {diagnosis.input && retroMode && retroWhen && (
+                  <div style={styles.retroBadgeBox}>
+                    <div style={styles.retroBadgeIcon}>⏱</div>
+                    <div style={styles.retroBadgeText}>Retroactive: {retroWhen}</div>
+                  </div>
+                )}
+                <div style={styles.diagnosisBox}>
+                  <div style={styles.diagDomain}>{diagnosis.domainLabel}</div>
+                  <div style={styles.diagFloor}>Domain</div>
+                </div>
+                <div style={styles.diagnosisBox}>
+                  <div style={styles.diagRiver}>
+                    <div style={styles.riverName}>{diagnosis.riverData.name}</div>
+                    <div style={styles.riverSub}>{diagnosis.riverData.subtitle}</div>
+                  </div>
+                  <div style={styles.riverMeta}>
+                    {diagnosis.riverData.column} · {diagnosis.riverData.direction}
+                  </div>
+                </div>
+                <div style={styles.diagExplain}>
+                  Your situation has been diagnosed in the <strong>{diagnosis.domainLabel}</strong> domain and assigned to the <strong>{diagnosis.riverData.name}</strong> river of spiritual development.
+                </div>
+                <button style={styles.treatBtn} onClick={() => setPhase(retroMode ? "SCIENTIFIC_NOW" : "ANCHOR")}>Continue</button>
+                <button style={styles.backBtn} onClick={reset}>Start Over</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "SCIENTIFIC_NOW" && retroMode) {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>The Scientific "Now"</div>
+                  <div style={styles.phaseSub}>Treatment at the Point of Origin</div>
+                </div>
+                <div style={styles.retroBadgeBox}>
+                  <span style={styles.retroBadgeIcon}>{"\u27F2"}</span>
+                  <span style={styles.retroBadgeText}>Treating at: {retroWhen}</span>
+                </div>
+                <div style={{ ...styles.anchorBox, marginBottom: 20, borderColor: '#3a3020' }}>
+                  <p style={{ ...styles.anchorPara, fontSize: 15, color: '#c4a35a', fontStyle: 'italic', marginTop: 0 }}>"Before Abraham was, I am"</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 13, color: '#8a7a60', marginTop: 4 }}>— Christ Jesus (John 8:58)</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 15, color: '#c4a35a', fontStyle: 'italic' }}>"And it shall come to pass, that before they call, I will answer"</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 13, color: '#8a7a60', marginTop: 4 }}>— Isaiah 65:24</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 15, color: '#c4a35a', fontStyle: 'italic' }}>"That which hath been is now; and that which is to be hath already been"</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 13, color: '#8a7a60', marginTop: 4 }}>— Ecclesiastes 3:15</p>
+                </div>
+                <div style={styles.anchorBox}>
+                  <p style={{ ...styles.anchorPara, fontSize: 17 }}>What mortals call "time" is merely limited human perception — not a law, not a cause, not a power. The entire material picture is akin to cinema-like images — lines of force projected in the ether of mortal belief.</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 17 }}>If time is unreal, then treatment is as efficacious applied to what mortals call "the past" as to "the present." The error that appeared {retroWhen} never had legitimate cause, law, or power — not then, not now, not at any point in the so-called timeline.</p>
+                  <p style={{ ...styles.anchorPara, fontSize: 17 }}>You are now treating at the point of origin. The "bridge of coincidence" — the chain of mortal beliefs that linked one error to the next — is itself a lie. You dissolve it at its root.</p>
+                </div>
+                <button style={styles.continueBtn} onClick={() => setPhase("ANCHOR")}>Continue to Universal Truth →</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.bottomBackBtn} onClick={() => setPhase("DIAGNOSIS")}>Back</button>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "ANCHOR") {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>Phase 2 — Anchor</div>
+                  <div style={styles.phaseSub}>The Universal Truth</div>
+                </div>
+                <div style={styles.anchorMeta}>
+                  <div style={styles.anchorRiverTag}>{diagnosis.riverData.name}</div>
+                  <div style={styles.anchorQuality}>{diagnosis.riverData.quality}</div>
+                </div>
+                <div style={styles.anchorBox}>
+                  {diagnosis.riverData.anchor.split("\n\n").map((para, i) => (
+                    <div key={i} style={styles.anchorPara}>{para}</div>
+                  ))}
+                </div>
+                <button style={styles.continueBtn} onClick={() => setPhase("RIGHTS")}>Continue to Claim Rights →</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.bottomBackBtn} onClick={() => setPhase(retroMode ? "SCIENTIFIC_NOW" : "DIAGNOSIS")}>Back</button>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "RIGHTS") {
+        const rights = RIGHTS[diagnosis.domain];
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>{rights.title}</div>
+                  <div style={styles.phaseSub}>Your divine rights</div>
+                </div>
+                <div style={styles.rightsBox}>
+                  {rights.text.split("\n\n").map((para, i) => (
+                    <div key={i} style={styles.rightsPara}>{para}</div>
+                  ))}
+                </div>
+                <button style={styles.treatBtn} onClick={() => {
+                  setPillars({ ...pillars, rights: true });
+                  setPhase("TREATMENT");
+                }}>I Accept</button>
+                <button style={styles.backBtn} onClick={() => setPhase("SCIENTIFIC_NOW")}>Back</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.bottomBackBtn} onClick={() => setPhase("SCIENTIFIC_NOW")}>Back</button>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "TREATMENT") {
+        if (!treatment) {
+          return (
+            <div style={styles.app}>
+              <div style={styles.scrollContainer}>
+                <div style={styles.wrapper}>
+                  <div style={styles.phaseLabel}>Generating Treatment...</div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>Your Treatment</div>
+                  <div style={styles.phaseSub}>The scientific spiritual treatment</div>
+                </div>
+                {treatment.errorAnalysis && (
+                  <>
+                    <div style={styles.sectionLabel}>Error Analysis</div>
+                    <div style={styles.analysisBox}>
+                      <div style={styles.analysisText}>{treatment.errorAnalysis}</div>
+                    </div>
+                  </>
+                )}
+                {treatment.rootClaim && (
+                  <>
+                    <div style={styles.sectionLabel}>Root Claim</div>
+                    <div style={styles.analysisBox}>
+                      <div style={styles.analysisText}>{treatment.rootClaim}</div>
+                    </div>
+                  </>
+                )}
+                {treatment.theTruth && (
+                  <>
+                    <div style={styles.sectionLabel}>The Truth</div>
+                    <div style={styles.analysisBox}>
+                      <div style={styles.analysisText}>{treatment.theTruth}</div>
+                    </div>
+                  </>
+                )}
+                <div style={styles.sectionLabel}>Treatment</div>
+                <div style={styles.treatmentBox}>
+                  <div style={styles.treatmentText}>{treatment.treatment}</div>
+                </div>
+                <button style={styles.spokenBtn} onClick={() => {
+                  if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(treatment.treatment);
+                    speechSynthesis.speak(utterance);
+                  }
+                }}>Speak Treatment</button>
+                {treatment.watch && (
+                  <>
+                    <div style={styles.sectionLabel}>Watch</div>
+                    <div style={styles.analysisBox}>
+                      <div style={styles.analysisText}>{treatment.watch}</div>
+                    </div>
+                  </>
+                )}
+                {treatment.scientificNow && (
+                  <>
+                    <div style={styles.sectionLabel}>The Scientific Now</div>
+                    <div style={styles.analysisBox}>
+                      <div style={styles.analysisText}>{treatment.scientificNow}</div>
+                    </div>
+                  </>
+                )}
+                <div style={styles.treatInstruction}>
+                  Read this treatment aloud. Speak it with authority. The error has no power to resist the truth.
+                </div>
+                <button style={styles.downloadCompleteBtn} onClick={downloadCurrentTreatment}>Download Treatment</button>
+                <button style={styles.treatBtn} onClick={() => {
+                  setPillars({ ...pillars, treatment: true });
+                  setPhase("PILLARS");
+                }}>Continue to Work</button>
+                <button style={styles.backBtn} onClick={() => setPhase("RIGHTS")}>Back</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.bottomBackBtn} onClick={() => setPhase("RIGHTS")}>Back</button>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "PILLARS") {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.phaseHeader}>
+                  <div style={styles.phaseLabel}>The Work</div>
+                  <div style={styles.phaseSub}>Three pillars of demonstration</div>
+                </div>
+                <div style={styles.pillarCard}>
+                  <div style={styles.pillarEmoji}>📖</div>
+                  <div style={styles.pillarQ}>Have you anchored yourself in the Scientific Now?</div>
+                  <div style={styles.pillarBtns}>
+                    <button style={styles.pillarBtn} onClick={() => setPhase("SCIENTIFIC_NOW")}>Review</button>
+                    {pillars.anchor && <div style={{ color: "#4caf50", fontSize: 14 }}>Complete</div>}
+                  </div>
+                </div>
+                <div style={styles.pillarCard}>
+                  <div style={styles.pillarEmoji}>⚖️</div>
+                  <div style={styles.pillarQ}>Have you declared your divine rights?</div>
+                  <div style={styles.pillarBtns}>
+                    <button style={styles.pillarBtn} onClick={() => setPhase("RIGHTS")}>Review</button>
+                    {pillars.rights && <div style={{ color: "#4caf50", fontSize: 14 }}>Complete</div>}
+                  </div>
+                </div>
+                <div style={styles.pillarCard}>
+                  <div style={styles.pillarEmoji}>🗣</div>
+                  <div style={styles.pillarQ}>Have you spoken the treatment aloud?</div>
+                  <div style={styles.pillarBtns}>
+                    <button style={styles.pillarBtn} onClick={() => setPhase("TREATMENT")}>Review</button>
+                    {pillars.treatment && <div style={{ color: "#4caf50", fontSize: 14 }}>Complete</div>}
+                  </div>
+                </div>
+                {!pillars.anchor || !pillars.rights || !pillars.treatment ? (
+                  <div style={styles.notYetBox}>
+                    <div style={styles.notYetText}>Complete all three pillars before finishing</div>
+                  </div>
+                ) : (
+                  <button style={styles.treatBtn} onClick={handleComplete}>Mark Complete</button>
+                )}
+                <button style={styles.backBtn} onClick={() => setPhase("TREATMENT")}>Back</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.bottomBackBtn} onClick={() => setPhase("TREATMENT")}>Back</button>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      if (phase === "COMPLETE") {
+        return (
+          <div style={styles.app}>
+            <div style={styles.scrollContainer} ref={contentRef}>
+              <div style={{ ...styles.wrapper, opacity: fadeIn ? 1 : 0, transition: "opacity 0.4s" }}>
+                <div style={styles.completeArea}>
+                  <div style={styles.completeMark}>✓</div>
+                  <div style={styles.completeTitle}>Treatment Complete</div>
+                  <div style={styles.completeText}>
+                    The work is done. The error has been named, exposed, and dismissed. The truth stands.
+                  </div>
+                  <div style={styles.completeVerse}>
+                    "And ye shall know the truth, and the truth shall make you free."
+                  </div>
+                  <div style={{ fontSize: 14, color: "#a8a8a6", fontStyle: "italic" }}>— John 8:32</div>
+                </div>
+                <button style={styles.continueBtn} onClick={reset}>New Treatment</button>
+                <button style={styles.navBtn} onClick={() => setShowJournal(true)}>View Journal</button>
+              </div>
+            </div>
+            <div style={styles.bottomBar}>
+              <button style={styles.emergencyBtn} onClick={() => setShowEmergency(true)}>Emergency</button>
+            </div>
+          </div>
+        );
+      }
+
+      return null;
+    }
+
+    const styles = {
+      app: {
+        width: "100%",
+        height: "100vh",
+        background: "#0e0e0c",
+        color: "#e8e8e6",
+        fontFamily: "'Cormorant Garamond', serif",
+        position: "relative",
+        overflow: "hidden"
+      },
+      scrollContainer: {
+        width: "100%",
+        height: "100%",
+        overflowY: "auto",
+        overflowX: "hidden",
+        WebkitOverflowScrolling: "touch"
+      },
+      wrapper: {
+        maxWidth: 600,
+        margin: "0 auto",
+        padding: "24px 20px 120px 20px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 20
+      },
+      logoArea: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        marginBottom: 24
+      },
+      logoText: {
+        fontSize: 32,
+        fontWeight: 700,
+        letterSpacing: "0.1em",
+        color: "#e8e8e6"
+      },
+      tagline: {
+        fontSize: 14,
+        color: "#a8a8a6",
+        marginTop: 4
+      },
+      inputArea: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 16
+      },
+      questionLabel: {
+        fontSize: 18,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      textarea: {
+        width: "100%",
+        minHeight: 120,
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontFamily: "'Cormorant Garamond', serif",
+        resize: "vertical",
+        outline: "none"
+      },
+      treatBtn: {
+        width: "100%",
+        padding: "16px 24px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 18,
+        fontWeight: 600,
+        cursor: "pointer",
+        transition: "all 0.2s",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      navRow: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: 12,
+        marginTop: 24
+      },
+      navBtn: {
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      giveBtn: {
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      phaseHeader: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        marginBottom: 16
+      },
+      phaseLabel: {
+        fontSize: 24,
+        fontWeight: 700,
+        color: "#e8e8e6"
+      },
+      phaseSub: {
+        fontSize: 14,
+        color: "#a8a8a6"
+      },
+      diagnosisBox: {
+        padding: 20,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8
+      },
+      diagDomain: {
+        fontSize: 28,
+        fontWeight: 700,
+        color: "#e8e8e6",
+        marginBottom: 4
+      },
+      diagFloor: {
+        fontSize: 12,
+        color: "#a8a8a6",
+        textTransform: "uppercase",
+        letterSpacing: "0.1em"
+      },
+      diagRiver: {
+        marginBottom: 8
+      },
+      riverName: {
+        fontSize: 24,
+        fontWeight: 700,
+        color: "#e8e8e6",
+        marginBottom: 4
+      },
+      riverSub: {
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#a8a8a6"
+      },
+      riverMeta: {
+        fontSize: 12,
+        color: "#a8a8a6"
+      },
+      diagExplain: {
+        fontSize: 16,
+        lineHeight: 1.6,
+        color: "#a8a8a6"
+      },
+      anchorMeta: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 16
+      },
+      anchorRiverTag: {
+        padding: "6px 12px",
+        background: "#2a2a28",
+        borderRadius: 6,
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      anchorQuality: {
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#a8a8a6"
+      },
+      anchorBox: {
+        padding: 24,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        display: "flex",
+        flexDirection: "column",
+        gap: 16
+      },
+      anchorPara: {
+        fontSize: 16,
+        lineHeight: 1.7,
+        color: "#e8e8e6"
+      },
+      rightsBox: {
+        padding: 24,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        display: "flex",
+        flexDirection: "column",
+        gap: 16
+      },
+      rightsPara: {
+        fontSize: 16,
+        lineHeight: 1.7,
+        color: "#e8e8e6"
+      },
+      treatInstruction: {
+        fontSize: 14,
+        lineHeight: 1.6,
+        color: "#a8a8a6",
+        fontStyle: "italic",
+        textAlign: "center"
+      },
+      sectionLabel: {
+        fontSize: 14,
+        fontWeight: 700,
+        textTransform: "uppercase",
+        letterSpacing: "0.1em",
+        color: "#a8a8a6",
+        marginTop: 8
+      },
+      analysisBox: {
+        padding: 20,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8
+      },
+      analysisText: {
+        fontSize: 16,
+        lineHeight: 1.7,
+        color: "#e8e8e6"
+      },
+      treatmentBox: {
+        padding: 24,
+        background: "#1a1a18",
+        border: "2px solid #3a3a38",
+        borderRadius: 8
+      },
+      treatmentText: {
+        fontSize: 18,
+        lineHeight: 1.7,
+        color: "#e8e8e6",
+        fontWeight: 500
+      },
+      spokenBtn: {
+        width: "100%",
+        padding: "14px 24px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      pillarCard: {
+        padding: 20,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        display: "flex",
+        flexDirection: "column",
+        gap: 12
+      },
+      pillarEmoji: {
+        fontSize: 32
+      },
+      pillarQ: {
+        fontSize: 18,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      pillarBtns: {
+        display: "flex",
+        gap: 12,
+        alignItems: "center"
+      },
+      pillarBtn: {
+        padding: "10px 16px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 6,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      notYetBox: {
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        textAlign: "center"
+      },
+      notYetText: {
+        fontSize: 14,
+        color: "#a8a8a6"
+      },
+      completeArea: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 16,
+        paddingTop: 40
+      },
+      completeMark: {
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+        background: "#2a2a28",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 48,
+        color: "#4caf50"
+      },
+      completeTitle: {
+        fontSize: 28,
+        fontWeight: 700,
+        color: "#e8e8e6"
+      },
+      completeText: {
+        fontSize: 16,
+        lineHeight: 1.6,
+        color: "#a8a8a6",
+        textAlign: "center",
+        maxWidth: 400
+      },
+      completeVerse: {
+        fontSize: 16,
+        fontStyle: "italic",
+        color: "#e8e8e6",
+        textAlign: "center",
+        marginTop: 24
+      },
+      continueBtn: {
+        width: "100%",
+        padding: "16px 24px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 18,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif",
+        marginTop: 24
+      },
+      journalTitle: {
+        fontSize: 24,
+        fontWeight: 700,
+        color: "#e8e8e6",
+        marginBottom: 16
+      },
+      journalEntry: {
+        padding: 20,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        display: "flex",
+        flexDirection: "column",
+        gap: 12
+      },
+      journalMeta: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+      },
+      journalDomain: {
+        padding: "4px 10px",
+        background: "#2a2a28",
+        borderRadius: 6,
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      journalDate: {
+        fontSize: 12,
+        color: "#a8a8a6"
+      },
+      journalInput: {
+        fontSize: 16,
+        lineHeight: 1.6,
+        color: "#e8e8e6"
+      },
+      journalFooter: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginTop: 8
+      },
+      journalRiver: {
+        fontSize: 12,
+        color: "#a8a8a6",
+        fontStyle: "italic"
+      },
+      journalComplete: {
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#4caf50"
+      },
+      downloadEntryBtn: {
+        padding: "10px 16px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 6,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      downloadCompleteBtn: {
+        width: "100%",
+        padding: "14px 24px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      clearBtn: {
+        width: "100%",
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        color: "#ff6b6b",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif",
+        marginTop: 24
+      },
+      exportBtn: {
+        flex: 1,
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      importBtn: {
+        flex: 1,
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      statChip: {
+        padding: "6px 12px",
+        background: "#2a2a28",
+        borderRadius: 6,
+        fontSize: 12,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      filterTab: {
+        padding: "8px 16px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 6,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif",
+        whiteSpace: "nowrap"
+      },
+      insightBox: {
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        display: "flex",
+        gap: 12,
+        alignItems: "center",
+        marginBottom: 16
+      },
+      insightIcon: {
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        background: "#2a2a28",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 16,
+        fontWeight: 700,
+        color: "#e8e8e6"
+      },
+      insightText: {
+        fontSize: 14,
+        color: "#a8a8a6",
+        flex: 1
+      },
+      settingRow: {
+        padding: 20,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 12
+      },
+      settingLabel: {
+        fontSize: 16,
+        fontWeight: 600,
+        color: "#e8e8e6",
+        marginBottom: 4
+      },
+      settingDesc: {
+        fontSize: 14,
+        color: "#a8a8a6"
+      },
+      toggle: {
+        width: 48,
+        height: 28,
+        borderRadius: 14,
+        background: "#2a2a28",
+        cursor: "pointer",
+        position: "relative"
+      },
+      bottomBar: {
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 80,
+        background: "#0e0e0c",
+        borderTop: "1px solid #2a2a28",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 12,
+        padding: "0 20px"
+      },
+      bottomBackBtn: {
+        padding: "12px 24px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      emergencyBtn: {
+        padding: "14px 28px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontWeight: 700,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      emergencyOverlay: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: "#0e0e0c",
+        zIndex: 1000,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20
+      },
+      emergencyTitle: {
+        fontSize: 28,
+        fontWeight: 700,
+        color: "#e8e8e6",
+        marginBottom: 24,
+        textAlign: "center"
+      },
+      emergencyTextarea: {
+        width: "100%",
+        maxWidth: 500,
+        minHeight: 120,
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontFamily: "'Cormorant Garamond', serif",
+        resize: "vertical",
+        outline: "none",
+        marginBottom: 20
+      },
+      closeBtn: {
+        position: "absolute",
+        top: 20,
+        right: 20,
+        padding: "10px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      emergencyClose: {
+        position: "absolute",
+        top: 20,
+        right: 20,
+        padding: "10px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        cursor: "pointer"
+      },
+      emergencyCloseText: {
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      breathBtn: {
+        padding: "14px 28px",
+        background: "#2a2a28",
+        border: "1px solid #3a3a38",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 18,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif",
+        marginTop: 24
+      },
+      breathCircleOuter: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 24
+      },
+      breathCircleInner: {
+        width: 200,
+        height: 200,
+        borderRadius: 100,
+        background: "#1a1a18",
+        border: "2px solid #2a2a28",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 8
+      },
+      breathLabel: {
+        fontSize: 20,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      breathSeconds: {
+        fontSize: 32,
+        fontWeight: 700,
+        color: "#e8e8e6"
+      },
+      backBtn: {
+        width: "100%",
+        padding: "12px 20px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontWeight: 600,
+        cursor: "pointer",
+        fontFamily: "'Cormorant Garamond', serif"
+      },
+      dimText: {
+        fontSize: 14,
+        color: "#a8a8a6",
+        textAlign: "center",
+        padding: 40
+      },
+      passInput: {
+        width: "100%",
+        maxWidth: 300,
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8,
+        color: "#e8e8e6",
+        fontSize: 16,
+        fontFamily: "'Cormorant Garamond', serif",
+        outline: "none",
+        textAlign: "center"
+      },
+      retroToggle: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8
+      },
+      retroField: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 12,
+        padding: 16,
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 8
+      },
+      retroLabel: {
+        fontSize: 14,
+        fontWeight: 600,
+        color: "#e8e8e6"
+      },
+      retroInput: {
+        width: "100%",
+        padding: 12,
+        background: "#0e0e0c",
+        border: "1px solid #2a2a28",
+        borderRadius: 6,
+        color: "#e8e8e6",
+        fontSize: 14,
+        fontFamily: "'Cormorant Garamond', serif",
+        outline: "none"
+      },
+      retroScripture: {
+        marginTop: 8,
+        padding: 12,
+        background: "#0e0e0c",
+        borderRadius: 6,
+        textAlign: "center"
+      },
+      retroVerse: {
+        fontSize: 14,
+        fontStyle: "italic",
+        color: "#a8a8a6",
+        marginBottom: 4
+      },
+      retroAttr: {
+        fontSize: 12,
+        color: "#888886"
+      },
+      retroBadgeBox: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "8px 12px",
+        background: "#1a1a18",
+        border: "1px solid #2a2a28",
+        borderRadius: 6,
+        marginBottom: 12
+      },
+      retroBadgeIcon: {
+        fontSize: 16
+      },
+      retroBadgeText: {
+        fontSize: 14,
+        color: "#a8a8a6",
+        fontStyle: "italic"
+      }
+    };
+
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js').catch(() => {}); }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<PrincipleApp />);
+  </script>
+</body>
+</html>
