@@ -474,7 +474,7 @@ const Footer: React.FC = () => {
                             <strong className="text-slate-400">Contact:</strong>{' '}
                             <a href="mailto:tmoa@allowministries.com" className="hover:text-gold-400 transition-colors">tmoa@allowministries.com</a>
                             {' '}|{' '}
-                            <a href="tel:3097414666" className="hover:text-gold-400 transition-colors">309-741-4666</a>
+                            <a href="tel:6084590664" className="hover:text-gold-400 transition-colors">608-459-0664</a>
                         </p>
                     </div>
 
