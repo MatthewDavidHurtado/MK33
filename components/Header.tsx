@@ -35,10 +35,19 @@ const Header: React.FC = () => {
 
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <a
-                            href="https://www.seerthree.com"
+                            href="https://www.shewolfai.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-900 font-bold text-sm px-6 py-3 rounded-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/25 transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-amber-400"
+                        >
+                            <span className="tracking-wide">SHE-WOLF AI</span>
+                            <ExternalLinkIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+                        <a
+                            href="https://www.seerthree.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-slate-100 font-bold text-sm px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-slate-600"
                         >
                             <span className="tracking-wide">SEER THREE</span>
                             <ExternalLinkIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
