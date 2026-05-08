@@ -446,6 +446,8 @@ const Footer: React.FC = () => {
                         <a href="https://drive.google.com/file/d/1PVUZBk3jzzPBPqGJGWD8zxjayI6Urxbr/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">The Excise Tax</a>
                         <span className="text-slate-600">|</span>
                         <a href="/seer3" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">SEER3</a>
+                        <span className="text-slate-600">|</span>
+                        <a href="https://www.kingley.org" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-gold-400 text-slate-400 transition-colors">TRAINING</a>
                     </div>
                     
                     <p className="!mt-6">
