@@ -22,11 +22,11 @@ Deno.serve(async (req: Request) => {
     });
   }
 
-  const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
+  const apiKey = (Deno.env.get("GEMINI_API_KEY") || "").trim();
 
   if (!apiKey) {
     return new Response(
-      JSON.stringify({ error: "API key not configured" }),
+      JSON.stringify({ error: "Gemini API key not configured" }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -48,28 +48,34 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const requestBody = {
-      model: "claude-sonnet-4-20250514",
-      max_tokens: max_tokens || 1500,
-      system: system || "",
-      messages,
+    const geminiContents = messages.map((msg: { role: string; content: string }) => ({
+      role: msg.role === "assistant" ? "model" : "user",
+      parts: [{ text: msg.content }],
+    }));
+
+    const geminiBody: Record<string, unknown> = {
+      contents: geminiContents,
+      generationConfig: {
+        maxOutputTokens: max_tokens || 1500,
+      },
     };
 
-    console.log("Calling Anthropic API with model:", requestBody.model, "messages:", messages.length);
+    if (system) {
+      geminiBody.system_instruction = { parts: [{ text: system }] };
+    }
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify(requestBody),
-    });
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(geminiBody),
+      }
+    );
 
     if (!response.ok) {
       const errText = await response.text();
-      console.error("Anthropic API error:", response.status, errText);
+      console.error("Gemini API error:", response.status, errText);
       return new Response(
         JSON.stringify({ error: "API request failed", status: response.status, details: errText }),
         {
@@ -80,15 +86,23 @@ Deno.serve(async (req: Request) => {
     }
 
     const data = await response.json();
-    console.log("Anthropic API success, content blocks:", data.content?.length);
-    return new Response(JSON.stringify(data), {
+    const textContent = data.candidates?.[0]?.content?.parts
+      ?.map((p: { text?: string }) => p.text || "")
+      .join("") || "";
+
+    // Return in same format the frontend expects (Anthropic Messages API shape)
+    const anthropicShape = {
+      content: [{ type: "text", text: textContent }],
+    };
+
+    return new Response(JSON.stringify(anthropicShape), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.error("Edge function error:", err.message || err);
+    console.error("Edge function error:", (err as Error).message || err);
     return new Response(
-      JSON.stringify({ error: "Internal server error", details: err.message || String(err) }),
+      JSON.stringify({ error: "Internal server error", details: (err as Error).message || String(err) }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
