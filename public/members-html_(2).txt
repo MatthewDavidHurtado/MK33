@@ -22,8 +22,8 @@
 // ═══════════════════════════════════════════════════════════════
 // CONFIGURATION — Update these with your Supabase project details
 // ═══════════════════════════════════════════════════════════════
-const SUPABASE_URL = "https://xmcmiaulixkizsfnoxgq.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtY21pYXVsaXhraXpzZm5veGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3OTQyOTYsImV4cCI6MjA5MTM3MDI5Nn0.5VNxDDT11bF_DpiVQ9pVZ0oU-XDoQmsbn2XS9pxncVg";
+const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
 const TREAT_ENDPOINT = SUPABASE_URL + "/functions/v1/treat";
 // ═══════════════════════════════════════════════════════════════
 
@@ -267,12 +267,9 @@ Generate the specific treatment for this exact situation.`;
   try {
     const response = await fetch(TREAT_ENDPOINT, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-        "apikey": SUPABASE_ANON_KEY
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
         max_tokens: 1500,
         system: systemPrompt,
         messages: [{ role: "user", content: userPrompt }]
