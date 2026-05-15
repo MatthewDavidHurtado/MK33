@@ -56,7 +56,7 @@ Deno.serve(async (req: Request) => {
     const geminiBody: Record<string, unknown> = {
       contents: geminiContents,
       generationConfig: {
-        maxOutputTokens: max_tokens || 1500,
+        maxOutputTokens: max_tokens || 3000,
       },
     };
 
