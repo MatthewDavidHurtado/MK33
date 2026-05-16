@@ -56,7 +56,7 @@ Deno.serve(async (req: Request) => {
     const geminiBody: Record<string, unknown> = {
       contents: geminiContents,
       generationConfig: {
-        maxOutputTokens: max_tokens || 4096,
+        maxOutputTokens: 8192,
       },
     };
 
@@ -89,6 +89,11 @@ Deno.serve(async (req: Request) => {
     const textContent = data.candidates?.[0]?.content?.parts
       ?.map((p: { text?: string }) => p.text || "")
       .join("") || "";
+
+    const finishReason = data.candidates?.[0]?.finishReason || "";
+    if (finishReason === "MAX_TOKENS") {
+      console.warn("Gemini response was truncated due to MAX_TOKENS");
+    }
 
     // Return in same format the frontend expects (Anthropic Messages API shape)
     const anthropicShape = {
