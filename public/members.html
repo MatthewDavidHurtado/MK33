@@ -280,8 +280,21 @@ Generate the specific treatment for this exact situation.`;
       })
     });
 
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error("Treat endpoint error:", response.status, errText);
+      throw new Error(`API error ${response.status}: ${errText}`);
+    }
+
     const data = await response.json();
+    console.log("API response data keys:", Object.keys(data));
+    if (data.error) {
+      console.error("API returned error:", data.error, data.details || "");
+      throw new Error(`API error: ${data.error}`);
+    }
+
     const text = data.content?.map(item => item.type === "text" ? item.text : "").filter(Boolean).join("\n") || "";
+    console.log("Extracted text length:", text.length, "first 100:", text.slice(0, 100));
 
     if (!text) throw new Error("Empty response");
 
@@ -333,6 +346,7 @@ Generate the specific treatment for this exact situation.`;
       isAPI: true
     };
   } catch (err) {
+    console.error("generateTreatmentAPI failed:", err.message || err);
     // Fallback to basic template if API fails
     return generateTreatmentFallback(diagnosis);
   }
