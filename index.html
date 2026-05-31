@@ -6,70 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Malcolm Kingley - Spiritual Guidance</title>
     <base href="/" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lora', serif;
-        }
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-        .font-lora {
-            font-family: 'Lora', serif;
-        }
-        .font-cinzel {
-            font-family: 'Cinzel Decorative', serif;
-        }
+        body { font-family: 'Lora', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-lora { font-family: 'Lora', serif; }
+        .font-cinzel { font-family: 'Cinzel Decorative', serif; }
+        html { overflow-x: hidden; scroll-behavior: auto !important; }
+        body { overflow-x: hidden; }
+        * { scroll-margin: 0 !important; scroll-padding: 0 !important; }
+        textarea, input { scroll-margin: 0 !important; scroll-padding: 0 !important; }
     </style>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'gold': {
-              '400': '#E0C56E',
-              '500': '#D4AF37',
-              '600': '#C09A2E',
-            },
-            'muted-blue': '#8A9AAF'
-          },
-          fontFamily: {
-            'cinzel': ['"Cinzel Decorative"', 'serif'],
-            'lora': ['"Lora"', 'serif'],
-          }
-        }
-      }
-    }
-  </script>
-<!-- MailerLite Universal -->
-<style>
-  html {
-    overflow-x: hidden;
-    scroll-behavior: auto !important;
-  }
-  
-  body {
-    overflow-x: hidden;
-  }
-  
-  /* Completely disable any scroll behavior on focus */
-  * {
-    scroll-margin: 0 !important;
-    scroll-padding: 0 !important;
-  }
-  
-  textarea, input {
-    scroll-margin: 0 !important;
-    scroll-padding: 0 !important;
-  }
-</style>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-black text-slate-300">
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
