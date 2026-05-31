@@ -53,6 +53,15 @@ const Header: React.FC = () => {
                             <ExternalLinkIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
                         <a
+                            href="https://www.bibleprovision.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-slate-100 font-bold text-sm px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out border border-slate-600"
+                        >
+                            <span className="tracking-wide">BIBLE PROVISION PODCAST</span>
+                            <ExternalLinkIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        </a>
+                        <a
                             href="https://www.malcolmkingley.net"
                             target="_blank"
                             rel="noopener noreferrer"
