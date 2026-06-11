@@ -191,37 +191,48 @@ Given a user's specific situation, generate a treatment that is:
 3. SCIENTIFIC — establish the counter-truth not as wishful thinking but as demonstrable Principle
 4. AUTHORITATIVE — speak to the error directly, name it, expose its mechanism, and dismiss it
 
+CRITICAL — SPIRITUAL CRISIS DETECTION:
+If the user expresses ANY of the following: feeling abandoned by God, God not answering prayers, faith not working, feeling mocked for believing, feeling trapped in suffering despite faith, feeling like God has left them, feeling forsaken, feeling punished by God, questioning whether God exists or cares — you MUST begin your response with a WITNESS section BEFORE the standard sections.
+
+The WITNESS section is NOT therapeutic soft language. It is a direct, brief (2-4 sentence) acknowledgment from the standpoint of Principle — not sympathy, but recognition. Example approach: name what the error is claiming about God (that He is absent, partial, withholding, punishing), identify this as the specific lie being believed about the nature of Principle itself, and assert — briefly but warmly — that the very fact they are seeking treatment is proof of the Christ-impulse operating in them. Do not dwell. Move into the treatment with full authority.
+
+The WITNESS section header must appear exactly as: WITNESS:
+
 FORMAT your response in exactly these sections. Use PLAIN TEXT only — no markdown, no bold, no asterisks, no bullet points. Each section header must appear on its own line followed by a colon, exactly as shown:
 
+WITNESS:
+[ONLY include this section if spiritual crisis / abandonment by God is expressed. 2-4 sentences. Not therapeutic — scientific-spiritual acknowledgment of what error is claiming about the nature of God, and brief recognition of the user's position. Do not skip ERROR ANALYSIS after this — continue through all five sections.]
+
 ERROR ANALYSIS:
-[2-3 sentences identifying the SPECIFIC false beliefs operating in this situation — not generic, but tied to what they described]
+[2-3 sentences identifying the SPECIFIC false beliefs operating in this situation — not generic, but tied to what they described. If a WITNESS section was written, go deeper here — name the specific lies about God's nature, about prayer, about the body, about this person's standing with Principle.]
 
 ROOT CLAIM:
-[1-2 sentences naming the foundational lie beneath the surface symptoms — the deeper metaphysical error]
+[1-2 sentences naming the foundational lie beneath the surface symptoms — the deeper metaphysical error. If abandonment is present, the root claim will often be: "God is personal, partial, withholding, or absent — and therefore this person is outside of Principle's care." Name it precisely.]
 
 THE TRUTH:
-[2-3 sentences establishing the specific counter-truth from divine Principle that directly addresses this root claim]
+[2-3 sentences establishing the specific counter-truth from divine Principle that directly addresses this root claim. If the crisis involves unanswered prayer or abandonment, establish that Principle does not withhold, that omnipresence means God cannot be absent, and that what has appeared as silence is the error's claim — not fact.]
 
 TREATMENT:
-[The spoken treatment — address the error directly in second person ("Error calling itself..."), name its specific claims, expose why each is false, and dismiss it. End with a specific declaration of truth about the user's real identity/situation. This should be 4-8 sentences, forceful and precise.]
+[The spoken treatment — address the error directly in second person ("Error calling itself..."), name its specific claims, expose why each is false, and dismiss it. End with a specific declaration of truth about the user's real identity/situation. This should be 5-10 sentences when a WITNESS section was included — forceful, warm in authority, and specific to their exact suffering.]
 
 WATCH:
-[1-2 sentences telling the user what specific mental habit or belief to watch for in the coming hours/days — the "serpent" that will try to re-suggest the error]
+[1-2 sentences telling the user what specific mental habit or belief to watch for in the coming hours/days — the "serpent" that will try to re-suggest the error. If abandonment is present, the watch will often involve the re-suggestion that silence = absence, or that unanswered prayer = rejection.]
 
 CRITICAL FORMATTING RULES:
-- Each section header (ERROR ANALYSIS, ROOT CLAIM, THE TRUTH, TREATMENT, WATCH) must be on its own line, in ALL CAPS, followed by a colon
+- Each section header must be on its own line, in ALL CAPS, followed by a colon
 - Do NOT wrap headers in asterisks or bold markers
 - Do NOT use any markdown formatting whatsoever
 - Put a blank line between each section
 - Write in plain prose paragraphs only
-- COMPLETING ALL FIVE SECTIONS IS MANDATORY — do not be so verbose in early sections that you run out of space
+- COMPLETING ALL REQUIRED SECTIONS IS MANDATORY — do not be so verbose in early sections that you run out of space
+- WITNESS (if present): maximum 4 sentences
 - ERROR ANALYSIS: maximum 3 sentences
 - ROOT CLAIM: maximum 2 sentences
 - THE TRUTH: maximum 3 sentences
-- TREATMENT: 4-8 sentences — this is the most important section, give it the most space
+- TREATMENT: 5-10 sentences — this is the most important section; when a WITNESS is present, make the treatment warmer in tone while remaining scientifically authoritative
 - WATCH: maximum 2 sentences
 
-Be direct. Be specific. Do not hedge. Do not use therapeutic language. Use scientific spiritual language.`;
+Be direct. Be specific. Do not hedge. Do not use therapeutic language. Use scientific spiritual language. When someone is in pain and has lost hope, the treatment must land with both precision AND the warmth of Love as a synonym for God — not sentimentality, but the scientific fact that Love is omnipresent and therefore this person is held, not abandoned.`;
 
 const RETROACTIVE_SUPPLEMENT = `
 
@@ -313,17 +324,18 @@ Generate the specific treatment for this exact situation.`;
       return match ? match[1].trim().replace(/^\*\*|\*\*$/g, "").trim() : "";
     }
 
-    const sectionNames = ["ERROR ANALYSIS", "ROOT CLAIM", "THE TRUTH", "TREATMENT", "WATCH", "THE SCIENTIFIC NOW"];
+    const sectionNames = ["WITNESS", "ERROR ANALYSIS", "ROOT CLAIM", "THE TRUTH", "TREATMENT", "WATCH", "THE SCIENTIFIC NOW"];
     const sections = {};
     for (const name of sectionNames) {
       sections[name] = extractSection(cleanText, name, sectionNames);
     }
 
     // If parsing got nothing useful, use the full text as the treatment
-    const hasContent = sections["ERROR ANALYSIS"] || sections["TREATMENT"] || sections["THE TRUTH"];
+    const hasContent = sections["ERROR ANALYSIS"] || sections["TREATMENT"] || sections["THE TRUTH"] || sections["WITNESS"];
 
     if (!hasContent) {
       return {
+        witness: "",
         errorAnalysis: "",
         rootClaim: "",
         theTruth: "",
@@ -336,6 +348,7 @@ Generate the specific treatment for this exact situation.`;
     }
 
     return {
+      witness: sections["WITNESS"] || "",
       errorAnalysis: sections["ERROR ANALYSIS"],
       rootClaim: sections["ROOT CLAIM"],
       theTruth: sections["THE TRUTH"],
@@ -368,6 +381,7 @@ function generateTreatmentFallback(diagnosis) {
     HEART: "Love is my Principle, my origin, and my atmosphere. I am held in the bonds of divine affection that no mortal belief can break."
   };
   return {
+    witness: "",
     errorAnalysis: `The error presents itself as "${keywords}" — operating in the ${diagnosis.domainLabel} domain.`,
     rootClaim: `The root claim is ${claims[domain]}.`,
     theTruth: riverData.anchor.split("\n")[0],
@@ -674,6 +688,16 @@ ${entry.rights || RIGHTS[entry.domain]?.text || ""}
 `;
 
     if (td) {
+      if (td.witness) {
+        txt += `
+
+${thin}
+A WORD BEFORE THE TREATMENT
+${thin}
+
+${td.witness}
+`;
+      }
       if (td.errorAnalysis) {
         txt += `
 
@@ -797,6 +821,7 @@ PRINCIPLE v1.0
       completed: pillars.love === true && pillars.truth === true && pillars.soul === true,
       retroactive: retroMode ? retroWhen.trim() || true : false,
       treatmentData: {
+        witness: treatment.witness || "",
         errorAnalysis: treatment.errorAnalysis || "",
         rootClaim: treatment.rootClaim || "",
         theTruth: treatment.theTruth || "",
@@ -885,6 +910,7 @@ PRINCIPLE v1.0
       completed: pillars.love === true && pillars.truth === true && pillars.soul === true,
       retroactive: retroMode ? retroWhen.trim() || true : false,
       treatmentData: treatment ? {
+        witness: treatment.witness || "",
         errorAnalysis: treatment.errorAnalysis || "",
         rootClaim: treatment.rootClaim || "",
         theTruth: treatment.theTruth || "",
@@ -1025,6 +1051,11 @@ PRINCIPLE v1.0
                   </div>
                 ) : (
                   <>
+                    {emergencyTreatment.treatment.witness && (
+                      <div style={{ ...styles.analysisBox, borderColor: '#6b5030', background: 'rgba(120,90,40,0.08)', marginBottom: 14 }}>
+                        <p style={{ ...styles.analysisText, color: '#d4b880', fontStyle: 'italic', lineHeight: 1.75 }}>{emergencyTreatment.treatment.witness}</p>
+                      </div>
+                    )}
                     {emergencyTreatment.treatment.treatment && (
                       <div style={styles.treatmentBox}>
                         {emergencyTreatment.treatment.treatment.split("\n").filter(Boolean).map((line, i) => (
@@ -1478,6 +1509,15 @@ PRINCIPLE v1.0
               <>
                 <p style={styles.treatInstruction}>Read each section aloud — or mentally, with focused attention.</p>
 
+                {treatment.witness && (
+                  <div style={{ marginBottom: 20 }}>
+                    <p style={{ ...styles.sectionLabel, color: '#b8a070' }}>A Word Before the Treatment</p>
+                    <div style={{ ...styles.analysisBox, borderColor: '#6b5030', background: 'rgba(120,90,40,0.08)' }}>
+                      <p style={{ ...styles.analysisText, color: '#d4b880', fontStyle: 'italic', lineHeight: 1.75 }}>{treatment.witness}</p>
+                    </div>
+                  </div>
+                )}
+
                 {treatment.errorAnalysis && (
                   <div style={{ marginBottom: 20 }}>
                     <p style={styles.sectionLabel}>Error Analysis</p>
@@ -1541,7 +1581,7 @@ PRINCIPLE v1.0
                 )}
 
                 {/* Fallback: if no sections parsed but we have raw text */}
-                {!treatment.errorAnalysis && !treatment.treatment && !treatment.theTruth && treatment.full && (
+                {!treatment.witness && !treatment.errorAnalysis && !treatment.treatment && !treatment.theTruth && treatment.full && (
                   <div style={{ marginBottom: 20 }}>
                     <p style={{ ...styles.sectionLabel, color: '#c4a35a' }}>Treatment</p>
                     <div style={styles.treatmentBox}>
