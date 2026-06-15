@@ -29,25 +29,40 @@ const Bridge=()=>(<p style={{fontFamily:"var(--accent)",fontSize:"1.05rem",color
 // ── Nav ──
 const Nav=({pg,sp})=>{const f=FN.includes(pg);const[sc,setSc]=useState(false);const[mo,setMo]=useState(false);useEffect(()=>{const h=()=>setSc(window.scrollY>40);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h)},[]);
 const navBg=sc?"rgba(10,10,10,.95)":"rgba(10,10,10,.8)";
+const lkS={fontFamily:"var(--accent)",fontSize:".95rem",color:"var(--muted)",cursor:"pointer",whiteSpace:"nowrap",transition:"color .2s"};
+const lkSActive={...lkS,color:"var(--cream)"};
+const lkSGold={...lkS,color:"var(--gold-d)"};
 return(<>
-<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"1rem 1.5rem",background:navBg,backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(201,168,76,.12)"}}>
-  <span onClick={()=>{sp(PG.HOME);setMo(false)}} style={{cursor:"pointer",display:"flex",alignItems:"center"}}><img src="https://i.imgur.com/5BTOGRj.png" alt="Kingley Foundation" style={{height:42,width:"auto",maxWidth:180,objectFit:"contain",display:"block"}} onError={e=>{e.target.style.display="none";e.target.nextSibling.style.display="inline"}}/><span style={{fontFamily:"var(--accent)",fontSize:"1.4rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",display:"none"}}>Kingley Foundation</span></span>
-  <div style={{display:"flex",alignItems:"center",gap:"1rem"}}>
-    <div className="kf-desktop-links" style={{display:"flex",gap:"1.8rem",alignItems:"center"}}>
-      {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer"}}>{l}</span>))}<span onClick={()=>sp(PG.TRAINING)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer"}}>Free Training</span><a href="https://www.shewolfai.com" target="_blank" rel="noopener noreferrer" style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",textDecoration:"none"}}>She-Wolf AI</a><a href="https://www.bibleprovision.com" target="_blank" rel="noopener noreferrer" style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",textDecoration:"none"}}>Bible Provision Podcast</a></>}
+<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:".85rem 1.5rem",background:navBg,backdropFilter:"blur(12px)",borderBottom:"1px solid rgba(201,168,76,.12)"}}>
+  <span onClick={()=>{sp(PG.HOME);setMo(false)}} style={{cursor:"pointer",display:"flex",alignItems:"center",flexShrink:0}}><img src="https://i.imgur.com/5BTOGRj.png" alt="Kingley Foundation" style={{height:38,width:"auto",maxWidth:160,objectFit:"contain",display:"block"}} onError={e=>{e.target.style.display="none";e.target.nextSibling.style.display="inline"}}/><span style={{fontFamily:"var(--accent)",fontSize:"1.2rem",fontWeight:600,color:"var(--cream)",letterSpacing:".08em",display:"none"}}>Kingley Foundation</span></span>
+  <div style={{display:"flex",alignItems:"center",gap:".75rem"}}>
+    <div className="kf-desktop-links" style={{display:"flex",gap:"1.2rem",alignItems:"center"}}>
+      {!f&&<>
+        {[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>sp(p)} style={pg===p?lkSActive:lkS}>{l}</span>))}
+        <span onClick={()=>sp(PG.TRAINING)} style={lkSGold}>Free Training</span>
+        <a href="https://www.shewolfai.com" target="_blank" rel="noopener noreferrer" style={{...lkSGold,textDecoration:"none"}}>She-Wolf AI</a>
+        <a href="https://www.bibleprovision.com" target="_blank" rel="noopener noreferrer" style={{...lkSGold,textDecoration:"none"}}>Bible Provision</a>
+        <a href="https://www.kingley.pro" target="_blank" rel="noopener noreferrer" style={{...lkSGold,textDecoration:"none"}}>Music</a>
+      </>}
     </div>
-    <button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:"1.05rem",fontWeight:700,letterSpacing:".18em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".6rem 1.6rem",border:"none",cursor:"pointer"}}>GIVE</button>
-    <button onClick={()=>setMo(!mo)} className="kf-hamburger" style={{display:"none",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5px",background:"none",border:"none",cursor:"pointer",padding:"4px",width:36,height:36}}>
+    <button onClick={()=>sp(PG.GIVE)} style={{fontFamily:"var(--accent)",fontSize:".9rem",fontWeight:700,letterSpacing:".15em",textTransform:"uppercase",color:"var(--bg)",background:"var(--gold)",padding:".55rem 1.2rem",border:"none",cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>GIVE</button>
+    <button onClick={()=>setMo(!mo)} className="kf-hamburger" style={{display:"none",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"5px",background:"none",border:"none",cursor:"pointer",padding:"4px",width:36,height:36,flexShrink:0}}>
       <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",transform:mo?"rotate(45deg) translate(5px,5px)":"none"}}/>
       <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",opacity:mo?0:1}}/>
       <span style={{display:"block",width:22,height:2,background:mo?"var(--gold)":"var(--cream)",transition:"all .25s",transform:mo?"rotate(-45deg) translate(5px,-5px)":"none"}}/>
     </button>
   </div>
 </nav>
-{mo&&<div style={{position:"fixed",top:"60px",left:0,right:0,zIndex:99,background:"rgba(10,10,10,.97)",borderBottom:"1px solid rgba(201,168,76,.15)",display:"flex",flexDirection:"column",padding:"1.5rem 2rem",gap:"0"}}>
-  {!f&&<>{[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>{sp(p);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.2rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer",padding:".75rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block"}}>{l}</span>))}<span onClick={()=>{sp(PG.TRAINING);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:"var(--gold-d)",cursor:"pointer",padding:".75rem 0",display:"block"}}>Free Training</span><a href="https://www.shewolfai.com" target="_blank" rel="noopener noreferrer" onClick={()=>setMo(false)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:"var(--gold-d)",cursor:"pointer",padding:".75rem 0",display:"block",textDecoration:"none"}}>She-Wolf AI</a><a href="https://www.bibleprovision.com" target="_blank" rel="noopener noreferrer" onClick={()=>setMo(false)} style={{fontFamily:"var(--accent)",fontSize:"1.15rem",color:"var(--gold-d)",cursor:"pointer",padding:".75rem 0",display:"block",textDecoration:"none"}}>Bible Provision Podcast</a></>}
+{mo&&<div style={{position:"fixed",top:"58px",left:0,right:0,zIndex:99,background:"rgba(10,10,10,.97)",borderBottom:"1px solid rgba(201,168,76,.15)",display:"flex",flexDirection:"column",padding:"1.2rem 2rem",gap:"0",maxHeight:"calc(100vh - 58px)",overflowY:"auto"}}>
+  {!f&&<>
+    {[["About",PG.ABOUT],["Library",PG.LIBRARY],["Foundation",PG.FOUNDATION]].map(([l,p])=>(<span key={p} onClick={()=>{sp(p);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:pg===p?"var(--cream)":"var(--muted)",cursor:"pointer",padding:".65rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block"}}>{l}</span>))}
+    <span onClick={()=>{sp(PG.TRAINING);setMo(false)}} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",padding:".65rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block"}}>Free Training</span>
+    <a href="https://www.shewolfai.com" target="_blank" rel="noopener noreferrer" onClick={()=>setMo(false)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",padding:".65rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block",textDecoration:"none"}}>She-Wolf AI</a>
+    <a href="https://www.bibleprovision.com" target="_blank" rel="noopener noreferrer" onClick={()=>setMo(false)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",padding:".65rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block",textDecoration:"none"}}>Bible Provision Podcast</a>
+    <a href="https://www.kingley.pro" target="_blank" rel="noopener noreferrer" onClick={()=>setMo(false)} style={{fontFamily:"var(--accent)",fontSize:"1.1rem",color:"var(--gold-d)",cursor:"pointer",padding:".65rem 0",borderBottom:"1px solid rgba(201,168,76,.08)",display:"block",textDecoration:"none"}}>Music</a>
+  </>}
 </div>}
-<style>{`@media(max-width:768px){.kf-desktop-links{display:none!important}.kf-hamburger{display:flex!important}}`}</style>
+<style>{`@media(max-width:1024px){.kf-desktop-links{display:none!important}.kf-hamburger{display:flex!important}}`}</style>
 </>);};
 
 // ═══════════════════════════════════════════
