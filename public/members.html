@@ -511,6 +511,8 @@ function PrincipleApp() {
   const [emergencyBreathing, setEmergencyBreathing] = useState(false);
   const [notifications, setNotifications] = useState({ morning: true, midday: true, evening: true });
   const [showAbout, setShowAbout] = useState(false);
+  const [showMindMaps, setShowMindMaps] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [patternInsight, setPatternInsight] = useState(null);
   const [fadeIn, setFadeIn] = useState(false);
@@ -840,7 +842,7 @@ PRINCIPLE v1.0
     setFadeIn(false);
     const t = setTimeout(() => setFadeIn(true), 50);
     return () => clearTimeout(t);
-  }, [phase, showEmergency, showJournal, showSettings, showAbout]);
+  }, [phase, showEmergency, showJournal, showSettings, showAbout, showMindMaps]);
 
   // Scroll to top on phase change
   useEffect(() => {
@@ -1200,6 +1202,104 @@ PRINCIPLE v1.0
     );
   }
 
+  // MIND MAPS VIEW
+  if (showMindMaps) {
+    const maps = [
+      { src: "/images/Unity_1.png", title: "Map 1 — The Science of Unity", subtitle: "A Plug-and-Play Blueprint for Realizing Spiritual Wholeness", filename: "Unity_1_Science_of_Unity.png" },
+      { src: "/images/Unity_2.png", title: "Map 2 — The Practice Map", subtitle: "A Step-by-Step Process for Daily Demonstration", filename: "Unity_2_Practice_Map.png" },
+      { src: "/images/Unity_3.png", title: "Map 3 — Healing Glossary", subtitle: "Core Definitions for Spiritual Demonstration", filename: "Unity_3_Healing_Glossary.png" }
+    ];
+
+    const downloadImage = (src, filename) => {
+      const a = document.createElement("a");
+      a.href = src;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
+
+    return (
+      <div style={styles.app}>
+        {/* Lightbox */}
+        {lightboxImg && (
+          <div
+            style={styles.lightboxOverlay}
+            onClick={() => setLightboxImg(null)}
+          >
+            <button
+              onClick={e => { e.stopPropagation(); setLightboxImg(null); }}
+              style={styles.lightboxCloseBtn}
+            >
+              ✕ Close
+            </button>
+            <img
+              src={lightboxImg.src}
+              alt={lightboxImg.title}
+              style={styles.lightboxImg}
+              onClick={e => e.stopPropagation()}
+            />
+            <button
+              onClick={e => { e.stopPropagation(); downloadImage(lightboxImg.src, lightboxImg.filename); }}
+              style={styles.lightboxDownloadBtn}
+            >
+              ↓ Download
+            </button>
+          </div>
+        )}
+
+        <div ref={contentRef} style={styles.scrollContainer}>
+          <div style={wrapperStyle}>
+            <button onClick={() => setShowMindMaps(false)} style={styles.backBtn}>← Back</button>
+            <h2 style={styles.journalTitle}>Companion Mind Maps</h2>
+            <p style={{ fontSize: 15, color: '#8a8070', lineHeight: 1.7, marginBottom: 32, fontStyle: 'italic' }}>
+              The Science of Unity — three maps for daily use alongside the PRINCIPLE app. Tap any map to enlarge.
+            </p>
+
+            {/* How-To Video Placeholder */}
+            <div style={styles.videoPlaceholder}>
+              <div style={styles.videoPlaceholderInner}>
+                <div style={styles.videoPlayIcon}>▷</div>
+                <p style={styles.videoPlaceholderTitle}>How To Use the App &amp; Mind Maps</p>
+                <p style={styles.videoPlaceholderSub}>Video coming soon</p>
+              </div>
+            </div>
+
+            {/* Mind Maps */}
+            {maps.map((map, i) => (
+              <div key={i} style={styles.mapCard}>
+                <div style={styles.mapHeader}>
+                  <div>
+                    <p style={styles.mapTitle}>{map.title}</p>
+                    <p style={styles.mapSubtitle}>{map.subtitle}</p>
+                  </div>
+                  <button
+                    onClick={() => downloadImage(map.src, map.filename)}
+                    style={styles.mapDownloadBtn}
+                    title="Download"
+                  >
+                    ↓
+                  </button>
+                </div>
+                <div
+                  style={styles.mapImageWrapper}
+                  onClick={() => setLightboxImg(map)}
+                >
+                  <img
+                    src={map.src}
+                    alt={map.title}
+                    style={styles.mapImage}
+                  />
+                  <div style={styles.mapTapHint}>Tap to enlarge</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // ABOUT VIEW
   if (showAbout) {
     return (
@@ -1368,6 +1468,7 @@ PRINCIPLE v1.0
             </div>
             <div style={styles.navRow}>
               <button onClick={() => setShowJournal(true)} style={styles.navBtn}>Journal{journal.length > 0 ? ` (${journal.length})` : ''}</button>
+              <button onClick={() => setShowMindMaps(true)} style={styles.navBtn}>Mind Maps</button>
               <button onClick={() => setShowAbout(true)} style={styles.navBtn}>About</button>
               <a href="https://www.zeffy.com/en-US/organizations/kingley-foundation" target="_blank" rel="noopener noreferrer" style={{ ...styles.navBtn, ...styles.giveBtn, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>Give</a>
               <button onClick={() => setShowSettings(true)} style={styles.navBtn}>Notifications</button>
@@ -2172,6 +2273,156 @@ const styles = {
     display: "block"
   },
   dimText: { fontSize: 15, color: "#6a6050", lineHeight: 1.6 },
+
+  // Mind Maps
+  videoPlaceholder: {
+    background: '#141210',
+    border: '2px dashed #2a2824',
+    borderRadius: 12,
+    marginBottom: 32,
+    overflow: 'hidden'
+  },
+  videoPlaceholderInner: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '48px 24px',
+    textAlign: 'center'
+  },
+  videoPlayIcon: {
+    fontSize: 48,
+    color: '#3a3428',
+    marginBottom: 16,
+    lineHeight: 1
+  },
+  videoPlaceholderTitle: {
+    fontSize: 18,
+    color: '#6a6050',
+    margin: 0,
+    marginBottom: 8,
+    fontWeight: 300,
+    letterSpacing: 1
+  },
+  videoPlaceholderSub: {
+    fontSize: 13,
+    color: '#4a4a40',
+    margin: 0,
+    letterSpacing: 2,
+    textTransform: 'uppercase'
+  },
+  mapCard: {
+    background: '#141210',
+    border: '1px solid #2a2824',
+    borderRadius: 12,
+    marginBottom: 28,
+    overflow: 'hidden'
+  },
+  mapHeader: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    padding: '20px 20px 12px',
+    gap: 12
+  },
+  mapTitle: {
+    fontSize: 17,
+    color: '#c4a35a',
+    margin: 0,
+    marginBottom: 4,
+    fontWeight: 600,
+    letterSpacing: 1
+  },
+  mapSubtitle: {
+    fontSize: 13,
+    color: '#6a6050',
+    margin: 0,
+    fontStyle: 'italic',
+    lineHeight: 1.4
+  },
+  mapDownloadBtn: {
+    background: '#1a1a18',
+    border: '1px solid #2a2824',
+    color: '#b09a5f',
+    padding: '8px 14px',
+    borderRadius: 6,
+    fontSize: 16,
+    fontFamily: "'Cormorant Garamond', Georgia, serif",
+    cursor: 'pointer',
+    flexShrink: 0
+  },
+  mapImageWrapper: {
+    position: 'relative',
+    cursor: 'zoom-in',
+    overflow: 'hidden'
+  },
+  mapImage: {
+    width: '100%',
+    display: 'block',
+    transition: 'opacity 0.2s ease'
+  },
+  mapTapHint: {
+    position: 'absolute',
+    bottom: 12,
+    right: 12,
+    background: 'rgba(14,14,12,0.85)',
+    color: '#b09a5f',
+    fontSize: 12,
+    letterSpacing: 1,
+    padding: '6px 12px',
+    borderRadius: 20,
+    pointerEvents: 'none'
+  },
+  // Lightbox
+  lightboxOverlay: {
+    position: 'fixed',
+    inset: 0,
+    background: 'rgba(0,0,0,0.96)',
+    zIndex: 200,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '60px 16px 80px'
+  },
+  lightboxCloseBtn: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    background: '#1a1a18',
+    border: '1px solid #3a3428',
+    color: '#c4b896',
+    padding: '10px 20px',
+    borderRadius: 6,
+    fontSize: 14,
+    fontFamily: "'Cormorant Garamond', Georgia, serif",
+    letterSpacing: 2,
+    cursor: 'pointer',
+    zIndex: 201
+  },
+  lightboxImg: {
+    maxWidth: '100%',
+    maxHeight: 'calc(100vh - 160px)',
+    objectFit: 'contain',
+    borderRadius: 8,
+    boxShadow: '0 8px 40px rgba(0,0,0,0.8)'
+  },
+  lightboxDownloadBtn: {
+    position: 'absolute',
+    bottom: 20,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#1a1a18',
+    border: '1px solid #3a3428',
+    color: '#b09a5f',
+    padding: '12px 32px',
+    borderRadius: 6,
+    fontSize: 15,
+    fontFamily: "'Cormorant Garamond', Georgia, serif",
+    letterSpacing: 2,
+    cursor: 'pointer',
+    zIndex: 201
+  },
 
   // Password gate
   passInput: {
