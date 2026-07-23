@@ -1251,21 +1251,73 @@ PRINCIPLE v1.0
         <div ref={contentRef} style={styles.scrollContainer}>
           <div style={wrapperStyle}>
             <button onClick={() => setShowMindMaps(false)} style={styles.backBtn}>← Back</button>
-            <h2 style={styles.journalTitle}>Companion Mind Maps</h2>
-            <p style={{ fontSize: 15, color: '#8a8070', lineHeight: 1.7, marginBottom: 32, fontStyle: 'italic' }}>
-              The Science of Unity — three maps for daily use alongside the PRINCIPLE app. Tap any map to enlarge.
-            </p>
 
-            {/* How-To Video Placeholder */}
-            <div style={styles.videoPlaceholder}>
-              <div style={styles.videoPlaceholderInner}>
-                <div style={styles.videoPlayIcon}>▷</div>
-                <p style={styles.videoPlaceholderTitle}>How To Use the App &amp; Mind Maps</p>
-                <p style={styles.videoPlaceholderSub}>Video coming soon</p>
+            {/* ── NEW HEADER: Video + Write-up + Reference Charts ── */}
+            <div style={styles.mmHeroSection}>
+              {/* Page label */}
+              <p style={styles.mmPageLabel}>Training &amp; Reference</p>
+              <h2 style={styles.mmHeroTitle}>The Spiritual Healing Drive-Thru</h2>
+              <p style={styles.mmHeroSub}>A step-by-step interactive prayer experience</p>
+
+              {/* Vimeo Video */}
+              <div style={styles.mmVideoWrap}>
+                <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1212408879?h=c813f87397&badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    title="Spiritual Healing (Drive-Thru for Thought)."
+                  />
+                </div>
+              </div>
+
+              {/* Feature write-up */}
+              <div style={styles.mmWriteup}>
+                <p style={styles.mmWriteupText}>
+                  The Spiritual Healing Drive-Thru is an interactive prayer experience designed to help you move from a troubling material picture to a clearer spiritual understanding. In this approximately 20-minute training video, Malcolm Kingley walks you through the method step by step—turning attention toward God, recognizing the spiritual nature of man, identifying the specific claim, making a concise denial, and dwelling in a full affirmation of truth. The process is inspired by the scientific prayer approach associated with Frederick L. Rawson and is presented in a simple, accessible "drive-thru" format.
+                </p>
+                <p style={styles.mmWriteupText}>
+                  Using <strong style={{ color: '#c4a35a' }}>The Quantum Body</strong> chart, the seven synonyms for God—Mind, Spirit, Soul, Principle, Life, Truth, and Love—and guided treatment prompts, you can bring a specific fear, symptom, conflict, or concern into the experience and work through it in thought. The platform also allows you to measure changes in peace and clarity, save completed demonstrations, download your treatment, and return to your history for continued practice. It is a practical training tool for anyone who wants to develop greater spiritual discipline, stand guard at the door of thought, and learn how to apply scientific prayer more consistently.
+                </p>
+              </div>
+
+              {/* Reference Charts — Quantum Body + How To Pray */}
+              <p style={styles.mmChartLabel}>Reference Charts</p>
+              <div style={styles.mmChartGrid}>
+                {[
+                  { src: "/images/MK_Quantum_Mind-Map_1.png", title: "The Quantum Body", subtitle: "Capacities & Powers of Man Spiritually Understood", filename: "MK_Quantum_Body.png" },
+                  { src: "/images/MK_Quantum_Mind-Map_2.png", title: "How To Pray", subtitle: "The Scientific Method of True Prayer", filename: "MK_How_To_Pray.png" }
+                ].map((chart, i) => (
+                  <div key={i} style={styles.mmChartCard}>
+                    <div style={styles.mmChartCardHeader}>
+                      <div>
+                        <p style={styles.mapTitle}>{chart.title}</p>
+                        <p style={styles.mapSubtitle}>{chart.subtitle}</p>
+                      </div>
+                      <button
+                        onClick={() => downloadImage(chart.src, chart.filename)}
+                        style={styles.mapDownloadBtn}
+                        title="Download"
+                      >↓</button>
+                    </div>
+                    <div style={styles.mapImageWrapper} onClick={() => setLightboxImg(chart)}>
+                      <img src={chart.src} alt={chart.title} style={styles.mapImage} />
+                      <div style={styles.mapTapHint}>Tap to enlarge</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Mind Maps */}
+            {/* ── UNITY COMPANION MAPS ── */}
+            <div style={styles.mmDivider}>
+              <div style={styles.mmDividerLine} />
+              <span style={styles.mmDividerText}>Science of Unity Maps</span>
+              <div style={styles.mmDividerLine} />
+            </div>
+
             {maps.map((map, i) => (
               <div key={i} style={styles.mapCard}>
                 <div style={styles.mapHeader}>
@@ -1277,23 +1329,22 @@ PRINCIPLE v1.0
                     onClick={() => downloadImage(map.src, map.filename)}
                     style={styles.mapDownloadBtn}
                     title="Download"
-                  >
-                    ↓
-                  </button>
+                  >↓</button>
                 </div>
-                <div
-                  style={styles.mapImageWrapper}
-                  onClick={() => setLightboxImg(map)}
-                >
-                  <img
-                    src={map.src}
-                    alt={map.title}
-                    style={styles.mapImage}
-                  />
+                <div style={styles.mapImageWrapper} onClick={() => setLightboxImg(map)}>
+                  <img src={map.src} alt={map.title} style={styles.mapImage} />
                   <div style={styles.mapTapHint}>Tap to enlarge</div>
                 </div>
               </div>
             ))}
+
+            {/* ── ORIGINAL HEADER MOVED HERE ── */}
+            <div style={styles.mmFooterNote}>
+              <h3 style={styles.mmFooterTitle}>Companion Mind Maps</h3>
+              <p style={styles.mmFooterText}>
+                The Science of Unity — three maps for daily use alongside the PRINCIPLE app. Tap any map above to enlarge and download.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -2274,42 +2325,119 @@ const styles = {
   },
   dimText: { fontSize: 15, color: "#6a6050", lineHeight: 1.6 },
 
-  // Mind Maps
-  videoPlaceholder: {
-    background: '#141210',
-    border: '2px dashed #2a2824',
+  // Mind Maps — Hero section
+  mmHeroSection: {
+    marginBottom: 0
+  },
+  mmPageLabel: {
+    fontSize: 11,
+    letterSpacing: 4,
+    textTransform: 'uppercase',
+    color: '#6a5a3a',
+    margin: '0 0 12px',
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+  },
+  mmHeroTitle: {
+    fontSize: 28,
+    fontWeight: 300,
+    color: '#c4b896',
+    margin: '0 0 8px',
+    letterSpacing: 2,
+    lineHeight: 1.2
+  },
+  mmHeroSub: {
+    fontSize: 14,
+    color: '#8a7a5a',
+    margin: '0 0 28px',
+    fontStyle: 'italic',
+    lineHeight: 1.5
+  },
+  mmVideoWrap: {
     borderRadius: 12,
-    marginBottom: 32,
+    overflow: 'hidden',
+    marginBottom: 28,
+    border: '1px solid #2a2824',
+    background: '#000'
+  },
+  mmWriteup: {
+    background: '#141210',
+    border: '1px solid #2a2824',
+    borderRadius: 12,
+    padding: '24px 20px',
+    marginBottom: 32
+  },
+  mmWriteupText: {
+    fontSize: 15,
+    color: '#9a9080',
+    lineHeight: 1.8,
+    margin: '0 0 16px',
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+  },
+  mmChartLabel: {
+    fontSize: 11,
+    letterSpacing: 4,
+    textTransform: 'uppercase',
+    color: '#6a5a3a',
+    margin: '0 0 16px',
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+  },
+  mmChartGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 20,
+    marginBottom: 40
+  },
+  mmChartCard: {
+    background: '#141210',
+    border: '1px solid #2a2824',
+    borderRadius: 12,
     overflow: 'hidden'
   },
-  videoPlaceholderInner: {
+  mmChartCardHeader: {
     display: 'flex',
-    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    padding: '20px 20px 12px',
+    gap: 12
+  },
+  mmDivider: {
+    display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: '48px 24px',
+    gap: 16,
+    marginBottom: 28
+  },
+  mmDividerLine: {
+    flex: 1,
+    height: 1,
+    background: '#2a2824'
+  },
+  mmDividerText: {
+    fontSize: 11,
+    letterSpacing: 3,
+    textTransform: 'uppercase',
+    color: '#6a5a3a',
+    whiteSpace: 'nowrap',
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+  },
+  mmFooterNote: {
+    marginTop: 40,
+    paddingTop: 28,
+    borderTop: '1px solid #1e1c18',
     textAlign: 'center'
   },
-  videoPlayIcon: {
-    fontSize: 48,
-    color: '#3a3428',
-    marginBottom: 16,
-    lineHeight: 1
-  },
-  videoPlaceholderTitle: {
-    fontSize: 18,
-    color: '#6a6050',
-    margin: 0,
-    marginBottom: 8,
+  mmFooterTitle: {
+    fontSize: 20,
     fontWeight: 300,
-    letterSpacing: 1
-  },
-  videoPlaceholderSub: {
-    fontSize: 13,
-    color: '#4a4a40',
-    margin: 0,
+    color: '#c4b896',
     letterSpacing: 2,
-    textTransform: 'uppercase'
+    margin: '0 0 12px'
+  },
+  mmFooterText: {
+    fontSize: 14,
+    color: '#6a6050',
+    lineHeight: 1.7,
+    fontStyle: 'italic',
+    margin: 0
   },
   mapCard: {
     background: '#141210',
