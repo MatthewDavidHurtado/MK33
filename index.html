@@ -24,6 +24,14 @@
 </head>
 <body class="bg-black text-slate-300">
     <div id="root"></div>
+    <script>
+      // Unregister any legacy service worker so the site renders normally
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(r) { r.unregister(); });
+        });
+      }
+    </script>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
