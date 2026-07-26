@@ -329,4 +329,15 @@ const Foot=({sp})=>(<footer style={{padding:"2.5rem 2rem",textAlign:"center",bor
 </footer>);
 
 // ── App ──
-export default function App(){const[pg,setPg]=useState(PG.HOME);const nav=p=>{setPg(p);window.scrollTo({top:0,behavior:"instant"})};return(<div style={{minHeight:"100vh",background:"var(--bg)"}}><GS/><Nav pg={pg} sp={nav}/>{pg===PG.HOME&&<Home sp={nav}/>}{pg===PG.TRAINING&&<Training sp={nav}/>}{pg===PG.WATCH&&<Watch sp={nav}/>}{pg===PG.BOOK&&<Book/>}{pg===PG.ABOUT&&<About sp={nav}/>}{pg===PG.LIBRARY&&<Library sp={nav}/>}{pg===PG.FOUNDATION&&<Foundation sp={nav}/>}{pg===PG.GIVE&&<GivePage sp={nav}/>}{pg===PG.PRIVACY&&<Privacy/>}{pg===PG.TERMS&&<Terms/>}{pg===PG.DISCLAIMER&&<Disclaimer/>}{!FN.includes(pg)&&pg!==PG.GIVE&&<Foot sp={nav}/>}</div>)}
+export default function App(){
+  const[pg,setPg]=useState(PG.HOME);
+  useEffect(()=>{
+    const syncFromHash=()=>{const h=window.location.hash.replace(/^#/,"");setPg(Object.values(PG).includes(h)?h:PG.HOME)};
+    syncFromHash();
+    window.addEventListener("hashchange",syncFromHash);
+    window.addEventListener("popstate",syncFromHash);
+    return()=>{window.removeEventListener("hashchange",syncFromHash);window.removeEventListener("popstate",syncFromHash)};
+  },[]);
+  const nav=p=>{setPg(p);if(p===PG.HOME){window.history.pushState(null,"",window.location.pathname+window.location.search)}else{window.location.hash=p}window.scrollTo({top:0,behavior:"instant"})};
+  return(<div style={{minHeight:"100vh",background:"var(--bg)"}}><GS/><Nav pg={pg} sp={nav}/>{pg===PG.HOME&&<Home sp={nav}/>}{pg===PG.TRAINING&&<Training sp={nav}/>}{pg===PG.WATCH&&<Watch sp={nav}/>}{pg===PG.BOOK&&<Book/>}{pg===PG.ABOUT&&<About sp={nav}/>}{pg===PG.LIBRARY&&<Library sp={nav}/>}{pg===PG.FOUNDATION&&<Foundation sp={nav}/>}{pg===PG.GIVE&&<GivePage sp={nav}/>}{pg===PG.PRIVACY&&<Privacy/>}{pg===PG.TERMS&&<Terms/>}{pg===PG.DISCLAIMER&&<Disclaimer/>}{!FN.includes(pg)&&pg!==PG.GIVE&&<Foot sp={nav}/>}</div>);
+}
